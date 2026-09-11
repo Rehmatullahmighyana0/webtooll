@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Image Compressor — Reduce JPG, PNG & WebP File Size | WebToolsHub</title>
+  <meta name="description" content="Compress JPEG, PNG, and WebP images online for free. Adjust quality, preview compression savings, and download instantly with 100% client-side privacy.">
+  <meta name="keywords" content="image compressor, compress jpg, compress png, reduce image size, optimize image, client side image compressor">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/image-compressor.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/image-compressor.html">
+  <meta property="og:title" content="Free Online Image Compressor — Reduce JPG, PNG & WebP File Size | WebToolsHub">
+  <meta property="og:description" content="Compress JPEG, PNG, and WebP images online for free. Adjust quality, preview compression savings, and download instantly with 100% client-side privacy.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/image-compressor.html">
+  <meta name="twitter:title" content="Free Online Image Compressor — Reduce JPG, PNG & WebP File Size | WebToolsHub">
+  <meta name="twitter:description" content="Compress JPEG, PNG, and WebP images online for free. Adjust quality, preview compression savings, and download instantly with 100% client-side privacy.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Image Compressor",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Compress JPEG, PNG, and WebP images directly in your browser without uploading to any server."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Images</span> &gt; <span>Image Compressor</span>
+      </nav>
+      <h1 class="tool-page-title">Image Compressor</h1>
+      <p class="tool-page-subtitle">Compress JPEG, PNG, and WebP images with custom quality settings. Your photos are compressed directly on your device and are never sent to any server.</p>
+      <div class="privacy-badge">🔒 100% Client-Side & Confidential</div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Top Ad Placement -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Ad Slot (728x90)</span>
+    </div>
+
+    <div class="tool-layout with-sidebar">
+      <!-- Left: Interactive Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Upload Dropzone -->
+        <div class="upload-dropzone" id="dropzone">
+          <div class="dropzone-icon">📁</div>
+          <h3 style="margin-bottom: 0.5rem;">Choose an image or drag & drop it here</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Supports JPG, JPEG, PNG, and WebP (Up to 25MB)</p>
+          <input type="file" id="image-file-input" accept="image/jpeg,image/png,image/webp" style="display: none;">
+          <button type="button" class="btn btn-secondary" style="margin-top: 1rem;" onclick="document.getElementById('image-file-input').click()">
+            Browse File
+          </button>
+        </div>
+
+        <!-- Controls Section (Hidden until image selected) -->
+        <div id="compression-controls" style="display: none; margin-top: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label class="form-label" for="quality-range">Compression Quality: <strong id="quality-val" style="color: var(--accent-primary);">75%</strong></label>
+              <input type="range" id="quality-range" min="5" max="100" value="75" style="width: 100%; cursor: pointer;">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="output-format">Output Format</label>
+              <select id="output-format" class="form-select">
+                <option value="image/jpeg">JPEG (.jpg)</option>
+                <option value="image/webp" selected>WebP (.webp - Highly Recommended)</option>
+                <option value="image/png">PNG (.png)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="max-width">Max Width (Optional px)</label>
+              <input type="number" id="max-width" class="form-control" placeholder="Original width">
+            </div>
+          </div>
+
+          <!-- Comparison Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <!-- Original Image Box -->
+            <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; background: var(--bg-subtle); text-align: center;">
+              <h4 style="margin-bottom: 0.5rem; color: var(--text-secondary);">Original Image</h4>
+              <div style="height: 180px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.75rem;">
+                <img id="original-preview" style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: var(--radius-sm);" alt="Original">
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-secondary);">Size: <strong id="original-size">0 KB</strong></p>
+              <p style="font-size: 0.8rem; color: var(--text-muted);" id="original-dims">0 × 0 px</p>
+            </div>
+
+            <!-- Compressed Image Box -->
+            <div style="border: 2px solid var(--accent-primary); border-radius: var(--radius-md); padding: 1rem; background: var(--bg-subtle); text-align: center;">
+              <h4 style="margin-bottom: 0.5rem; color: var(--accent-primary);">Compressed Image</h4>
+              <div style="height: 180px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.75rem;">
+                <img id="compressed-preview" style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: var(--radius-sm);" alt="Compressed">
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-secondary);">New Size: <strong id="compressed-size" style="color: var(--accent-success);">0 KB</strong></p>
+              <div id="savings-badge" style="display: inline-block; background: var(--accent-success); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: var(--radius-full); margin-top: 0.25rem;">
+                -0% Reduced
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="btn-group" style="justify-content: center;">
+            <a id="download-btn" class="btn btn-primary" download="compressed-image">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Compressed Image
+            </a>
+            <button type="button" id="reset-btn" class="btn btn-secondary">Upload Another</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar for Ads & Quick Navigation -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Images Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="svg-to-png.html"><span>🖼️ SVG to PNG Converter</span><span class="badge-mini">Graphics</span></a></li>
+            <li><a href="favicon-generator.html"><span>⭐ Favicon Generator & Icon Maker</span><span class="badge-mini">Brand</span></a></li>
+            <li><a href="image-resizer.html"><span>📐 Image Resizer</span><span class="badge-mini">Images</span></a></li>
+            <li><a href="image-converter.html"><span>🔄 Image Format Converter</span><span class="badge-mini">Images</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-card">
+      <h2>How Does Client-Side Image Compression Work?</h2>
+      <p>Our online image compressor uses the HTML5 Canvas API and modern Web standards to compress image files directly on your computer, smartphone, or tablet. Traditional image compression websites require you to upload your sensitive personal photos to a remote server, where they sit on third-party hard drives before returning to you. With WebToolsHub, your files never leave your device.</p>
+
+      <h3>Why Compress Images?</h3>
+      <ul>
+        <li><strong>Faster Website Load Times:</strong> Uncompressed photos are the #1 cause of slow websites. Compressing them improves Google Core Web Vitals and SEO rankings.</li>
+        <li><strong>Save Bandwidth & Storage:</strong> Reduce storage footprint by up to 80% without noticeable degradation in visual quality.</li>
+        <li><strong>Email and Messaging Limits:</strong> Easily fit photos inside email attachment limits (e.g. Gmail 25MB limit) or WhatsApp upload quotas.</li>
+      </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What image formats can I compress?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            You can compress JPEG, JPG, PNG, and modern WebP formats. You can also cross-convert your images (e.g., converting heavy PNG files into lightweight WebP).
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is there a limit on how many images I can compress?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            No! You can compress as many images as you like for free. There are no daily quotas or hidden subscriptions.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Footer Ad Slot</span>
+    </div>
+
+  </main>
+
+  
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WebToolsHub. All rights reserved. <a href="index.html">Back to All Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("image-compressor");
+
+      const dropzone = document.getElementById("dropzone");
+      const fileInput = document.getElementById("image-file-input");
+      const controls = document.getElementById("compression-controls");
+      const qualityRange = document.getElementById("quality-range");
+      const qualityVal = document.getElementById("quality-val");
+      const formatSelect = document.getElementById("output-format");
+      const maxWidthInput = document.getElementById("max-width");
+      const originalPreview = document.getElementById("original-preview");
+      const compressedPreview = document.getElementById("compressed-preview");
+      const originalSize = document.getElementById("original-size");
+      const compressedSize = document.getElementById("compressed-size");
+      const originalDims = document.getElementById("original-dims");
+      const savingsBadge = document.getElementById("savings-badge");
+      const downloadBtn = document.getElementById("download-btn");
+      const resetBtn = document.getElementById("reset-btn");
+
+      let currentRawFile = null;
+      let loadedImage = null;
+
+      function formatBytes(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      }
+
+      function handleFile(file) {
+        if (!file || !file.type.startsWith("image/")) {
+          showToast("Please upload a valid image file (JPG, PNG, WebP).", "warning");
+          return;
+        }
+
+        currentRawFile = file;
+        originalSize.textContent = formatBytes(file.size);
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          originalPreview.src = e.target.result;
+          loadedImage = new Image();
+          loadedImage.onload = () => {
+            originalDims.textContent = `${loadedImage.width} × ${loadedImage.height} px`;
+            dropzone.style.display = "none";
+            controls.style.display = "block";
+            compressImage();
+          };
+          loadedImage.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function compressImage() {
+        if (!loadedImage) return;
+
+        const quality = parseInt(qualityRange.value, 10) / 100;
+        const format = formatSelect.value;
+        const maxW = parseInt(maxWidthInput.value, 10) || loadedImage.width;
+
+        let targetWidth = loadedImage.width;
+        let targetHeight = loadedImage.height;
+
+        if (targetWidth > maxW) {
+          const ratio = maxW / targetWidth;
+          targetWidth = maxW;
+          targetHeight = Math.round(targetHeight * ratio);
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(loadedImage, 0, 0, targetWidth, targetHeight);
+
+        canvas.toBlob((blob) => {
+          if (!blob) return;
+
+          const compressedUrl = URL.createObjectURL(blob);
+          compressedPreview.src = compressedUrl;
+          compressedSize.textContent = formatBytes(blob.size);
+
+          const savings = ((currentRawFile.size - blob.size) / currentRawFile.size) * 100;
+          if (savings > 0) {
+            savingsBadge.textContent = `-${savings.toFixed(1)}% Reduced`;
+            savingsBadge.style.background = "var(--accent-success)";
+          } else {
+            savingsBadge.textContent = `+${Math.abs(savings).toFixed(1)}% (Format Overload)`;
+            savingsBadge.style.background = "var(--accent-warning)";
+          }
+
+          const ext = format === "image/webp" ? "webp" : format === "image/png" ? "png" : "jpg";
+          const originalName = currentRawFile.name.substring(0, currentRawFile.name.lastIndexOf('.')) || "image";
+          downloadBtn.href = compressedUrl;
+          downloadBtn.download = `${originalName}-compressed.${ext}`;
+        }, format, quality);
+      }
+
+      qualityRange.addEventListener("input", (e) => {
+        qualityVal.textContent = `${e.target.value}%`;
+        compressImage();
+      });
+
+      formatSelect.addEventListener("change", compressImage);
+      maxWidthInput.addEventListener("input", compressImage);
+
+      // Drag and drop events
+      ['dragenter', 'dragover'].forEach(name => {
+        dropzone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropzone.classList.add('dragover');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(name => {
+        dropzone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('dragover');
+        });
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        if (e.dataTransfer.files.length) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+          handleFile(e.target.files[0]);
+        }
+      });
+
+      resetBtn.addEventListener("click", () => {
+        fileInput.value = "";
+        currentRawFile = null;
+        loadedImage = null;
+        controls.style.display = "none";
+        dropzone.style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator & Daily Calorie Requirement Tool | WebToolsHub</title>
+  <meta name="description" content="Calculate your Body Mass Index (BMI), healthy weight range, Basal Metabolic Rate (BMR), and daily calorie requirements. Metric & Imperial support.">
+  <meta name="keywords" content="bmi calculator, body mass index calculator, calculate bmi, bmr calculator, daily calorie needs, healthy weight range">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/bmi-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/bmi-calculator.html">
+  <meta property="og:title" content="BMI Calculator & Daily Calorie Requirement Tool | WebToolsHub">
+  <meta property="og:description" content="Calculate your Body Mass Index (BMI), healthy weight range, Basal Metabolic Rate (BMR), and daily calorie requirements. Metric & Imperial support.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/bmi-calculator.html">
+  <meta name="twitter:title" content="BMI Calculator & Daily Calorie Requirement Tool | WebToolsHub">
+  <meta name="twitter:description" content="Calculate your Body Mass Index (BMI), healthy weight range, Basal Metabolic Rate (BMR), and daily calorie requirements. Metric & Imperial support.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BMI & Calorie Calculator",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate Body Mass Index and daily energy expenditure client-side."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>BMI Calculator</span>
+      </nav>
+      <h1 class="tool-page-title">BMI & Daily Calorie Calculator</h1>
+      <p class="tool-page-subtitle">Determine your Body Mass Index (BMI), WHO weight categorization, and daily caloric burn (BMR & TDEE) in Metric or US Imperial units.</p>
+      <div class="privacy-badge">🔒 100% Private Client-Side Calculation</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Unit Switcher -->
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+          <button class="filter-pill active" id="tab-metric">Metric (kg, cm)</button>
+          <button class="filter-pill" id="tab-imperial">Imperial (lbs, ft/in)</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+          
+          <!-- Input Form -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem;">Body Measurements</h3>
+
+            <!-- Metric Inputs -->
+            <div id="unit-metric-box">
+              <div class="form-group">
+                <label class="form-label" for="metric-height">Height (cm):</label>
+                <input type="number" id="metric-height" class="form-input" min="50" max="250" value="175">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="metric-weight">Weight (kg):</label>
+                <input type="number" id="metric-weight" class="form-input" min="20" max="300" step="0.5" value="70">
+              </div>
+            </div>
+
+            <!-- Imperial Inputs -->
+            <div id="unit-imperial-box" style="display: none;">
+              <div class="form-group">
+                <label class="form-label">Height (ft & in):</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="number" id="imp-ft" class="form-input" min="1" max="8" value="5" placeholder="Feet">
+                  <input type="number" id="imp-in" class="form-input" min="0" max="11" value="9" placeholder="Inches">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="imp-weight">Weight (lbs):</label>
+                <input type="number" id="imp-weight" class="form-input" min="40" max="600" value="154">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="activity-level">Activity Level (TDEE):</label>
+              <select id="activity-level" class="form-select">
+                <option value="1.2">Sedentary (Desk job, minimal exercise)</option>
+                <option value="1.375" selected>Light Active (1-3 days exercise/wk)</option>
+                <option value="1.55">Moderately Active (3-5 days exercise/wk)</option>
+                <option value="1.725">Very Active (6-7 days intense sports)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- BMI Scorecard -->
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; border-top: 4px solid var(--accent-primary);">
+              <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem;">Your Body Mass Index (BMI)</div>
+              <div id="bmi-score" style="font-size: 2.8rem; font-weight: 900; color: var(--accent-primary);">22.9</div>
+              <div id="bmi-category" style="display: inline-block; padding: 4px 12px; border-radius: var(--radius-full); font-weight: 700; font-size: 0.95rem; background: rgba(16, 185, 129, 0.15); color: var(--accent-success); margin-top: 0.5rem;">
+                Normal / Healthy Weight
+              </div>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--text-secondary);">Healthy Weight Range:</span>
+                <strong id="stat-healthy-range">56.7 – 76.6 kg</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                <span style="color: var(--text-secondary);">Daily Calories to Maintain:</span>
+                <strong id="stat-tdee" style="color: var(--accent-primary); font-size: 1.1rem;">2,280 kcal/day</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="percentage-calculator.html"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a></li>
+            <li><a href="unit-converter.html"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a></li>
+            <li><a href="timestamp-converter.html"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a></li>
+            <li><a href="number-base-converter.html"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>World Health Organization (WHO) BMI Classifications</h2>
+      <p>Body Mass Index (BMI) is a screening metric computed from a person's weight and height:
+      <ul>
+        <li><strong>Underweight:</strong> BMI &lt; 18.5</li>
+        <li><strong>Normal weight:</strong> BMI 18.5 – 24.9</li>
+        <li><strong>Overweight:</strong> BMI 25.0 – 29.9</li>
+        <li><strong>Obese:</strong> BMI &ge; 30.0</li>
+      </ul>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let isMetric = true;
+      const tabMetric = document.getElementById("tab-metric");
+      const tabImperial = document.getElementById("tab-imperial");
+      const metricBox = document.getElementById("unit-metric-box");
+      const imperialBox = document.getElementById("unit-imperial-box");
+
+      const mH = document.getElementById("metric-height");
+      const mW = document.getElementById("metric-weight");
+      const impFt = document.getElementById("imp-ft");
+      const impIn = document.getElementById("imp-in");
+      const impW = document.getElementById("imp-weight");
+      const actSelect = document.getElementById("activity-level");
+
+      const bmiScore = document.getElementById("bmi-score");
+      const bmiCategory = document.getElementById("bmi-category");
+      const statHealthy = document.getElementById("stat-healthy-range");
+      const statTdee = document.getElementById("stat-tdee");
+
+      tabMetric.addEventListener("click", () => {
+        isMetric = true;
+        tabMetric.classList.add("active");
+        tabImperial.classList.remove("active");
+        metricBox.style.display = "block";
+        imperialBox.style.display = "none";
+        calculateBMI();
+      });
+
+      tabImperial.addEventListener("click", () => {
+        isMetric = false;
+        tabImperial.classList.add("active");
+        tabMetric.classList.remove("active");
+        imperialBox.style.display = "block";
+        metricBox.style.display = "none";
+        calculateBMI();
+      });
+
+      function calculateBMI() {
+        let weightKg = 0;
+        let heightM = 0;
+
+        if (isMetric) {
+          const hCm = parseFloat(mH.value) || 170;
+          heightM = hCm / 100;
+          weightKg = parseFloat(mW.value) || 65;
+        } else {
+          const ft = parseFloat(impFt.value) || 5;
+          const inch = parseFloat(impIn.value) || 9;
+          const totalInches = (ft * 12) + inch;
+          heightM = totalInches * 0.0254;
+          weightKg = (parseFloat(impW.value) || 150) * 0.453592;
+        }
+
+        if (heightM <= 0 || weightKg <= 0) return;
+
+        const bmi = weightKg / (heightM * heightM);
+        bmiScore.textContent = bmi.toFixed(1);
+
+        if (bmi < 18.5) {
+          bmiCategory.textContent = "Underweight";
+          bmiCategory.style.background = "rgba(59, 130, 246, 0.15)";
+          bmiCategory.style.color = "var(--accent-primary)";
+        } else if (bmi < 25) {
+          bmiCategory.textContent = "Normal / Healthy Weight";
+          bmiCategory.style.background = "rgba(16, 185, 129, 0.15)";
+          bmiCategory.style.color = "var(--accent-success)";
+        } else if (bmi < 30) {
+          bmiCategory.textContent = "Overweight";
+          bmiCategory.style.background = "rgba(245, 158, 11, 0.15)";
+          bmiCategory.style.color = "var(--accent-warning)";
+        } else {
+          bmiCategory.textContent = "Obese Class";
+          bmiCategory.style.background = "rgba(239, 68, 68, 0.15)";
+          bmiCategory.style.color = "var(--accent-danger)";
+        }
+
+        const minWeight = 18.5 * (heightM * heightM);
+        const maxWeight = 24.9 * (heightM * heightM);
+
+        if (isMetric) {
+          statHealthy.textContent = `${minWeight.toFixed(1)} – ${maxWeight.toFixed(1)} kg`;
+        } else {
+          statHealthy.textContent = `${(minWeight * 2.20462).toFixed(1)} – ${(maxWeight * 2.20462).toFixed(1)} lbs`;
+        }
+
+        // BMR (Mifflin-St Jeor average)
+        const bmr = (10 * weightKg) + (6.25 * (heightM * 100)) - (5 * 30) + 5;
+        const tdee = Math.round(bmr * parseFloat(actSelect.value));
+        statTdee.textContent = `${tdee.toLocaleString()} kcal/day`;
+      }
+
+      [mH, mW, impFt, impIn, impW, actSelect].forEach(el => el.addEventListener("input", calculateBMI));
+      calculateBMI();
+    });
+  </script>
+</body>
+</html>

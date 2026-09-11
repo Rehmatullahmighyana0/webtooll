@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMAC Generator (SHA-256, SHA-512, MD5) | WebToolsHub</title>
+  <meta name="description" content="Generate keyed-hash message authentication codes (HMAC) using SHA-256, SHA-512, and SHA-1 in your browser using the native Web Crypto API. 100% private.">
+  <meta name="keywords" content="hmac generator, hmac sha256, hmac sha512, keyed hash message authentication, api signature generator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/hmac-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/hmac-generator.html">
+  <meta property="og:title" content="HMAC Generator (SHA-256, SHA-512, MD5) | WebToolsHub">
+  <meta property="og:description" content="Generate keyed-hash message authentication codes (HMAC) using SHA-256, SHA-512, and SHA-1 in your browser using the native Web Crypto API. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/hmac-generator.html">
+  <meta name="twitter:title" content="HMAC Generator (SHA-256, SHA-512, MD5) | WebToolsHub">
+  <meta name="twitter:description" content="Generate keyed-hash message authentication codes (HMAC) using SHA-256, SHA-512, and SHA-1 in your browser using the native Web Crypto API. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HMAC Generator",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Generate cryptographic HMAC signatures using the Web Crypto API."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Security Tools</span> &gt; <span>HMAC Generator</span>
+      </nav>
+      <h1 class="tool-page-title">Cryptographic HMAC Generator</h1>
+      <p class="tool-page-subtitle">Calculate Keyed-Hash Message Authentication Codes (HMAC) with SHA-256, SHA-512, and SHA-1 using the hardware-accelerated Web Crypto API.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Privacy Guaranteed</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Input fields -->
+        <div class="form-group">
+          <label class="form-label" for="hmac-msg">Message / Payload:</label>
+          <textarea id="hmac-msg" class="form-textarea" style="min-height: 140px;" placeholder="Enter message payload to authenticate..."></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <label class="form-label" for="hmac-key">Secret Key:</label>
+            <input type="text" id="hmac-key" class="form-input" placeholder="Enter private secret key..." value="my-secret-key-123">
+          </div>
+          <div>
+            <label class="form-label" for="hmac-alg">Hash Algorithm:</label>
+            <select id="hmac-alg" class="form-select">
+              <option value="SHA-256" selected>HMAC-SHA256 (Standard)</option>
+              <option value="SHA-512">HMAC-SHA512 (High Security)</option>
+              <option value="SHA-384">HMAC-SHA384</option>
+              <option value="SHA-1">HMAC-SHA1 (Legacy)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 600; font-size: 0.95rem;">Hexadecimal Digest:</span>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('hmac-hex').textContent, 'Hex digest copied!')">Copy Hex</button>
+            </div>
+            <pre id="hmac-hex" style="font-family: monospace; font-size: 0.9rem; word-break: break-all; color: var(--accent-primary); margin: 0; background: var(--bg-subtle); padding: 0.75rem; border-radius: var(--radius-sm);"></pre>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 600; font-size: 0.95rem;">Base64 Digest:</span>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('hmac-b64').textContent, 'Base64 digest copied!')">Copy Base64</button>
+            </div>
+            <pre id="hmac-b64" style="font-family: monospace; font-size: 0.9rem; word-break: break-all; color: var(--accent-success); margin: 0; background: var(--bg-subtle); padding: 0.75rem; border-radius: var(--radius-sm);"></pre>
+          </div>
+        </div>
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Security Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="password-generator.html"><span>🔐 Password Generator</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="hash-generator.html"><span>🛡️ Hash Generator & Checksum</span><span class="badge-mini">Crypto</span></a></li>
+            <li><a href="uuid-generator.html"><span>🆔 UUID / GUID Generator (v4)</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="credit-card-validator.html"><span>💳 Credit Card Validator</span><span class="badge-mini">Luhn Check</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>What is an HMAC?</h2>
+      <p>A Keyed-Hash Message Authentication Code (HMAC) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. It is commonly used to sign API requests (such as AWS, Stripe, and GitHub webhooks) to ensure both data integrity and message authenticity.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const msgInput = document.getElementById("hmac-msg");
+      const keyInput = document.getElementById("hmac-key");
+      const algSelect = document.getElementById("hmac-alg");
+      const hexOut = document.getElementById("hmac-hex");
+      const b64Out = document.getElementById("hmac-b64");
+
+      async function calculateHMAC() {
+        const msg = msgInput.value;
+        const keyStr = keyInput.value;
+        const alg = algSelect.value;
+
+        if (!msg || !keyStr) {
+          hexOut.textContent = "Enter message and secret key above...";
+          b64Out.textContent = "Enter message and secret key above...";
+          return;
+        }
+
+        try {
+          const enc = new TextEncoder();
+          const keyData = enc.encode(keyStr);
+          const msgData = enc.encode(msg);
+
+          const cryptoKey = await crypto.subtle.importKey(
+            "raw",
+            keyData,
+            { name: "HMAC", hash: { name: alg } },
+            false,
+            ["sign"]
+          );
+
+          const signature = await crypto.subtle.sign("HMAC", cryptoKey, msgData);
+          const hashArray = Array.from(new Uint8Array(signature));
+          const hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+          const b64 = btoa(String.fromCharCode.apply(null, hashArray));
+
+          hexOut.textContent = hex;
+          b64Out.textContent = b64;
+        } catch (err) {
+          hexOut.textContent = "Crypto error: " + err.message;
+          b64Out.textContent = "Crypto error: " + err.message;
+        }
+      }
+
+      [msgInput, keyInput, algSelect].forEach(el => el.addEventListener("input", calculateHMAC));
+      msgInput.value = '{"event": "payment.succeeded", "amount": 4900, "currency": "usd"}';
+      calculateHMAC();
+    });
+  </script>
+</body>
+</html>

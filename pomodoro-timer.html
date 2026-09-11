@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Pomodoro Focus Timer & Task Tracker | WebToolsHub</title>
+  <meta name="description" content="Free Pomodoro timer for productivity and deep work. Customizable 25/5 intervals, background tab title tracking, session counter, and pleasant audio alarms.">
+  <meta name="keywords" content="pomodoro timer, focus timer, 25 5 timer, productivity timer, pomodoro technique online, task focus timer">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/pomodoro-timer.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/pomodoro-timer.html">
+  <meta property="og:title" content="Online Pomodoro Focus Timer & Task Tracker | WebToolsHub">
+  <meta property="og:description" content="Free Pomodoro timer for productivity and deep work. Customizable 25/5 intervals, background tab title tracking, session counter, and pleasant audio alarms.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/pomodoro-timer.html">
+  <meta name="twitter:title" content="Online Pomodoro Focus Timer & Task Tracker | WebToolsHub">
+  <meta name="twitter:description" content="Free Pomodoro timer for productivity and deep work. Customizable 25/5 intervals, background tab title tracking, session counter, and pleasant audio alarms.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pomodoro Focus Timer",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Productivity interval timer based on the Pomodoro Technique with task management."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Utility Tools</span> &gt; <span>Pomodoro Timer</span>
+      </nav>
+      <h1 class="tool-page-title">Pomodoro Focus Timer</h1>
+      <p class="tool-page-subtitle">Boost productivity and prevent burnout with structured 25-minute work intervals and mindful breaks.</p>
+      <div class="privacy-badge">🍅 Deep Work Studio</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Timer Main Stage -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem 1.5rem; text-align: center; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
+          
+          <!-- Mode Tabs -->
+          <div style="display: inline-flex; background: var(--bg-subtle); padding: 4px; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 2rem;">
+            <button type="button" class="btn btn-sm active" id="mode-work" onclick="setMode('work')" style="font-weight: 700; padding: 0.5rem 1.25rem;">Work (25m)</button>
+            <button type="button" class="btn btn-sm" id="mode-short" onclick="setMode('short')" style="font-weight: 700; padding: 0.5rem 1.25rem;">Short Break (5m)</button>
+            <button type="button" class="btn btn-sm" id="mode-long" onclick="setMode('long')" style="font-weight: 700; padding: 0.5rem 1.25rem;">Long Break (15m)</button>
+          </div>
+
+          <!-- Circular SVG Progress Ring -->
+          <div style="position: relative; width: 240px; height: 240px; margin: 0 auto 2rem;">
+            <svg width="240" height="240" viewBox="0 0 240 240" style="transform: rotate(-90deg);">
+              <circle cx="120" cy="120" r="100" stroke="var(--border-color)" stroke-width="10" fill="none"></circle>
+              <circle id="progress-circle" cx="120" cy="120" r="100" stroke="var(--accent-primary)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="628.3" stroke-dashoffset="0" style="transition: stroke-dashoffset 0.5s ease;"></circle>
+            </svg>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div id="time-display" style="font-size: 3.5rem; font-family: monospace; font-weight: 900; line-height: 1; color: var(--text-primary);">25:00</div>
+              <div id="mode-caption" style="font-size: 0.9rem; font-weight: 700; color: var(--accent-primary); margin-top: 0.5rem; text-transform: uppercase;">Focus Session</div>
+            </div>
+          </div>
+
+          <!-- Timer Actions -->
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-toggle" style="min-width: 140px; font-weight: 800;">Start Focus</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="btn-skip" style="min-width: 110px;">Skip</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="btn-reset">Reset</button>
+          </div>
+
+          <!-- Completed Pomodoros Counter -->
+          <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 700; color: var(--text-secondary);">
+            <span>Completed Today:</span>
+            <span id="tomato-count" style="color: #ef4444; font-size: 1.2rem;">🍅 0</span>
+          </div>
+
+        </div>
+
+        <!-- Task Checklist Box -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h3 style="margin-top: 0; font-size: 1.1rem; margin-bottom: 1rem;">Session Tasks & Goals</h3>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+            <input type="text" id="new-task-input" class="form-control" placeholder="What are you working on right now?">
+            <button type="button" class="btn btn-primary" id="btn-add-task">Add</button>
+          </div>
+          <div id="task-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <!-- Rendered tasks -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Utility Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="age-calculator.html"><span>🎂 Age Calculator & Chronometer</span><span class="badge-mini">Date</span></a></li>
+            <li><a href="barcode-generator.html"><span>🏷️ Online Barcode Generator</span><span class="badge-mini">Barcode</span></a></li>
+            <li><a href="stopwatch-timer.html"><span>⏱️ Online Stopwatch & Lap Recorder</span><span class="badge-mini">Timer</span></a></li>
+            <li><a href="random-picker.html"><span>🎲 Random Picker & Decision Maker</span><span class="badge-mini">Picker</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Will the timer alarm sound if I minimize my browser?</h3>
+        <p>Yes. The timer sounds an audible synthesizer chime when your countdown finishes, and your browser tab title updates continuously with remaining minutes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I change the session durations?</h3>
+        <p>Default standard cycles are 25 minutes for work, 5 minutes for short breaks, and 15 minutes for long breaks.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const MODES = {
+      work: { time: 25 * 60, name: 'Focus Session', color: 'var(--accent-primary)' },
+      short: { time: 5 * 60, name: 'Short Break', color: '#10b981' },
+      long: { time: 15 * 60, name: 'Long Break', color: '#3b82f6' }
+    };
+
+    let currentMode = 'work';
+    let timeLeft = MODES.work.time;
+    let totalTime = MODES.work.time;
+    let timerInterval = null;
+    let isRunning = false;
+    let completedCount = 0;
+
+    const timeDisplay = document.getElementById('time-display');
+    const modeCaption = document.getElementById('mode-caption');
+    const toggleBtn = document.getElementById('btn-toggle');
+    const skipBtn = document.getElementById('btn-skip');
+    const resetBtn = document.getElementById('btn-reset');
+    const progressCircle = document.getElementById('progress-circle');
+    const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 100; // ~628.3
+
+    function playAlarm() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.frequency.value = freq;
+          const t = audioCtx.currentTime + i * 0.12;
+          gain.gain.setValueAtTime(0.15, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+          osc.start(t);
+          osc.stop(t + 0.3);
+        });
+      } catch (e) {}
+    }
+
+    function updateDisplay() {
+      const mins = Math.floor(timeLeft / 60);
+      const secs = timeLeft % 60;
+      const str = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      timeDisplay.textContent = str;
+      document.title = `(${str}) Pomodoro - WebToolsHub`;
+
+      const progress = 1 - (timeLeft / totalTime);
+      const offset = CIRCLE_CIRCUMFERENCE * (1 - progress);
+      progressCircle.style.strokeDashoffset = offset;
+    }
+
+    function setMode(mode) {
+      pause();
+      currentMode = mode;
+      totalTime = MODES[mode].time;
+      timeLeft = totalTime;
+
+      ['work', 'short', 'long'].forEach(m => {
+        const btn = document.getElementById(`mode-${m}`);
+        if (m === mode) {
+          btn.className = 'btn btn-sm btn-primary active';
+        } else {
+          btn.className = 'btn btn-sm btn-secondary';
+        }
+      });
+
+      modeCaption.textContent = MODES[mode].name;
+      progressCircle.style.stroke = MODES[mode].color;
+      toggleBtn.textContent = mode === 'work' ? 'Start Focus' : 'Start Break';
+      toggleBtn.className = 'btn btn-primary btn-lg';
+      updateDisplay();
+    }
+
+    function tick() {
+      if (timeLeft > 0) {
+        timeLeft--;
+        updateDisplay();
+      } else {
+        pause();
+        playAlarm();
+        if (currentMode === 'work') {
+          completedCount++;
+          document.getElementById('tomato-count').textContent = `🍅 ${completedCount}`;
+          if (completedCount % 4 === 0) setMode('long');
+          else setMode('short');
+        } else {
+          setMode('work');
+        }
+      }
+    }
+
+    function start() {
+      isRunning = true;
+      toggleBtn.textContent = 'Pause';
+      toggleBtn.className = 'btn btn-secondary btn-lg';
+      timerInterval = setInterval(tick, 1000);
+    }
+
+    function pause() {
+      isRunning = false;
+      clearInterval(timerInterval);
+      toggleBtn.textContent = currentMode === 'work' ? 'Start Focus' : 'Start Break';
+      toggleBtn.className = 'btn btn-primary btn-lg';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if (isRunning) pause();
+      else start();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      pause();
+      timeLeft = totalTime;
+      updateDisplay();
+    });
+
+    skipBtn.addEventListener('click', () => {
+      pause();
+      if (currentMode === 'work') setMode('short');
+      else setMode('work');
+    });
+
+    // Task Checklist
+    const taskInput = document.getElementById('new-task-input');
+    const taskList = document.getElementById('task-list');
+
+    document.getElementById('btn-add-task').addEventListener('click', addTask);
+    taskInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') addTask();
+    });
+
+    function addTask() {
+      const text = taskInput.value.trim();
+      if (!text) return;
+
+      const item = document.createElement('div');
+      item.style.display = 'flex';
+      item.style.alignItems = 'center';
+      item.style.justifyContent = 'space-between';
+      item.style.background = 'var(--bg-subtle)';
+      item.style.padding = '0.6rem 0.85rem';
+      item.style.borderRadius = 'var(--radius-sm)';
+      item.style.border = '1px solid var(--border-color)';
+
+      item.innerHTML = `
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; flex-grow: 1; margin: 0; font-size: 0.9rem;">
+          <input type="checkbox" onchange="this.parentElement.style.textDecoration = this.checked ? 'line-through' : 'none'; this.parentElement.style.opacity = this.checked ? '0.6' : '1';">
+          <span>${text}</span>
+        </label>
+        <button type="button" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 1rem;" onclick="this.parentElement.remove()">✕</button>
+      `;
+
+      taskList.appendChild(item);
+      taskInput.value = '';
+    }
+
+    setMode('work');
+  </script>
+</body>
+</html>

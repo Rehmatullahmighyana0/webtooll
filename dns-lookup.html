@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live DNS Lookup Tool (A, AAAA, MX, TXT, NS) | WebToolsHub</title>
+  <meta name="description" content="Query authoritative DNS records live using Cloudflare and Google DNS-over-HTTPS (DoH). Check A, AAAA, CNAME, MX, TXT, and NS records with TTL details.">
+  <meta name="keywords" content="dns lookup, check dns records, mx record lookup, txt record lookup, ns lookup, doh dns over https">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/dns-lookup.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/dns-lookup.html">
+  <meta property="og:title" content="Live DNS Lookup Tool (A, AAAA, MX, TXT, NS) | WebToolsHub">
+  <meta property="og:description" content="Query authoritative DNS records live using Cloudflare and Google DNS-over-HTTPS (DoH). Check A, AAAA, CNAME, MX, TXT, and NS records with TTL details.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/dns-lookup.html">
+  <meta name="twitter:title" content="Live DNS Lookup Tool (A, AAAA, MX, TXT, NS) | WebToolsHub">
+  <meta name="twitter:description" content="Query authoritative DNS records live using Cloudflare and Google DNS-over-HTTPS (DoH). Check A, AAAA, CNAME, MX, TXT, and NS records with TTL details.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Live DNS Lookup Tool",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Perform live DNS record queries via DNS-over-HTTPS protocols."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Web & Network Tools</span> &gt; <span>DNS Lookup</span>
+      </nav>
+      <h1 class="tool-page-title">Live DNS Records Lookup (DoH)</h1>
+      <p class="tool-page-subtitle">Inspect domain DNS records in real time using Cloudflare and Google DNS-over-HTTPS. Query A, AAAA, MX, TXT, CNAME, and NS records.</p>
+      <div class="privacy-badge">🌐 Live DNS-over-HTTPS Query</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Search bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;">
+          <div style="flex: 1; min-width: 220px;">
+            <label class="form-label" for="domain-input">Domain Name:</label>
+            <input type="text" id="domain-input" class="form-input" placeholder="e.g. google.com, github.com" value="cloudflare.com">
+          </div>
+
+          <div style="min-width: 140px;">
+            <label class="form-label" for="record-type">Record Type:</label>
+            <select id="record-type" class="form-select">
+              <option value="ANY">ALL (Common Records)</option>
+              <option value="A" selected>A (IPv4)</option>
+              <option value="AAAA">AAAA (IPv6)</option>
+              <option value="MX">MX (Mail Exchange)</option>
+              <option value="TXT">TXT (SPF / DKIM)</option>
+              <option value="CNAME">CNAME (Alias)</option>
+              <option value="NS">NS (Nameservers)</option>
+              <option value="SOA">SOA (Authority)</option>
+            </select>
+          </div>
+
+          <div style="min-width: 150px;">
+            <label class="form-label" for="dns-server">Resolver:</label>
+            <select id="dns-server" class="form-select">
+              <option value="cloudflare" selected>Cloudflare (1.1.1.1)</option>
+              <option value="google">Google (8.8.8.8)</option>
+            </select>
+          </div>
+
+          <button type="button" id="btn-lookup" class="btn btn-primary">🔍 Resolve DNS</button>
+        </div>
+
+        <!-- Results Table -->
+        <div id="dns-results-box" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden;">
+          <div style="padding: 1rem 1.25rem; background: var(--bg-subtle); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; margin: 0;" id="results-title">Resolved DNS Records</h3>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-dns">Copy Results</button>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-color); text-align: left; color: var(--text-secondary);">
+                  <th style="padding: 10px 14px;">Type</th>
+                  <th style="padding: 10px 14px;">Name</th>
+                  <th style="padding: 10px 14px;">Data / Target Value</th>
+                  <th style="padding: 10px 14px; width: 90px;">TTL</th>
+                </tr>
+              </thead>
+              <tbody id="dns-table-body">
+                <tr>
+                  <td colspan="4" style="padding: 2rem; text-align: center; color: var(--text-muted);">
+                    Click "Resolve DNS" to fetch live records...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related SEO & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Domain Name System (DNS) Records</h2>
+      <p>The Domain Name System translates user-friendly hostnames into machine IP addresses. Common record types include:
+      <ul>
+        <li><strong>A Record:</strong> Maps hostnames to 32-bit IPv4 addresses.</li>
+        <li><strong>AAAA Record:</strong> Maps hostnames to 128-bit IPv6 addresses.</li>
+        <li><strong>MX Record:</strong> Specifies mail transfer agents responsible for receiving email.</li>
+        <li><strong>TXT Record:</strong> Carries text info for email security authentication (SPF, DKIM, DMARC).</li>
+        <li><strong>NS Record:</strong> Delegates DNS zones to authoritative nameservers.</li>
+      </ul>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const TYPE_MAP = { 1: 'A', 28: 'AAAA', 15: 'MX', 16: 'TXT', 5: 'CNAME', 2: 'NS', 6: 'SOA' };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const domainInput = document.getElementById("domain-input");
+      const recordType = document.getElementById("record-type");
+      const dnsServer = document.getElementById("dns-server");
+      const btnLookup = document.getElementById("btn-lookup");
+      const tableBody = document.getElementById("dns-table-body");
+      const resultsTitle = document.getElementById("results-title");
+      let currentRecords = [];
+
+      async function fetchDns(domain, type) {
+        let endpoint = "";
+        const resolver = dnsServer.value;
+        if (resolver === "google") {
+          endpoint = `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${type}`;
+        } else {
+          endpoint = `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=${type}`;
+        }
+
+        const res = await fetch(endpoint, {
+          headers: { 'Accept': 'application/dns-json' }
+        });
+        return await res.json();
+      }
+
+      async function runLookup() {
+        let d = domainInput.value.trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+        if (!d) return;
+
+        btnLookup.textContent = "Resolving...";
+        btnLookup.disabled = true;
+        tableBody.innerHTML = `<tr><td colspan="4" style="padding: 2rem; text-align: center; color: var(--text-muted);">Fetching DNS records from ${dnsServer.value}...</td></tr>`;
+
+        const type = recordType.value;
+        resultsTitle.textContent = `DNS Records for ${d} (${type})`;
+        currentRecords = [];
+
+        try {
+          let queries = type === "ANY" ? ["A", "AAAA", "MX", "TXT", "NS"] : [type];
+          let allAnswers = [];
+
+          for (const qType of queries) {
+            try {
+              const data = await fetchDns(d, qType);
+              if (data.Answer && Array.isArray(data.Answer)) {
+                allAnswers.push(...data.Answer);
+              }
+            } catch (e) {
+              console.warn("DNS sub-query failed", e);
+            }
+          }
+
+          currentRecords = allAnswers;
+
+          if (allAnswers.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="4" style="padding: 2rem; text-align: center; color: var(--accent-warning);">No ${type} records found for ${d}.</td></tr>`;
+          } else {
+            tableBody.innerHTML = allAnswers.map(ans => {
+              const typeName = TYPE_MAP[ans.type] || `TYPE-${ans.type}`;
+              return `
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px;"><span style="background: var(--bg-subtle); padding: 3px 8px; border-radius: 4px; font-weight: 700; font-family: monospace; color: var(--accent-primary);">${typeName}</span></td>
+                  <td style="padding: 10px 14px; font-family: monospace;">${ans.name}</td>
+                  <td style="padding: 10px 14px; font-family: monospace; word-break: break-all;">${ans.data}</td>
+                  <td style="padding: 10px 14px; color: var(--text-secondary);">${ans.TTL}s</td>
+                </tr>
+              `;
+            }).join("");
+          }
+        } catch (err) {
+          tableBody.innerHTML = `<tr><td colspan="4" style="padding: 2rem; text-align: center; color: var(--accent-danger);">DNS resolution failed: ${err.message}</td></tr>`;
+        } finally {
+          btnLookup.textContent = "🔍 Resolve DNS";
+          btnLookup.disabled = false;
+        }
+      }
+
+      btnLookup.addEventListener("click", runLookup);
+      domainInput.addEventListener("keydown", (e) => { if (e.key === "Enter") runLookup(); });
+
+      document.getElementById("btn-copy-dns").addEventListener("click", () => {
+        if (currentRecords.length === 0) return;
+        const text = currentRecords.map(r => `${TYPE_MAP[r.type] || r.type}\t${r.name}\t${r.data}\tTTL:${r.TTL}`).join("\n");
+        copyToClipboard(text, "DNS records copied!");
+      });
+
+      runLookup();
+    });
+  </script>
+</body>
+</html>

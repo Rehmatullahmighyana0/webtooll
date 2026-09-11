@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Sorter, Numberer & Counter | WebToolsHub</title>
+  <meta name="description" content="Sort lines alphabetically, reverse lines, sort by character length, add line numbers, and attach custom prefixes and suffixes. 100% client-side text utility.">
+  <meta name="keywords" content="line sorter, sort lines alphabetically, add line numbers, reverse text lines, natural sort, prefix suffix adder">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/line-counter-sorter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/line-counter-sorter.html">
+  <meta property="og:title" content="Line Sorter, Numberer & Counter | WebToolsHub">
+  <meta property="og:description" content="Sort lines alphabetically, reverse lines, sort by character length, add line numbers, and attach custom prefixes and suffixes. 100% client-side text utility.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/line-counter-sorter.html">
+  <meta name="twitter:title" content="Line Sorter, Numberer & Counter | WebToolsHub">
+  <meta name="twitter:description" content="Sort lines alphabetically, reverse lines, sort by character length, add line numbers, and attach custom prefixes and suffixes. 100% client-side text utility.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Line Sorter & Counter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Sort, number, and modify text lists line-by-line online."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>Line Sorter</span>
+      </nav>
+      <h1 class="tool-page-title">Line Sorter, Numberer & Counter</h1>
+      <p class="tool-page-subtitle">Sort lines of text alphabetically or by length, reverse order, add automatic line numbers, and attach custom prefixes and suffixes.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Quick Action Toolbar -->
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sort-az">A &rarr; Z (Ascending)</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sort-za">Z &rarr; A (Descending)</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sort-natural">1 &rarr; 9 (Natural Sort)</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sort-len-asc">Shortest First</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sort-len-desc">Longest First</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-reverse">Reverse Lines</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-shuffle">🎲 Shuffle</button>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; pt: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+              <input type="checkbox" id="chk-line-numbers" style="width: 16px; height: 16px;">
+              Add Line Numbers
+            </label>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.875rem; color: var(--text-secondary);">Prefix:</span>
+              <input type="text" id="input-prefix" class="form-input" placeholder="e.g. - " style="width: 100px; padding: 0.25rem 0.5rem; font-size: 0.875rem;">
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.875rem; color: var(--text-secondary);">Suffix:</span>
+              <input type="text" id="input-suffix" class="form-input" placeholder="e.g. ," style="width: 100px; padding: 0.25rem 0.5rem; font-size: 0.875rem;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid with Inputs and Output -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="input-text" style="margin-bottom: 0;">Input Text:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+              </div>
+            </div>
+            <textarea id="input-text" class="form-textarea" style="min-height: 320px; font-family: monospace; font-size: 0.9rem;" placeholder="Type or paste your lines here..."></textarea>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="output-text" style="margin-bottom: 0;">Transformed Output:</label>
+              <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy Result</button>
+            </div>
+            <textarea id="output-text" class="form-textarea" readonly style="min-height: 320px; font-family: monospace; font-size: 0.9rem; background: var(--bg-surface);" placeholder="Transformed lines will appear here..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Sort, Number, and Filter Text Online</h2>
+      <p>Clean up unstructured data or sort lists before pasting into code or spreadsheets. Sort numbers naturally (so item 2 appears before item 10), add automatic numbering with bullet points, and prepend or append quotes or commas across hundreds of lines at once.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("input-text");
+      const output = document.getElementById("output-text");
+      const chkLineNumbers = document.getElementById("chk-line-numbers");
+      const inputPrefix = document.getElementById("input-prefix");
+      const inputSuffix = document.getElementById("input-suffix");
+
+      function getLines() {
+        const text = input.value;
+        if (!text) return [];
+        return text.split(/\r?\n/);
+      }
+
+      function applyDecorations(lines) {
+        const prefix = inputPrefix.value || "";
+        const suffix = inputSuffix.value || "";
+        const addNum = chkLineNumbers.checked;
+
+        return lines.map((l, idx) => {
+          const numStr = addNum ? `${idx + 1}. ` : "";
+          return `${numStr}${prefix}${l}${suffix}`;
+        });
+      }
+
+      function updateOutput(lines) {
+        output.value = applyDecorations(lines).join("\n");
+      }
+
+      document.getElementById("btn-sort-az").addEventListener("click", () => {
+        const lines = getLines();
+        lines.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      document.getElementById("btn-sort-za").addEventListener("click", () => {
+        const lines = getLines();
+        lines.sort((a, b) => b.localeCompare(a, undefined, { sensitivity: 'base' }));
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      document.getElementById("btn-sort-natural").addEventListener("click", () => {
+        const lines = getLines();
+        lines.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      document.getElementById("btn-sort-len-asc").addEventListener("click", () => {
+        const lines = getLines();
+        lines.sort((a, b) => a.length - b.length);
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      document.getElementById("btn-sort-len-desc").addEventListener("click", () => {
+        const lines = getLines();
+        lines.sort((a, b) => b.length - a.length);
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      document.getElementById("btn-reverse").addEventListener("click", () => {
+        const lines = getLines();
+        lines.reverse();
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      document.getElementById("btn-shuffle").addEventListener("click", () => {
+        const lines = getLines();
+        for (let i = lines.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [lines[i], lines[j]] = [lines[j], lines[i]];
+        }
+        input.value = lines.join("\n");
+        updateOutput(lines);
+      });
+
+      [input, chkLineNumbers, inputPrefix, inputSuffix].forEach(el => {
+        el.addEventListener("input", () => {
+          updateOutput(getLines());
+        });
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = "Product 10\nProduct 2\nProduct 1\nProduct 20\nProduct 5\nProduct 3";
+        updateOutput(getLines());
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "Transformed lines copied!");
+      });
+    });
+  </script>
+</body>
+</html>

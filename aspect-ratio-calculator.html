@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspect Ratio Calculator & Screen Dimensions Resizer | WebToolsHub</title>
+  <meta name="description" content="Calculate dimensions, simplify ratios, and resize images or video formats (16:9, 9:16, 4:3, 1:1, 21:9). Includes social media presets and CSS aspect-ratio code.">
+  <meta name="keywords" content="aspect ratio calculator, 16:9 calculator, resize aspect ratio, video aspect ratio, instagram aspect ratio, css aspect ratio">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/aspect-ratio-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/aspect-ratio-calculator.html">
+  <meta property="og:title" content="Aspect Ratio Calculator & Screen Dimensions Resizer | WebToolsHub">
+  <meta property="og:description" content="Calculate dimensions, simplify ratios, and resize images or video formats (16:9, 9:16, 4:3, 1:1, 21:9). Includes social media presets and CSS aspect-ratio code.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/aspect-ratio-calculator.html">
+  <meta name="twitter:title" content="Aspect Ratio Calculator & Screen Dimensions Resizer | WebToolsHub">
+  <meta name="twitter:description" content="Calculate dimensions, simplify ratios, and resize images or video formats (16:9, 9:16, 4:3, 1:1, 21:9). Includes social media presets and CSS aspect-ratio code.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Aspect Ratio Calculator",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Aspect Ratio Calculator & Resizer</h1>
+      <p class="tool-subtitle">Calculate proportional dimensions for video editing, social media stories, responsive web UI, and photography.</p>
+    </div>
+
+    <!-- Quick Presets -->
+    <div style="margin-bottom: 10px; font-size: 13px; font-weight: 600; color: var(--text-secondary);">Video & Social Presets:</div>
+    <div class="ratio-presets">
+      <button class="ratio-btn active" data-w="1920" data-h="1080">16:9 (1080p Full HD)</button>
+      <button class="ratio-btn" data-w="3840" data-h="2160">16:9 (4K UHD)</button>
+      <button class="ratio-btn" data-w="1080" data-h="1920">9:16 (TikTok / Reel / Short)</button>
+      <button class="ratio-btn" data-w="1080" data-h="1080">1:1 (Square Instagram)</button>
+      <button class="ratio-btn" data-w="1280" data-h="720">YouTube Thumbnail (720p)</button>
+      <button class="ratio-btn" data-w="3440" data-h="1440">21:9 (Ultrawide Monitor)</button>
+      <button class="ratio-btn" data-w="1024" data-h="768">4:3 (Classic TV / Tablet)</button>
+    </div>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 24px;">
+      <!-- Dimensions Calculator -->
+      <div class="card" style="padding: 24px;">
+        <h2 style="font-size: 18px; margin-bottom: 16px;">1. Original Dimensions (W1 &times; H1)</h2>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;">
+          <div class="form-group" style="margin: 0;">
+            <label class="form-label" for="orig-w">Width 1 (px)</label>
+            <input type="number" class="input-field" id="orig-w" value="1920">
+          </div>
+          <div class="form-group" style="margin: 0;">
+            <label class="form-label" for="orig-h">Height 1 (px)</label>
+            <input type="number" class="input-field" id="orig-h" value="1080">
+          </div>
+        </div>
+
+        <h2 style="font-size: 18px; margin-bottom: 16px;">2. New Proportional Dimensions (W2 &times; H2)</h2>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group" style="margin: 0;">
+            <label class="form-label" for="new-w">New Width (W2)</label>
+            <input type="number" class="input-field" id="new-w" value="1280">
+          </div>
+          <div class="form-group" style="margin: 0;">
+            <label class="form-label" for="new-h">New Height (H2)</label>
+            <input type="number" class="input-field" id="new-h" value="720">
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 12px; background: var(--bg-subtle); border-radius: 6px; font-size: 14px;">
+          Calculated Ratio: <strong id="ratio-string" style="color: var(--accent-primary);">16:9 (1.78:1)</strong>
+        </div>
+      </div>
+
+      <!-- Live Visual Box Preview -->
+      <div class="card" style="padding: 24px;">
+        <h2 style="font-size: 18px; margin-bottom: 16px;">Live Visual Proportion Preview</h2>
+        <div class="preview-stage">
+          <div class="preview-box" id="ratio-box">16 : 9</div>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <label class="form-label">CSS Code Snippet</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" class="input-field" id="css-snippet" readonly style="font-family: var(--font-mono); font-size: 13px;" value="aspect-ratio: 16 / 9;">
+            <button class="btn btn-secondary" id="btn-copy-css">📋 Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content card">
+      <h2>How to Calculate Aspect Ratio Mathematically</h2>
+      <p>An aspect ratio represents the proportional relationship between width and height. To scale dimensions without distortion: <code>New Height = (Original Height / Original Width) &times; New Width</code>, or <code>New Width = (Original Width / Original Height) &times; New Height</code>. This prevents stretching and letterboxing.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Calculators Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="percentage-calculator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a>
+          <a href="unit-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a>
+          <a href="timestamp-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a>
+          <a href="number-base-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const origW = document.getElementById('orig-w');
+    const origH = document.getElementById('orig-h');
+    const newW = document.getElementById('new-w');
+    const newH = document.getElementById('new-h');
+    const ratioString = document.getElementById('ratio-string');
+    const ratioBox = document.getElementById('ratio-box');
+    const cssSnippet = document.getElementById('css-snippet');
+
+    function gcd(a, b) {
+      return b === 0 ? a : gcd(b, a % b);
+    }
+
+    function updatePreview() {
+      const w1 = parseFloat(origW.value) || 1;
+      const h1 = parseFloat(origH.value) || 1;
+
+      const divisor = gcd(Math.round(w1), Math.round(h1));
+      const simpW = Math.round(w1 / divisor);
+      const simpH = Math.round(h1 / divisor);
+      const decimal = (w1 / h1).toFixed(2);
+
+      ratioString.textContent = `${simpW}:${simpH} (${decimal}:1)`;
+      ratioBox.textContent = `${simpW} : ${simpH}`;
+      cssSnippet.value = `aspect-ratio: ${simpW} / ${simpH};`;
+
+      // Scale box smoothly inside container
+      const maxDim = 110;
+      if (w1 >= h1) {
+        const boxW = maxDim;
+        const boxH = Math.max(20, Math.round(maxDim * (h1 / w1)));
+        ratioBox.style.width = `${boxW}px`;
+        ratioBox.style.height = `${boxH}px`;
+      } else {
+        const boxH = maxDim;
+        const boxW = Math.max(20, Math.round(maxDim * (w1 / h1)));
+        ratioBox.style.width = `${boxW}px`;
+        ratioBox.style.height = `${boxH}px`;
+      }
+    }
+
+    origW.addEventListener('input', () => {
+      const w1 = parseFloat(origW.value) || 1;
+      const h1 = parseFloat(origH.value) || 1;
+      const w2 = parseFloat(newW.value) || 1;
+      newH.value = Math.round((h1 / w1) * w2);
+      updatePreview();
+    });
+
+    origH.addEventListener('input', () => {
+      const w1 = parseFloat(origW.value) || 1;
+      const h1 = parseFloat(origH.value) || 1;
+      const w2 = parseFloat(newW.value) || 1;
+      newH.value = Math.round((h1 / w1) * w2);
+      updatePreview();
+    });
+
+    newW.addEventListener('input', () => {
+      const w1 = parseFloat(origW.value) || 1;
+      const h1 = parseFloat(origH.value) || 1;
+      const w2 = parseFloat(newW.value) || 0;
+      newH.value = Math.round((h1 / w1) * w2);
+    });
+
+    newH.addEventListener('input', () => {
+      const w1 = parseFloat(origW.value) || 1;
+      const h1 = parseFloat(origH.value) || 1;
+      const h2 = parseFloat(newH.value) || 0;
+      newW.value = Math.round((w1 / h1) * h2);
+    });
+
+    document.querySelectorAll('.ratio-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ratio-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const rw = parseFloat(btn.getAttribute('data-w'));
+        const rh = parseFloat(btn.getAttribute('data-h'));
+        origW.value = rw;
+        origH.value = rh;
+        const w2 = parseFloat(newW.value) || 1000;
+        newH.value = Math.round((rh / rw) * w2);
+        updatePreview();
+      });
+    });
+
+    document.getElementById('btn-copy-css').addEventListener('click', () => {
+      navigator.clipboard.writeText(cssSnippet.value);
+      showToast('CSS snippet copied!');
+    });
+
+    updatePreview();
+  </script>
+</body>
+</html>

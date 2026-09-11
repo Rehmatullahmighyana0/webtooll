@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Word & Name Generator | WebToolsHub</title>
+  <meta name="description" content="Generate random English words, nouns, verbs, adjectives, and creative writing prompts. Customizable count, length, and starting letter. 100% free.">
+  <meta name="keywords" content="random word generator, random nouns, random verbs, writing prompt generator, random english words, brainstorming tool">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/random-word-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/random-word-generator.html">
+  <meta property="og:title" content="Random Word & Name Generator | WebToolsHub">
+  <meta property="og:description" content="Generate random English words, nouns, verbs, adjectives, and creative writing prompts. Customizable count, length, and starting letter. 100% free.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/random-word-generator.html">
+  <meta name="twitter:title" content="Random Word & Name Generator | WebToolsHub">
+  <meta name="twitter:description" content="Generate random English words, nouns, verbs, adjectives, and creative writing prompts. Customizable count, length, and starting letter. 100% free.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Word Generator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Generate random English words with customizable parts of speech and counts."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>Random Word Generator</span>
+      </nav>
+      <h1 class="tool-page-title">Random Word & Name Generator</h1>
+      <p class="tool-page-subtitle">Generate inspiring words for writing, brainstorming, game night, and domain name inspiration with custom word count and parts of speech.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Configuration Controls -->
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-end;">
+          <div>
+            <label class="form-label" for="word-count">Number of Words:</label>
+            <input type="number" id="word-count" class="form-input" min="1" max="100" value="8" style="width: 100px;">
+          </div>
+          <div>
+            <label class="form-label" for="word-category">Type / Category:</label>
+            <select id="word-category" class="form-select">
+              <option value="all">All Words (Curated)</option>
+              <option value="nouns">Nouns (Objects & Concepts)</option>
+              <option value="adjectives">Adjectives (Descriptions)</option>
+              <option value="verbs">Verbs (Action Words)</option>
+              <option value="tech">Technology & Tech Jargon</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="word-format">Output Delimiter:</label>
+            <select id="word-format" class="form-select">
+              <option value="tags">Badge Cards</option>
+              <option value="newline">New Lines</option>
+              <option value="comma">Comma-separated</option>
+              <option value="space">Single Space</option>
+            </select>
+          </div>
+          <div>
+            <button type="button" id="btn-generate" class="btn btn-primary">🎲 Generate Words</button>
+          </div>
+        </div>
+
+        <!-- Word Display Container -->
+        <div id="word-display-area" style="min-height: 180px; padding: 1.5rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 1rem;">
+          <!-- Generated tags or text -->
+        </div>
+
+        <!-- Action bar -->
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+          <button type="button" id="btn-copy-all" class="btn btn-secondary btn-sm">Copy All Words</button>
+        </div>
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Unleash Creativity with Random Word Generation</h2>
+      <p>Whether overcoming writer's block, designing a creative brand name, creating mnemonic passwords, or playing word games like Pictionary and Charades, our randomized vocabulary builder provides immediate inspiration without requiring an internet connection.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const DICTIONARY = {
+      nouns: [
+        "quantum", "cascade", "horizon", "nexus", "echo", "vertex", "beacon", "serenade",
+        "summit", "velocity", "prism", "glimmer", "cipher", "monolith", "nebula", "zenith",
+        "odyssey", "phoenix", "catalyst", "mirage", "solitude", "voyager", "tapestry", "galaxy",
+        "compass", "oasis", "aurora", "chronicle", "harmony", "enigma", "glacier", "sanctuary"
+      ],
+      adjectives: [
+        "luminous", "ethereal", "vibrant", "serene", "resilient", "infinite", "bold",
+        "celestial", "radiant", "sublime", "dynamic", "mystic", "intrepid", "prismatic",
+        "boundless", "stellar", "tranquil", "agile", "velvet", "kinetic", "effervescent",
+        "harmonious", "golden", "lucid", "electric", "astral", "limitless", "majestic"
+      ],
+      verbs: [
+        "illuminate", "traverse", "resonate", "catalyze", "transcend", "flourish",
+        "harmonize", "navigate", "ignite", "soar", "elevate", "unravel", "synchronize",
+        "sculpt", "radiate", "envision", "innovate", "empower", "blossom", "orchestrate"
+      ],
+      tech: [
+        "algorithm", "bandwidth", "cluster", "database", "encryption", "firewall",
+        "gateway", "hypervisor", "interface", "javascript", "kernel", "latency",
+        "microservice", "network", "optimizer", "protocol", "quantum", "repository",
+        "socket", "telemetry", "userland", "vector", "websocket", "zeroday"
+      ]
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const countInput = document.getElementById("word-count");
+      const categorySelect = document.getElementById("word-category");
+      const formatSelect = document.getElementById("word-format");
+      const displayArea = document.getElementById("word-display-area");
+      let currentWords = [];
+
+      function getPool() {
+        const cat = categorySelect.value;
+        if (cat === "all") {
+          return [...DICTIONARY.nouns, ...DICTIONARY.adjectives, ...DICTIONARY.verbs, ...DICTIONARY.tech];
+        }
+        return DICTIONARY[cat] || DICTIONARY.nouns;
+      }
+
+      function generateWords() {
+        const pool = getPool();
+        const count = Math.min(100, Math.max(1, parseInt(countInput.value) || 8));
+        const picked = [];
+        for (let i = 0; i < count; i++) {
+          const randomIndex = Math.floor(Math.random() * pool.length);
+          picked.push(pool[randomIndex]);
+        }
+        currentWords = picked;
+        renderOutput();
+      }
+
+      function renderOutput() {
+        const fmt = formatSelect.value;
+        if (fmt === "tags") {
+          displayArea.innerHTML = `
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              ${currentWords.map(w => `
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 0.6rem 1rem; border-radius: var(--radius-md); font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: var(--shadow-sm);">
+                  <span>${w}</span>
+                  <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 6px; font-size: 0.75rem;" onclick="copyToClipboard('${w}', 'Word copied!')">Copy</button>
+                </div>
+              `).join("")}
+            </div>
+          `;
+        } else if (fmt === "newline") {
+          displayArea.innerHTML = `<pre style="font-family: monospace; font-size: 1rem; margin: 0; line-height: 1.6;">${currentWords.join("\n")}</pre>`;
+        } else if (fmt === "comma") {
+          displayArea.innerHTML = `<p style="font-size: 1.05rem; line-height: 1.6; margin: 0;">${currentWords.join(", ")}</p>`;
+        } else {
+          displayArea.innerHTML = `<p style="font-size: 1.05rem; line-height: 1.6; margin: 0;">${currentWords.join(" ")}</p>`;
+        }
+      }
+
+      document.getElementById("btn-generate").addEventListener("click", generateWords);
+      formatSelect.addEventListener("change", renderOutput);
+
+      document.getElementById("btn-copy-all").addEventListener("click", () => {
+        const delimiter = formatSelect.value === "newline" ? "\n" : (formatSelect.value === "comma" ? ", " : " ");
+        copyToClipboard(currentWords.join(delimiter), "All words copied!");
+      });
+
+      generateWords();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online PDF Merger (Combine Multiple PDFs) | WebToolsHub</title>
+  <meta name="description" content="Merge multiple PDF files into one clean document online. Reorder PDF pages, preview page counts, and combine PDFs 100% in your browser without uploads.">
+  <meta name="keywords" content="pdf merger, combine pdf, merge pdf online, merge pdf files free, pdf joiner, private pdf merger">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/pdf-merger.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/pdf-merger.html">
+  <meta property="og:title" content="Free Online PDF Merger (Combine Multiple PDFs) | WebToolsHub">
+  <meta property="og:description" content="Merge multiple PDF files into one clean document online. Reorder PDF pages, preview page counts, and combine PDFs 100% in your browser without uploads.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/pdf-merger.html">
+  <meta name="twitter:title" content="Free Online PDF Merger (Combine Multiple PDFs) | WebToolsHub">
+  <meta name="twitter:description" content="Merge multiple PDF files into one clean document online. Reorder PDF pages, preview page counts, and combine PDFs 100% in your browser without uploads.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PDF Merger",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Combine multiple PDF documents into a single file in-browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>PDF Tools</span> &gt; <span>PDF Merger</span>
+      </nav>
+      <h1 class="tool-page-title">Free Online PDF Merger</h1>
+      <p class="tool-page-subtitle">Combine multiple PDF documents into a unified file. Processed 100% inside your browser with complete privacy—your files never leave your device.</p>
+      <div class="privacy-badge">🔒 100% Private Client-Side PDF Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Dropzone -->
+        <div class="upload-dropzone" id="pdf-merge-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📑</div>
+          <h3 style="margin-bottom: 0.5rem;">Drag & drop PDF files here or click to upload</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Select two or more PDF documents to merge</p>
+          <input type="file" id="pdf-files-input" accept="application/pdf" multiple style="display: none;">
+        </div>
+
+        <!-- Files List & Reorder Section -->
+        <div id="merge-files-section" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; margin: 0;">Selected Documents (Merge Order)</h3>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('pdf-files-input').click()">+ Add More PDFs</button>
+          </div>
+
+          <div id="pdf-items-list" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;"></div>
+
+          <button type="button" id="btn-merge-pdfs" class="btn btn-primary" style="width: 100%; font-size: 1.05rem; padding: 0.75rem;">
+            ⚡ Merge & Download Combined PDF
+          </button>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related PDF Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="pdf-utilities.html"><span>📄 PDF Utilities (Image to PDF)</span><span class="badge-mini">Privacy First</span></a></li>
+            <li><a href="pdf-splitter.html"><span>✂️ PDF Splitter</span><span class="badge-mini">PDF</span></a></li>
+            <li><a href="pdf-to-image.html"><span>🖼️ PDF to Image Converter</span><span class="badge-mini">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Client-Side PDF Merging: Absolute Document Privacy</h2>
+      <p>Traditional online PDF tools upload your sensitive contracts, tax returns, and bank statements to remote cloud servers. WebToolsHub leverages the modern WebAssembly-powered <code>pdf-lib</code> engine directly within your browser runtime. The merger executes exclusively in local memory without transmitting a single byte over the internet.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropzone = document.getElementById("pdf-merge-dropzone");
+      const fileInput = document.getElementById("pdf-files-input");
+      const section = document.getElementById("merge-files-section");
+      const list = document.getElementById("pdf-items-list");
+      const btnMerge = document.getElementById("btn-merge-pdfs");
+
+      let selectedPdfFiles = [];
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) handleFiles(e.target.files);
+      });
+
+      function handleFiles(files) {
+        Array.from(files).forEach(f => {
+          if (f.type === "application/pdf" || f.name.toLowerCase().endsWith(".pdf")) {
+            selectedPdfFiles.push(f);
+          }
+        });
+        renderList();
+      }
+
+      function renderList() {
+        if (selectedPdfFiles.length === 0) {
+          section.style.display = "none";
+          return;
+        }
+        section.style.display = "block";
+        list.innerHTML = "";
+
+        selectedPdfFiles.forEach((file, idx) => {
+          const item = document.createElement("div");
+          item.style.cssText = "background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center;";
+          item.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="font-weight: 700; color: var(--text-muted); font-size: 0.85rem;">${idx + 1}.</span>
+              <div>
+                <div style="font-weight: 600; font-size: 0.95rem;">${file.name}</div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary);">${(file.size / 1024).toFixed(1)} KB</div>
+              </div>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="movePdf(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>▲</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="movePdf(${idx}, 1)" ${idx === selectedPdfFiles.length - 1 ? 'disabled' : ''}>▼</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="removePdf(${idx})">✕</button>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      }
+
+      window.movePdf = function(index, delta) {
+        const target = index + delta;
+        if (target >= 0 && target < selectedPdfFiles.length) {
+          const temp = selectedPdfFiles[index];
+          selectedPdfFiles[index] = selectedPdfFiles[target];
+          selectedPdfFiles[target] = temp;
+          renderList();
+        }
+      };
+
+      window.removePdf = function(index) {
+        selectedPdfFiles.splice(index, 1);
+        renderList();
+      };
+
+      btnMerge.addEventListener("click", async () => {
+        if (selectedPdfFiles.length < 2) {
+          alert("Please select at least 2 PDF files to merge.");
+          return;
+        }
+
+        btnMerge.textContent = "⏳ Merging PDFs (Please wait)...";
+        btnMerge.disabled = true;
+
+        try {
+          const mergedPdf = await PDFLib.PDFDocument.create();
+
+          for (const file of selectedPdfFiles) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+            const copiedPages = await mergedPdf.copyPages(pdfDoc, pdfDoc.getPageIndices());
+            copiedPages.forEach(page => mergedPdf.addPage(page));
+          }
+
+          const mergedBytes = await mergedPdf.save();
+          const blob = new Blob([mergedBytes], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "combined-documents.pdf";
+          a.click();
+          URL.revokeObjectURL(url);
+        } catch (err) {
+          alert("Error merging PDF documents: " + err.message);
+        } finally {
+          btnMerge.textContent = "⚡ Merge & Download Combined PDF";
+          btnMerge.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Information & Flag Explorer (All 195+ World Countries) | WebToolsHub</title>
+  <meta name="description" content="Explore worldwide country data, official flags, capital cities, population, currencies, dialing codes, languages, and timezones for 195+ world countries.">
+  <meta name="keywords" content="all world countries, country information, country lookup, world flags, capital city finder, currency by country, country population">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/country-info.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/country-info.html">
+  <meta property="og:title" content="Country Information & Flag Explorer (All 195+ World Countries) | WebToolsHub">
+  <meta property="og:description" content="Explore worldwide country data, official flags, capital cities, population, currencies, dialing codes, languages, and timezones for 195+ world countries.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/country-info.html">
+  <meta name="twitter:title" content="Country Information & Flag Explorer (All 195+ World Countries) | WebToolsHub">
+  <meta name="twitter:description" content="Explore worldwide country data, official flags, capital cities, population, currencies, dialing codes, languages, and timezones for 195+ world countries.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Country Information Explorer",
+    "applicationCategory": "ReferenceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Comprehensive lookup tool for global country demographics, capitals, currencies, and flags for all 195+ world countries."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Information Tools</span> &gt; <span>Country Info</span>
+      </nav>
+      <h1 class="tool-page-title">Country Information Explorer</h1>
+      <p class="tool-page-subtitle">Lookup official country flags, capitals, population statistics, currencies, dialing codes, and geography details for all world countries.</p>
+      <div class="privacy-badge">🌐 196 World Countries &amp; Territories Included</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Search & Country Selector Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="position: relative;">
+              <input type="text" id="country-search-input" list="countries-datalist" class="form-control" placeholder="Search country name or code (e.g. Pakistan, Japan, Germany, US, Brazil)..." value="Pakistan" autocomplete="off">
+              <datalist id="countries-datalist"></datalist>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-search-country">Search</button>
+          </div>
+
+          <!-- Select From Dropdown (All Countries) -->
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <label for="country-select-dropdown" style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">Or Select Country:</label>
+            <select id="country-select-dropdown" class="form-control" style="flex: 1; min-width: 200px; padding: 0.55rem 0.85rem; font-size: 0.9rem;">
+              <option value="">-- Choose from all 196 World Countries --</option>
+            </select>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-random-country" title="Explore random country">🎲 Random Country</button>
+          </div>
+
+          <!-- Region Filter Pills -->
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1rem; align-items: center;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-right: 0.25rem;">Regions:</span>
+            <button type="button" class="filter-pill active" data-region="all">🌐 All (196)</button>
+            <button type="button" class="filter-pill" data-region="Asia">🌏 Asia</button>
+            <button type="button" class="filter-pill" data-region="Europe">🌍 Europe</button>
+            <button type="button" class="filter-pill" data-region="Americas">🌎 Americas</button>
+            <button type="button" class="filter-pill" data-region="Africa">🌍 Africa</button>
+            <button type="button" class="filter-pill" data-region="Oceania">🏝️ Oceania</button>
+          </div>
+        </div>
+
+        <!-- Country Overview Card -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm);">
+          
+          <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <img id="flag-img" src="https://flagcdn.com/w160/pk.png" alt="Flag" style="width: 120px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="flex: 1; min-width: 240px;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                <h2 id="country-name" style="margin: 0; font-size: 1.85rem; font-weight: 800; color: var(--text-primary);">Pakistan</h2>
+                <span id="country-cca2" style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">PK</span>
+                <span id="country-cca3" style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">PAK</span>
+              </div>
+              <div id="country-official" style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem;">Islamic Republic of Pakistan</div>
+            </div>
+          </div>
+
+          <!-- Key Metrics Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+            
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">🏛️ Capital City</div>
+              <div id="prop-capital" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">Islamabad</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">👥 Population</div>
+              <div id="prop-population" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">241,499,431</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">🗺️ Region / Continent</div>
+              <div id="prop-region" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">Asia (Southern Asia)</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">💵 Currencies</div>
+              <div id="prop-currency" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">PKR (₨) - Pakistani Rupee</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">🗣️ Languages</div>
+              <div id="prop-languages" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">Urdu, English</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">📞 Calling Code</div>
+              <div id="prop-calling" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">+92</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">📐 Total Area</div>
+              <div id="prop-area" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">881,912 km²</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">🚗 Driving Side</div>
+              <div id="prop-drive" style="font-size: 1.15rem; font-weight: 700; margin-top: 0.25rem;">Left</div>
+            </div>
+
+          </div>
+
+          <!-- Timezones & Maps Link -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+            <div>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Primary Timezones: </span>
+              <span id="prop-timezones" style="font-size: 0.9rem; font-family: monospace; color: var(--accent-primary); font-weight: 700;">UTC+05:00</span>
+            </div>
+            <a id="prop-map-link" href="https://maps.google.com/?q=Pakistan" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              📍 View on Google Maps ↗
+            </a>
+          </div>
+
+        </div>
+
+        <!-- All World Countries Quick Directory Grid -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+              <span>🌐 All World Countries Directory</span>
+              <span id="directory-count-badge" class="tool-badge" style="background: rgba(14, 165, 233, 0.15); color: var(--accent-primary); font-size: 0.75rem;">196 Countries</span>
+            </h3>
+            <span style="font-size: 0.82rem; color: var(--text-secondary);">Click any country card to view details</span>
+          </div>
+
+          <div id="countries-directory-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; max-height: 480px; overflow-y: auto; padding: 0.5rem 0.25rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Information Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="timezone-converter.html"><span>🌍 Time Zone Converter</span><span class="badge-mini">Time</span></a></li>
+            <li><a href="weather-checker.html"><span>🌤️ Live Weather Checker & Forecast</span><span class="badge-mini">Live</span></a></li>
+            <li><a href="dictionary.html"><span>📖 English Dictionary & Pronunciation</span><span class="badge-mini">Lexicon</span></a></li>
+            <li><a href="random-facts.html"><span>💡 Random Facts & Trivia Generator</span><span class="badge-mini">Trivia</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item" style="margin-bottom: 1rem;">
+        <h3 style="font-size: 1.05rem;">How many world countries are listed here?</h3>
+        <p style="color: var(--text-secondary);">Our database covers all 195 UN-recognized sovereign states (193 member states + 2 observer states: Holy See/Vatican City and Palestine) plus Taiwan and comprehensive regional territories with official flags and demographic statistics.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 1rem;">
+        <h3 style="font-size: 1.05rem;">What is the difference between CCA2 and CCA3?</h3>
+        <p style="color: var(--text-secondary);">CCA2 is the two-letter ISO 3166-1 alpha-2 country code (e.g. PK, US, GB, JP), while CCA3 is the three-letter ISO 3166-1 alpha-3 code (e.g. PAK, USA, GBR, JPN).</p>
+      </div>
+      <div class="faq-item">
+        <h3 style="font-size: 1.05rem;">Does this tool require an internet connection?</h3>
+        <p style="color: var(--text-secondary);">No! All 196 countries are pre-loaded in an ultra-fast client-side dataset, enabling instant offline access with live API synchronization as a fallback.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/countries-data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const countries = window.ALL_COUNTRIES || [];
+      const datalist = document.getElementById('countries-datalist');
+      const selectDropdown = document.getElementById('country-select-dropdown');
+      const directoryGrid = document.getElementById('countries-directory-grid');
+      const searchInput = document.getElementById('country-search-input');
+      const btnSearch = document.getElementById('btn-search-country');
+      const btnRandom = document.getElementById('btn-random-country');
+      const regionPills = document.querySelectorAll('.filter-pill[data-region]');
+      const countBadge = document.getElementById('directory-count-badge');
+
+      let currentRegionFilter = 'all';
+
+      // Populate Datalist & Select Dropdown
+      const sortedCountries = [...countries].sort((a, b) => a.name.localeCompare(b.name));
+      
+      sortedCountries.forEach(c => {
+        // Datalist option
+        const optDatalist = document.createElement('option');
+        optDatalist.value = c.name;
+        datalist.appendChild(optDatalist);
+
+        // Select dropdown option
+        const optSelect = document.createElement('option');
+        optSelect.value = c.name;
+        optSelect.textContent = `${c.name} (${c.cca2}) - ${c.capital}`;
+        selectDropdown.appendChild(optSelect);
+      });
+
+      function renderCountryDetails(c) {
+        if (!c) return;
+        document.getElementById('country-name').textContent = c.name;
+        document.getElementById('country-official').textContent = c.official || c.name;
+        document.getElementById('country-cca2').textContent = c.cca2 || '--';
+        document.getElementById('country-cca3').textContent = c.cca3 || '--';
+        document.getElementById('flag-img').src = c.flag || `https://flagcdn.com/w160/${(c.cca2 || '').toLowerCase()}.png`;
+        document.getElementById('flag-img').alt = `Flag of ${c.name}`;
+        document.getElementById('prop-capital').textContent = c.capital || 'N/A';
+        document.getElementById('prop-population').textContent = Number(c.population || 0).toLocaleString();
+        document.getElementById('prop-region').textContent = `${c.region} ${c.subregion ? '(' + c.subregion + ')' : ''}`;
+        document.getElementById('prop-currency').textContent = c.currency || 'N/A';
+        document.getElementById('prop-languages').textContent = c.languages || 'N/A';
+        document.getElementById('prop-calling').textContent = c.calling || 'N/A';
+        document.getElementById('prop-area').textContent = `${Number(c.area || 0).toLocaleString()} km²`;
+        document.getElementById('prop-drive').textContent = c.drive || 'Right';
+        document.getElementById('prop-timezones').textContent = c.timezones || 'UTC';
+        document.getElementById('prop-map-link').href = `https://maps.google.com/?q=${encodeURIComponent(c.name)}`;
+
+        searchInput.value = c.name;
+        selectDropdown.value = c.name;
+      }
+
+      function renderDirectoryGrid() {
+        const filtered = sortedCountries.filter(c => {
+          if (currentRegionFilter === 'all') return true;
+          return c.region.toLowerCase().includes(currentRegionFilter.toLowerCase());
+        });
+
+        countBadge.textContent = `${filtered.length} Countries`;
+
+        directoryGrid.innerHTML = filtered.map(c => `
+          <div class="country-grid-item" data-country="${c.name}" style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.65rem 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 0.65rem; transition: all 0.2s ease;">
+            <img src="${c.flag}" alt="${c.name}" style="width: 32px; height: 22px; object-fit: cover; border-radius: 2px; border: 1px solid var(--border-color); flex-shrink: 0;" loading="lazy">
+            <div style="overflow: hidden;">
+              <div style="font-size: 0.86rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-primary);">${c.name}</div>
+              <div style="font-size: 0.74rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${c.capital}</div>
+            </div>
+          </div>
+        `).join("");
+
+        directoryGrid.querySelectorAll('.country-grid-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const countryName = item.getAttribute('data-country');
+            findAndRenderCountry(countryName);
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+          });
+          item.addEventListener('mouseenter', () => {
+            item.style.borderColor = 'var(--accent-primary)';
+            item.style.transform = 'translateY(-2px)';
+            item.style.background = 'var(--bg-elevated)';
+          });
+          item.addEventListener('mouseleave', () => {
+            item.style.borderColor = 'var(--border-color)';
+            item.style.transform = 'none';
+            item.style.background = 'var(--bg-subtle)';
+          });
+        });
+      }
+
+      function findAndRenderCountry(query) {
+        if (!query) return;
+        const q = query.trim().toLowerCase();
+
+        // 1. Exact match on common name, official name, cca2, cca3
+        let found = countries.find(c => 
+          c.name.toLowerCase() === q || 
+          c.cca2.toLowerCase() === q || 
+          c.cca3.toLowerCase() === q || 
+          c.official.toLowerCase() === q
+        );
+
+        // 2. Partial match
+        if (!found) {
+          found = countries.find(c => 
+            c.name.toLowerCase().includes(q) || 
+            q.includes(c.name.toLowerCase()) ||
+            c.capital.toLowerCase().includes(q)
+          );
+        }
+
+        if (found) {
+          renderCountryDetails(found);
+        } else {
+          showToast(`No country found matching "${query}". Check spelling.`, "error");
+        }
+      }
+
+      // Search Actions
+      btnSearch.addEventListener('click', () => findAndRenderCountry(searchInput.value));
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') findAndRenderCountry(searchInput.value);
+      });
+
+      // Select Dropdown Action
+      selectDropdown.addEventListener('change', (e) => {
+        if (e.target.value) findAndRenderCountry(e.target.value);
+      });
+
+      // Random Country Action
+      btnRandom.addEventListener('click', () => {
+        const rand = countries[Math.floor(Math.random() * countries.length)];
+        renderCountryDetails(rand);
+        showToast(`Loaded details for ${rand.name}! 🌍`, "info");
+      });
+
+      // Region Filter Action
+      regionPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          regionPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentRegionFilter = pill.getAttribute('data-region');
+          renderDirectoryGrid();
+        });
+      });
+
+      // Initial Render
+      renderDirectoryGrid();
+      findAndRenderCountry('Pakistan');
+    });
+  </script>
+</body>
+</html>

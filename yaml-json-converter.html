@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAML to JSON & JSON to YAML Converter | WebToolsHub</title>
+  <meta name="description" content="Convert YAML to formatted JSON and transform JSON objects into clean YAML markup. Ideal for Kubernetes manifests, Docker Compose, and CI/CD pipelines.">
+  <meta name="keywords" content="yaml to json, json to yaml, convert yaml online, kubernetes yaml converter, docker compose yaml">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/yaml-json-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/yaml-json-converter.html">
+  <meta property="og:title" content="YAML to JSON & JSON to YAML Converter | WebToolsHub">
+  <meta property="og:description" content="Convert YAML to formatted JSON and transform JSON objects into clean YAML markup. Ideal for Kubernetes manifests, Docker Compose, and CI/CD pipelines.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/yaml-json-converter.html">
+  <meta name="twitter:title" content="YAML to JSON & JSON to YAML Converter | WebToolsHub">
+  <meta name="twitter:description" content="Convert YAML to formatted JSON and transform JSON objects into clean YAML markup. Ideal for Kubernetes manifests, Docker Compose, and CI/CD pipelines.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "YAML to JSON Converter",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Bidirectional converter between YAML configuration and JSON data structures."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>YAML to JSON</span>
+      </nav>
+      <h1 class="tool-page-title">YAML to JSON & JSON to YAML Converter</h1>
+      <p class="tool-page-subtitle">Convert YAML configs (Docker Compose, Kubernetes, GitHub Actions) to JSON objects and back with syntax validation.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+          <button class="filter-pill active" id="tab-y2j">YAML &rarr; JSON</button>
+          <button class="filter-pill" id="tab-j2y">JSON &rarr; YAML</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="input-code" id="lbl-input" style="margin-bottom: 0;">YAML Input:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+              </div>
+            </div>
+            <textarea id="input-code" class="form-textarea" style="min-height: 380px; font-family: monospace; font-size: 0.85rem;" placeholder="Paste YAML here..."></textarea>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="output-code" id="lbl-output" style="margin-bottom: 0;">JSON Output:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy</button>
+                <button type="button" id="btn-download" class="btn btn-secondary btn-sm">Download</button>
+              </div>
+            </div>
+            <textarea id="output-code" class="form-textarea" readonly style="min-height: 380px; font-family: monospace; font-size: 0.85rem; background: var(--bg-surface);" placeholder="Converted output will appear here..."></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Developer Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="base64-encoder-decoder.html"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="html-entity-encoder.html"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a></li>
+            <li><a href="css-minifier.html"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a></li>
+            <li><a href="js-minifier.html"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>YAML and JSON in Cloud DevOps</h2>
+      <p>YAML ("YAML Ain't Markup Language") has become the de facto format for cloud-native configurations (including Kubernetes, Docker, Helm, and Ansible) due to its readable syntax. Converting between YAML and JSON helps developers test API payloads against microservice endpoints seamlessly.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let isYamlToJson = true;
+      const input = document.getElementById("input-code");
+      const output = document.getElementById("output-code");
+      const lblInput = document.getElementById("lbl-input");
+      const lblOutput = document.getElementById("lbl-output");
+      const tabY2J = document.getElementById("tab-y2j");
+      const tabJ2Y = document.getElementById("tab-j2y");
+
+      function convert() {
+        const val = input.value.trim();
+        if (!val) {
+          output.value = "";
+          return;
+        }
+
+        if (isYamlToJson) {
+          try {
+            const obj = jsyaml.load(val);
+            output.value = JSON.stringify(obj, null, 2);
+          } catch (e) {
+            output.value = "YAML Parse Error: " + e.message;
+          }
+        } else {
+          try {
+            const obj = JSON.parse(val);
+            output.value = jsyaml.dump(obj);
+          } catch (e) {
+            output.value = "JSON Parse Error: " + e.message;
+          }
+        }
+      }
+
+      tabY2J.addEventListener("click", () => {
+        isYamlToJson = true;
+        tabY2J.classList.add("active");
+        tabJ2Y.classList.remove("active");
+        lblInput.textContent = "YAML Input:";
+        lblOutput.textContent = "JSON Output:";
+        input.value = "";
+        output.value = "";
+      });
+
+      tabJ2Y.addEventListener("click", () => {
+        isYamlToJson = false;
+        tabJ2Y.classList.add("active");
+        tabY2J.classList.remove("active");
+        lblInput.textContent = "JSON Input:";
+        lblOutput.textContent = "YAML Output:";
+        input.value = "";
+        output.value = "";
+      });
+
+      input.addEventListener("input", convert);
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        if (isYamlToJson) {
+          input.value = `version: '3.8'\nservices:\n  web:\n    image: nginx:alpine\n    ports:\n      - "80:80"\n    environment:\n      - NODE_ENV=production\n    restart: always`;
+        } else {
+          input.value = JSON.stringify({
+            version: "3.8",
+            services: {
+              web: {
+                image: "nginx:alpine",
+                ports: ["80:80"],
+                environment: ["NODE_ENV=production"],
+                restart: "always"
+              }
+            }
+          }, null, 2);
+        }
+        convert();
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "Converted output copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const ext = isYamlToJson ? "json" : "yaml";
+        const type = isYamlToJson ? "application/json" : "text/yaml";
+        const blob = new Blob([output.value], { type: `${type};charset=utf-8` });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `converted.${ext}`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById("btn-sample").click();
+    });
+  </script>
+</body>
+</html>

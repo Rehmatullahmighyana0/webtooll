@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Entity Encoder & Decoder (Named, Decimal, Hex) | WebToolsHub</title>
+  <meta name="description" content="Encode and decode HTML entities. Escape special characters like <, >, &, quotes into named, decimal, or hex entities with an interactive cheat-sheet.">
+  <meta name="keywords" content="html entity encoder, html escape, decode html entities, html entity cheat sheet, special characters">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/html-entity-encoder.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/html-entity-encoder.html">
+  <meta property="og:title" content="HTML Entity Encoder & Decoder (Named, Decimal, Hex) | WebToolsHub">
+  <meta property="og:description" content="Encode and decode HTML entities. Escape special characters like <, >, &, quotes into named, decimal, or hex entities with an interactive cheat-sheet.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/html-entity-encoder.html">
+  <meta name="twitter:title" content="HTML Entity Encoder & Decoder (Named, Decimal, Hex) | WebToolsHub">
+  <meta name="twitter:description" content="Encode and decode HTML entities. Escape special characters like <, >, &, quotes into named, decimal, or hex entities with an interactive cheat-sheet.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+, &, quotes into named, decimal, or hex entities with an interactive cheat-sheet.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTML Entity Encoder and Decoder",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">HTML Entity Encoder & Decoder</h1>
+      <p class="tool-subtitle">Safely convert special characters and symbols into HTML entities, and decode entities back to readable text.</p>
+    </div>
+
+    <div class="card" style="padding: 24px; margin-bottom: 24px;">
+      <!-- Controls -->
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="encode-scope">Encoding Scope</label>
+          <select class="select-field" id="encode-scope">
+            <option value="special">HTML Special Characters Only (&lt;, &gt;, &amp;, &quot;, &#39;)</option>
+            <option value="nonascii">Special + Non-ASCII (Accents, Symbols, Emojis)</option>
+            <option value="all">Full String (All Characters to Entities)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="entity-format">Entity Format</label>
+          <select class="select-field" id="entity-format">
+            <option value="named">Named Entities (&amp;copy; / &amp;lt;)</option>
+            <option value="decimal">Decimal Numeric (&amp;#169; / &amp;#60;)</option>
+            <option value="hex">Hexadecimal Numeric (&amp;#xA9; / &amp;#x3C;)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Text Areas Grid -->
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="raw-text" style="margin: 0;">Raw Text / HTML Source</label>
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="document.getElementById('raw-text').value='';processEncode();">Clear</button>
+          </div>
+          <textarea class="textarea-field" id="raw-text" rows="10" placeholder="Type text or HTML code here..."><div>
+  <h1>Welcome & "Enjoy" our 100% Free Tools!</h1>
+  <p>Price: €49.99 / $55.00 © 2026 WebToolsHub™</p>
+</div></textarea>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="encoded-output" style="margin: 0;">HTML Entity Output</label>
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" id="btn-copy">📋 Copy</button>
+          </div>
+          <textarea class="textarea-field" id="encoded-output" rows="10" style="font-family: var(--font-mono); font-size: 13px;"></textarea>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; align-items: center;">
+        <button class="btn btn-primary" id="btn-encode">⬇️ Encode to Entities</button>
+        <button class="btn btn-secondary" id="btn-decode">⬆️ Decode to Plain Text</button>
+        <button class="btn btn-secondary" id="btn-swap" type="button">⇄ Swap Input/Output</button>
+      </div>
+
+      <!-- Live Rendered Preview -->
+      <div style="margin-top: 20px; padding: 16px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <h3 style="font-size: 14px; font-weight: 600; margin: 0; color: var(--text-primary);">🌐 Live HTML Execution Preview</h3>
+          <span style="font-size: 11px; color: var(--text-muted);">Sandboxed Browser Rendering</span>
+        </div>
+        <div id="html-preview-frame-container" style="border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; background: #ffffff;">
+          <iframe id="html-preview-frame" sandbox="allow-scripts allow-modals allow-forms" style="width: 100%; height: 160px; border: none; display: block;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Entity Cheat-Sheet -->
+    <div class="card" style="padding: 24px; margin-bottom: 24px;">
+      <h2 style="font-size: 18px; margin-bottom: 14px;">Interactive HTML Entity Cheat Sheet (Click any row to insert)</h2>
+      <div style="max-height: 280px; overflow-y: auto;">
+        <table class="entity-table">
+          <thead>
+            <tr>
+              <th>Char</th>
+              <th>Name / Description</th>
+              <th>Named Entity</th>
+              <th>Decimal</th>
+              <th>Hexadecimal</th>
+            </tr>
+          </thead>
+          <tbody id="cheat-sheet-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="seo-content card">
+      <h2>Why Escape HTML Entities?</h2>
+      <p>HTML entities prevent Cross-Site Scripting (XSS) attacks by escaping user input before rendering it in browser pages. Without escaping, characters like <code>&lt;</code> and <code>&gt;</code> can be interpreted as executable HTML tags or JavaScript <code>&lt;script&gt;</code> tags.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Developer Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="base64-encoder-decoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a>
+          <a href="css-minifier.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a>
+          <a href="js-minifier.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a>
+          <a href="api-tester.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🚀 REST API Tester & Client</span><span class="badge-mini">API</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const CHEAT_DATA = [
+      { char: '<', name: 'Less than', named: '&lt;', dec: '&#60;', hex: '&#x3C;' },
+      { char: '>', name: 'Greater than', named: '&gt;', dec: '&#62;', hex: '&#x3E;' },
+      { char: '&', name: 'Ampersand', named: '&amp;', dec: '&#38;', hex: '&#x26;' },
+      { char: '"', name: 'Double quote', named: '&quot;', dec: '&#34;', hex: '&#x22;' },
+      { char: "'", name: 'Single quote', named: '&apos;', dec: '&#39;', hex: '&#x27;' },
+      { char: '©', name: 'Copyright', named: '&copy;', dec: '&#169;', hex: '&#xA9;' },
+      { char: '®', name: 'Registered', named: '&reg;', dec: '&#174;', hex: '&#xAE;' },
+      { char: '™', name: 'Trademark', named: '&trade;', dec: '&#8482;', hex: '&#x2122;' },
+      { char: '€', name: 'Euro sign', named: '&euro;', dec: '&#8364;', hex: '&#x20AC;' },
+      { char: '£', name: 'Pound sign', named: '&pound;', dec: '&#163;', hex: '&#xA3;' },
+      { char: '¥', name: 'Yen sign', named: '&yen;', dec: '&#165;', hex: '&#xA5;' },
+      { char: '•', name: 'Bullet', named: '&bull;', dec: '&#8226;', hex: '&#x2022;' },
+      { char: '—', name: 'Em dash', named: '&mdash;', dec: '&#8212;', hex: '&#x2014;' },
+      { char: '–', name: 'En dash', named: '&ndash;', dec: '&#8211;', hex: '&#x2013;' },
+      { char: '«', name: 'Left guillemet', named: '&laquo;', dec: '&#171;', hex: '&#xAB;' },
+      { char: '»', name: 'Right guillemet', named: '&raquo;', dec: '&#187;', hex: '&#xBB;' },
+      { char: ' ', name: 'Non-breaking space', named: '&nbsp;', dec: '&#160;', hex: '&#xA0;' },
+      { char: '♥', name: 'Heart', named: '&hearts;', dec: '&#9829;', hex: '&#x2665;' }
+    ];
+
+    // Populate cheat sheet
+    const tbody = document.getElementById('cheat-sheet-body');
+    CHEAT_DATA.forEach(item => {
+      const tr = document.createElement('tr');
+      tr.className = 'entity-row';
+      tr.innerHTML = `
+        <td class="entity-char">${item.char === ' ' ? '[space]' : item.char}</td>
+        <td>${item.name}</td>
+        <td><code>${item.named}</code></td>
+        <td><code>${item.dec}</code></td>
+        <td><code>${item.hex}</code></td>
+      `;
+      tr.addEventListener('click', () => {
+        const rawEl = document.getElementById('raw-text');
+        rawEl.value += item.char;
+        processEncode();
+        showToast(`Inserted ${item.char} (${item.named})`);
+      });
+      tbody.appendChild(tr);
+    });
+
+    const NAMED_MAP = {
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      '©': '&copy;', '®': '&reg;', '™': '&trade;', '€': '&euro;', '£': '&pound;',
+      '¥': '&yen;', '•': '&bull;', '—': '&mdash;', '–': '&ndash;', '«': '&laquo;',
+      '»': '&raquo;', '♥': '&hearts;'
+    };
+
+    function processEncode() {
+      const text = document.getElementById('raw-text').value;
+      const scope = document.getElementById('encode-scope').value;
+      const format = document.getElementById('entity-format').value;
+
+      let res = '';
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const code = char.charCodeAt(0);
+
+        let shouldEncode = false;
+        if (scope === 'all') {
+          shouldEncode = true;
+        } else if (scope === 'special') {
+          shouldEncode = ['&', '<', '>', '"', "'"].includes(char);
+        } else { // nonascii
+          shouldEncode = ['&', '<', '>', '"', "'"].includes(char) || code > 127;
+        }
+
+        if (shouldEncode) {
+          if (format === 'named' && NAMED_MAP[char]) {
+            res += NAMED_MAP[char];
+          } else if (format === 'hex') {
+            res += `&#x${code.toString(16).toUpperCase()};`;
+          } else {
+            res += `&#${code};`;
+          }
+        } else {
+          res += char;
+        }
+      }
+
+      document.getElementById('encoded-output').value = res;
+      updateLivePreview();
+    }
+
+    function updateLivePreview() {
+      const frame = document.getElementById('html-preview-frame');
+      const rawHtml = document.getElementById('raw-text').value;
+      const htmlDoc = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 12px; color: #1e293b; background: #ffffff; }
+            h1, h2, h3, h4 { margin-top: 0; color: #0f172a; }
+            p { margin: 8px 0; }
+          </style>
+        </head>
+        <body>${rawHtml}</body>
+        </html>
+      `;
+      frame.srcdoc = htmlDoc;
+    }
+
+    function processDecode() {
+      const rawEl = document.getElementById('raw-text');
+      const outEl = document.getElementById('encoded-output');
+
+      // If user provided input in raw-text containing entities, decode that
+      let sourceText = outEl.value;
+      let targetEl = rawEl;
+
+      if (/&(?:[a-z\d]+|#\d+|#x[a-f\d]+);/i.test(rawEl.value) && !outEl.value.trim()) {
+        sourceText = rawEl.value;
+        targetEl = outEl;
+      }
+
+      const doc = new DOMParser().parseFromString(sourceText, 'text/html');
+      targetEl.value = doc.body.textContent || '';
+      updateLivePreview();
+      showToast('Entities decoded to plain text!');
+    }
+
+    document.getElementById('btn-encode').addEventListener('click', processEncode);
+    document.getElementById('btn-decode').addEventListener('click', processDecode);
+    document.getElementById('raw-text').addEventListener('input', processEncode);
+    ['encode-scope', 'entity-format'].forEach(id => {
+      document.getElementById(id).addEventListener('change', processEncode);
+    });
+
+    document.getElementById('btn-swap').addEventListener('click', () => {
+      const rawEl = document.getElementById('raw-text');
+      const outEl = document.getElementById('encoded-output');
+      const temp = rawEl.value;
+      rawEl.value = outEl.value;
+      outEl.value = temp;
+      updateLivePreview();
+      showToast('Swapped input and output!');
+    });
+
+    document.getElementById('btn-copy').addEventListener('click', () => {
+      const val = document.getElementById('encoded-output').value;
+      if (!val) return;
+      navigator.clipboard.writeText(val);
+      showToast('Entity code copied to clipboard!');
+    });
+
+    processEncode();
+  </script>
+</body>
+</html>

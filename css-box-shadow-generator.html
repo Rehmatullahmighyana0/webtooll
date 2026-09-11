@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Shadow Generator & Smooth Elevation Maker | WebToolsHub</title>
+  <meta name="description" content="Generate smooth, realistic CSS box-shadows visually. Adjust horizontal offset, vertical offset, blur radius, spread, opacity, inset shadows, and copy clean CSS.">
+  <meta name="keywords" content="css box shadow generator, box shadow maker, smooth shadow generator, css elevation, box-shadow tool">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/css-box-shadow-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/css-box-shadow-generator.html">
+  <meta property="og:title" content="CSS Box Shadow Generator & Smooth Elevation Maker | WebToolsHub">
+  <meta property="og:description" content="Generate smooth, realistic CSS box-shadows visually. Adjust horizontal offset, vertical offset, blur radius, spread, opacity, inset shadows, and copy clean CSS.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/css-box-shadow-generator.html">
+  <meta name="twitter:title" content="CSS Box Shadow Generator & Smooth Elevation Maker | WebToolsHub">
+  <meta name="twitter:description" content="Generate smooth, realistic CSS box-shadows visually. Adjust horizontal offset, vertical offset, blur radius, spread, opacity, inset shadows, and copy clean CSS.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSS Box Shadow Generator",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Interactive visual CSS box shadow generator for web designers."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Design Tools</span> &gt; <span>Box Shadow Generator</span>
+      </nav>
+      <h1 class="tool-page-title">CSS Box Shadow Generator</h1>
+      <p class="tool-page-subtitle">Design buttery smooth, layered box-shadows visually with real-time preview and one-click CSS code export.</p>
+      <div class="privacy-badge">🎨 Visual CSS Studio</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+          
+          <!-- Slider Controls -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem;">Shadow Controls</h3>
+
+            <!-- Horizontal Offset -->
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                <label for="offset-x">Horizontal Offset (X):</label>
+                <span id="lbl-x">0px</span>
+              </div>
+              <input type="range" id="offset-x" min="-50" max="50" value="0" style="width: 100%;">
+            </div>
+
+            <!-- Vertical Offset -->
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                <label for="offset-y">Vertical Offset (Y):</label>
+                <span id="lbl-y">10px</span>
+              </div>
+              <input type="range" id="offset-y" min="-50" max="50" value="10" style="width: 100%;">
+            </div>
+
+            <!-- Blur Radius -->
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                <label for="blur-radius">Blur Radius:</label>
+                <span id="lbl-blur">25px</span>
+              </div>
+              <input type="range" id="blur-radius" min="0" max="100" value="25" style="width: 100%;">
+            </div>
+
+            <!-- Spread Radius -->
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                <label for="spread-radius">Spread Radius:</label>
+                <span id="lbl-spread">-5px</span>
+              </div>
+              <input type="range" id="spread-radius" min="-30" max="50" value="-5" style="width: 100%;">
+            </div>
+
+            <!-- Shadow Opacity -->
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                <label for="shadow-opacity">Shadow Opacity:</label>
+                <span id="lbl-opacity">0.15</span>
+              </div>
+              <input type="range" id="shadow-opacity" min="0.01" max="1" step="0.01" value="0.15" style="width: 100%;">
+            </div>
+
+            <!-- Color & Inset -->
+            <div style="display: flex; justify-content: space-between; align-items: center; pt: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <label class="form-label" for="shadow-color" style="margin-bottom: 0;">Color:</label>
+                <input type="color" id="shadow-color" value="#000000" style="width: 40px; height: 32px; padding: 0; border: none; cursor: pointer; border-radius: 4px;">
+              </div>
+
+              <label style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="chk-inset" style="width: 18px; height: 18px;">
+                Inset Shadow
+              </label>
+            </div>
+          </div>
+
+          <!-- Live Preview Canvas -->
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; min-height: 280px; padding: 2rem;">
+            <div id="shadow-target-box" style="width: 180px; height: 180px; background: var(--bg-surface); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-primary); transition: box-shadow 0.1s;">
+              Preview Box
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Export CSS Code -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" style="margin-bottom: 0; font-weight: 700;">Generated CSS:</label>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-copy-css">Copy CSS</button>
+          </div>
+          <pre id="css-code-out" style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: monospace; font-size: 0.95rem; margin: 0; color: var(--accent-primary);"></pre>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Design Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="color-picker.html"><span>🎨 Color Picker & Palette Converter</span><span class="badge-mini">Design</span></a></li>
+            <li><a href="image-color-extractor.html"><span>🎨 Image Color Extractor & Palette</span><span class="badge-mini">Palette</span></a></li>
+            <li><a href="css-gradient-generator.html"><span>🌈 CSS Gradient Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="glassmorphism-generator.html"><span>🪟 Glassmorphism CSS Generator</span><span class="badge-mini">UI</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Creating Modern, Realistic UI Shadows</h2>
+      <p>Harsh, dark drop shadows make web interfaces look dated and muddy. In modern UI design (such as Stripe, Apple, and Tailwind CSS), realistic lighting is created with low opacity (10-20%), soft blur radiuses (15-30px), and negative spread values to create natural ambient lighting.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const offsetX = document.getElementById("offset-x");
+      const offsetY = document.getElementById("offset-y");
+      const blurRadius = document.getElementById("blur-radius");
+      const spreadRadius = document.getElementById("spread-radius");
+      const shadowOpacity = document.getElementById("shadow-opacity");
+      const shadowColor = document.getElementById("shadow-color");
+      const chkInset = document.getElementById("chk-inset");
+
+      const lblX = document.getElementById("lbl-x");
+      const lblY = document.getElementById("lbl-y");
+      const lblBlur = document.getElementById("lbl-blur");
+      const lblSpread = document.getElementById("lbl-spread");
+      const lblOpacity = document.getElementById("lbl-opacity");
+
+      const targetBox = document.getElementById("shadow-target-box");
+      const cssOut = document.getElementById("css-code-out");
+
+      function hexToRgba(hex, alpha) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
+
+      function updateShadow() {
+        const x = offsetX.value;
+        const y = offsetY.value;
+        const b = blurRadius.value;
+        const s = spreadRadius.value;
+        const o = shadowOpacity.value;
+        const hex = shadowColor.value;
+        const inset = chkInset.checked ? "inset " : "";
+
+        lblX.textContent = `${x}px`;
+        lblY.textContent = `${y}px`;
+        lblBlur.textContent = `${b}px`;
+        lblSpread.textContent = `${s}px`;
+        lblOpacity.textContent = o;
+
+        const rgba = hexToRgba(hex, o);
+        const shadowVal = `${inset}${x}px ${y}px ${b}px ${s}px ${rgba}`;
+
+        targetBox.style.boxShadow = shadowVal;
+        cssOut.textContent = `box-shadow: ${shadowVal};`;
+      }
+
+      [offsetX, offsetY, blurRadius, spreadRadius, shadowOpacity, shadowColor, chkInset].forEach(el => {
+        el.addEventListener("input", updateShadow);
+      });
+
+      document.getElementById("btn-copy-css").addEventListener("click", () => {
+        copyToClipboard(cssOut.textContent, "CSS copied to clipboard!");
+      });
+
+      updateShadow();
+    });
+  </script>
+</body>
+</html>

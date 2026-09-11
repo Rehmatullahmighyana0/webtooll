@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Beautifier & Formatter Online — Clean & Unminify CSS | WebToolsHub</title>
+  <meta name="description" content="Free online CSS beautifier and formatter. Un-minify stylesheets, format selectors, standardize indentations, and sort properties alphabetically. 100% private.">
+  <meta name="keywords" content="css beautifier, css formatter, unminify css, clean css, pretty print css, css code formatter online">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/css-beautifier.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/css-beautifier.html">
+  <meta property="og:title" content="CSS Beautifier & Formatter Online — Clean & Unminify CSS | WebToolsHub">
+  <meta property="og:description" content="Free online CSS beautifier and formatter. Un-minify stylesheets, format selectors, standardize indentations, and sort properties alphabetically. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/css-beautifier.html">
+  <meta name="twitter:title" content="CSS Beautifier & Formatter Online — Clean & Unminify CSS | WebToolsHub">
+  <meta name="twitter:description" content="Free online CSS beautifier and formatter. Un-minify stylesheets, format selectors, standardize indentations, and sort properties alphabetically. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSS Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Clean, un-minify, and format CSS stylesheets with customizable indentation and property sorting."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Beautifiers & Formatters</span> &gt; <span>CSS Beautifier</span>
+      </nav>
+      <h1 class="tool-page-title">CSS Beautifier & Formatter</h1>
+      <p class="tool-page-subtitle">Transform compressed, single-line, or messy CSS into beautifully formatted, indented, and readable stylesheets.</p>
+      <div class="privacy-badge">⚡ 100% In-Browser Execution</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <label for="indent-size" style="font-size: 0.85rem; font-weight: 600;">Indentation:</label>
+              <select id="indent-size" class="form-control" style="width: 110px; height: 32px; font-size: 0.85rem; padding: 0.2rem 0.5rem;">
+                <option value="2" selected>2 Spaces</option>
+                <option value="4">4 Spaces</option>
+                <option value="tab">1 Tab</option>
+              </select>
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-sort-props"> Sort Properties A-Z
+            </label>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-empty-line" checked> Blank Line Between Rules
+            </label>
+          </div>
+
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-format">✨ Beautify CSS</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sample">Sample</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-clear" style="color: #ef4444;">Clear</button>
+          </div>
+        </div>
+
+        <!-- Code Editor Columns -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- Input -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Input Raw or Minified CSS:</span>
+              <span id="input-stats" style="font-size: 0.8rem; color: var(--text-muted);">0 lines</span>
+            </div>
+            <textarea id="css-input" class="form-control" placeholder="Paste unformatted or minified CSS here (e.g. .btn{background:#0284c7;color:#fff;padding:8px 16px;border-radius:4px})..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; resize: vertical;"></textarea>
+          </div>
+
+          <!-- Output -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">Beautified CSS:</span>
+              <div style="display: flex; gap: 0.35rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Copy</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-download" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Download .css</button>
+              </div>
+            </div>
+            <textarea id="css-output" class="form-control" readonly placeholder="Formatted and indented CSS rules will appear here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; background: var(--bg-surface); resize: vertical;"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="html-formatter.html"><span>🌐 HTML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="xml-formatter.html"><span>📑 XML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="javascript-beautifier.html"><span>🟨 JavaScript Beautifier</span><span class="badge-mini">Popular</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Why should I format CSS?</h3>
+        <p>Production stylesheets are frequently minified to reduce bandwidth. Formatting and beautifying restores legible structure with clear selectors and declarations, making styles easy to inspect, debug, and maintain.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does property sorting break CSS cascade rules?</h3>
+        <p>In most standard CSS blocks, properties are independent (e.g. <code>color</code>, <code>font-size</code>, <code>margin</code>). However, if you rely on shorthand overrides (like declaring <code>margin</code> before <code>margin-top</code>), keep property sorting unchecked.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("css-beautifier");
+
+      const input = document.getElementById("css-input");
+      const output = document.getElementById("css-output");
+      const indentSelect = document.getElementById("indent-size");
+      const sortPropsCheck = document.getElementById("opt-sort-props");
+      const emptyLineCheck = document.getElementById("opt-empty-line");
+      const inputStats = document.getElementById("input-stats");
+
+      function getIndentStr() {
+        const val = indentSelect.value;
+        if (val === "tab") return "\t";
+        return " ".repeat(parseInt(val, 10));
+      }
+
+      function beautifyCSS(css) {
+        if (!css || !css.trim()) return "";
+        const indentStr = getIndentStr();
+        const sortProps = sortPropsCheck.checked;
+        const emptyBetween = emptyLineCheck.checked;
+
+        // Clean comments temporarily or normalize
+        let str = css.trim();
+
+        // Split rules by block
+        let depth = 0;
+        let out = "";
+        let i = 0;
+        let buffer = "";
+
+        while (i < str.length) {
+          const ch = str[i];
+          const next = str[i + 1] || "";
+
+          // Comments
+          if (ch === "/" && next === "*") {
+            const endComment = str.indexOf("*/", i + 2);
+            if (endComment !== -1) {
+              const comment = str.substring(i, endComment + 2);
+              out += (out.endsWith("\n") ? "" : "\n") + indentStr.repeat(depth) + comment + "\n" + indentStr.repeat(depth);
+              i = endComment + 2;
+              while (str[i] === " " || str[i] === "\t" || str[i] === "\n") i++;
+              continue;
+            }
+          }
+
+          if (ch === "{") {
+            const selector = buffer.trim();
+            buffer = "";
+            out += (out.length > 0 && !out.endsWith("\n") ? " " : "") + selector + " {\n";
+            depth++;
+            out += indentStr.repeat(depth);
+            i++;
+            while (str[i] === " " || str[i] === "\t" || str[i] === "\n") i++;
+            continue;
+          }
+
+          if (ch === "}") {
+            // Process declarations inside buffer
+            let decls = buffer.split(";").map(d => d.trim()).filter(d => d.length > 0);
+            buffer = "";
+            if (sortProps) {
+              decls.sort((a, b) => a.localeCompare(b));
+            }
+
+            if (decls.length > 0) {
+              for (let decl of decls) {
+                const colonIdx = decl.indexOf(":");
+                if (colonIdx !== -1) {
+                  const prop = decl.substring(0, colonIdx).trim();
+                  const val = decl.substring(colonIdx + 1).trim();
+                  out += (out.endsWith("\n" + indentStr.repeat(depth)) ? "" : "") + `${prop}: ${val};\n${indentStr.repeat(depth)}`;
+                } else {
+                  out += `${decl};\n${indentStr.repeat(depth)}`;
+                }
+              }
+            }
+
+            depth = Math.max(0, depth - 1);
+            out = out.trimEnd() + "\n" + indentStr.repeat(depth) + "}";
+            if (emptyBetween && depth === 0) {
+              out += "\n\n";
+            } else {
+              out += "\n";
+            }
+            i++;
+            while (str[i] === " " || str[i] === "\t" || str[i] === "\n") i++;
+            continue;
+          }
+
+          if (ch === ";" && depth > 0) {
+            buffer += ch;
+            // Parse this declaration
+            const colonIdx = buffer.indexOf(":");
+            if (colonIdx !== -1) {
+              const prop = buffer.substring(0, colonIdx).trim();
+              const val = buffer.substring(colonIdx + 1, buffer.length - 1).trim();
+              if (!sortProps) {
+                out = out.trimEnd() + "\n" + indentStr.repeat(depth) + `${prop}: ${val};\n` + indentStr.repeat(depth);
+                buffer = "";
+              }
+            }
+            i++;
+            while (str[i] === " " || str[i] === "\t" || str[i] === "\n") i++;
+            continue;
+          }
+
+          buffer += ch;
+          i++;
+        }
+
+        if (buffer.trim()) {
+          out += buffer.trim();
+        }
+
+        return out.trim();
+      }
+
+      function format() {
+        const res = beautifyCSS(input.value);
+        output.value = res;
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      }
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        format();
+        showToast("CSS beautified successfully!");
+      });
+
+      indentSelect.addEventListener("change", format);
+      sortPropsCheck.addEventListener("change", format);
+      emptyLineCheck.addEventListener("change", format);
+
+      input.addEventListener("input", () => {
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `/* Sample Minified Stylesheet */
+.card{background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);transition:transform 0.2s ease,box-shadow 0.2s ease;margin-bottom:1.5rem}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.badge{display:inline-block;padding:4px 8px;font-size:12px;font-weight:700;color:#0284c7;background:#e0f2fe;border-radius:9999px}
+@media (max-width:768px){.card{padding:16px;border-radius:8px}}`;
+        format();
+        showToast("Sample loaded & beautified!");
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        inputStats.textContent = "0 lines";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        if (!output.value) return;
+        copyToClipboard(output.value, "Beautified CSS copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "text/css;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `beautified-styles-${new Date().toISOString().slice(0, 10)}.css`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>

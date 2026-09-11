@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT Token Decoder & Claims Inspector | WebToolsHub</title>
+  <meta name="description" content="Decode and inspect JSON Web Tokens (JWT) client-side. Inspect color-coded headers, payload claims, expiration timestamps, and algorithms with 100% privacy.">
+  <meta name="keywords" content="jwt decoder, decode jwt, jwt debugger, json web token inspector, jwt expiration, jwt payload viewer">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/jwt-decoder.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/jwt-decoder.html">
+  <meta property="og:title" content="JWT Token Decoder & Claims Inspector | WebToolsHub">
+  <meta property="og:description" content="Decode and inspect JSON Web Tokens (JWT) client-side. Inspect color-coded headers, payload claims, expiration timestamps, and algorithms with 100% privacy.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/jwt-decoder.html">
+  <meta name="twitter:title" content="JWT Token Decoder & Claims Inspector | WebToolsHub">
+  <meta name="twitter:description" content="Decode and inspect JSON Web Tokens (JWT) client-side. Inspect color-coded headers, payload claims, expiration timestamps, and algorithms with 100% privacy.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JWT Token Decoder",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Decode JSON Web Tokens (JWT) in-browser with automated timestamp translation."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Security Tools</span> &gt; <span>JWT Decoder</span>
+      </nav>
+      <h1 class="tool-page-title">JWT Token Decoder & Claims Inspector</h1>
+      <p class="tool-page-subtitle">Paste an encoded JWT string to inspect its Header, Payload claims, and expiration timestamps. 100% processed client-side without sending tokens to any server.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Privacy Guaranteed</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Status Banner -->
+        <div id="jwt-status-banner" style="display: none; padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; font-weight: 600;"></div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          
+          <!-- Encoded Token Column -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="jwt-input" style="margin-bottom: 0;">Encoded Token:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+              </div>
+            </div>
+            <textarea id="jwt-input" class="form-textarea" style="min-height: 480px; font-family: monospace; font-size: 0.9rem; line-height: 1.5;" placeholder="Paste JWT token (e.g. eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...)"></textarea>
+          </div>
+
+          <!-- Decoded Output Column -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            
+            <!-- Header Block -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <label class="form-label" style="margin-bottom: 0; color: #ef4444; font-weight: 700;">HEADER: Algorithm & Token Type</label>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('jwt-header-out').textContent, 'Header copied!')">Copy</button>
+              </div>
+              <pre id="jwt-header-out" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-left: 4px solid #ef4444; padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.85rem; max-height: 150px; overflow-y: auto; white-space: pre-wrap;"></pre>
+            </div>
+
+            <!-- Payload Block -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <label class="form-label" style="margin-bottom: 0; color: #a855f7; font-weight: 700;">PAYLOAD: Data Claims</label>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('jwt-payload-out').textContent, 'Payload copied!')">Copy</button>
+              </div>
+              <pre id="jwt-payload-out" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-left: 4px solid #a855f7; padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.85rem; min-height: 160px; max-height: 250px; overflow-y: auto; white-space: pre-wrap;"></pre>
+            </div>
+
+            <!-- Signature Info Block -->
+            <div>
+              <label class="form-label" style="margin-bottom: 0.4rem; color: #06b6d4; font-weight: 700;">SIGNATURE</label>
+              <div id="jwt-sig-out" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-left: 4px solid #06b6d4; padding: 0.85rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.85rem; word-break: break-all; color: var(--text-secondary);">
+                Awaiting token...
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Security Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="password-generator.html"><span>🔐 Password Generator</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="hash-generator.html"><span>🛡️ Hash Generator & Checksum</span><span class="badge-mini">Crypto</span></a></li>
+            <li><a href="uuid-generator.html"><span>🆔 UUID / GUID Generator (v4)</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="credit-card-validator.html"><span>💳 Credit Card Validator</span><span class="badge-mini">Luhn Check</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>How JSON Web Tokens Work</h2>
+      <p>A JSON Web Token (JWT) comprises three Base64URL-encoded strings separated by dots (<code>.</code>): the <strong>Header</strong> (specifying the signing algorithm like HS256 or RS256), the <strong>Payload</strong> (containing user IDs, roles, and standard timestamps like <code>exp</code> and <code>iat</code>), and the <strong>Signature</strong>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const SAMPLE_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsZXggVHVyaW5nIiwiYWRtaW4iOnRydWUsImlhdCI6MTY5MDAwMDAwMCwiZXhwIjoxOTAwMDAwMDAwfQ.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("jwt-input");
+      const headerOut = document.getElementById("jwt-header-out");
+      const payloadOut = document.getElementById("jwt-payload-out");
+      const sigOut = document.getElementById("jwt-sig-out");
+      const statusBanner = document.getElementById("jwt-status-banner");
+
+      function b64UrlDecode(str) {
+        str = str.replace(/-/g, '+').replace(/_/g, '/');
+        while (str.length % 4) str += '=';
+        return decodeURIComponent(atob(str).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+      }
+
+      function decodeJWT() {
+        const raw = input.value.trim();
+        if (!raw) {
+          headerOut.textContent = "{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}";
+          payloadOut.textContent = "{\n  \"sub\": \"...\"\n}";
+          sigOut.textContent = "Awaiting token...";
+          statusBanner.style.display = "none";
+          return;
+        }
+
+        const parts = raw.split('.');
+        if (parts.length !== 3) {
+          statusBanner.style.display = "block";
+          statusBanner.style.background = "rgba(239, 68, 68, 0.15)";
+          statusBanner.style.color = "var(--accent-danger)";
+          statusBanner.style.border = "1px solid var(--accent-danger)";
+          statusBanner.textContent = "⚠️ Invalid JWT: A standard JSON Web Token must contain exactly 3 dot-separated segments.";
+          return;
+        }
+
+        try {
+          const headerObj = JSON.parse(b64UrlDecode(parts[0]));
+          const payloadObj = JSON.parse(b64UrlDecode(parts[1]));
+
+          headerOut.textContent = JSON.stringify(headerObj, null, 2);
+          payloadOut.textContent = JSON.stringify(payloadObj, null, 2);
+          sigOut.textContent = parts[2];
+
+          // Check expiration
+          statusBanner.style.display = "block";
+          if (payloadObj.exp) {
+            const expDate = new Date(payloadObj.exp * 1000);
+            const now = new Date();
+            if (expDate < now) {
+              statusBanner.style.background = "rgba(239, 68, 68, 0.15)";
+              statusBanner.style.color = "var(--accent-danger)";
+              statusBanner.style.border = "1px solid var(--accent-danger)";
+              statusBanner.textContent = `❌ Token Expired on: ${expDate.toLocaleString()} (${Math.round((now - expDate) / 86400000)} days ago)`;
+            } else {
+              statusBanner.style.background = "rgba(16, 185, 129, 0.15)";
+              statusBanner.style.color = "var(--accent-success)";
+              statusBanner.style.border = "1px solid var(--accent-success)";
+              statusBanner.textContent = `✅ Token Valid! Expires on: ${expDate.toLocaleString()}`;
+            }
+          } else {
+            statusBanner.style.background = "rgba(79, 70, 229, 0.15)";
+            statusBanner.style.color = "var(--accent-primary)";
+            statusBanner.style.border = "1px solid var(--accent-primary)";
+            statusBanner.textContent = "ℹ️ Token Decoded Successfully (No expiration `exp` claim specified).";
+          }
+        } catch (e) {
+          statusBanner.style.display = "block";
+          statusBanner.style.background = "rgba(239, 68, 68, 0.15)";
+          statusBanner.style.color = "var(--accent-danger)";
+          statusBanner.style.border = "1px solid var(--accent-danger)";
+          statusBanner.textContent = "⚠️ Error parsing Base64 / JSON payload: " + e.message;
+        }
+      }
+
+      input.addEventListener("input", decodeJWT);
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = SAMPLE_JWT;
+        decodeJWT();
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        decodeJWT();
+      });
+
+      input.value = SAMPLE_JWT;
+      decodeJWT();
+    });
+  </script>
+</body>
+</html>

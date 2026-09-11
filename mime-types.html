@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIME Types & File Extensions Directory | WebToolsHub</title>
+  <meta name="description" content="Searchable MIME types and file extensions directory. Find HTTP Content-Type headers for web development, API responses, image formats, and fonts.">
+  <meta name="keywords" content="mime types directory, content-type headers, file extension mime types, iana media types, http mime types list">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/mime-types.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/mime-types.html">
+  <meta property="og:title" content="MIME Types & File Extensions Directory | WebToolsHub">
+  <meta property="og:description" content="Searchable MIME types and file extensions directory. Find HTTP Content-Type headers for web development, API responses, image formats, and fonts.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/mime-types.html">
+  <meta name="twitter:title" content="MIME Types & File Extensions Directory | WebToolsHub">
+  <meta name="twitter:description" content="Searchable MIME types and file extensions directory. Find HTTP Content-Type headers for web development, API responses, image formats, and fonts.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MIME Types Directory",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Comprehensive lookup index of standard MIME media types and associated file extensions."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>MIME Types</span>
+      </nav>
+      <h1 class="tool-page-title">MIME Types & File Extensions Directory</h1>
+      <p class="tool-page-subtitle">Lookup standard HTTP Content-Type headers, IANA media formats, and matching file extensions.</p>
+      <div class="privacy-badge">📑 IANA Standards Database</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- File Inspector Drop Zone -->
+        <div style="background: var(--bg-surface); border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; margin-bottom: 1.5rem; cursor: pointer;" onclick="document.getElementById('file-picker').click()">
+          <input type="file" id="file-picker" style="display: none;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">Drop any file or click to detect its MIME type</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary);">Instant local inspection without server upload</div>
+          <div id="detected-result" style="display: none; margin-top: 1rem; background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-family: monospace; font-weight: 700; color: var(--accent-primary);"></div>
+        </div>
+
+        <!-- Search Bar & Filters -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <label class="form-label" style="font-weight: 700;">Search by Extension or MIME Content-Type:</label>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <input type="text" id="mime-search-input" class="form-control" placeholder="e.g. .json, image/webp, pdf, application/xml, woff2..." style="flex-grow: 1; min-width: 260px;">
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Category:</span>
+            <button type="button" class="filter-pill active" onclick="filterMimeCat('all')">All Types</button>
+            <button type="button" class="filter-pill" onclick="filterMimeCat('application')">Application</button>
+            <button type="button" class="filter-pill" onclick="filterMimeCat('image')">Images</button>
+            <button type="button" class="filter-pill" onclick="filterMimeCat('text')">Text / Code</button>
+            <button type="button" class="filter-pill" onclick="filterMimeCat('audio')">Audio</button>
+            <button type="button" class="filter-pill" onclick="filterMimeCat('video')">Video</button>
+            <button type="button" class="filter-pill" onclick="filterMimeCat('font')">Fonts</button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+            <thead>
+              <tr style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-color);">
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">Extension</th>
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">MIME Type (Content-Type)</th>
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">Description</th>
+                <th style="padding: 0.85rem 1rem; text-align: right; font-weight: 700;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="mime-table-body">
+              <!-- Dynamically generated rows -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Developer Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="base64-encoder-decoder.html"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="html-entity-encoder.html"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a></li>
+            <li><a href="css-minifier.html"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a></li>
+            <li><a href="js-minifier.html"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What is the correct MIME type for JSON?</h3>
+        <p>The official standard MIME type for JSON files and API payloads is <code>application/json</code> (defined in RFC 8259).</p>
+      </div>
+      <div class="faq-item">
+        <h3>What happens if a web server returns an incorrect Content-Type?</h3>
+        <p>Browsers may fail to render styles (CSS), refuse to execute JavaScript files due to CORS/strict MIME checking, or attempt to force a file download instead of displaying images.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const mimeDb = [
+      { ext: '.json', mime: 'application/json', cat: 'application', desc: 'JavaScript Object Notation format' },
+      { ext: '.pdf', mime: 'application/pdf', cat: 'application', desc: 'Adobe Portable Document Format' },
+      { ext: '.zip', mime: 'application/zip', cat: 'application', desc: 'ZIP compressed archive' },
+      { ext: '.tar.gz', mime: 'application/gzip', cat: 'application', desc: 'GZip compressed archive' },
+      { ext: '.xml', mime: 'application/xml', cat: 'application', desc: 'Extensible Markup Language' },
+      { ext: '.wasm', mime: 'application/wasm', cat: 'application', desc: 'WebAssembly binary format' },
+      { ext: '.pdf', mime: 'application/pdf', cat: 'application', desc: 'Portable Document Format' },
+
+      { ext: '.png', mime: 'image/png', cat: 'image', desc: 'Portable Network Graphics lossless image' },
+      { ext: '.jpg / .jpeg', mime: 'image/jpeg', cat: 'image', desc: 'JPEG photographic image' },
+      { ext: '.webp', mime: 'image/webp', cat: 'image', desc: 'Google WebP modern web image' },
+      { ext: '.avif', mime: 'image/avif', cat: 'image', desc: 'AV1 Image File Format next-gen compression' },
+      { ext: '.gif', mime: 'image/gif', cat: 'image', desc: 'Graphics Interchange Format animated image' },
+      { ext: '.svg', mime: 'image/svg+xml', cat: 'image', desc: 'Scalable Vector Graphics' },
+      { ext: '.ico', mime: 'image/vnd.microsoft.icon', cat: 'image', desc: 'Favicon Windows Icon file' },
+
+      { ext: '.html / .htm', mime: 'text/html', cat: 'text', desc: 'Hypertext Markup Language' },
+      { ext: '.css', mime: 'text/css', cat: 'text', desc: 'Cascading Style Sheets' },
+      { ext: '.js / .mjs', mime: 'text/javascript', cat: 'text', desc: 'JavaScript programming code' },
+      { ext: '.txt', mime: 'text/plain', cat: 'text', desc: 'Plain unformatted text file' },
+      { ext: '.csv', mime: 'text/csv', cat: 'text', desc: 'Comma-Separated Values tabular sheet' },
+      { ext: '.md', mime: 'text/markdown', cat: 'text', desc: 'Markdown documentation file' },
+
+      { ext: '.mp3', mime: 'audio/mpeg', cat: 'audio', desc: 'MP3 digital audio file' },
+      { ext: '.wav', mime: 'audio/wav', cat: 'audio', desc: 'Waveform uncompressed audio' },
+      { ext: '.ogg', mime: 'audio/ogg', cat: 'audio', desc: 'Ogg Vorbis audio container' },
+      { ext: '.aac', mime: 'audio/aac', cat: 'audio', desc: 'Advanced Audio Coding' },
+
+      { ext: '.mp4', mime: 'video/mp4', cat: 'video', desc: 'MPEG-4 Part 14 video container' },
+      { ext: '.webm', mime: 'video/webm', cat: 'video', desc: 'WebM open web video format' },
+      { ext: '.mov', mime: 'video/quicktime', cat: 'video', desc: 'Apple QuickTime movie' },
+      { ext: '.avi', mime: 'video/x-msvideo', cat: 'video', desc: 'Audio Video Interleave file' },
+
+      { ext: '.woff2', mime: 'font/woff2', cat: 'font', desc: 'Web Open Font Format 2.0 (Modern)' },
+      { ext: '.woff', mime: 'font/woff', cat: 'font', desc: 'Web Open Font Format 1.0' },
+      { ext: '.ttf', mime: 'font/ttf', cat: 'font', desc: 'TrueType vector font' },
+      { ext: '.otf', mime: 'font/otf', cat: 'font', desc: 'OpenType vector font' }
+    ];
+
+    let activeMimeCat = 'all';
+
+    function renderMimeTable() {
+      const q = document.getElementById('mime-search-input').value.toLowerCase().trim();
+      const tbody = document.getElementById('mime-table-body');
+      tbody.innerHTML = '';
+
+      const filtered = mimeDb.filter(item => {
+        const matchesCat = activeMimeCat === 'all' || item.cat === activeMimeCat;
+        const matchesQuery = !q ||
+          item.ext.toLowerCase().includes(q) ||
+          item.mime.toLowerCase().includes(q) ||
+          item.desc.toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="padding: 2rem; text-align: center; color: var(--text-secondary);">No MIME types matched your query.</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(m => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border-color)';
+
+        tr.innerHTML = `
+          <td style="padding: 0.75rem 1rem; font-family: monospace; font-weight: 700; color: var(--accent-primary);">${m.ext}</td>
+          <td style="padding: 0.75rem 1rem; font-family: monospace; font-weight: 600;">${m.mime}</td>
+          <td style="padding: 0.75rem 1rem; color: var(--text-secondary); font-size: 0.85rem;">${m.desc}</td>
+          <td style="padding: 0.75rem 1rem; text-align: right;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyMime('${m.mime}')">Copy</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function copyMime(val) {
+      copyToClipboard(val, `Copied "${val}" to clipboard!`);
+    }
+
+    function filterMimeCat(cat) {
+      activeMimeCat = cat;
+      const pills = document.querySelectorAll('.filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      renderMimeTable();
+    }
+
+    document.getElementById('mime-search-input').addEventListener('input', renderMimeTable);
+
+    // File picker detector
+    document.getElementById('file-picker').addEventListener('change', (e) => {
+      if (e.target.files && e.target.files.length > 0) {
+        const file = e.target.files[0];
+        const resBox = document.getElementById('detected-result');
+        resBox.style.display = 'block';
+        resBox.innerHTML = `
+          <div>File: <strong>${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)</div>
+          <div style="margin-top: 0.25rem;">Detected MIME: <span style="color: var(--accent-primary);">${file.type || 'application/octet-stream (Generic)'}</span></div>
+        `;
+      }
+    });
+
+    renderMimeTable();
+  </script>
+</body>
+</html>

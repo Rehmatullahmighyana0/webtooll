@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WCAG Color Contrast Checker | WebToolsHub</title>
+  <meta name="description" content="Free WCAG 2.1 color contrast checker. Test foreground & background colors for AA and AAA accessibility compliance across normal text, large text, and UI.">
+  <meta name="keywords" content="contrast checker, color contrast ratio, wcag contrast checker, color accessibility checker, wcag 2.1 aa aaa">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/contrast-checker.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/contrast-checker.html">
+  <meta property="og:title" content="WCAG Color Contrast Checker | WebToolsHub">
+  <meta property="og:description" content="Free WCAG 2.1 color contrast checker. Test foreground & background colors for AA and AAA accessibility compliance across normal text, large text, and UI.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/contrast-checker.html">
+  <meta name="twitter:title" content="WCAG Color Contrast Checker | WebToolsHub">
+  <meta name="twitter:description" content="Free WCAG 2.1 color contrast checker. Test foreground & background colors for AA and AAA accessibility compliance across normal text, large text, and UI.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Color Contrast Checker",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate WCAG color contrast ratio and evaluate web accessibility standards compliance."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Design Tools</span> &gt; <span>Contrast Checker</span>
+      </nav>
+      <h1 class="tool-page-title">WCAG Color Contrast Checker</h1>
+      <p class="tool-page-subtitle">Test foreground and background color combinations for WCAG 2.1 AA and AAA accessibility compliance.</p>
+      <div class="privacy-badge">♿ WCAG 2.1 Standards</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Color Pickers Grid -->
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+          
+          <!-- Text / Foreground Color -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+            <label class="form-label" style="font-weight: 700;">Text / Foreground Color</label>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <input type="color" id="fg-color" value="#0f172a" style="width: 50px; height: 42px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer; padding: 2px; background: transparent;">
+              <input type="text" id="fg-hex" class="form-control" value="#0F172A" maxlength="7" style="font-family: monospace; font-weight: 700; text-transform: uppercase;">
+            </div>
+          </div>
+
+          <!-- Swap Button -->
+          <button type="button" id="btn-swap-colors" class="btn btn-secondary" style="height: 44px; width: 44px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; align-self: center;" title="Swap Colors">
+            ⇄
+          </button>
+
+          <!-- Background Color -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+            <label class="form-label" style="font-weight: 700;">Background Color</label>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <input type="color" id="bg-color" value="#ffffff" style="width: 50px; height: 42px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer; padding: 2px; background: transparent;">
+              <input type="text" id="bg-hex" class="form-control" value="#FFFFFF" maxlength="7" style="font-family: monospace; font-weight: 700; text-transform: uppercase;">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contrast Score Hero Card -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 700;">Contrast Ratio</div>
+          <div id="ratio-display" style="font-size: 3.5rem; font-weight: 900; line-height: 1; color: var(--accent-primary); margin-bottom: 0.5rem;">16.1 : 1</div>
+          <div id="ratio-badge-overall" class="badge-pass" style="font-size: 1rem; padding: 0.35rem 1rem;">Very High Contrast - AAA Pass</div>
+        </div>
+
+        <!-- WCAG Compliance Matrix Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700; font-size: 0.9rem;">Normal Text (AA)</span>
+              <span id="badge-norm-aa" class="badge-pass">PASS</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Requires minimum ratio 4.5:1</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700; font-size: 0.9rem;">Normal Text (AAA)</span>
+              <span id="badge-norm-aaa" class="badge-pass">PASS</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Requires minimum ratio 7.0:1</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700; font-size: 0.9rem;">Large Text (AA)</span>
+              <span id="badge-lg-aa" class="badge-pass">PASS</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Requires min 3.0:1 (18pt / 14pt bold)</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700; font-size: 0.9rem;">Large Text (AAA)</span>
+              <span id="badge-lg-aaa" class="badge-pass">PASS</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Requires minimum ratio 4.5:1</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700; font-size: 0.9rem;">UI Components</span>
+              <span id="badge-ui" class="badge-pass">PASS</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Requires minimum ratio 3.0:1</div>
+          </div>
+
+        </div>
+
+        <!-- Live Sample Preview Stage -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1rem; margin-bottom: 1rem;">Live Typography & UI Preview</h3>
+          <div id="preview-box" style="padding: 2rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); transition: all 0.2s;">
+            <h2 id="preview-heading" style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.75rem; font-weight: 800;">Accessible Design Matters</h2>
+            <p id="preview-text" style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+              Web accessibility ensures that websites, tools, and technologies are designed and developed so that people with disabilities can use them. High contrast ensures readability for low vision, aging eyes, and screens in bright sunlight.
+            </p>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <button id="preview-btn" type="button" style="padding: 0.6rem 1.2rem; font-weight: 600; border-radius: var(--radius-sm); cursor: pointer; border: 2px solid currentColor; background: transparent;">Interactive Button</button>
+              <span id="preview-subtext" style="font-size: 0.85rem;">14pt Small UI Label Sample</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Accessible Palettes -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.75rem;">Preset Accessible Pairs:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="filter-pill" onclick="applyColors('#0F172A', '#FFFFFF')">Dark Navy on White</button>
+            <button type="button" class="filter-pill" onclick="applyColors('#FFFFFF', '#1E293B')">White on Slate</button>
+            <button type="button" class="filter-pill" onclick="applyColors('#000000', '#F59E0B')">Black on Amber</button>
+            <button type="button" class="filter-pill" onclick="applyColors('#0284C7', '#F0F9FF')">Sky Blue on Cloud</button>
+            <button type="button" class="filter-pill" onclick="applyColors('#15803D', '#F0FDF4')">Forest Green on Mint</button>
+            <button type="button" class="filter-pill" onclick="applyColors('#FFFFFF', '#4F46E5')">White on Indigo</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Design Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="color-picker.html"><span>🎨 Color Picker & Palette Converter</span><span class="badge-mini">Design</span></a></li>
+            <li><a href="image-color-extractor.html"><span>🎨 Image Color Extractor & Palette</span><span class="badge-mini">Palette</span></a></li>
+            <li><a href="css-box-shadow-generator.html"><span>📦 CSS Box Shadow Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="css-gradient-generator.html"><span>🌈 CSS Gradient Generator</span><span class="badge-mini">CSS</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What is the minimum contrast ratio for WCAG AA compliance?</h3>
+        <p>WCAG AA requires a minimum contrast ratio of 4.5:1 for normal body text (under 18pt or bold under 14pt) and 3:1 for large text (18pt and larger, or bold 14pt and larger) and non-text UI components.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How is the contrast ratio calculated?</h3>
+        <p>The contrast ratio is calculated using relative luminance: (L1 + 0.05) / (L2 + 0.05), where L1 is the relative luminance of the lighter color and L2 is the relative luminance of the darker color, yielding values from 1:1 up to 21:1.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const fgColor = document.getElementById('fg-color');
+    const fgHex = document.getElementById('fg-hex');
+    const bgColor = document.getElementById('bg-color');
+    const bgHex = document.getElementById('bg-hex');
+    const ratioDisplay = document.getElementById('ratio-display');
+    const ratioBadgeOverall = document.getElementById('ratio-badge-overall');
+    const previewBox = document.getElementById('preview-box');
+    const previewHeading = document.getElementById('preview-heading');
+    const previewText = document.getElementById('preview-text');
+    const previewBtn = document.getElementById('preview-btn');
+    const previewSubtext = document.getElementById('preview-subtext');
+
+    function hexToRgb(hex) {
+      hex = hex.replace(/^#/, '');
+      if (hex.length === 3) {
+        hex = hex.split('').map(c => c + c).join('');
+      }
+      const num = parseInt(hex, 16);
+      if (isNaN(num)) return null;
+      return {
+        r: (num >> 16) & 255,
+        g: (num >> 8) & 255,
+        b: num & 255
+      };
+    }
+
+    function getLuminance(r, g, b) {
+      const a = [r, g, b].map(v => {
+        v /= 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+    }
+
+    function calculateRatio(c1, c2) {
+      const l1 = getLuminance(c1.r, c1.g, c1.b);
+      const l2 = getLuminance(c2.r, c2.g, c2.b);
+      const lighter = Math.max(l1, l2);
+      const darker = Math.min(l1, l2);
+      return (lighter + 0.05) / (darker + 0.05);
+    }
+
+    function setBadge(el, pass) {
+      if (pass) {
+        el.className = 'badge-pass';
+        el.textContent = 'PASS';
+      } else {
+        el.className = 'badge-fail';
+        el.textContent = 'FAIL';
+      }
+    }
+
+    function update() {
+      const fg = hexToRgb(fgHex.value);
+      const bg = hexToRgb(bgHex.value);
+
+      if (!fg || !bg) return;
+
+      const ratio = calculateRatio(fg, bg);
+      const rounded = Math.round(ratio * 100) / 100;
+      ratioDisplay.textContent = `${rounded} : 1`;
+
+      const normAA = ratio >= 4.5;
+      const normAAA = ratio >= 7.0;
+      const lgAA = ratio >= 3.0;
+      const lgAAA = ratio >= 4.5;
+      const uiComp = ratio >= 3.0;
+
+      setBadge(document.getElementById('badge-norm-aa'), normAA);
+      setBadge(document.getElementById('badge-norm-aaa'), normAAA);
+      setBadge(document.getElementById('badge-lg-aa'), lgAA);
+      setBadge(document.getElementById('badge-lg-aaa'), lgAAA);
+      setBadge(document.getElementById('badge-ui'), uiComp);
+
+      if (normAAA) {
+        ratioBadgeOverall.className = 'badge-pass';
+        ratioBadgeOverall.textContent = 'Superb Contrast - AAA Compliant';
+      } else if (normAA) {
+        ratioBadgeOverall.className = 'badge-pass';
+        ratioBadgeOverall.textContent = 'Good Contrast - AA Compliant';
+      } else if (lgAA) {
+        ratioBadgeOverall.className = 'badge-fail';
+        ratioBadgeOverall.textContent = 'Low Contrast - Large Text Only';
+      } else {
+        ratioBadgeOverall.className = 'badge-fail';
+        ratioBadgeOverall.textContent = 'Fails WCAG Standards';
+      }
+
+      // Live stage
+      previewBox.style.backgroundColor = bgHex.value;
+      previewBox.style.color = fgHex.value;
+      previewHeading.style.color = fgHex.value;
+      previewText.style.color = fgHex.value;
+      previewBtn.style.color = fgHex.value;
+      previewBtn.style.borderColor = fgHex.value;
+      previewSubtext.style.color = fgHex.value;
+    }
+
+    fgColor.addEventListener('input', (e) => {
+      fgHex.value = e.target.value.toUpperCase();
+      update();
+    });
+    fgHex.addEventListener('input', (e) => {
+      let v = e.target.value;
+      if (!v.startsWith('#')) v = '#' + v;
+      if (/^#[0-9A-Fa-f]{6}$/.test(v)) {
+        fgColor.value = v;
+        update();
+      }
+    });
+
+    bgColor.addEventListener('input', (e) => {
+      bgHex.value = e.target.value.toUpperCase();
+      update();
+    });
+    bgHex.addEventListener('input', (e) => {
+      let v = e.target.value;
+      if (!v.startsWith('#')) v = '#' + v;
+      if (/^#[0-9A-Fa-f]{6}$/.test(v)) {
+        bgColor.value = v;
+        update();
+      }
+    });
+
+    document.getElementById('btn-swap-colors').addEventListener('click', () => {
+      const curFg = fgHex.value;
+      const curBg = bgHex.value;
+      fgHex.value = curBg;
+      fgColor.value = curBg;
+      bgHex.value = curFg;
+      bgColor.value = curFg;
+      update();
+    });
+
+    function applyColors(fg, bg) {
+      fgHex.value = fg;
+      fgColor.value = fg;
+      bgHex.value = bg;
+      bgColor.value = bg;
+      update();
+    }
+
+    update();
+  </script>
+</body>
+</html>

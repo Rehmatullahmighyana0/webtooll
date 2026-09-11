@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 to Image & Image to Base64 Converter | WebToolsHub</title>
+  <meta name="description" content="Convert images into Base64 data URI strings for CSS and HTML embeds, or decode Base64 strings into downloadable PNG and JPG picture files. 100% private.">
+  <meta name="keywords" content="image to base64, base64 to image, base64 image decoder, data uri generator, embed image in css">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/base64-image-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/base64-image-converter.html">
+  <meta property="og:title" content="Base64 to Image & Image to Base64 Converter | WebToolsHub">
+  <meta property="og:description" content="Convert images into Base64 data URI strings for CSS and HTML embeds, or decode Base64 strings into downloadable PNG and JPG picture files. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/base64-image-converter.html">
+  <meta name="twitter:title" content="Base64 to Image & Image to Base64 Converter | WebToolsHub">
+  <meta name="twitter:description" content="Convert images into Base64 data URI strings for CSS and HTML embeds, or decode Base64 strings into downloadable PNG and JPG picture files. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Base64 Image Converter",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Bidirectional conversion between images and Base64 Data URI strings."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Image Tools</span> &gt; <span>Base64 Image Converter</span>
+      </nav>
+      <h1 class="tool-page-title">Base64 to Image & Image to Base64</h1>
+      <p class="tool-page-subtitle">Convert PNG, JPG, and SVG graphics into Data URI strings for inline CSS/HTML, or decode raw Base64 data back into image files.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+          <button class="filter-pill active" id="tab-img-to-b64">Image &rarr; Base64</button>
+          <button class="filter-pill" id="tab-b64-to-img">Base64 &rarr; Image</button>
+        </div>
+
+        <!-- Mode 1: Image to Base64 -->
+        <div id="section-img-to-b64">
+          <div class="upload-dropzone" id="b64-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🖼️ &rarr; 🔣</div>
+            <h3 style="margin-bottom: 0.25rem;">Choose an image to encode</h3>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Supports PNG, JPEG, SVG, GIF, and WebP</p>
+            <input type="file" id="b64-file-in" accept="image/*" style="display: none;">
+          </div>
+
+          <div id="b64-out-box" style="display: none;">
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <label class="form-label" style="margin-bottom: 0;">Base64 Data URI:</label>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary btn-sm" id="btn-copy-raw">Copy Base64</button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-css">Copy CSS Tag</button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-img-tag">Copy &lt;img&gt; Tag</button>
+                </div>
+              </div>
+              <textarea id="b64-data-uri" class="form-textarea" readonly style="min-height: 200px; font-family: monospace; font-size: 0.85rem; word-break: break-all;"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode 2: Base64 to Image -->
+        <div id="section-b64-to-img" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="b64-input-string">Paste Base64 or Data URI string:</label>
+            <textarea id="b64-input-string" class="form-textarea" style="min-height: 180px; font-family: monospace; font-size: 0.85rem;" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="></textarea>
+          </div>
+
+          <button type="button" id="btn-decode-b64" class="btn btn-primary" style="margin-bottom: 1.5rem;">🔍 Decode to Image</button>
+
+          <div id="decoded-img-card" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <img id="decoded-img-preview" style="max-height: 260px; max-width: 100%; object-fit: contain; border-radius: 4px; border: 1px solid var(--border-color); padding: 4px; background: #fff;" alt="Decoded preview">
+            </div>
+            <a id="btn-download-decoded" class="btn btn-primary" download="decoded-image.png">📥 Download Image</a>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Images Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="image-compressor.html"><span>🖼️ Image Compressor</span><span class="badge-mini">Popular</span></a></li>
+            <li><a href="svg-to-png.html"><span>🖼️ SVG to PNG Converter</span><span class="badge-mini">Graphics</span></a></li>
+            <li><a href="favicon-generator.html"><span>⭐ Favicon Generator & Icon Maker</span><span class="badge-mini">Brand</span></a></li>
+            <li><a href="image-resizer.html"><span>📐 Image Resizer</span><span class="badge-mini">Images</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Inlining Images with Base64 Data URIs</h2>
+      <p>Embedding icons and small images directly into CSS stylesheets or HTML documents eliminates separate HTTP round-trip requests. This is ideal for critical above-the-fold icons, single-file email marketing newsletters, and offline progressive web apps.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabI2B = document.getElementById("tab-img-to-b64");
+      const tabB2I = document.getElementById("tab-b64-to-img");
+      const secI2B = document.getElementById("section-img-to-b64");
+      const secB2I = document.getElementById("section-b64-to-img");
+
+      const dropzone = document.getElementById("b64-dropzone");
+      const fileInput = document.getElementById("b64-file-in");
+      const outBox = document.getElementById("b64-out-box");
+      const dataUriText = document.getElementById("b64-data-uri");
+
+      const b64InputString = document.getElementById("b64-input-string");
+      const btnDecode = document.getElementById("btn-decode-b64");
+      const decodedCard = document.getElementById("decoded-img-card");
+      const decodedPreview = document.getElementById("decoded-img-preview");
+      const btnDlDecoded = document.getElementById("btn-download-decoded");
+
+      tabI2B.addEventListener("click", () => {
+        tabI2B.classList.add("active");
+        tabB2I.classList.remove("active");
+        secI2B.style.display = "block";
+        secB2I.style.display = "none";
+      });
+
+      tabB2I.addEventListener("click", () => {
+        tabB2I.classList.add("active");
+        tabI2B.classList.remove("active");
+        secB2I.style.display = "block";
+        secI2B.style.display = "none";
+      });
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) encodeImage(e.dataTransfer.files[0]);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) encodeImage(e.target.files[0]);
+      });
+
+      function encodeImage(file) {
+        if (!file.type.startsWith("image/")) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          dataUriText.value = ev.target.result;
+          outBox.style.display = "block";
+          outBox.scrollIntoView({ behavior: 'smooth' });
+        };
+        reader.readAsDataURL(file);
+      }
+
+      document.getElementById("btn-copy-raw").addEventListener("click", () => {
+        copyToClipboard(dataUriText.value, "Base64 URI copied!");
+      });
+
+      document.getElementById("btn-copy-css").addEventListener("click", () => {
+        copyToClipboard(`background-image: url("${dataUriText.value}");`, "CSS background snippet copied!");
+      });
+
+      document.getElementById("btn-copy-img-tag").addEventListener("click", () => {
+        copyToClipboard(`<img src="${dataUriText.value}" alt="Embedded Image" />`, "HTML <img> tag copied!");
+      });
+
+      btnDecode.addEventListener("click", () => {
+        let str = b64InputString.value.trim();
+        if (!str) return;
+
+        if (!str.startsWith("data:image")) {
+          // Prepend data:image/png;base64,
+          str = "data:image/png;base64," + str;
+        }
+
+        decodedPreview.src = str;
+        btnDlDecoded.href = str;
+        decodedCard.style.display = "block";
+        decodedCard.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robots.txt Generator & SEO Crawler Directives Builder | WebToolsHub</title>
+  <meta name="description" content="Generate a clean, SEO-optimized robots.txt file. Set crawler rules for Googlebot, Bingbot, AI bots, block sensitive paths, and link your XML sitemap.">
+  <meta name="keywords" content="robots txt generator, create robots.txt, robots.txt builder, seo crawler directives, block googlebot, sitemap robots.txt">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/robots-txt-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/robots-txt-generator.html">
+  <meta property="og:title" content="Robots.txt Generator & SEO Crawler Directives Builder | WebToolsHub">
+  <meta property="og:description" content="Generate a clean, SEO-optimized robots.txt file. Set crawler rules for Googlebot, Bingbot, AI bots, block sensitive paths, and link your XML sitemap.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/robots-txt-generator.html">
+  <meta name="twitter:title" content="Robots.txt Generator & SEO Crawler Directives Builder | WebToolsHub">
+  <meta name="twitter:description" content="Generate a clean, SEO-optimized robots.txt file. Set crawler rules for Googlebot, Bingbot, AI bots, block sensitive paths, and link your XML sitemap.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Robots.txt Generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Visual builder for robots.txt crawler directives and search engine indexing rules."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>SEO & Web Tools</span> &gt; <span>Robots.txt Generator</span>
+      </nav>
+      <h1 class="tool-page-title">Robots.txt Generator & Directives Builder</h1>
+      <p class="tool-page-subtitle">Configure search engine bot access, restrict sensitive admin folders, define crawl delays, and declare your XML sitemap URL.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          
+          <!-- Configuration Form -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Crawler Permissions</h3>
+
+            <!-- Default Access -->
+            <div class="form-group">
+              <label class="form-label" for="default-policy">Default Policy for All Bots (*):</label>
+              <select id="default-policy" class="form-select">
+                <option value="allow" selected>Allow All Web Crawlers</option>
+                <option value="disallow">Disallow / Block All Crawlers</option>
+              </select>
+            </div>
+
+            <!-- Crawl delay -->
+            <div class="form-group">
+              <label class="form-label" for="crawl-delay">Crawl-Delay (Seconds, optional):</label>
+              <input type="number" id="crawl-delay" class="form-input" placeholder="No delay" min="1" max="60">
+            </div>
+
+            <!-- XML Sitemap -->
+            <div class="form-group">
+              <label class="form-label" for="sitemap-url">Sitemap URL:</label>
+              <input type="url" id="sitemap-url" class="form-input" placeholder="https://example.com/sitemap.xml" value="https://example.com/sitemap.xml">
+            </div>
+
+            <!-- Restricted Folders -->
+            <div class="form-group">
+              <label class="form-label" for="disallow-paths">Disallowed Paths (one per line):</label>
+              <textarea id="disallow-paths" class="form-textarea" style="min-height: 100px; font-family: monospace; font-size: 0.85rem;" placeholder="/admin/&#10;/private/&#10;/tmp/">/admin/&#10;/private/</textarea>
+            </div>
+
+            <!-- Allowed Folders -->
+            <div class="form-group">
+              <label class="form-label" for="allow-paths">Allowed Paths (exceptions to disallow):</label>
+              <textarea id="allow-paths" class="form-textarea" style="min-height: 80px; font-family: monospace; font-size: 0.85rem;" placeholder="/admin/public.php&#10;/public/"></textarea>
+            </div>
+
+            <!-- Special Bots -->
+            <div class="form-group">
+              <label class="form-label">Search Engine Bots Included:</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.875rem;">
+                <label><input type="checkbox" id="bot-google" checked> Googlebot</label>
+                <label><input type="checkbox" id="bot-bing" checked> Bingbot</label>
+                <label><input type="checkbox" id="bot-gpt" checked> GPTBot (AI)</label>
+                <label><input type="checkbox" id="bot-duck" checked> DuckDuckBot</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview & Export -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" style="margin-bottom: 0; font-weight: 700;">robots.txt Output:</label>
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+                <button type="button" class="btn btn-primary btn-sm" id="btn-download">Download robots.txt</button>
+              </div>
+            </div>
+            <textarea id="robots-output" class="form-textarea" readonly style="min-height: 480px; font-family: monospace; font-size: 0.9rem; background: var(--bg-surface);"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related SEO & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Best Practices for robots.txt Configuration</h2>
+      <p>The <code>robots.txt</code> file sits in the root directory of your domain (e.g., <code>https://example.com/robots.txt</code>) to inform web robots about which pages they may or may not crawl. It protects server resources from being overwhelmed and prevents search engines from indexing sensitive backend or internal paths.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const policySelect = document.getElementById("default-policy");
+      const delayInput = document.getElementById("crawl-delay");
+      const sitemapInput = document.getElementById("sitemap-url");
+      const disallowInput = document.getElementById("disallow-paths");
+      const allowInput = document.getElementById("allow-paths");
+      const output = document.getElementById("robots-output");
+
+      function generateRobots() {
+        let txt = "# robots.txt generated by WebToolsHub\n\n";
+
+        // Global rule
+        txt += "User-agent: *\n";
+        if (policySelect.value === "disallow") {
+          txt += "Disallow: /\n";
+        } else {
+          txt += "Disallow:\n";
+        }
+
+        const disallows = disallowInput.value.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+        disallows.forEach(p => {
+          txt += `Disallow: ${p.startsWith('/') ? '' : '/'}${p}\n`;
+        });
+
+        const allows = allowInput.value.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+        allows.forEach(p => {
+          txt += `Allow: ${p.startsWith('/') ? '' : '/'}${p}\n`;
+        });
+
+        const delay = parseInt(delayInput.value, 10);
+        if (!isNaN(delay) && delay > 0) {
+          txt += `Crawl-delay: ${delay}\n`;
+        }
+
+        txt += "\n";
+
+        // AI Bot directive
+        if (document.getElementById("bot-gpt").checked) {
+          txt += "User-agent: GPTBot\nDisallow: /\n\n";
+        }
+
+        const sitemap = sitemapInput.value.trim();
+        if (sitemap) {
+          txt += `Sitemap: ${sitemap}\n`;
+        }
+
+        output.value = txt;
+      }
+
+      [policySelect, delayInput, sitemapInput, disallowInput, allowInput].forEach(el => {
+        el.addEventListener("input", generateRobots);
+      });
+      document.querySelectorAll("input[type=checkbox]").forEach(el => el.addEventListener("change", generateRobots));
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "robots.txt content copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        const blob = new Blob([output.value], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "robots.txt";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      generateRobots();
+    });
+  </script>
+</body>
+</html>

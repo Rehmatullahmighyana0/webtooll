@@ -1,0 +1,700 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Word Counter & Character Analyzer | WebToolsHub</title>
+  <meta name="description" content="Count words, characters, sentences, paragraphs, reading time, and keyword density in real-time. Free online word counter for essays, articles, and SEO copy.">
+  <meta name="keywords" content="word counter, character counter, word count tool, sentence counter, reading time calculator, keyword density">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/word-counter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/word-counter.html">
+  <meta property="og:title" content="Free Online Word Counter & Character Analyzer | WebToolsHub">
+  <meta property="og:description" content="Count words, characters, sentences, paragraphs, reading time, and keyword density in real-time. Free online word counter for essays, articles, and SEO copy.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/word-counter.html">
+  <meta name="twitter:title" content="Free Online Word Counter & Character Analyzer | WebToolsHub">
+  <meta name="twitter:description" content="Count words, characters, sentences, paragraphs, reading time, and keyword density in real-time. Free online word counter for essays, articles, and SEO copy.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Word Counter & Analyzer",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Calculate word counts, characters, sentences, reading time and keyword density online in real time."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>Word Counter</span>
+      </nav>
+      <h1 class="tool-page-title">Word Counter & Text Analyzer</h1>
+      <p class="tool-page-subtitle">Analyze your text in real time with comprehensive statistics: words, characters, sentences, reading duration, and keyword frequencies.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Top Ad Placement -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Leaderboard Ad Slot (728x90)</span>
+    </div>
+
+    <div class="tool-layout with-sidebar">
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Stat Counter Grid -->
+        <div class="stats-grid" style="margin-top: 0; margin-bottom: 1.5rem;">
+          <div class="stat-item">
+            <div class="stat-value" id="stat-words">0</div>
+            <div class="stat-label">Words</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-chars">0</div>
+            <div class="stat-label">Characters</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-chars-nospace">0</div>
+            <div class="stat-label">Chars (No Space)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-sentences">0</div>
+            <div class="stat-label">Sentences</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-paragraphs">0</div>
+            <div class="stat-label">Paragraphs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-reading-time">0 min</div>
+            <div class="stat-label">Reading Time</div>
+          </div>
+        </div>
+
+        <!-- Comprehensive Custom Editing Studio Toolbar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1rem;">
+          
+          <!-- Primary Action Buttons Row -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+              <!-- Undo / Redo -->
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-undo" title="Undo (Ctrl+Z)" disabled>↶ Undo</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-redo" title="Redo (Ctrl+Y)" disabled>↷ Redo</button>
+              
+              <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 0.25rem;"></div>
+
+              <!-- Find & Replace Toggle -->
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-find" title="Find & Replace text">
+                🔍 Find & Replace
+              </button>
+
+              <!-- Prefix / Suffix Toggle -->
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-prefix" title="Add prefix/suffix to lines">
+                ➕ Prefix / Suffix
+              </button>
+            </div>
+
+            <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+              <button type="button" id="btn-sample-text" class="btn btn-secondary btn-sm">Sample</button>
+              <button type="button" id="btn-copy-text" class="btn btn-secondary btn-sm">Copy</button>
+              <button type="button" id="btn-download-txt" class="btn btn-secondary btn-sm">Download .TXT</button>
+              <button type="button" id="btn-clear-text" class="btn btn-secondary btn-sm" style="color: #ef4444;">Clear</button>
+            </div>
+          </div>
+
+          <!-- Secondary Edit Tools: Case, Clean, Sort & Typography -->
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+            
+            <!-- Case Transformations -->
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Case:</span>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('upper')">UPPER</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('lower')">lower</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('title')">Title Case</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('sentence')">Sentence case</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('capitalize')">Capitalize</button>
+            </div>
+
+            <div style="width: 1px; height: 20px; background: var(--border-color); margin: 0 0.2rem;"></div>
+
+            <!-- Cleaning & Line Manipulation -->
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Clean & Lines:</span>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('spaces')">Strip Extra Spaces</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('blank-lines')">Remove Blank Lines</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('sort-az')">Sort A-Z</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('line-numbers')">Add 1. 2. 3.</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('strip-html')">Strip HTML</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyEdit('reverse')">Reverse</button>
+            </div>
+
+            <div style="width: 1px; height: 20px; background: var(--border-color); margin: 0 0.2rem;"></div>
+
+            <!-- Font Size & Family -->
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Font:</span>
+              <select id="editor-font-family" class="form-control" style="width: 100px; padding: 0.2rem 0.4rem; font-size: 0.8rem; height: 28px;">
+                <option value="inherit">Default</option>
+                <option value="Georgia, serif">Serif</option>
+                <option value="'JetBrains Mono', monospace">Mono</option>
+              </select>
+              <select id="editor-font-size" class="form-control" style="width: 75px; padding: 0.2rem 0.4rem; font-size: 0.8rem; height: 28px;">
+                <option value="15px" selected>15px</option>
+                <option value="17px">17px</option>
+                <option value="20px">20px</option>
+                <option value="22px">22px</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Collapsible Sub-Drawer: Find & Replace -->
+          <div id="drawer-find-replace" style="display: none; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-top: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <input type="text" id="find-query" class="form-control" placeholder="Find text..." style="flex: 1; min-width: 180px; height: 34px; font-size: 0.85rem;">
+              <input type="text" id="replace-query" class="form-control" placeholder="Replace with..." style="flex: 1; min-width: 180px; height: 34px; font-size: 0.85rem;">
+              <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap;">
+                <input type="checkbox" id="find-match-case"> Match Case
+              </label>
+              <button type="button" class="btn btn-primary btn-sm" id="btn-exec-replace-all" style="height: 34px;">Replace All</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-exec-replace-next" style="height: 34px;">Replace Next</button>
+              <span id="find-replace-status" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-primary);"></span>
+            </div>
+          </div>
+
+          <!-- Collapsible Sub-Drawer: Add Prefix / Suffix -->
+          <div id="drawer-prefix-suffix" style="display: none; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-top: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <input type="text" id="line-prefix" class="form-control" placeholder="Prefix (e.g. - or • or 1. )..." style="flex: 1; min-width: 180px; height: 34px; font-size: 0.85rem;">
+              <input type="text" id="line-suffix" class="form-control" placeholder="Suffix (e.g. , or ; )..." style="flex: 1; min-width: 180px; height: 34px; font-size: 0.85rem;">
+              <button type="button" class="btn btn-primary btn-sm" id="btn-apply-prefix-suffix" style="height: 34px;">Apply to Lines</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Main Editable Textarea -->
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <textarea id="word-counter-input" class="form-textarea" style="min-height: 320px; font-size: 15px; line-height: 1.6; border-radius: var(--radius-md);" placeholder="Start writing, editing, or paste your content here to analyze and customize..."></textarea>
+        </div>
+
+        <!-- Additional Insights: Speaking time & Keyword Density -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem;">⏱️ Speech & Reading Estimates</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.4rem;">
+              Speaking Time: <strong id="stat-speaking-time" style="color: var(--text-primary);">0 min</strong> (130 WPM)
+            </p>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.4rem;">
+              Reading Time: <strong id="stat-reading-time-detail" style="color: var(--text-primary);">0 min</strong> (200 WPM)
+            </p>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Average Word Length: <strong id="stat-avg-word-len" style="color: var(--text-primary);">0 chars</strong>
+            </p>
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem;">📊 Top Keyword Density</h4>
+            <div id="keyword-density-list" style="font-size: 0.875rem; color: var(--text-secondary);">
+              <em>Enter text to view keyword density...</em>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+            <li><a href="text-diff.html"><span>⚖️ Text & Code Diff Checker</span><span class="badge-mini">Compare</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-card">
+      <h2>Why Is Tracking Word and Character Count Critical?</h2>
+      <p>Whether you are crafting an academic essay, preparing social media copy, or writing blog posts for search engine optimization (SEO), adhering to character and word length limits is essential:</p>
+      <ul>
+        <li><strong>Twitter / X Posts:</strong> Maximum 280 characters per tweet.</li>
+        <li><strong>Google Meta Descriptions:</strong> Ideal length between 150 and 160 characters to avoid truncation in Google Search SERP snippets.</li>
+        <li><strong>LinkedIn Posts:</strong> Up to 3,000 characters, with optimal engagement around 150 to 300 words.</li>
+        <li><strong>Amazon Product Titles:</strong> Typically limited to 200 characters.</li>
+      </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the reading time calculator work?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            The reading time estimation is based on the average adult reading speed of 200 to 250 words per minute (WPM). Speaking time is based on 130 words per minute.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is my text stored anywhere or visible to anyone?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            No! Everything you paste into WebToolsHub is computed client-side in your web browser. Nothing is ever sent across the network or stored in any database.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Footer Ad Slot</span>
+    </div>
+
+  </main>
+
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WebToolsHub. All rights reserved. <a href="index.html">Back to All Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    let applyEdit; // Exported to global scope for button onclicks
+
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("word-counter");
+
+      const input = document.getElementById("word-counter-input");
+      const statWords = document.getElementById("stat-words");
+      const statChars = document.getElementById("stat-chars");
+      const statCharsNoSpace = document.getElementById("stat-chars-nospace");
+      const statSentences = document.getElementById("stat-sentences");
+      const statParagraphs = document.getElementById("stat-paragraphs");
+      const statReadingTime = document.getElementById("stat-reading-time");
+      const statReadingTimeDetail = document.getElementById("stat-reading-time-detail");
+      const statSpeakingTime = document.getElementById("stat-speaking-time");
+      const statAvgWordLen = document.getElementById("stat-avg-word-len");
+      const keywordList = document.getElementById("keyword-density-list");
+
+      const btnSample = document.getElementById("btn-sample-text");
+      const btnClear = document.getElementById("btn-clear-text");
+      const btnCopy = document.getElementById("btn-copy-text");
+      const btnDownloadTxt = document.getElementById("btn-download-txt");
+
+      const btnUndo = document.getElementById("btn-undo");
+      const btnRedo = document.getElementById("btn-redo");
+      const btnToggleFind = document.getElementById("btn-toggle-find");
+      const btnTogglePrefix = document.getElementById("btn-toggle-prefix");
+
+      const drawerFind = document.getElementById("drawer-find-replace");
+      const drawerPrefix = document.getElementById("drawer-prefix-suffix");
+      const findQuery = document.getElementById("find-query");
+      const replaceQuery = document.getElementById("replace-query");
+      const findMatchCase = document.getElementById("find-match-case");
+      const findStatus = document.getElementById("find-replace-status");
+      const btnExecReplaceAll = document.getElementById("btn-exec-replace-all");
+      const btnExecReplaceNext = document.getElementById("btn-exec-replace-next");
+
+      const linePrefix = document.getElementById("line-prefix");
+      const lineSuffix = document.getElementById("line-suffix");
+      const btnApplyPrefixSuffix = document.getElementById("btn-apply-prefix-suffix");
+
+      const fontSelect = document.getElementById("editor-font-family");
+      const sizeSelect = document.getElementById("editor-font-size");
+
+      // Undo / Redo History Stack
+      const historyStack = [];
+      const redoStack = [];
+      const MAX_HISTORY = 40;
+
+      function pushState() {
+        if (historyStack.length === 0 || historyStack[historyStack.length - 1] !== input.value) {
+          historyStack.push(input.value);
+          if (historyStack.length > MAX_HISTORY) historyStack.shift();
+          redoStack.length = 0; // Clear redo
+          updateUndoRedoBtns();
+        }
+      }
+
+      function updateUndoRedoBtns() {
+        btnUndo.disabled = historyStack.length <= 1;
+        btnRedo.disabled = redoStack.length === 0;
+      }
+
+      function undo() {
+        if (historyStack.length > 1) {
+          redoStack.push(historyStack.pop());
+          input.value = historyStack[historyStack.length - 1];
+          updateUndoRedoBtns();
+          analyzeText();
+        }
+      }
+
+      function redo() {
+        if (redoStack.length > 0) {
+          const next = redoStack.pop();
+          historyStack.push(next);
+          input.value = next;
+          updateUndoRedoBtns();
+          analyzeText();
+        }
+      }
+
+      btnUndo.addEventListener("click", undo);
+      btnRedo.addEventListener("click", redo);
+
+      // Keyboard shortcuts (Ctrl+Z, Ctrl+Y)
+      input.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === 'z') {
+          e.preventDefault();
+          undo();
+        } else if (e.ctrlKey && e.key === 'y') {
+          e.preventDefault();
+          redo();
+        }
+      });
+
+      // Track typing in history periodically
+      let typingTimeout = null;
+      input.addEventListener("input", () => {
+        clearTimeout(typingTimeout);
+        typingTimeout = setTimeout(pushState, 600);
+        analyzeText();
+      });
+
+      // Initial state
+      pushState();
+
+      // Custom Edit Transformations
+      window.applyEdit = function(type) {
+        const text = input.value;
+        if (!text) return;
+        pushState();
+
+        let newText = text;
+
+        switch (type) {
+          case 'upper':
+            newText = text.toUpperCase();
+            showToast("Converted text to UPPERCASE", "success");
+            break;
+          case 'lower':
+            newText = text.toLowerCase();
+            showToast("Converted text to lowercase", "success");
+            break;
+          case 'title':
+            newText = text.toLowerCase().replace(/\b\w+/g, w => w.charAt(0).toUpperCase() + w.slice(1));
+            showToast("Converted text to Title Case", "success");
+            break;
+          case 'sentence':
+            newText = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+            showToast("Converted text to Sentence case", "success");
+            break;
+          case 'capitalize':
+            newText = text.replace(/\b([a-z])/g, (_, l) => l.toUpperCase());
+            showToast("Capitalized each word", "success");
+            break;
+          case 'spaces':
+            // Collapse multiple spaces into single space, trim lines
+            newText = text.split('\n').map(l => l.replace(/[^\S\r\n]+/g, ' ').trim()).join('\n');
+            showToast("Stripped extra whitespace", "success");
+            break;
+          case 'blank-lines':
+            newText = text.split('\n').filter(l => l.trim().length > 0).join('\n');
+            showToast("Removed blank empty lines", "success");
+            break;
+          case 'sort-az':
+            newText = text.split('\n').sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })).join('\n');
+            showToast("Sorted lines alphabetically (A-Z)", "success");
+            break;
+          case 'line-numbers':
+            // If already numbered, strip them; else add them
+            const lines = text.split('\n');
+            const isAlreadyNumbered = lines.every(l => !l.trim() || /^\d+[\.\)]\s/.test(l));
+            if (isAlreadyNumbered) {
+              newText = lines.map(l => l.replace(/^\d+[\.\)]\s/, '')).join('\n');
+              showToast("Removed line numbers", "success");
+            } else {
+              newText = lines.map((l, i) => `${i + 1}. ${l}`).join('\n');
+              showToast("Added sequential line numbering", "success");
+            }
+            break;
+          case 'strip-html':
+            newText = text.replace(/<[^>]*>?/gm, '');
+            showToast("Stripped all HTML tags", "success");
+            break;
+          case 'reverse':
+            newText = text.split('\n').reverse().join('\n');
+            showToast("Reversed line sequence", "success");
+            break;
+        }
+
+        input.value = newText;
+        pushState();
+        analyzeText();
+      };
+
+      // Drawer Toggles
+      btnToggleFind.addEventListener("click", () => {
+        drawerFind.style.display = drawerFind.style.display === 'none' ? 'block' : 'none';
+        if (drawerFind.style.display === 'block') findQuery.focus();
+      });
+
+      btnTogglePrefix.addEventListener("click", () => {
+        drawerPrefix.style.display = drawerPrefix.style.display === 'none' ? 'block' : 'none';
+        if (drawerPrefix.style.display === 'block') linePrefix.focus();
+      });
+
+      // Find & Replace Handlers
+      btnExecReplaceAll.addEventListener("click", () => {
+        const findStr = findQuery.value;
+        const repStr = replaceQuery.value;
+        if (!findStr) return;
+
+        pushState();
+        const text = input.value;
+        const flags = findMatchCase.checked ? 'g' : 'gi';
+        const escaped = findStr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const reg = new RegExp(escaped, flags);
+
+        let matchCount = 0;
+        const newText = text.replace(reg, () => {
+          matchCount++;
+          return repStr;
+        });
+
+        input.value = newText;
+        findStatus.textContent = matchCount > 0 ? `Replaced ${matchCount} ${matchCount === 1 ? 'match' : 'matches'}` : 'No matches found';
+        pushState();
+        analyzeText();
+      });
+
+      btnExecReplaceNext.addEventListener("click", () => {
+        const findStr = findQuery.value;
+        const repStr = replaceQuery.value;
+        if (!findStr) return;
+
+        pushState();
+        const text = input.value;
+        const idx = findMatchCase.checked ? text.indexOf(findStr) : text.toLowerCase().indexOf(findStr.toLowerCase());
+
+        if (idx !== -1) {
+          input.value = text.substring(0, idx) + repStr + text.substring(idx + findStr.length);
+          findStatus.textContent = '1 match replaced';
+          pushState();
+          analyzeText();
+        } else {
+          findStatus.textContent = 'Match not found';
+        }
+      });
+
+      // Apply Prefix & Suffix
+      btnApplyPrefixSuffix.addEventListener("click", () => {
+        const p = linePrefix.value;
+        const s = lineSuffix.value;
+        if (!p && !s) return;
+
+        pushState();
+        const lines = input.value.split('\n');
+        input.value = lines.map(l => l.trim() ? `${p}${l}${s}` : l).join('\n');
+        pushState();
+        analyzeText();
+        drawerPrefix.style.display = 'none';
+      });
+
+      // Font & Typography customization
+      fontSelect.addEventListener("change", (e) => {
+        input.style.fontFamily = e.target.value;
+      });
+
+      sizeSelect.addEventListener("change", (e) => {
+        input.style.fontSize = e.target.value;
+      });
+
+      // Download .TXT file
+      btnDownloadTxt.addEventListener("click", () => {
+        const blob = new Blob([input.value], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `edited-text-${new Date().toISOString().slice(0, 10)}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      function formatTime(minutes) {
+        if (minutes < 1) {
+          const sec = Math.round(minutes * 60);
+          return `${sec} sec`;
+        }
+        return `${Math.ceil(minutes)} min`;
+      }
+
+      function analyzeText() {
+        const text = input.value;
+
+        // Characters
+        const charCount = text.length;
+        const charNoSpaceCount = text.replace(/\s+/g, "").length;
+
+        // Words
+        const wordsArr = text.trim() ? text.trim().match(/[\w'-]+/g) || [] : [];
+        const wordCount = wordsArr.length;
+
+        // Sentences
+        const sentencesArr = text.trim() ? text.match(/[^.!?]+[.!?]+(\s|$)/g) || [] : [];
+        const sentenceCount = sentencesArr.length || (wordCount > 0 ? 1 : 0);
+
+        // Paragraphs
+        const paragraphsArr = text.trim() ? text.split(/\n+/).filter(p => p.trim().length > 0) : [];
+        const paragraphCount = paragraphsArr.length;
+
+        // Reading & Speaking times
+        const readingMinutes = wordCount / 200;
+        const speakingMinutes = wordCount / 130;
+
+        // Average word length
+        const totalWordLetters = wordsArr.reduce((acc, w) => acc + w.length, 0);
+        const avgWordLen = wordCount > 0 ? (totalWordLetters / wordCount).toFixed(1) : "0";
+
+        // Update DOM stats
+        statWords.textContent = wordCount.toLocaleString();
+        statChars.textContent = charCount.toLocaleString();
+        statCharsNoSpace.textContent = charNoSpaceCount.toLocaleString();
+        statSentences.textContent = sentenceCount.toLocaleString();
+        statParagraphs.textContent = paragraphCount.toLocaleString();
+        statReadingTime.textContent = formatTime(readingMinutes);
+        statReadingTimeDetail.textContent = formatTime(readingMinutes);
+        statSpeakingTime.textContent = formatTime(speakingMinutes);
+        statAvgWordLen.textContent = `${avgWordLen} chars`;
+
+        // Keyword density
+        updateKeywordDensity(wordsArr);
+      }
+
+      function updateKeywordDensity(words) {
+        if (words.length === 0) {
+          keywordList.innerHTML = "<em>Enter text to view keyword density...</em>";
+          return;
+        }
+
+        const stopWords = new Set(["the","and","a","to","of","in","i","is","that","it","on","you","this","for","with","as","are","was","at","be","by","an","or","from"]);
+        const freqMap = {};
+
+        words.forEach(w => {
+          const lower = w.toLowerCase();
+          if (lower.length > 2 && !stopWords.has(lower)) {
+            freqMap[lower] = (freqMap[lower] || 0) + 1;
+          }
+        });
+
+        const sorted = Object.entries(freqMap).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+        if (sorted.length === 0) {
+          keywordList.innerHTML = "<em>Keep typing for keyword frequency insights...</em>";
+          return;
+        }
+
+        let html = '<ul style="list-style: none; display: flex; flex-direction: column; gap: 0.35rem; padding: 0;">';
+        sorted.forEach(([word, count]) => {
+          const percent = ((count / words.length) * 100).toFixed(1);
+          html += `
+            <li style="display: flex; justify-content: space-between; font-weight: 500;">
+              <span><strong>${word}</strong></span>
+              <span style="color: var(--accent-primary);">${count}x (${percent}%)</span>
+            </li>
+          `;
+        });
+        html += '</ul>';
+        keywordList.innerHTML = html;
+      }
+
+      btnSample.addEventListener("click", () => {
+        pushState();
+        input.value = "WebToolsHub provides an all-in-one suite of online utilities engineered for everyday computer users, developers, and content creators. With 100% client-side execution, your private data and documents never leave your browser.\n\nEnjoy high-speed image compression, instant QR code generation, secure password creation, and real-time text analysis without registering for an account.";
+        pushState();
+        analyzeText();
+      });
+
+      btnClear.addEventListener("click", () => {
+        pushState();
+        input.value = "";
+        pushState();
+        analyzeText();
+      });
+
+      btnCopy.addEventListener("click", () => {
+        copyToClipboard(input.value, "Text copied to clipboard!");
+      });
+    });
+  </script>
+</body>
+</html>

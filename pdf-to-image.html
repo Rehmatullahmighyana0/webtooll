@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online PDF to Image (PNG / JPG) Converter | WebToolsHub</title>
+  <meta name="description" content="Convert PDF documents into high-resolution PNG and JPG images in your browser. Render every PDF page with customizable DPI scaling. 100% private.">
+  <meta name="keywords" content="pdf to image, convert pdf to png, pdf to jpg, extract pictures from pdf, pdf pages to images">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/pdf-to-image.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/pdf-to-image.html">
+  <meta property="og:title" content="Free Online PDF to Image (PNG / JPG) Converter | WebToolsHub">
+  <meta property="og:description" content="Convert PDF documents into high-resolution PNG and JPG images in your browser. Render every PDF page with customizable DPI scaling. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/pdf-to-image.html">
+  <meta name="twitter:title" content="Free Online PDF to Image (PNG / JPG) Converter | WebToolsHub">
+  <meta name="twitter:description" content="Convert PDF documents into high-resolution PNG and JPG images in your browser. Render every PDF page with customizable DPI scaling. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PDF to Image Converter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Render PDF document pages into high-resolution PNG and JPG images."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>PDF Tools</span> &gt; <span>PDF to Image</span>
+      </nav>
+      <h1 class="tool-page-title">PDF to Image Converter (PNG / JPG)</h1>
+      <p class="tool-page-subtitle">Convert PDF document pages into crystal-clear PNG and JPG pictures. Processed completely in-browser without file transfers.</p>
+      <div class="privacy-badge">🔒 100% Client-Side PDF Rendering</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Dropzone -->
+        <div class="upload-dropzone" id="pdf-img-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🖼️</div>
+          <h3 style="margin-bottom: 0.5rem;">Drag & drop PDF document here or click to choose</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Convert all pages into downloadable image files</p>
+          <input type="file" id="pdf-img-file-input" accept="application/pdf" style="display: none;">
+        </div>
+
+        <!-- Rendered Pages Gallery -->
+        <div id="pages-gallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem;">
+          <!-- Rendered page cards with canvas and download buttons -->
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related PDF Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="pdf-utilities.html"><span>📄 PDF Utilities (Image to PDF)</span><span class="badge-mini">Privacy First</span></a></li>
+            <li><a href="pdf-merger.html"><span>📑 PDF Merger</span><span class="badge-mini">PDF</span></a></li>
+            <li><a href="pdf-splitter.html"><span>✂️ PDF Splitter</span><span class="badge-mini">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>High-Resolution Vector PDF Rasterization</h2>
+      <p>Using Mozilla's open-source <code>PDF.js</code> rendering engine, our converter renders vector fonts, diagrams, and photographic embeds directly into pixel canvas elements at high DPI. You can preview every page and download individual PNG images with crisp clarity.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropzone = document.getElementById("pdf-img-dropzone");
+      const fileInput = document.getElementById("pdf-img-file-input");
+      const gallery = document.getElementById("pages-gallery");
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) renderPdfToImages(e.dataTransfer.files[0]);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) renderPdfToImages(e.target.files[0]);
+      });
+
+      async function renderPdfToImages(file) {
+        if (!file.name.toLowerCase().endsWith(".pdf")) return;
+        gallery.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--text-secondary);">Rendering PDF pages to images...</div>`;
+
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        const totalPages = pdf.numPages;
+        gallery.innerHTML = "";
+
+        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+          const viewport = page.getViewport({ scale: 1.5 });
+
+          const canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const ctx = canvas.getContext("2d");
+
+          await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+          const card = document.createElement("div");
+          card.style.cssText = "background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem;";
+          
+          const imgPreview = document.createElement("img");
+          imgPreview.src = canvas.toDataURL("image/png");
+          imgPreview.style.cssText = "width: 100%; height: auto; border-radius: 4px; box-shadow: var(--shadow-sm);";
+
+          const footer = document.createElement("div");
+          footer.style.cssText = "display: flex; justify-content: space-between; align-items: center;";
+          footer.innerHTML = `
+            <span style="font-size: 0.85rem; font-weight: 700;">Page ${pageNum}</span>
+            <button type="button" class="btn btn-secondary btn-sm">Download PNG</button>
+          `;
+
+          footer.querySelector("button").addEventListener("click", () => {
+            const a = document.createElement("a");
+            a.href = imgPreview.src;
+            a.download = `${file.name.replace(/\.[^/.]+$/, "")}-page-${pageNum}.png`;
+            a.click();
+          });
+
+          card.appendChild(imgPreview);
+          card.appendChild(footer);
+          gallery.appendChild(card);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

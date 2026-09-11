@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan EMI & Mortgage Calculator | WebToolsHub</title>
+  <meta name="description" content="Calculate monthly loan payments (EMI), total interest paid, and full payoff schedules for home mortgages, auto loans, and personal loans. 100% free.">
+  <meta name="keywords" content="loan calculator, emi calculator, mortgage payment calculator, calculate loan interest, amortization schedule">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/loan-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/loan-calculator.html">
+  <meta property="og:title" content="Loan EMI & Mortgage Calculator | WebToolsHub">
+  <meta property="og:description" content="Calculate monthly loan payments (EMI), total interest paid, and full payoff schedules for home mortgages, auto loans, and personal loans. 100% free.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/loan-calculator.html">
+  <meta name="twitter:title" content="Loan EMI & Mortgage Calculator | WebToolsHub">
+  <meta name="twitter:description" content="Calculate monthly loan payments (EMI), total interest paid, and full payoff schedules for home mortgages, auto loans, and personal loans. 100% free.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Loan EMI Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate monthly installments, total interest, and amortization schedules."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>Loan Calculator</span>
+      </nav>
+      <h1 class="tool-page-title">Loan EMI & Mortgage Payment Calculator</h1>
+      <p class="tool-page-subtitle">Calculate your monthly loan payment (EMI), interest breakdown, and amortization schedule for car, home, or personal financing.</p>
+      <div class="privacy-badge">🔒 100% Private Client-Side Calculation</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+          
+          <!-- Input Controls -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem;">Loan Parameters</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="loan-amount">Loan Amount ($):</label>
+              <input type="number" id="loan-amount" class="form-input" min="100" step="1000" value="250000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="interest-rate">Annual Interest Rate (%):</label>
+              <input type="number" id="interest-rate" class="form-input" min="0.1" max="50" step="0.1" value="6.5">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="loan-term">Loan Term (Years):</label>
+              <input type="number" id="loan-term" class="form-input" min="1" max="50" value="30">
+            </div>
+          </div>
+
+          <!-- Summary Scorecard -->
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; border-top: 4px solid var(--accent-primary);">
+              <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem;">Monthly Payment (EMI)</div>
+              <div id="emi-val" style="font-size: 2.4rem; font-weight: 900; color: var(--accent-primary);">$1,580.17</div>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--text-secondary);">Total Principal:</span>
+                <strong id="summary-principal">$250,000.00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--text-secondary);">Total Interest:</span>
+                <strong id="summary-interest" style="color: var(--accent-danger);">$318,861.20</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                <span style="color: var(--text-secondary); font-weight: 700;">Total Cost of Loan:</span>
+                <strong id="summary-total" style="color: var(--accent-primary); font-size: 1.1rem;">$568,861.20</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Visual Proportion Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.4rem;">
+            <span><strong>Principal</strong> (<span id="pct-principal">44%</span>)</span>
+            <span><strong>Interest</strong> (<span id="pct-interest">56%</span>)</span>
+          </div>
+          <div style="height: 12px; border-radius: var(--radius-full); overflow: hidden; display: flex; background: var(--bg-subtle);">
+            <div id="bar-principal" style="background: var(--accent-primary); width: 44%; height: 100%;"></div>
+            <div id="bar-interest" style="background: var(--accent-danger); width: 56%; height: 100%;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="percentage-calculator.html"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a></li>
+            <li><a href="unit-converter.html"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a></li>
+            <li><a href="timestamp-converter.html"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a></li>
+            <li><a href="number-base-converter.html"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Mortgage and Loan Amortization</h2>
+      <p>The standard Equated Monthly Installment (EMI) formula is: <code>EMI = P × r × (1 + r)^n / ((1 + r)^n - 1)</code>, where <code>P</code> is the principal amount, <code>r</code> is the monthly interest rate, and <code>n</code> is the total number of monthly installments. During the first few years of a mortgage, the vast majority of each payment covers interest rather than paying down the balance.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const pIn = document.getElementById("loan-amount");
+      const rIn = document.getElementById("interest-rate");
+      const tIn = document.getElementById("loan-term");
+
+      const emiVal = document.getElementById("emi-val");
+      const sumPrincipal = document.getElementById("summary-principal");
+      const sumInterest = document.getElementById("summary-interest");
+      const sumTotal = document.getElementById("summary-total");
+
+      const pctP = document.getElementById("pct-principal");
+      const pctI = document.getElementById("pct-interest");
+      const barP = document.getElementById("bar-principal");
+      const barI = document.getElementById("bar-interest");
+
+      function formatMoney(num) {
+        return "$" + num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function calculateLoan() {
+        const principal = parseFloat(pIn.value) || 0;
+        const annualRate = parseFloat(rIn.value) || 0;
+        const years = parseFloat(tIn.value) || 1;
+
+        if (principal <= 0 || annualRate <= 0) return;
+
+        const monthlyRate = (annualRate / 100) / 12;
+        const totalMonths = years * 12;
+
+        const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        const totalPayment = emi * totalMonths;
+        const totalInterest = totalPayment - principal;
+
+        emiVal.textContent = formatMoney(emi);
+        sumPrincipal.textContent = formatMoney(principal);
+        sumInterest.textContent = formatMoney(totalInterest);
+        sumTotal.textContent = formatMoney(totalPayment);
+
+        const pPercent = Math.round((principal / totalPayment) * 100);
+        const iPercent = 100 - pPercent;
+
+        pctP.textContent = `${pPercent}%`;
+        pctI.textContent = `${iPercent}%`;
+        barP.style.width = `${pPercent}%`;
+        barI.style.width = `${iPercent}%`;
+      }
+
+      [pIn, rIn, tIn].forEach(el => el.addEventListener("input", calculateLoan));
+      calculateLoan();
+    });
+  </script>
+</body>
+</html>

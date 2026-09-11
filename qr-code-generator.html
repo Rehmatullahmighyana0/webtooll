@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online QR Code Generator — Custom Colors & Wi-Fi QR | WebToolsHub</title>
+  <meta name="description" content="Generate high-resolution QR codes for websites, plain text, Wi-Fi networks, and contact numbers. Customize colors and download in PNG format for free.">
+  <meta name="keywords" content="qr code generator, free qr code, create qr code, wifi qr code, custom qr code maker">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/qr-code-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/qr-code-generator.html">
+  <meta property="og:title" content="Free Online QR Code Generator — Custom Colors & Wi-Fi QR | WebToolsHub">
+  <meta property="og:description" content="Generate high-resolution QR codes for websites, plain text, Wi-Fi networks, and contact numbers. Customize colors and download in PNG format for free.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/qr-code-generator.html">
+  <meta name="twitter:title" content="Free Online QR Code Generator — Custom Colors & Wi-Fi QR | WebToolsHub">
+  <meta name="twitter:description" content="Generate high-resolution QR codes for websites, plain text, Wi-Fi networks, and contact numbers. Customize colors and download in PNG format for free.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- QRCode.js Library from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "QR Code Generator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Create instant custom QR codes for URLs, text, Wi-Fi passwords, and download them in high resolution."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Web & Sharing</span> &gt; <span>QR Code Generator</span>
+      </nav>
+      <h1 class="tool-page-title">QR Code Generator</h1>
+      <p class="tool-page-subtitle">Create custom high-resolution QR codes for websites, Wi-Fi credentials, phone numbers, and plain text. No expiration date, free forever.</p>
+      <div class="privacy-badge">🔒 100% Client-Side & Private</div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Top Ad Placement -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Ad Slot (728x90)</span>
+    </div>
+
+    <div class="tool-layout with-sidebar">
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- QR Type Selector Tabs -->
+        <div class="categories-filter" style="justify-content: flex-start; margin: 0 0 1.5rem;">
+          <button class="filter-pill active" data-type="url">URL / Link</button>
+          <button class="filter-pill" data-type="text">Plain Text</button>
+          <button class="filter-pill" data-type="wifi">Wi-Fi Network</button>
+          <button class="filter-pill" data-type="phone">Phone / SMS</button>
+          <button class="filter-pill" data-type="email">Email</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: start;">
+          <!-- Left: Input Controls -->
+          <div>
+            <!-- URL Form -->
+            <div id="type-form-url" class="qr-form-section">
+              <div class="form-group">
+                <label class="form-label" for="qr-url-input">Website URL</label>
+                <input type="url" id="qr-url-input" class="form-control" placeholder="https://example.com" value="https://webtoolshub.com">
+              </div>
+            </div>
+
+            <!-- Plain Text Form -->
+            <div id="type-form-text" class="qr-form-section" style="display: none;">
+              <div class="form-group">
+                <label class="form-label" for="qr-text-input">Text Message</label>
+                <textarea id="qr-text-input" class="form-textarea" placeholder="Type your text message here..."></textarea>
+              </div>
+            </div>
+
+            <!-- Wi-Fi Form -->
+            <div id="type-form-wifi" class="qr-form-section" style="display: none;">
+              <div class="form-group">
+                <label class="form-label" for="wifi-ssid">Network Name (SSID)</label>
+                <input type="text" id="wifi-ssid" class="form-control" placeholder="MyHomeWiFi">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wifi-pass">Password</label>
+                <input type="text" id="wifi-pass" class="form-control" placeholder="WiFi Password">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wifi-enc">Encryption Type</label>
+                <select id="wifi-enc" class="form-select">
+                  <option value="WPA">WPA / WPA2 / WPA3</option>
+                  <option value="WEP">WEP</option>
+                  <option value="nopass">None (Open Network)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Phone Form -->
+            <div id="type-form-phone" class="qr-form-section" style="display: none;">
+              <div class="form-group">
+                <label class="form-label" for="phone-number">Phone Number</label>
+                <input type="tel" id="phone-number" class="form-control" placeholder="+1234567890">
+              </div>
+            </div>
+
+            <!-- Email Form -->
+            <div id="type-form-email" class="qr-form-section" style="display: none;">
+              <div class="form-group">
+                <label class="form-label" for="email-address">Recipient Email</label>
+                <input type="email" id="email-address" class="form-control" placeholder="support@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email-subject">Subject</label>
+                <input type="text" id="email-subject" class="form-control" placeholder="Hello from QR code">
+              </div>
+            </div>
+
+            <!-- Customization Settings -->
+            <div style="border-top: 1px solid var(--border-color); padding-top: 1.25rem; margin-top: 1.25rem;">
+              <h4 style="margin-bottom: 1rem; font-size: 0.95rem;">Appearance Customization</h4>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="qr-color-dark">QR Code Color</label>
+                  <input type="color" id="qr-color-dark" value="#000000" style="width: 100%; height: 42px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer; padding: 2px;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="qr-color-light">Background Color</label>
+                  <input type="color" id="qr-color-light" value="#ffffff" style="width: 100%; height: 42px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer; padding: 2px;">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="qr-size">Resolution / Size</label>
+                <select id="qr-size" class="form-select">
+                  <option value="200">200 × 200 px (Standard)</option>
+                  <option value="300" selected>300 × 300 px (Recommended)</option>
+                  <option value="400">400 × 400 px (High Res)</option>
+                  <option value="500">500 × 500 px (Print Quality)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live QR Preview & Export -->
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem;">
+            <div id="qrcode-box" style="padding: 1rem; background: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center; min-height: 232px; min-width: 232px;"></div>
+
+            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; width: 100%; max-width: 240px;">
+              <button type="button" id="download-qr-btn" class="btn btn-primary" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download PNG
+              </button>
+              <button type="button" id="copy-qr-btn" class="btn btn-secondary" style="width: 100%;">
+                Copy QR Image
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Web & Sharing Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+            <li><a href="meta-tag-generator.html"><span>🏷️ Meta Tag & OG Generator</span><span class="badge-mini">SEO</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-card">
+      <h2>Why Use WebToolsHub QR Code Generator?</h2>
+      <p>Quick Response (QR) codes have become the ubiquitous bridge between physical collateral and digital destinations. Whether you are printing menus for a restaurant, putting Wi-Fi connection stickers in an office, or adding links to marketing flyers, our free generator provides high-clarity scannable barcodes with zero expiration dates.</p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li><strong>Permanent & Unlimited:</strong> Static QR codes generated on WebToolsHub never expire and will work indefinitely as long as your destination link remains active.</li>
+        <li><strong>Direct Wi-Fi Connection:</strong> Generate QR codes that allow guests and customers to join your Wi-Fi network instantly without typing lengthy passwords.</li>
+        <li><strong>Custom Brand Colors:</strong> Match your company's aesthetic by styling the QR foreground and background palettes.</li>
+      </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do these QR codes ever expire?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            No. These are standard static QR codes containing raw encoded data. They never expire and there is no middleman redirect server involved.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can all smartphones scan these QR codes?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, virtually all modern iOS (iPhone Camera app) and Android (Google Lens/Camera) smartphones can scan these QR codes natively without installing third-party apps.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Footer Ad Slot</span>
+    </div>
+
+  </main>
+
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WebToolsHub. All rights reserved. <a href="index.html">Back to All Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("qr-code-generator");
+
+      let currentType = "url";
+      let qrCodeInstance = null;
+
+      const qrcodeBox = document.getElementById("qrcode-box");
+      const darkColorInput = document.getElementById("qr-color-dark");
+      const lightColorInput = document.getElementById("qr-color-light");
+      const sizeSelect = document.getElementById("qr-size");
+      const downloadBtn = document.getElementById("download-qr-btn");
+      const copyBtn = document.getElementById("copy-qr-btn");
+
+      // Mode pill switching
+      const typePills = document.querySelectorAll(".categories-filter .filter-pill");
+      typePills.forEach(pill => {
+        pill.addEventListener("click", () => {
+          typePills.forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          currentType = pill.getAttribute("data-type");
+
+          document.querySelectorAll(".qr-form-section").forEach(sec => sec.style.display = "none");
+          const targetForm = document.getElementById(`type-form-${currentType}`);
+          if (targetForm) targetForm.style.display = "block";
+
+          renderQR();
+        });
+      });
+
+      function getQRDataString() {
+        if (currentType === "url") {
+          return document.getElementById("qr-url-input").value.trim() || "https://webtoolshub.com";
+        } else if (currentType === "text") {
+          return document.getElementById("qr-text-input").value.trim() || "Hello from WebToolsHub!";
+        } else if (currentType === "wifi") {
+          const ssid = document.getElementById("wifi-ssid").value.trim() || "MyWiFi";
+          const pass = document.getElementById("wifi-pass").value.trim() || "";
+          const enc = document.getElementById("wifi-enc").value;
+          return `WIFI:S:${ssid};T:${enc};P:${pass};;`;
+        } else if (currentType === "phone") {
+          const num = document.getElementById("phone-number").value.trim() || "+1234567890";
+          return `tel:${num}`;
+        } else if (currentType === "email") {
+          const email = document.getElementById("email-address").value.trim() || "support@example.com";
+          const sub = encodeURIComponent(document.getElementById("email-subject").value.trim() || "");
+          return `mailto:${email}?subject=${sub}`;
+        }
+        return "https://webtoolshub.com";
+      }
+
+      function renderQR() {
+        const text = getQRDataString();
+        const size = parseInt(sizeSelect.value, 10) || 300;
+        const darkColor = darkColorInput.value || "#000000";
+        const lightColor = lightColorInput.value || "#ffffff";
+
+        qrcodeBox.innerHTML = "";
+
+        if (typeof QRCode !== "undefined") {
+          qrCodeInstance = new QRCode(qrcodeBox, {
+            text: text,
+            width: size,
+            height: size,
+            colorDark: darkColor,
+            colorLight: lightColor,
+            correctLevel: QRCode.CorrectLevel.H
+          });
+        } else {
+          qrcodeBox.innerHTML = "<p style='color:red;'>QR Library loading...</p>";
+        }
+      }
+
+      // Live listeners for all inputs
+      const allInputs = document.querySelectorAll("#type-form-url input, #type-form-text textarea, #type-form-wifi input, #type-form-wifi select, #type-form-phone input, #type-form-email input, #qr-color-dark, #qr-color-light, #qr-size");
+      allInputs.forEach(input => {
+        input.addEventListener("input", renderQR);
+        input.addEventListener("change", renderQR);
+      });
+
+      // Download QR as PNG
+      downloadBtn.addEventListener("click", () => {
+        const img = qrcodeBox.querySelector("img");
+        const canvas = qrcodeBox.querySelector("canvas");
+
+        let downloadUrl = null;
+        if (canvas) {
+          downloadUrl = canvas.toDataURL("image/png");
+        } else if (img && img.src) {
+          downloadUrl = img.src;
+        }
+
+        if (downloadUrl) {
+          const link = document.createElement("a");
+          link.href = downloadUrl;
+          link.download = `qrcode-${Date.now()}.png`;
+          link.click();
+          showToast("QR Code downloaded successfully!");
+        } else {
+          showToast("Could not prepare QR image.", "warning");
+        }
+      });
+
+      // Copy QR to clipboard
+      copyBtn.addEventListener("click", async () => {
+        const canvas = qrcodeBox.querySelector("canvas");
+        if (!canvas) {
+          showToast("Image not ready for clipboard.", "warning");
+          return;
+        }
+        try {
+          canvas.toBlob(async (blob) => {
+            await navigator.clipboard.write([
+              new ClipboardItem({ "image/png": blob })
+            ]);
+            showToast("QR Code image copied to clipboard!");
+          });
+        } catch (err) {
+          showToast("Copy image not supported in this browser.", "warning");
+        }
+      });
+
+      // Initial render
+      renderQR();
+    });
+  </script>
+</body>
+</html>

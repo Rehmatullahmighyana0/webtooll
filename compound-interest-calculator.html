@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest & Investment Growth Calculator | WebToolsHub</title>
+  <meta name="description" content="Calculate investment growth with compound interest. Add monthly deposits, set annual returns, and calculate future wealth accurately. 100% free online.">
+  <meta name="keywords" content="compound interest calculator, investment calculator, future value calculator, savings growth calculator, compound interest formula">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/compound-interest-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/compound-interest-calculator.html">
+  <meta property="og:title" content="Compound Interest & Investment Growth Calculator | WebToolsHub">
+  <meta property="og:description" content="Calculate investment growth with compound interest. Add monthly deposits, set annual returns, and calculate future wealth accurately. 100% free online.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/compound-interest-calculator.html">
+  <meta name="twitter:title" content="Compound Interest & Investment Growth Calculator | WebToolsHub">
+  <meta name="twitter:description" content="Calculate investment growth with compound interest. Add monthly deposits, set annual returns, and calculate future wealth accurately. 100% free online.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Compound Interest Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate long-term investment growth and compound interest."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>Compound Interest</span>
+      </nav>
+      <h1 class="tool-page-title">Compound Interest & Investment Calculator</h1>
+      <p class="tool-page-subtitle">Project how much your savings and stock portfolio will grow over time with periodic recurring contributions.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Calculation</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+          
+          <!-- Inputs -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem;">Investment Details</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="init-deposit">Initial Deposit ($):</label>
+              <input type="number" id="init-deposit" class="form-input" min="0" step="500" value="10000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="monthly-deposit">Monthly Contribution ($):</label>
+              <input type="number" id="monthly-deposit" class="form-input" min="0" step="50" value="500">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="annual-rate">Estimated Annual Return (%):</label>
+              <input type="number" id="annual-rate" class="form-input" min="0.1" max="100" step="0.5" value="8.0">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inv-years">Investment Horizon (Years):</label>
+              <input type="number" id="inv-years" class="form-input" min="1" max="60" value="20">
+            </div>
+          </div>
+
+          <!-- Future Value Result -->
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; border-top: 4px solid var(--accent-success);">
+              <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem;">Estimated Future Balance</div>
+              <div id="future-balance-val" style="font-size: 2.4rem; font-weight: 900; color: var(--accent-success);">$343,923.70</div>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--text-secondary);">Total Starting Principal:</span>
+                <strong id="stat-init">$10,000.00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--text-secondary);">Total Deposits Added:</span>
+                <strong id="stat-deposits">$120,000.00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                <span style="color: var(--text-secondary); font-weight: 700;">Compound Interest Earned:</span>
+                <strong id="stat-interest" style="color: var(--accent-success); font-size: 1.15rem;">$213,923.70</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="percentage-calculator.html"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a></li>
+            <li><a href="unit-converter.html"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a></li>
+            <li><a href="timestamp-converter.html"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a></li>
+            <li><a href="number-base-converter.html"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>The Exponential Power of Compound Interest</h2>
+      <p>Compound interest has famously been called the eighth wonder of the world. Because interest generates its own interest, your money compounds exponentially over extended time horizons. A regular monthly investment of $500 growing at an 8% annual stock index return accumulates over $340,000 in 20 years, with interest accounting for over 60% of the balance.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const initIn = document.getElementById("init-deposit");
+      const monthlyIn = document.getElementById("monthly-deposit");
+      const rateIn = document.getElementById("annual-rate");
+      const yearsIn = document.getElementById("inv-years");
+
+      const balanceVal = document.getElementById("future-balance-val");
+      const statInit = document.getElementById("stat-init");
+      const statDeposits = document.getElementById("stat-deposits");
+      const statInterest = document.getElementById("stat-interest");
+
+      function formatMoney(num) {
+        return "$" + num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function calculateCompound() {
+        const principal = parseFloat(initIn.value) || 0;
+        const monthly = parseFloat(monthlyIn.value) || 0;
+        const annualRate = (parseFloat(rateIn.value) || 0) / 100;
+        const years = parseFloat(yearsIn.value) || 1;
+
+        const months = years * 12;
+        const monthlyRate = annualRate / 12;
+
+        let total = principal;
+        for (let m = 0; m < months; m++) {
+          total = (total + monthly) * (1 + monthlyRate);
+        }
+
+        const totalDeposits = monthly * months;
+        const totalInvested = principal + totalDeposits;
+        const totalInterest = total - totalInvested;
+
+        balanceVal.textContent = formatMoney(total);
+        statInit.textContent = formatMoney(principal);
+        statDeposits.textContent = formatMoney(totalDeposits);
+        statInterest.textContent = formatMoney(totalInterest);
+      }
+
+      [initIn, monthlyIn, rateIn, yearsIn].forEach(el => el.addEventListener("input", calculateCompound));
+      calculateCompound();
+    });
+  </script>
+</body>
+</html>

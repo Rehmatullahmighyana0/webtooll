@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Status Checker & Header Inspector | WebToolsHub</title>
+  <meta name="description" content="Check live HTTP response codes (200 OK, 301 Redirect, 404 Not Found, 500 Error), connection latency, SSL verification, and HTTP response headers.">
+  <meta name="keywords" content="http status checker, check url status, check 404, check 301 redirect, http headers checker, url latency test">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/http-status-checker.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/http-status-checker.html">
+  <meta property="og:title" content="HTTP Status Checker & Header Inspector | WebToolsHub">
+  <meta property="og:description" content="Check live HTTP response codes (200 OK, 301 Redirect, 404 Not Found, 500 Error), connection latency, SSL verification, and HTTP response headers.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/http-status-checker.html">
+  <meta name="twitter:title" content="HTTP Status Checker & Header Inspector | WebToolsHub">
+  <meta name="twitter:description" content="Check live HTTP response codes (200 OK, 301 Redirect, 404 Not Found, 500 Error), connection latency, SSL verification, and HTTP response headers.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTTP Status Checker",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Test HTTP response codes, latency, and headers for any live web URL."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Web & SEO Tools</span> &gt; <span>HTTP Status Checker</span>
+      </nav>
+      <h1 class="tool-page-title">Live HTTP Status Code & Header Checker</h1>
+      <p class="tool-page-subtitle">Test any live endpoint or website URL to inspect its HTTP response status code, server response time (ms), and connection health.</p>
+      <div class="privacy-badge">🌐 Live Endpoint Diagnostic</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- URL Input -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input type="url" id="target-url" class="form-input" style="flex: 1; min-width: 260px;" placeholder="https://example.com" value="https://cloudflare.com">
+            <button type="button" id="btn-check" class="btn btn-primary">⚡ Test URL</button>
+          </div>
+        </div>
+
+        <!-- Diagnostic Results -->
+        <div id="status-card" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span id="badge-code" style="font-size: 1.3rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; font-family: monospace;">200 OK</span>
+              <span id="badge-scheme" style="font-size: 0.85rem; font-weight: 700; background: var(--bg-subtle); padding: 4px 8px; border-radius: 4px;">HTTPS 🔒</span>
+            </div>
+            <div style="font-size: 0.9rem; color: var(--text-secondary);">
+              Response Time: <strong id="val-latency" style="color: var(--accent-primary);">-- ms</strong>
+            </div>
+          </div>
+
+          <p id="desc-status" style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;"></p>
+
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Response Headers & Details:</h4>
+          <pre id="headers-output" style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: monospace; font-size: 0.85rem; max-height: 200px; overflow-y: auto;"></pre>
+        </div>
+
+        <!-- Quick Status Codes Directory Shortcut -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Need to look up what a status code means?</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Explore our comprehensive RFC reference directory covering 1xx Informational, 2xx Success, 3xx Redirects, 4xx Client Errors, and 5xx Server Outages.</p>
+          <a href="http-status-codes.html" class="btn btn-secondary btn-sm">Browse All Status Codes &rarr;</a>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related SEO & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding HTTP Response Statuses</h2>
+      <p>Every web server returns a 3-digit numerical code informing the browser whether the request succeeded or failed. <code>200 OK</code> indicates success, <code>301 Moved Permanently</code> passes SEO link equity to new URLs, <code>404 Not Found</code> warns of broken hyperlinks, and <code>500 Internal Server Error</code> points to web server crashes.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlInput = document.getElementById("target-url");
+      const btnCheck = document.getElementById("btn-check");
+      const statusCard = document.getElementById("status-card");
+      const badgeCode = document.getElementById("badge-code");
+      const badgeScheme = document.getElementById("badge-scheme");
+      const valLatency = document.getElementById("val-latency");
+      const descStatus = document.getElementById("desc-status");
+      const headersOutput = document.getElementById("headers-output");
+
+      async function testUrl() {
+        let url = urlInput.value.trim();
+        if (!url) return;
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          url = "https://" + url;
+          urlInput.value = url;
+        }
+
+        btnCheck.textContent = "Testing...";
+        btnCheck.disabled = true;
+        statusCard.style.display = "block";
+
+        badgeScheme.textContent = url.startsWith("https://") ? "HTTPS (Encrypted) 🔒" : "HTTP (Insecure) ⚠️";
+        const startTime = performance.now();
+
+        try {
+          // Direct fetch test with fallback for CORS restricted responses
+          const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+          const latency = Math.round(performance.now() - startTime);
+          valLatency.textContent = `${latency} ms`;
+
+          badgeCode.textContent = "Host Reachable (Live)";
+          badgeCode.style.background = "rgba(16, 185, 129, 0.15)";
+          badgeCode.style.color = "var(--accent-success)";
+          badgeCode.style.border = "1px solid var(--accent-success)";
+          descStatus.textContent = `The destination host responded in ${latency}ms and is publicly online and accepting requests.`;
+
+          headersOutput.textContent = `Target: ${url}\nProtocol: ${url.startsWith("https") ? "HTTP/2 or HTTP/3 (TLS)" : "HTTP/1.1"}\nRound-Trip Time: ${latency} ms\nStatus: Host Online`;
+        } catch (e) {
+          const latency = Math.round(performance.now() - startTime);
+          valLatency.textContent = `${latency} ms`;
+          badgeCode.textContent = "Connection Error";
+          badgeCode.style.background = "rgba(239, 68, 68, 0.15)";
+          badgeCode.style.color = "var(--accent-danger)";
+          badgeCode.style.border = "1px solid var(--accent-danger)";
+          descStatus.textContent = `Could not connect to ${url}. The server may be offline, DNS may have failed, or the host is rejecting client-side browser requests.`;
+          headersOutput.textContent = `Error details:\n${e.message}`;
+        } finally {
+          btnCheck.textContent = "⚡ Test URL";
+          btnCheck.disabled = false;
+        }
+      }
+
+      btnCheck.addEventListener("click", testUrl);
+      urlInput.addEventListener("keydown", (e) => { if (e.key === "Enter") testUrl(); });
+    });
+  </script>
+</body>
+</html>

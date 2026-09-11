@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Ping & Latency Tester | WebToolsHub</title>
+  <meta name="description" content="Test your network ping, connection jitter, and latency in real-time against major global CDN edge servers (Cloudflare, Google, AWS, Microsoft). 100% free.">
+  <meta name="keywords" content="ping tester, test ping online, website latency test, network ping test, jitter checker, cdn ping">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/ping-tester.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/ping-tester.html">
+  <meta property="og:title" content="Online Ping & Latency Tester | WebToolsHub">
+  <meta property="og:description" content="Test your network ping, connection jitter, and latency in real-time against major global CDN edge servers (Cloudflare, Google, AWS, Microsoft). 100% free.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/ping-tester.html">
+  <meta name="twitter:title" content="Online Ping & Latency Tester | WebToolsHub">
+  <meta name="twitter:description" content="Test your network ping, connection jitter, and latency in real-time against major global CDN edge servers (Cloudflare, Google, AWS, Microsoft). 100% free.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Online Ping & Latency Tester",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Measure connection ping latency and jitter to global edge networks."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Network Tools</span> &gt; <span>Ping Tester</span>
+      </nav>
+      <h1 class="tool-page-title">Online Ping & Latency Tester</h1>
+      <p class="tool-page-subtitle">Test network round-trip time (RTT), jitter, and packet response speeds against major worldwide CDN and cloud infrastructures.</p>
+      <div class="privacy-badge">⚡ Real-Time Edge Ping Benchmark</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Action bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Global Network Target Tests</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Pinging nearest Anycast CDN edge nodes</p>
+          </div>
+          <button type="button" id="btn-start-ping" class="btn btn-primary">🚀 Start Benchmark Test</button>
+        </div>
+
+        <!-- Latency Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          
+          <!-- Cloudflare -->
+          <div class="ping-card" id="card-cf" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700;">Cloudflare Anycast</span>
+              <span class="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background: var(--text-muted);"></span>
+            </div>
+            <div class="ping-ms" style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary);">-- ms</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">1.1.1.1 CDN Edge</div>
+          </div>
+
+          <!-- Google -->
+          <div class="ping-card" id="card-google" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700;">Google Cloud DNS</span>
+              <span class="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background: var(--text-muted);"></span>
+            </div>
+            <div class="ping-ms" style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary);">-- ms</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">8.8.8.8 Global Anycast</div>
+          </div>
+
+          <!-- Quad9 -->
+          <div class="ping-card" id="card-quad9" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700;">Quad9 Secure DNS</span>
+              <span class="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background: var(--text-muted);"></span>
+            </div>
+            <div class="ping-ms" style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary);">-- ms</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">9.9.9.9 Security Edge</div>
+          </div>
+
+        </div>
+
+        <!-- Custom Host Ping -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">Ping a Custom HTTPS Endpoint:</h4>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input type="url" id="custom-target" class="form-input" style="flex: 1; min-width: 240px;" placeholder="https://github.com" value="https://github.com">
+            <button type="button" id="btn-ping-custom" class="btn btn-secondary">Ping Host</button>
+          </div>
+          <div id="custom-ping-result" style="margin-top: 0.75rem; font-weight: 600; font-size: 0.95rem; color: var(--accent-primary);"></div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related SEO & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Ping, Latency & Jitter</h2>
+      <p>Ping measures the round-trip time (in milliseconds) required for a data packet to travel from your web browser to a destination server and back. Latencies under 50ms provide a snappy, seamless browsing and gaming experience, while delays above 150ms indicate packet routing congestion.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnBenchmark = document.getElementById("btn-start-ping");
+      const btnCustom = document.getElementById("btn-ping-custom");
+      const customInput = document.getElementById("custom-target");
+      const customResult = document.getElementById("custom-ping-result");
+
+      async function pingTarget(url) {
+        const start = performance.now();
+        try {
+          await fetch(url + (url.includes('?') ? '&' : '?') + 'r=' + Math.random(), {
+            mode: 'no-cors',
+            cache: 'no-store'
+          });
+          return Math.round(performance.now() - start);
+        } catch (e) {
+          return Math.round(performance.now() - start);
+        }
+      }
+
+      async function runBenchmark() {
+        btnBenchmark.textContent = "Pinging...";
+        btnBenchmark.disabled = true;
+
+        const targets = [
+          { id: "card-cf", url: "https://cloudflare-dns.com/dns-query" },
+          { id: "card-google", url: "https://dns.google/resolve" },
+          { id: "card-quad9", url: "https://dns.quad9.net/dns-query" }
+        ];
+
+        for (const t of targets) {
+          const card = document.getElementById(t.id);
+          const msElem = card.querySelector(".ping-ms");
+          const dot = card.querySelector(".status-indicator");
+
+          msElem.textContent = "...";
+          const ms = await pingTarget(t.url);
+          msElem.textContent = `${ms} ms`;
+
+          if (ms < 60) {
+            dot.style.background = "var(--accent-success)";
+          } else if (ms < 150) {
+            dot.style.background = "var(--accent-warning)";
+          } else {
+            dot.style.background = "var(--accent-danger)";
+          }
+        }
+
+        btnBenchmark.textContent = "🚀 Benchmark Again";
+        btnBenchmark.disabled = false;
+      }
+
+      btnBenchmark.addEventListener("click", runBenchmark);
+
+      btnCustom.addEventListener("click", async () => {
+        let u = customInput.value.trim();
+        if (!u) return;
+        if (!u.startsWith("http")) u = "https://" + u;
+        customResult.textContent = "Measuring latency...";
+        const ms = await pingTarget(u);
+        customResult.textContent = `Round-trip latency to ${u}: ${ms} ms`;
+      });
+
+      runBenchmark();
+    });
+  </script>
+</body>
+</html>

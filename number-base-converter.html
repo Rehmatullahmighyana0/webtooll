@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Base Converter & Bitwise Calculator | WebToolsHub</title>
+  <meta name="description" content="Free multi-base converter for Binary, Decimal, Hexadecimal, Octal, and Custom Base (2 to 36). Includes Text-to-Binary translator and bitwise logic calculator.">
+  <meta name="keywords" content="number base converter, binary to decimal, hex to decimal, bitwise calculator, text to binary, custom base converter, binary translator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/number-base-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/number-base-converter.html">
+  <meta property="og:title" content="Number Base Converter & Bitwise Calculator | WebToolsHub">
+  <meta property="og:description" content="Free multi-base converter for Binary, Decimal, Hexadecimal, Octal, and Custom Base (2 to 36). Includes Text-to-Binary translator and bitwise logic calculator.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/number-base-converter.html">
+  <meta name="twitter:title" content="Number Base Converter & Bitwise Calculator | WebToolsHub">
+  <meta name="twitter:description" content="Free multi-base converter for Binary, Decimal, Hexadecimal, Octal, and Custom Base (2 to 36). Includes Text-to-Binary translator and bitwise logic calculator.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Number Base Converter and Bitwise Calculator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Number Base & Bitwise Calculator</h1>
+      <p class="tool-subtitle">Accurate bi-directional converter across Binary, Octal, Decimal, Hex, and Custom Radix (2-36), plus Text translator and Bitwise engine.</p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="base-tabs">
+      <button class="base-tab-btn active" id="tab-btn-base" onclick="switchTab('base')">🔢 Multi-Base Converter</button>
+      <button class="base-tab-btn" id="tab-btn-text" onclick="switchTab('text')">🔤 Text ⇄ Binary & Hex</button>
+      <button class="base-tab-btn" id="tab-btn-bitwise" onclick="switchTab('bitwise')">⚡ Bitwise Logic Engine</button>
+    </div>
+
+    <!-- SECTION 1: Multi-Base Converter -->
+    <div id="section-base" class="card" style="padding: 28px; max-width: 860px; margin: 0 auto 32px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+        <h2 style="font-size: 18px; margin: 0;">Live Bi-Directional Radix Converter</h2>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <label style="font-size: 13px; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="chk-grouping" checked>
+            <span>Group Digits (Spaces)</span>
+          </label>
+          <button class="btn btn-secondary" style="padding: 3px 10px; font-size: 12px;" id="btn-clear-bases">Clear All</button>
+          <button class="btn btn-secondary" style="padding: 3px 10px; font-size: 12px;" id="btn-sample-bases">Load 1024</button>
+        </div>
+      </div>
+
+      <!-- Decimal (Base 10) -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" for="in-dec" style="margin: 0; font-weight: 700;">Decimal (Base 10)</label>
+          <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('in-dec')">📋 Copy</button>
+        </div>
+        <input type="text" class="input-field" id="in-dec" placeholder="e.g. 255" style="font-family: var(--font-mono); font-size: 15px;">
+        <div class="error-msg" id="err-dec">Invalid Decimal digit. Only 0-9 allowed.</div>
+      </div>
+
+      <!-- Binary (Base 2) -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" for="in-bin" style="margin: 0; font-weight: 700;">Binary (Base 2)</label>
+          <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('in-bin')">📋 Copy</button>
+        </div>
+        <input type="text" class="input-field" id="in-bin" placeholder="e.g. 11111111" style="font-family: var(--font-mono); font-size: 15px;">
+        <div class="error-msg" id="err-bin">Invalid Binary digit. Only 0 and 1 allowed.</div>
+      </div>
+
+      <!-- Hexadecimal (Base 16) -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" for="in-hex" style="margin: 0; font-weight: 700;">Hexadecimal (Base 16)</label>
+          <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('in-hex')">📋 Copy</button>
+        </div>
+        <input type="text" class="input-field" id="in-hex" placeholder="e.g. FF" style="font-family: var(--font-mono); font-size: 15px;">
+        <div class="error-msg" id="err-hex">Invalid Hex digit. Only 0-9 and A-F allowed.</div>
+      </div>
+
+      <!-- Octal (Base 8) -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" for="in-oct" style="margin: 0; font-weight: 700;">Octal (Base 8)</label>
+          <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('in-oct')">📋 Copy</button>
+        </div>
+        <input type="text" class="input-field" id="in-oct" placeholder="e.g. 377" style="font-family: var(--font-mono); font-size: 15px;">
+        <div class="error-msg" id="err-oct">Invalid Octal digit. Only 0-7 allowed.</div>
+      </div>
+
+      <!-- Bi-Directional Custom Radix Base (2 to 36) -->
+      <div class="grid" style="grid-template-columns: 140px 1fr; gap: 12px; margin-top: 18px;">
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="custom-base-num" style="font-weight: 700;">Custom Base (2-36)</label>
+          <input type="number" class="input-field" id="custom-base-num" min="2" max="36" value="32" style="font-family: var(--font-mono);">
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <label class="form-label" for="in-custom" style="margin: 0; font-weight: 700;">Custom Base Value (Editable)</label>
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('in-custom')">📋 Copy</button>
+          </div>
+          <input type="text" class="input-field" id="in-custom" placeholder="Editable custom base string..." style="font-family: var(--font-mono); font-size: 15px;">
+          <div class="error-msg" id="err-custom">Invalid character for this custom base.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Text to Binary & Hex -->
+    <div id="section-text" class="card" style="padding: 28px; max-width: 860px; margin: 0 auto 32px; display: none;">
+      <h2 style="font-size: 18px; margin-bottom: 14px;">Text (ASCII / UTF-8) ⇄ Binary & Hex Converter</h2>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Type text in the top box to instantly see its 8-bit Binary representation and Hex bytes, or paste Binary to decode back to text.</p>
+
+      <div class="form-group">
+        <label class="form-label" for="txt-plain">Plain Text</label>
+        <textarea class="textarea-field" id="txt-plain" rows="3" placeholder="Type text here...">Hello WebToolsHub!</textarea>
+      </div>
+
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" for="txt-binary" style="margin: 0;">Binary (8-bit bytes)</label>
+          <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('txt-binary')">📋 Copy</button>
+        </div>
+        <textarea class="textarea-field" id="txt-binary" rows="4" style="font-family: var(--font-mono); font-size: 13px;"></textarea>
+      </div>
+
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" for="txt-hex" style="margin: 0;">Hexadecimal Bytes</label>
+          <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyField('txt-hex')">📋 Copy</button>
+        </div>
+        <textarea class="textarea-field" id="txt-hex" rows="3" style="font-family: var(--font-mono); font-size: 13px;"></textarea>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-primary" id="btn-text-to-bin">Convert Text ➔ Binary & Hex</button>
+        <button class="btn btn-secondary" id="btn-bin-to-text">Decode Binary ➔ Text</button>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Bitwise Logic Engine -->
+    <div id="section-bitwise" class="card" style="padding: 28px; max-width: 860px; margin: 0 auto 32px; display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+        <h2 style="font-size: 18px; margin: 0;">Bitwise Logic & Shift Engine</h2>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Bit Width:</span>
+          <button class="bit-pill active" data-bits="8">8-bit</button>
+          <button class="bit-pill" data-bits="16">16-bit</button>
+          <button class="bit-pill" data-bits="32">32-bit</button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;">
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="bit-a">Operand A (Decimal, or 0b / 0x)</label>
+          <input type="text" class="input-field" id="bit-a" value="12" style="font-family: var(--font-mono);">
+          <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;" id="meta-a">Bin: 00001100 | Hex: 0x0C</div>
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="bit-b">Operand B (Decimal, or 0b / 0x)</label>
+          <input type="text" class="input-field" id="bit-b" value="5" style="font-family: var(--font-mono);">
+          <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;" id="meta-b">Bin: 00000101 | Hex: 0x05</div>
+        </div>
+      </div>
+
+      <table class="bitwise-table">
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Expression</th>
+            <th>Decimal</th>
+            <th id="th-bit-header">Binary (8-bit)</th>
+            <th>Hexadecimal</th>
+          </tr>
+        </thead>
+        <tbody id="bitwise-results"></tbody>
+      </table>
+    </div>
+
+    <div class="seo-content card" style="max-width: 860px; margin: 0 auto;">
+      <h2>Understanding Number Radix Systems & Bitwise Math</h2>
+      <p>Computers fundamentally process information as binary transistors (0 and 1). Hexadecimal (base 16) is human shorthand for bytes, grouping 4 bits into a single character (0-9, A-F). Octal (base 8) groups 3 bits and is traditionally used for Unix file permissions (e.g. <code>chmod 755</code>). Bitwise logic operations operate directly on individual bit positions rather than numerical values.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Calculators Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="percentage-calculator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a>
+          <a href="unit-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a>
+          <a href="timestamp-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a>
+          <a href="aspect-ratio-calculator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📐 Aspect Ratio Calculator</span><span class="badge-mini">Design/Math</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    // Tab Switching
+    function switchTab(name) {
+      ['base', 'text', 'bitwise'].forEach(t => {
+        document.getElementById(`tab-btn-${t}`).classList.toggle('active', t === name);
+        document.getElementById(`section-${t}`).style.display = (t === name) ? 'block' : 'none';
+      });
+    }
+
+    // SECTION 1: Multi-Base Converter Engine
+    const inDec = document.getElementById('in-dec');
+    const inBin = document.getElementById('in-bin');
+    const inHex = document.getElementById('in-hex');
+    const inOct = document.getElementById('in-oct');
+    const inCustom = document.getElementById('in-custom');
+    const customRadixInput = document.getElementById('custom-base-num');
+    const chkGrouping = document.getElementById('chk-grouping');
+
+    let currentVal = BigInt(255);
+
+    function cleanString(str) {
+      return (str || '').replace(/\s+/g, '');
+    }
+
+    function formatBinary(binStr) {
+      if (!chkGrouping.checked) return binStr;
+      // Group by 4 bits
+      return binStr.replace(/\B(?=(\d{4})+(?!\d))/g, ' ');
+    }
+
+    function formatHex(hexStr) {
+      if (!chkGrouping.checked) return hexStr;
+      // Group by 2 hex chars
+      return hexStr.replace(/\B(?=([0-9a-fA-F]{2})+(?![0-9a-fA-F]))/g, ' ');
+    }
+
+    function formatDecimal(decStr) {
+      if (!chkGrouping.checked) return decStr;
+      // Group by thousands
+      return decStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function clearErrors() {
+      ['dec', 'bin', 'hex', 'oct', 'custom'].forEach(k => {
+        const inp = document.getElementById(`in-${k}`);
+        const err = document.getElementById(`err-${k}`);
+        if (inp) inp.classList.remove('input-error');
+        if (err) err.style.display = 'none';
+      });
+    }
+
+    function setError(key, show = true) {
+      const inp = document.getElementById(`in-${key}`);
+      const err = document.getElementById(`err-${key}`);
+      if (inp) inp.classList.toggle('input-error', show);
+      if (err) err.style.display = show ? 'block' : 'none';
+    }
+
+    function updateAllFieldsFromBigInt(num, source) {
+      currentVal = num;
+      clearErrors();
+
+      if (num === null) {
+        if (source !== 'dec') inDec.value = '';
+        if (source !== 'bin') inBin.value = '';
+        if (source !== 'hex') inHex.value = '';
+        if (source !== 'oct') inOct.value = '';
+        if (source !== 'custom') inCustom.value = '';
+        return;
+      }
+
+      const rad = Math.min(Math.max(parseInt(customRadixInput.value) || 32, 2), 36);
+
+      if (source !== 'dec') inDec.value = formatDecimal(num.toString(10));
+      if (source !== 'bin') inBin.value = formatBinary(num.toString(2));
+      if (source !== 'hex') inHex.value = formatHex(num.toString(16).toUpperCase());
+      if (source !== 'oct') inOct.value = num.toString(8);
+      if (source !== 'custom') inCustom.value = num.toString(rad).toUpperCase();
+    }
+
+    // Decimal Input
+    inDec.addEventListener('input', () => {
+      const raw = cleanString(inDec.value).replace(/,/g, '');
+      if (!raw) { updateAllFieldsFromBigInt(null, 'dec'); return; }
+      if (!/^-?\d+$/.test(raw)) { setError('dec', true); return; }
+      try {
+        const n = BigInt(raw);
+        setError('dec', false);
+        updateAllFieldsFromBigInt(n, 'dec');
+      } catch (e) { setError('dec', true); }
+    });
+
+    // Binary Input
+    inBin.addEventListener('input', () => {
+      const raw = cleanString(inBin.value);
+      if (!raw) { updateAllFieldsFromBigInt(null, 'bin'); return; }
+      if (!/^[01]+$/.test(raw)) { setError('bin', true); return; }
+      try {
+        const n = BigInt('0b' + raw);
+        setError('bin', false);
+        updateAllFieldsFromBigInt(n, 'bin');
+      } catch (e) { setError('bin', true); }
+    });
+
+    // Hex Input
+    inHex.addEventListener('input', () => {
+      const raw = cleanString(inHex.value);
+      if (!raw) { updateAllFieldsFromBigInt(null, 'hex'); return; }
+      if (!/^[0-9a-fA-F]+$/.test(raw)) { setError('hex', true); return; }
+      try {
+        const n = BigInt('0x' + raw);
+        setError('hex', false);
+        updateAllFieldsFromBigInt(n, 'hex');
+      } catch (e) { setError('hex', true); }
+    });
+
+    // Octal Input
+    inOct.addEventListener('input', () => {
+      const raw = cleanString(inOct.value);
+      if (!raw) { updateAllFieldsFromBigInt(null, 'oct'); return; }
+      if (!/^[0-7]+$/.test(raw)) { setError('oct', true); return; }
+      try {
+        const n = BigInt('0o' + raw);
+        setError('oct', false);
+        updateAllFieldsFromBigInt(n, 'oct');
+      } catch (e) { setError('oct', true); }
+    });
+
+    // Custom Base Input (Bi-Directional!)
+    function parseCustomBaseBigInt(str, base) {
+      const digits = '0123456789abcdefghijklmnopqrstuvwxyz';
+      const clean = str.toLowerCase().trim();
+      const b = BigInt(base);
+      let res = 0n;
+      for (let i = 0; i < clean.length; i++) {
+        const d = digits.indexOf(clean[i]);
+        if (d === -1 || d >= base) return null;
+        res = res * b + BigInt(d);
+      }
+      return res;
+    }
+
+    inCustom.addEventListener('input', () => {
+      const raw = cleanString(inCustom.value);
+      const rad = Math.min(Math.max(parseInt(customRadixInput.value) || 32, 2), 36);
+      if (!raw) { updateAllFieldsFromBigInt(null, 'custom'); return; }
+      const parsed = parseCustomBaseBigInt(raw, rad);
+      if (parsed === null) {
+        setError('custom', true);
+      } else {
+        setError('custom', false);
+        updateAllFieldsFromBigInt(parsed, 'custom');
+      }
+    });
+
+    customRadixInput.addEventListener('input', () => {
+      if (currentVal !== null) updateAllFieldsFromBigInt(currentVal, 'radix');
+    });
+
+    chkGrouping.addEventListener('change', () => {
+      if (currentVal !== null) updateAllFieldsFromBigInt(currentVal, 'toggle');
+    });
+
+    document.getElementById('btn-clear-bases').addEventListener('click', () => {
+      updateAllFieldsFromBigInt(null, 'btn');
+    });
+
+    document.getElementById('btn-sample-bases').addEventListener('click', () => {
+      updateAllFieldsFromBigInt(BigInt(1024), 'btn');
+      showToast('Loaded 1024 sample!');
+    });
+
+    function copyField(id) {
+      const v = cleanString(document.getElementById(id).value);
+      if (!v) return;
+      navigator.clipboard.writeText(v);
+      showToast('Copied to clipboard!');
+    }
+
+    // SECTION 2: Text to Binary / Hex
+    const txtPlain = document.getElementById('txt-plain');
+    const txtBinary = document.getElementById('txt-binary');
+    const txtHex = document.getElementById('txt-hex');
+
+    function convertTextToBinAndHex() {
+      const text = txtPlain.value;
+      if (!text) {
+        txtBinary.value = '';
+        txtHex.value = '';
+        return;
+      }
+      const bytes = new TextEncoder().encode(text);
+      const binParts = [];
+      const hexParts = [];
+
+      bytes.forEach(b => {
+        binParts.push(b.toString(2).padStart(8, '0'));
+        hexParts.push(b.toString(16).toUpperCase().padStart(2, '0'));
+      });
+
+      txtBinary.value = binParts.join(' ');
+      txtHex.value = hexParts.join(' ');
+    }
+
+    function decodeBinaryToText() {
+      const binStr = txtBinary.value.replace(/\s+/g, '');
+      if (!binStr || !/^[01]+$/.test(binStr)) {
+        showToast('Invalid binary string provided', 'error');
+        return;
+      }
+      try {
+        const bytes = [];
+        for (let i = 0; i < binStr.length; i += 8) {
+          const byteStr = binStr.substr(i, 8);
+          bytes.push(parseInt(byteStr, 2));
+        }
+        txtPlain.value = new TextDecoder().decode(new Uint8Array(bytes));
+        convertTextToBinAndHex();
+        showToast('Binary decoded to plain text!');
+      } catch (e) {
+        showToast('Error decoding binary: ' + e.message, 'error');
+      }
+    }
+
+    document.getElementById('btn-text-to-bin').addEventListener('click', () => {
+      convertTextToBinAndHex();
+      showToast('Converted text to binary & hex!');
+    });
+    document.getElementById('btn-bin-to-text').addEventListener('click', decodeBinaryToText);
+    txtPlain.addEventListener('input', convertTextToBinAndHex);
+
+    // SECTION 3: Bitwise Logic Engine
+    let currentBitWidth = 8;
+
+    function parseOperand(val) {
+      const str = (val || '').trim();
+      if (!str) return 0;
+      try {
+        if (str.startsWith('0b') || str.startsWith('0B')) return parseInt(str.substring(2), 2) || 0;
+        if (str.startsWith('0x') || str.startsWith('0X')) return parseInt(str.substring(2), 16) || 0;
+        return parseInt(str, 10) || 0;
+      } catch (e) { return 0; }
+    }
+
+    function calcBitwise() {
+      const a = parseOperand(document.getElementById('bit-a').value);
+      const b = parseOperand(document.getElementById('bit-b').value);
+
+      const mask = currentBitWidth === 8 ? 0xFF : currentBitWidth === 16 ? 0xFFFF : 0xFFFFFFFF;
+
+      const maskedA = (a & mask) >>> 0;
+      const maskedB = (b & mask) >>> 0;
+
+      // Update meta indicators
+      document.getElementById('meta-a').textContent = `Bin: ${maskedA.toString(2).padStart(currentBitWidth, '0')} | Hex: 0x${maskedA.toString(16).toUpperCase()}`;
+      document.getElementById('meta-b').textContent = `Bin: ${maskedB.toString(2).padStart(currentBitWidth, '0')} | Hex: 0x${maskedB.toString(16).toUpperCase()}`;
+      document.getElementById('th-bit-header').textContent = `Binary (${currentBitWidth}-bit)`;
+
+      const ops = [
+        { name: 'Bitwise AND', expr: 'A & B', val: (a & b) & mask },
+        { name: 'Bitwise OR', expr: 'A | B', val: (a | b) & mask },
+        { name: 'Bitwise XOR', expr: 'A ^ B', val: (a ^ b) & mask },
+        { name: 'Bitwise NOT A', expr: '~A', val: (~a) & mask },
+        { name: 'Bitwise NOT B', expr: '~B', val: (~b) & mask },
+        { name: 'Left Shift A', expr: 'A << 1', val: (a << 1) & mask },
+        { name: 'Right Shift A', expr: 'A >> 1', val: (a >> 1) & mask }
+      ];
+
+      const tbody = document.getElementById('bitwise-results');
+      tbody.innerHTML = ops.map(op => {
+        const uval = op.val >>> 0;
+        const bin = uval.toString(2).padStart(currentBitWidth, '0');
+        const hex = '0x' + uval.toString(16).toUpperCase();
+        return `
+          <tr>
+            <td><strong>${op.name}</strong></td>
+            <td><code>${op.expr}</code></td>
+            <td>${uval}</td>
+            <td><code>${bin}</code></td>
+            <td><code>${hex}</code></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    document.querySelectorAll('.bit-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.bit-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentBitWidth = parseInt(btn.getAttribute('data-bits'));
+        calcBitwise();
+      });
+    });
+
+    document.getElementById('bit-a').addEventListener('input', calcBitwise);
+    document.getElementById('bit-b').addEventListener('input', calcBitwise);
+
+    // Initializations
+    updateAllFieldsFromBigInt(BigInt(255), 'init');
+    convertTextToBinAndHex();
+    calcBitwise();
+  </script>
+</body>
+</html>

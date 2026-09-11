@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online PDF Utilities — Image to PDF & Document Tools | WebToolsHub</title>
+  <meta name="description" content="Convert JPG and PNG images into a PDF document directly in your browser. Inspect PDF metadata, page count, and download 100% privately without uploads.">
+  <meta name="keywords" content="image to pdf, convert photos to pdf, free pdf converter, pdf page counter, merge photos to pdf, client side pdf tools">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/pdf-utilities.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/pdf-utilities.html">
+  <meta property="og:title" content="Free Online PDF Utilities — Image to PDF & Document Tools | WebToolsHub">
+  <meta property="og:description" content="Convert JPG and PNG images into a PDF document directly in your browser. Inspect PDF metadata, page count, and download 100% privately without uploads.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/pdf-utilities.html">
+  <meta name="twitter:title" content="Free Online PDF Utilities — Image to PDF & Document Tools | WebToolsHub">
+  <meta name="twitter:description" content="Convert JPG and PNG images into a PDF document directly in your browser. Inspect PDF metadata, page count, and download 100% privately without uploads.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- PDF-Lib from CDN for 100% Client-Side PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PDF Utilities",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Convert images to PDF documents and inspect PDF files completely in-browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>PDF Tools</span> &gt; <span>PDF Utilities</span>
+      </nav>
+      <h1 class="tool-page-title">PDF Utilities (Image to PDF)</h1>
+      <p class="tool-page-subtitle">Convert multiple photos into a crisp, unified PDF document. Fully processed inside your browser with zero document uploads.</p>
+      <div class="privacy-badge">🔒 100% Private & Client-Side</div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Top Ad Placement -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Leaderboard Ad Slot (728x90)</span>
+    </div>
+
+    <div class="tool-layout with-sidebar">
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Tool Mode Tabs -->
+        <div class="categories-filter" style="justify-content: flex-start; margin: 0 0 1.5rem;">
+          <button class="filter-pill active" id="tab-img2pdf">🖼️ Image to PDF Converter</button>
+          <button class="filter-pill" id="tab-inspector">🔍 PDF Page & Metadata Inspector</button>
+        </div>
+
+        <!-- Mode 1: Image to PDF -->
+        <div id="section-img2pdf">
+          <!-- Dropzone -->
+          <div class="upload-dropzone" id="pdf-dropzone">
+            <div class="dropzone-icon">📑</div>
+            <h3 style="margin-bottom: 0.5rem;">Drag & drop images here (JPG, PNG)</h3>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">Select multiple photos to combine into a single PDF document</p>
+            <input type="file" id="pdf-file-input" accept="image/jpeg,image/png" multiple style="display: none;">
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem;" onclick="document.getElementById('pdf-file-input').click()">
+              Choose Images
+            </button>
+          </div>
+
+          <!-- Selected Images Queue -->
+          <div id="image-queue-wrapper" style="display: none; margin-top: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <h4 style="font-size: 1rem;">Selected Images (<span id="queue-count">0</span>)</h4>
+              <button type="button" id="btn-clear-images" class="btn btn-secondary btn-sm">Clear All</button>
+            </div>
+            
+            <div id="image-thumbnails-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;"></div>
+
+            <!-- PDF Configuration -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="page-size">Page Size</label>
+                  <select id="page-size" class="form-select">
+                    <option value="A4" selected>A4 (Standard Document)</option>
+                    <option value="Letter">US Letter</option>
+                    <option value="Fit">Fit to Image Size</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="page-orientation">Orientation</label>
+                  <select id="page-orientation" class="form-select">
+                    <option value="portrait" selected>Portrait</option>
+                    <option value="landscape">Landscape</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="page-margin">Margins</label>
+                  <select id="page-margin" class="form-select">
+                    <option value="0">No Margins (Full Bleed)</option>
+                    <option value="20" selected>Standard Margin (20pt)</option>
+                    <option value="40">Wide Margin (40pt)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Generate Action -->
+            <div class="btn-group" style="justify-content: center;">
+              <button type="button" id="btn-generate-pdf" class="btn btn-primary" style="padding: 0.85rem 2.5rem; font-size: 1.05rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Generate & Download PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode 2: PDF Inspector -->
+        <div id="section-inspector" style="display: none;">
+          <div class="upload-dropzone" id="inspector-dropzone">
+            <div class="dropzone-icon">🔍</div>
+            <h3 style="margin-bottom: 0.5rem;">Select a PDF to inspect</h3>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">Check page counts, title, author, and security settings privately</p>
+            <input type="file" id="inspector-file-input" accept="application/pdf" style="display: none;">
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem;" onclick="document.getElementById('inspector-file-input').click()">
+              Choose PDF File
+            </button>
+          </div>
+
+          <div id="inspector-result" style="display: none; margin-top: 1.5rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <h4 style="margin-bottom: 1rem; color: var(--accent-primary);">PDF Document Metadata</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div><strong>File Name:</strong> <div id="pdf-meta-name" style="color:var(--text-secondary);">-</div></div>
+              <div><strong>Total Pages:</strong> <div id="pdf-meta-pages" style="color:var(--accent-primary); font-size: 1.25rem; font-weight:700;">-</div></div>
+              <div><strong>Title:</strong> <div id="pdf-meta-title" style="color:var(--text-secondary);">-</div></div>
+              <div><strong>Author:</strong> <div id="pdf-meta-author" style="color:var(--text-secondary);">-</div></div>
+              <div><strong>Creator Tool:</strong> <div id="pdf-meta-creator" style="color:var(--text-secondary);">-</div></div>
+              <div><strong>Creation Date:</strong> <div id="pdf-meta-date" style="color:var(--text-secondary);">-</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related PDF Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="pdf-merger.html"><span>📑 PDF Merger</span><span class="badge-mini">PDF</span></a></li>
+            <li><a href="pdf-splitter.html"><span>✂️ PDF Splitter</span><span class="badge-mini">PDF</span></a></li>
+            <li><a href="pdf-to-image.html"><span>🖼️ PDF to Image Converter</span><span class="badge-mini">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-card">
+      <h2>Why Convert Images to PDF in the Browser?</h2>
+      <p>Whether submitting receipts for expense claims, compiling scanned pages of a legal contract, or assembling a portfolio, converting separate images into a single clean PDF makes sharing and archiving effortless.</p>
+
+      <h3>Privacy You Can Trust</h3>
+      <p>Most commercial PDF converters send your sensitive documents to remote servers in foreign countries, risking private leaks. WebToolsHub uses WebAssembly and modern JavaScript PDF libraries (<code>pdf-lib</code>) so your private contracts, ID photos, and receipts never leave your device.</p>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I reorder or delete images before generating the PDF?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! When you add images, each photo displays with an instant remove button so you can curate your document before generating.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What image formats are supported?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We currently support JPEG and PNG image formats. WebP images can be quickly compressed and saved as JPEG first using our Image Compressor tool.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Footer Ad Slot</span>
+    </div>
+
+  </main>
+
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WebToolsHub. All rights reserved. <a href="index.html">Back to All Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("pdf-utilities");
+
+      const tabImg2Pdf = document.getElementById("tab-img2pdf");
+      const tabInspector = document.getElementById("tab-inspector");
+      const sectionImg2Pdf = document.getElementById("section-img2pdf");
+      const sectionInspector = document.getElementById("section-inspector");
+
+      tabImg2Pdf.addEventListener("click", () => {
+        tabImg2Pdf.classList.add("active");
+        tabInspector.classList.remove("active");
+        sectionImg2Pdf.style.display = "block";
+        sectionInspector.style.display = "none";
+      });
+
+      tabInspector.addEventListener("click", () => {
+        tabInspector.classList.add("active");
+        tabImg2Pdf.classList.remove("active");
+        sectionInspector.style.display = "block";
+        sectionImg2Pdf.style.display = "none";
+      });
+
+      // --- Mode 1: Image to PDF ---
+      let imageList = []; // Array of { file, dataUrl, width, height, type }
+
+      const dropzone = document.getElementById("pdf-dropzone");
+      const fileInput = document.getElementById("pdf-file-input");
+      const queueWrapper = document.getElementById("image-queue-wrapper");
+      const thumbnailsGrid = document.getElementById("image-thumbnails-grid");
+      const queueCount = document.getElementById("queue-count");
+      const btnClearImages = document.getElementById("btn-clear-images");
+      const btnGenerate = document.getElementById("btn-generate-pdf");
+
+      const pageSizeSelect = document.getElementById("page-size");
+      const pageOrientationSelect = document.getElementById("page-orientation");
+      const pageMarginSelect = document.getElementById("page-margin");
+
+      function handleFiles(files) {
+        Array.from(files).forEach(file => {
+          if (!file.type.match(/image\/(jpeg|png)/)) {
+            showToast(`Skipping unsupported file: ${file.name}`, "warning");
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+              imageList.push({
+                file: file,
+                dataUrl: e.target.result,
+                width: img.width,
+                height: img.height,
+                type: file.type
+              });
+              renderQueue();
+            };
+            img.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function renderQueue() {
+        if (imageList.length === 0) {
+          queueWrapper.style.display = "none";
+          return;
+        }
+
+        queueWrapper.style.display = "block";
+        queueCount.textContent = imageList.length;
+        thumbnailsGrid.innerHTML = "";
+
+        imageList.forEach((item, idx) => {
+          const card = document.createElement("div");
+          card.style.position = "relative";
+          card.style.border = "1px solid var(--border-color)";
+          card.style.borderRadius = "var(--radius-sm)";
+          card.style.overflow = "hidden";
+          card.style.background = "var(--bg-subtle)";
+          card.style.padding = "4px";
+
+          card.innerHTML = `
+            <img src="${item.dataUrl}" style="width: 100%; height: 90px; object-fit: cover; border-radius: 4px; display: block;" alt="Img ${idx + 1}">
+            <div style="font-size: 0.75rem; text-align: center; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              #${idx + 1}
+            </div>
+            <button type="button" style="position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,0.7); color: #fff; border: none; border-radius: 50%; width: 20px; height: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px;">✕</button>
+          `;
+
+          card.querySelector("button").addEventListener("click", () => {
+            imageList.splice(idx, 1);
+            renderQueue();
+          });
+
+          thumbnailsGrid.appendChild(card);
+        });
+      }
+
+      ['dragenter', 'dragover'].forEach(evt => {
+        dropzone.addEventListener(evt, (e) => {
+          e.preventDefault();
+          dropzone.classList.add("dragover");
+        });
+      });
+      ['dragleave', 'drop'].forEach(evt => {
+        dropzone.addEventListener(evt, (e) => {
+          e.preventDefault();
+          dropzone.classList.remove("dragover");
+        });
+      });
+      dropzone.addEventListener("drop", (e) => {
+        if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) handleFiles(e.target.files);
+      });
+
+      btnClearImages.addEventListener("click", () => {
+        imageList = [];
+        renderQueue();
+      });
+
+      // Generate PDF using PDFLib
+      btnGenerate.addEventListener("click", async () => {
+        if (imageList.length === 0) {
+          showToast("Please add at least one image first.", "warning");
+          return;
+        }
+
+        if (typeof PDFLib === "undefined") {
+          showToast("PDF generation engine loading. Please try in a moment.", "warning");
+          return;
+        }
+
+        btnGenerate.disabled = true;
+        btnGenerate.textContent = "Compiling PDF...";
+
+        try {
+          const { PDFDocument, PageSizes } = PDFLib;
+          const pdfDoc = await PDFDocument.create();
+
+          const sizeChoice = pageSizeSelect.value;
+          const orient = pageOrientationSelect.value;
+          const margin = parseFloat(pageMarginSelect.value) || 0;
+
+          for (const item of imageList) {
+            let imgBytes;
+            let pdfImg;
+
+            // Fetch raw bytes from base64
+            const base64Data = item.dataUrl.split(',')[1];
+            const binaryString = window.atob(base64Data);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+              bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            if (item.type === "image/png") {
+              pdfImg = await pdfDoc.embedPng(bytes);
+            } else {
+              pdfImg = await pdfDoc.embedJpg(bytes);
+            }
+
+            let pageWidth, pageHeight;
+            if (sizeChoice === "A4") {
+              pageWidth = orient === "landscape" ? PageSizes.A4[1] : PageSizes.A4[0];
+              pageHeight = orient === "landscape" ? PageSizes.A4[0] : PageSizes.A4[1];
+            } else if (sizeChoice === "Letter") {
+              pageWidth = orient === "landscape" ? PageSizes.Letter[1] : PageSizes.Letter[0];
+              pageHeight = orient === "landscape" ? PageSizes.Letter[0] : PageSizes.Letter[1];
+            } else {
+              // Fit to image
+              pageWidth = item.width + (margin * 2);
+              pageHeight = item.height + (margin * 2);
+            }
+
+            const page = pdfDoc.addPage([pageWidth, pageHeight]);
+
+            // Compute scaled fit dimensions within margins
+            const availW = pageWidth - (margin * 2);
+            const availH = pageHeight - (margin * 2);
+            const scale = Math.min(availW / item.width, availH / item.height);
+
+            const drawW = item.width * scale;
+            const drawH = item.height * scale;
+            const drawX = margin + (availW - drawW) / 2;
+            const drawY = margin + (availH - drawH) / 2;
+
+            page.drawImage(pdfImg, {
+              x: drawX,
+              y: drawY,
+              width: drawW,
+              height: drawH,
+            });
+          }
+
+          const pdfBytes = await pdfDoc.save();
+          const blob = new Blob([pdfBytes], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `document-${Date.now()}.pdf`;
+          a.click();
+          URL.revokeObjectURL(url);
+
+          showToast("PDF created and downloaded successfully!");
+        } catch (err) {
+          console.error(err);
+          showToast(`Error creating PDF: ${err.message}`, "danger");
+        } finally {
+          btnGenerate.disabled = false;
+          btnGenerate.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Generate & Download PDF`;
+        }
+      });
+
+      // --- Mode 2: PDF Inspector ---
+      const inspectorDropzone = document.getElementById("inspector-dropzone");
+      const inspectorInput = document.getElementById("inspector-file-input");
+      const inspectorResult = document.getElementById("inspector-result");
+
+      async function inspectPdf(file) {
+        if (!file || file.type !== "application/pdf") {
+          showToast("Please upload a valid .pdf file.", "warning");
+          return;
+        }
+
+        try {
+          const arrayBuffer = await file.arrayBuffer();
+          const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+
+          document.getElementById("pdf-meta-name").textContent = file.name;
+          document.getElementById("pdf-meta-pages").textContent = `${pdfDoc.getPageCount()} pages`;
+          document.getElementById("pdf-meta-title").textContent = pdfDoc.getTitle() || "Not specified";
+          document.getElementById("pdf-meta-author").textContent = pdfDoc.getAuthor() || "Not specified";
+          document.getElementById("pdf-meta-creator").textContent = pdfDoc.getCreator() || "Not specified";
+          
+          const cDate = pdfDoc.getCreationDate();
+          document.getElementById("pdf-meta-date").textContent = cDate ? cDate.toLocaleDateString() : "Not specified";
+
+          inspectorResult.style.display = "block";
+          showToast("PDF metadata loaded!");
+        } catch (err) {
+          showToast(`Failed to parse PDF: ${err.message}`, "danger");
+        }
+      }
+
+      inspectorInput.addEventListener("change", (e) => {
+        if (e.target.files.length) inspectPdf(e.target.files[0]);
+      });
+      inspectorDropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        if (e.dataTransfer.files.length) inspectPdf(e.dataTransfer.files[0]);
+      });
+      ['dragenter', 'dragover'].forEach(evt => {
+        inspectorDropzone.addEventListener(evt, (e) => {
+          e.preventDefault();
+          inspectorDropzone.classList.add("dragover");
+        });
+      });
+      ['dragleave', 'drop'].forEach(evt => {
+        inspectorDropzone.addEventListener(evt, (e) => {
+          e.preventDefault();
+          inspectorDropzone.classList.remove("dragover");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

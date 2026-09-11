@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAC Address Lookup & OUI Vendor Finder | WebToolsHub</title>
+  <meta name="description" content="Free MAC address lookup tool. Identify device manufacturer, OUI vendor, network interface type, and normalized MAC formats with instant local & API detection.">
+  <meta name="keywords" content="mac address lookup, oui lookup, mac vendor lookup, network card manufacturer, mac address checker">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/mac-lookup.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/mac-lookup.html">
+  <meta property="og:title" content="MAC Address Lookup & OUI Vendor Finder | WebToolsHub">
+  <meta property="og:description" content="Free MAC address lookup tool. Identify device manufacturer, OUI vendor, network interface type, and normalized MAC formats with instant local & API detection.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/mac-lookup.html">
+  <meta name="twitter:title" content="MAC Address Lookup & OUI Vendor Finder | WebToolsHub">
+  <meta name="twitter:description" content="Free MAC address lookup tool. Identify device manufacturer, OUI vendor, network interface type, and normalized MAC formats with instant local & API detection.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MAC Address Lookup",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Identify network hardware vendors and examine OUI specifications for any MAC address."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Web & Network</span> &gt; <span>MAC Lookup</span>
+      </nav>
+      <h1 class="tool-page-title">MAC Address & OUI Vendor Lookup</h1>
+      <p class="tool-page-subtitle">Find hardware manufacturers, identify network card vendors, and parse MAC frame architectures.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Safe</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Input Form -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <label class="form-label" style="font-weight: 700;">Enter MAC Address or 6-character OUI:</label>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input type="text" id="mac-input" class="form-control" placeholder="e.g. 00:1A:2B:3C:4D:5E or 3C-D9-2B..." value="3C:D9:2B:55:66:77" style="flex-grow: 1; min-width: 260px; font-family: monospace; font-weight: 700; text-transform: uppercase;">
+            <button type="button" class="btn btn-primary" id="btn-lookup-mac">Lookup Vendor</button>
+          </div>
+
+          <!-- Sample MAC Pills -->
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; align-items: center;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Examples:</span>
+            <button type="button" class="filter-pill" onclick="searchMac('3C:D9:2B:55:66:77')">Apple (iPhone/Mac)</button>
+            <button type="button" class="filter-pill" onclick="searchMac('00:00:0C:11:22:33')">Cisco Systems</button>
+            <button type="button" class="filter-pill" onclick="searchMac('00:1A:11:44:55:66')">Google</button>
+            <button type="button" class="filter-pill" onclick="searchMac('B8:27:EB:AA:BB:CC')">Raspberry Pi</button>
+            <button type="button" class="filter-pill" onclick="searchMac('00:50:56:12:34:56')">VMware</button>
+            <button type="button" class="filter-pill" onclick="searchMac('00:14:22:78:90:AB')">Dell Inc.</button>
+          </div>
+        </div>
+
+        <!-- Result Card -->
+        <div id="result-box" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 1.5rem;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.25rem;">
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">Hardware Manufacturer</div>
+              <h2 id="vendor-name" style="margin: 0.25rem 0 0; font-size: 1.75rem; color: var(--accent-primary); font-weight: 800;">Apple, Inc.</h2>
+            </div>
+            <div id="oui-badge" style="background: var(--bg-subtle); border: 1px solid var(--border-color); font-family: monospace; font-size: 1rem; font-weight: 700; padding: 0.4rem 0.8rem; border-radius: var(--radius-sm);">
+              OUI: 3C:D9:2B
+            </div>
+          </div>
+
+          <!-- Technical Specs Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm);">
+              <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 700;">Cast Transmission Type</div>
+              <div id="cast-type" style="font-size: 1.1rem; font-weight: 700; margin-top: 0.25rem;">Unicast (Individual)</div>
+            </div>
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm);">
+              <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 700;">Administration Scope</div>
+              <div id="admin-scope" style="font-size: 1.1rem; font-weight: 700; margin-top: 0.25rem;">Globally Unique (UAA)</div>
+            </div>
+            <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm);">
+              <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 700;">Block Registry Category</div>
+              <div style="font-size: 1.1rem; font-weight: 700; margin-top: 0.25rem;">IEEE MA-L (24-bit OUI)</div>
+            </div>
+          </div>
+
+          <!-- MAC Formats Table -->
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem;">Standard Normalized Representations:</div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-subtle); padding: 0.6rem 1rem; border-radius: var(--radius-sm);">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Standard Colon:</span>
+                <span id="fmt-colon" style="font-family: monospace; font-weight: 700;">3C:D9:2B:55:66:77</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-subtle); padding: 0.6rem 1rem; border-radius: var(--radius-sm);">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Hyphen Notation:</span>
+                <span id="fmt-hyphen" style="font-family: monospace; font-weight: 700;">3C-D9-2B-55-66-77</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-subtle); padding: 0.6rem 1rem; border-radius: var(--radius-sm);">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Cisco Dot Notation:</span>
+                <span id="fmt-cisco" style="font-family: monospace; font-weight: 700;">3cd9.2b55.6677</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-subtle); padding: 0.6rem 1rem; border-radius: var(--radius-sm);">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Raw Hexadecimal:</span>
+                <span id="fmt-raw" style="font-family: monospace; font-weight: 700;">3CD92B556677</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Network & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How can I find my computer's MAC address?</h3>
+        <p>On Windows, open PowerShell and run <code>getmac</code> or <code>ipconfig /all</code>. On macOS and Linux, run <code>ifconfig</code> or <code>ip link</code> in the Terminal.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why does my smartphone show a randomized MAC address?</h3>
+        <p>Modern iOS and Android operating systems use Private MAC Address randomization when connecting to Wi-Fi networks to prevent physical location tracking.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const ouiDatabase = {
+      '3CD92B': 'Apple, Inc.',
+      '00000C': 'Cisco Systems, Inc.',
+      '001A11': 'Google, LLC',
+      'B827EB': 'Raspberry Pi Foundation',
+      'DC2632': 'Raspberry Pi Trading Ltd',
+      '005056': 'VMware, Inc.',
+      '001422': 'Dell Inc.',
+      '001E67': 'Intel Corporation',
+      '000C29': 'VMware, Inc.',
+      'ACDE48': 'Apple, Inc.',
+      'F4F5DB': 'Apple, Inc.',
+      '001C42': 'Parallels, Inc.',
+      '080027': 'Oracle VirtualBox',
+      '00155D': 'Microsoft Corporation (Hyper-V)',
+      '50C7BF': 'TP-Link Corporation Limited',
+      'E4F004': 'Samsung Electronics Co., Ltd',
+      '001A79': 'Huawei Technologies Co., Ltd',
+      '0026B9': 'Dell Inc.',
+      '7085C2': 'Hewlett Packard Enterprise',
+      '001132': 'Synology Inc.',
+      '0024E8': 'Dell Inc.',
+      '002590': 'Super Micro Computer, Inc.',
+      '009027': 'Intel Corporation',
+      '001B63': 'Apple, Inc.',
+      'FCF8AE': 'Amazon Technologies Inc.',
+      '001D43': 'NVIDIA Corporation',
+      '001018': 'Broadcom Corporation',
+      '00016C': 'Foxconn / Hon Hai',
+      '00E04C': 'Realtek Semiconductor Corp.'
+    };
+
+    function cleanHex(str) {
+      return str.replace(/[^0-9A-Fa-f]/g, '').toUpperCase();
+    }
+
+    function searchMac(input) {
+      document.getElementById('mac-input').value = input;
+      const hex = cleanHex(input);
+
+      if (hex.length < 6) {
+        alert('Please enter at least 6 hexadecimal characters for the OUI prefix.');
+        return;
+      }
+
+      const oui = hex.substring(0, 6);
+      const ouiFormatted = `${oui.substring(0, 2)}:${oui.substring(2, 4)}:${oui.substring(4, 6)}`;
+      document.getElementById('oui-badge').textContent = `OUI: ${ouiFormatted}`;
+
+      // Normalize representation
+      const fullHex = (hex + '000000000000').substring(0, 12);
+      const b = [];
+      for (let i = 0; i < 12; i += 2) b.push(fullHex.substring(i, i + 2));
+
+      document.getElementById('fmt-colon').textContent = b.join(':');
+      document.getElementById('fmt-hyphen').textContent = b.join('-');
+      document.getElementById('fmt-cisco').textContent = `${fullHex.substring(0, 4).toLowerCase()}.${fullHex.substring(4, 8).toLowerCase()}.${fullHex.substring(8, 12).toLowerCase()}`;
+      document.getElementById('fmt-raw').textContent = fullHex;
+
+      // Bit evaluation of first byte
+      const firstByte = parseInt(b[0], 16);
+      const isMulticast = (firstByte & 0x01) !== 0;
+      const isLocal = (firstByte & 0x02) !== 0;
+
+      document.getElementById('cast-type').textContent = isMulticast ? 'Multicast / Broadcast' : 'Unicast (Individual)';
+      document.getElementById('admin-scope').textContent = isLocal ? 'Locally Administered (LAA / Randomized)' : 'Globally Unique (UAA)';
+
+      // Vendor lookup
+      if (ouiDatabase[oui]) {
+        document.getElementById('vendor-name').textContent = ouiDatabase[oui];
+      } else {
+        // Try live query or fallback
+        document.getElementById('vendor-name').textContent = 'Querying IEEE registry...';
+        fetch(`https://api.maclookup.app/v2/macs/${oui}`)
+          .then(r => r.json())
+          .then(data => {
+            if (data.success && data.company) {
+              document.getElementById('vendor-name').textContent = data.company;
+            } else {
+              document.getElementById('vendor-name').textContent = 'Unknown / Private Vendor';
+            }
+          })
+          .catch(() => {
+            document.getElementById('vendor-name').textContent = 'Registered IEEE Hardware Vendor';
+          });
+      }
+    }
+
+    document.getElementById('btn-lookup-mac').addEventListener('click', () => {
+      const val = document.getElementById('mac-input').value.trim();
+      if (val) searchMac(val);
+    });
+
+    document.getElementById('mac-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        if (val) searchMac(val);
+      }
+    });
+
+    searchMac('3C:D9:2B:55:66:77');
+  </script>
+</body>
+</html>

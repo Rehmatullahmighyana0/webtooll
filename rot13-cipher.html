@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROT13, ROT47 & Caesar Cipher Decoder | WebToolsHub</title>
+  <meta name="description" content="Free online ROT13 encoder/decoder, ROT47 cipher, and custom Caesar shift cipher tool. Includes brute-force 25-shift comparison table. 100% private.">
+  <meta name="keywords" content="rot13 decoder, rot13 encoder, caesar cipher, caesar shift, rot47, cryptography, text cipher">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/rot13-cipher.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/rot13-cipher.html">
+  <meta property="og:title" content="ROT13, ROT47 & Caesar Cipher Decoder | WebToolsHub">
+  <meta property="og:description" content="Free online ROT13 encoder/decoder, ROT47 cipher, and custom Caesar shift cipher tool. Includes brute-force 25-shift comparison table. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/rot13-cipher.html">
+  <meta name="twitter:title" content="ROT13, ROT47 & Caesar Cipher Decoder | WebToolsHub">
+  <meta name="twitter:description" content="Free online ROT13 encoder/decoder, ROT47 cipher, and custom Caesar shift cipher tool. Includes brute-force 25-shift comparison table. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ROT13 & Caesar Cipher Decoder",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Decode and encode text using ROT13, ROT47, and Caesar shift ciphers."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Security & Cryptography</span> &gt; <span>ROT13 Cipher</span>
+      </nav>
+      <h1 class="tool-page-title">ROT13, ROT47 & Caesar Cipher</h1>
+      <p class="tool-page-subtitle">Encrypt and decrypt classic substitution ciphers instantly. Supports ROT13, full ASCII ROT47, and custom Caesar shifts.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Controls -->
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label class="form-label" for="cipher-mode" style="margin-bottom: 0;">Cipher:</label>
+            <select id="cipher-mode" class="form-select" style="padding: 0.35rem 0.75rem;">
+              <option value="rot13" selected>ROT13 (Letter Rotate 13)</option>
+              <option value="rot47">ROT47 (Full ASCII Rotate 47)</option>
+              <option value="caesar">Caesar Cipher (Custom Shift)</option>
+            </select>
+          </div>
+
+          <div id="caesar-shift-wrapper" style="display: none; align-items: center; gap: 0.5rem;">
+            <label class="form-label" for="caesar-shift" style="margin-bottom: 0;">Shift (1-25):</label>
+            <input type="number" id="caesar-shift" class="form-input" min="1" max="25" value="3" style="width: 70px; padding: 0.35rem 0.5rem;">
+          </div>
+        </div>
+
+        <!-- Text Areas -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="input-text" style="margin-bottom: 0;">Input Text:</label>
+              <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+            </div>
+            <textarea id="input-text" class="form-textarea" style="min-height: 250px;" placeholder="Type or paste text to encode or decode..."></textarea>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="output-text" style="margin-bottom: 0;">Result:</label>
+              <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy Result</button>
+            </div>
+            <textarea id="output-text" class="form-textarea" readonly style="min-height: 250px; background: var(--bg-surface);" placeholder="Encoded/decoded result..."></textarea>
+          </div>
+        </div>
+
+        <!-- All 25 Caesar Shifts Table -->
+        <div id="caesar-bruteforce-box" style="margin-top: 2rem; display: none;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">🔍 All 25 Caesar Shifts (Brute Force Decoder)</h3>
+          <div style="max-height: 300px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-color);">
+                  <th style="padding: 8px 12px; text-align: left; width: 80px;">Shift</th>
+                  <th style="padding: 8px 12px; text-align: left;">Decoded Output</th>
+                </tr>
+              </thead>
+              <tbody id="shifts-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding ROT13 and Caesar Substitution Ciphers</h2>
+      <p>ROT13 is a simple reciprocal substitution cipher that replaces each letter with the 13th letter following it in the Latin alphabet. Because the alphabet contains 26 letters, applying ROT13 twice restores the original text. It is often used on forums, puzzle games, and spoilers.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("input-text");
+      const output = document.getElementById("output-text");
+      const cipherMode = document.getElementById("cipher-mode");
+      const caesarShiftWrapper = document.getElementById("caesar-shift-wrapper");
+      const caesarShift = document.getElementById("caesar-shift");
+      const caesarBruteforceBox = document.getElementById("caesar-bruteforce-box");
+      const shiftsTbody = document.getElementById("shifts-tbody");
+
+      function rot13(str) {
+        return str.replace(/[a-zA-Z]/g, function (c) {
+          const base = c <= 'Z' ? 65 : 97;
+          return String.fromCharCode(((c.charCodeAt(0) - base + 13) % 26) + base);
+        });
+      }
+
+      function rot47(str) {
+        const out = [];
+        for (let i = 0; i < str.length; i++) {
+          const code = str.charCodeAt(i);
+          if (code >= 33 && code <= 126) {
+            out.push(String.fromCharCode(33 + ((code + 14) % 94)));
+          } else {
+            out.push(str[i]);
+          }
+        }
+        return out.join("");
+      }
+
+      function caesar(str, shift) {
+        shift = ((shift % 26) + 26) % 26;
+        return str.replace(/[a-zA-Z]/g, function (c) {
+          const base = c <= 'Z' ? 65 : 97;
+          return String.fromCharCode(((c.charCodeAt(0) - base + shift) % 26) + base);
+        });
+      }
+
+      function processCipher() {
+        const mode = cipherMode.value;
+        const text = input.value;
+
+        if (mode === "rot13") {
+          caesarShiftWrapper.style.display = "none";
+          caesarBruteforceBox.style.display = "none";
+          output.value = rot13(text);
+        } else if (mode === "rot47") {
+          caesarShiftWrapper.style.display = "none";
+          caesarBruteforceBox.style.display = "none";
+          output.value = rot47(text);
+        } else if (mode === "caesar") {
+          caesarShiftWrapper.style.display = "inline-flex";
+          caesarBruteforceBox.style.display = "block";
+          const s = parseInt(caesarShift.value, 10) || 3;
+          output.value = caesar(text, s);
+
+          // Render all 25 shifts table
+          let html = "";
+          for (let i = 1; i <= 25; i++) {
+            const dec = caesar(text, i);
+            const isMatch = i === s ? "background: var(--accent-glow); font-weight: 700;" : "";
+            html += `
+              <tr style="border-bottom: 1px solid var(--border-color); ${isMatch}">
+                <td style="padding: 6px 12px; font-family: monospace;">+${i}</td>
+                <td style="padding: 6px 12px; font-family: monospace;">${dec.replace(/</g, '&lt;')}</td>
+              </tr>
+            `;
+          }
+          shiftsTbody.innerHTML = html;
+        }
+      }
+
+      cipherMode.addEventListener("change", processCipher);
+      caesarShift.addEventListener("input", processCipher);
+      input.addEventListener("input", processCipher);
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = "Why did the developer cross the road? Gb trg gb gur bgure fvqr!";
+        processCipher();
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "Result copied!");
+      });
+
+      processCipher();
+    });
+  </script>
+</body>
+</html>

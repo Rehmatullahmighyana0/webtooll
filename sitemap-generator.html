@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XML Sitemap Generator for Google & Bing SEO | WebToolsHub</title>
+  <meta name="description" content="Generate Google & Bing compliant XML sitemaps from URL lists. Customize change frequency, priority, and last modified timestamps with instant XML export.">
+  <meta name="keywords" content="xml sitemap generator, create sitemap.xml, google sitemap generator, sitemap builder, seo sitemap tool">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/sitemap-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/sitemap-generator.html">
+  <meta property="og:title" content="XML Sitemap Generator for Google & Bing SEO | WebToolsHub">
+  <meta property="og:description" content="Generate Google & Bing compliant XML sitemaps from URL lists. Customize change frequency, priority, and last modified timestamps with instant XML export.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/sitemap-generator.html">
+  <meta name="twitter:title" content="XML Sitemap Generator for Google & Bing SEO | WebToolsHub">
+  <meta name="twitter:description" content="Generate Google & Bing compliant XML sitemaps from URL lists. Customize change frequency, priority, and last modified timestamps with instant XML export.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "XML Sitemap Generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert lists of URLs into standard XML sitemap documents for search indexing."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>SEO & Web Tools</span> &gt; <span>Sitemap Generator</span>
+      </nav>
+      <h1 class="tool-page-title">XML Sitemap Generator for Google & Bing</h1>
+      <p class="tool-page-subtitle">Paste your website page links to generate an officially compliant <code>sitemap.xml</code> with customizable priority weights and crawling frequencies.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          
+          <!-- Input settings -->
+          <div>
+            <div class="form-group">
+              <label class="form-label" for="urls-input">Website URLs (one per line):</label>
+              <textarea id="urls-input" class="form-textarea" style="min-height: 250px; font-family: monospace; font-size: 0.85rem;" placeholder="https://example.com/&#10;https://example.com/about&#10;https://example.com/contact&#10;https://example.com/blog">https://example.com/&#10;https://example.com/about&#10;https://example.com/services&#10;https://example.com/contact</textarea>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <label class="form-label" for="change-freq">Change Frequency:</label>
+                <select id="change-freq" class="form-select">
+                  <option value="daily">Daily</option>
+                  <option value="weekly" selected>Weekly (Recommended)</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label" for="default-priority">Default Priority:</label>
+                <select id="default-priority" class="form-select">
+                  <option value="1.0">1.0 (Homepage / Most Important)</option>
+                  <option value="0.8" selected>0.8 (Main Category Pages)</option>
+                  <option value="0.5">0.5 (Standard Content / Blog)</option>
+                  <option value="0.3">0.3 (Archive / Utility)</option>
+                </select>
+              </div>
+
+              <label style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                <input type="checkbox" id="include-lastmod" checked style="width: 16px; height: 16px;">
+                Include Current Date (lastmod)
+              </label>
+            </div>
+          </div>
+
+          <!-- XML Output -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" style="margin-bottom: 0; font-weight: 700;">sitemap.xml Output:</label>
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy">Copy XML</button>
+                <button type="button" class="btn btn-primary btn-sm" id="btn-download">Download sitemap.xml</button>
+              </div>
+            </div>
+            <textarea id="xml-output" class="form-textarea" readonly style="min-height: 440px; font-family: monospace; font-size: 0.85rem; background: var(--bg-surface);"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related SEO & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Why Sitemaps Are Essential for Google Search Indexing</h2>
+      <p>An XML sitemap acts as a roadmap for Googlebot and Bingbot, listing all valuable pages on your website so search engine spiders can discover and crawl newly published content immediately. Once downloaded, place <code>sitemap.xml</code> in your website root and submit the URL in Google Search Console.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlsInput = document.getElementById("urls-input");
+      const freqSelect = document.getElementById("change-freq");
+      const prioSelect = document.getElementById("default-priority");
+      const chkLastmod = document.getElementById("include-lastmod");
+      const xmlOutput = document.getElementById("xml-output");
+
+      function generateSitemap() {
+        const rawUrls = urlsInput.value.split(/\r?\n/).map(u => u.trim()).filter(Boolean);
+        const freq = freqSelect.value;
+        const prio = prioSelect.value;
+        const today = new Date().toISOString().split("T")[0];
+
+        let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+        rawUrls.forEach((u, idx) => {
+          let fullUrl = u;
+          if (!fullUrl.startsWith("http://") && !fullUrl.startsWith("https://")) {
+            fullUrl = "https://" + fullUrl;
+          }
+          // Make first URL priority 1.0 if desired
+          const p = idx === 0 ? "1.0" : prio;
+
+          xml += '  <url>\n';
+          xml += `    <loc>${escapeXml(fullUrl)}</loc>\n`;
+          if (chkLastmod.checked) {
+            xml += `    <lastmod>${today}</lastmod>\n`;
+          }
+          xml += `    <changefreq>${freq}</changefreq>\n`;
+          xml += `    <priority>${p}</priority>\n`;
+          xml += '  </url>\n';
+        });
+
+        xml += '</urlset>';
+        xmlOutput.value = xml;
+      }
+
+      function escapeXml(str) {
+        return str.replace(/[<>&'"]/g, function (c) {
+          switch (c) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
+          }
+        });
+      }
+
+      [urlsInput, freqSelect, prioSelect, chkLastmod].forEach(el => el.addEventListener("input", generateSitemap));
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(xmlOutput.value, "Sitemap XML copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        const blob = new Blob([xmlOutput.value], { type: "application/xml;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "sitemap.xml";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      generateSitemap();
+    });
+  </script>
+</body>
+</html>

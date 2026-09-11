@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Expression (Regex) Tester & Debugger | WebToolsHub</title>
+  <meta name="description" content="Test and debug JavaScript Regular Expressions in real-time. Live syntax highlighting, flag toggles (g, i, m, s), capture groups, and regex cheat sheet.">
+  <meta name="keywords" content="regex tester, regular expression tester, test regex online, regex debugger, regex replacement, regex cheat sheet">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/regex-tester.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/regex-tester.html">
+  <meta property="og:title" content="Regular Expression (Regex) Tester & Debugger | WebToolsHub">
+  <meta property="og:description" content="Test and debug JavaScript Regular Expressions in real-time. Live syntax highlighting, flag toggles (g, i, m, s), capture groups, and regex cheat sheet.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/regex-tester.html">
+  <meta name="twitter:title" content="Regular Expression (Regex) Tester & Debugger | WebToolsHub">
+  <meta name="twitter:description" content="Test and debug JavaScript Regular Expressions in real-time. Live syntax highlighting, flag toggles (g, i, m, s), capture groups, and regex cheat sheet.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Regex Tester & Debugger",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Real-time regular expression testing and capture group debugger."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>Regex Tester</span>
+      </nav>
+      <h1 class="tool-page-title">Regular Expression (Regex) Tester</h1>
+      <p class="tool-page-subtitle">Test and debug regex patterns with instant match highlighting, capture group extraction, and regex replacement simulation.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Regex Pattern Input -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-size: 1.2rem; font-family: monospace; color: var(--text-muted); font-weight: 700;">/</span>
+            <input type="text" id="regex-pattern" class="form-input" style="flex: 1; min-width: 220px; font-family: monospace; font-size: 1.05rem;" value="([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)" placeholder="Enter regex pattern...">
+            <span style="font-size: 1.2rem; font-family: monospace; color: var(--text-muted); font-weight: 700;">/</span>
+            <input type="text" id="regex-flags" class="form-input" style="width: 80px; font-family: monospace; font-size: 1rem;" value="g" placeholder="flags">
+          </div>
+
+          <!-- Quick Flags Checklist -->
+          <div style="display: flex; gap: 1rem; margin-top: 0.75rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-secondary);">
+            <label><input type="checkbox" id="flag-g" checked> Global (g)</label>
+            <label><input type="checkbox" id="flag-i"> Case Insensitive (i)</label>
+            <label><input type="checkbox" id="flag-m"> Multiline (m)</label>
+            <label><input type="checkbox" id="flag-s"> DotAll (s)</label>
+          </div>
+        </div>
+
+        <!-- Test String Input -->
+        <div class="form-group">
+          <label class="form-label" for="test-string">Test String / Input Text:</label>
+          <textarea id="test-string" class="form-textarea" style="min-height: 160px; font-family: monospace;" placeholder="Enter test string to evaluate...">Contact support at support@webtoolshub.com or developer john.doe@example.org for assistance.</textarea>
+        </div>
+
+        <!-- Highlighted Matches Display -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" style="margin-bottom: 0; font-weight: 700;">Match Highlighting & Results:</label>
+            <span id="match-count-badge" style="font-size: 0.85rem; font-weight: 700; background: var(--bg-subtle); padding: 3px 8px; border-radius: 4px; color: var(--accent-primary);">0 Matches</span>
+          </div>
+          <div id="highlight-display" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; min-height: 120px; font-family: monospace; font-size: 0.95rem; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; word-break: break-word;"></div>
+        </div>
+
+        <!-- Capture Groups Table -->
+        <div id="groups-container" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem;">
+          <div style="padding: 0.75rem 1rem; background: var(--bg-subtle); border-bottom: 1px solid var(--border-color); font-weight: 700; font-size: 0.9rem;">
+            Captured Groups & Submatches
+          </div>
+          <div style="max-height: 200px; overflow-y: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-secondary); text-align: left;">
+                  <th style="padding: 8px 12px; width: 60px;">Match #</th>
+                  <th style="padding: 8px 12px;">Full Match</th>
+                  <th style="padding: 8px 12px;">Group 1</th>
+                  <th style="padding: 8px 12px;">Group 2</th>
+                </tr>
+              </thead>
+              <tbody id="groups-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Developer Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="base64-encoder-decoder.html"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="html-entity-encoder.html"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a></li>
+            <li><a href="css-minifier.html"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a></li>
+            <li><a href="js-minifier.html"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Regular Expressions in Web Development</h2>
+      <p>Regular expressions (regex) are pattern-matching formulas used in string validation (such as email addresses, phone numbers, and strong password checks) and data scraping. Testing patterns client-side helps you fine-tune greediness, capture groups, and boundary assertions without runtime exceptions.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const patIn = document.getElementById("regex-pattern");
+      const flagsIn = document.getElementById("regex-flags");
+      const textIn = document.getElementById("test-string");
+      const display = document.getElementById("highlight-display");
+      const countBadge = document.getElementById("match-count-badge");
+      const groupsBox = document.getElementById("groups-container");
+      const groupsTbody = document.getElementById("groups-table-body");
+
+      const flagG = document.getElementById("flag-g");
+      const flagI = document.getElementById("flag-i");
+      const flagM = document.getElementById("flag-m");
+      const flagS = document.getElementById("flag-s");
+
+      function syncFlags() {
+        let f = "";
+        if (flagG.checked) f += "g";
+        if (flagI.checked) f += "i";
+        if (flagM.checked) f += "m";
+        if (flagS.checked) f += "s";
+        flagsIn.value = f;
+        testRegex();
+      }
+
+      function escapeHtml(str) {
+        return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function testRegex() {
+        const pattern = patIn.value;
+        const flags = flagsIn.value;
+        const text = textIn.value;
+
+        if (!pattern) {
+          display.textContent = text;
+          countBadge.textContent = "0 Matches";
+          groupsBox.style.display = "none";
+          return;
+        }
+
+        try {
+          const re = new RegExp(pattern, flags);
+          let matchCount = 0;
+          const rows = [];
+
+          // Highlight matches
+          if (re.global) {
+            const matches = [...text.matchAll(re)];
+            matchCount = matches.length;
+
+            let lastIdx = 0;
+            let html = "";
+
+            matches.forEach((m, idx) => {
+              html += escapeHtml(text.slice(lastIdx, m.index));
+              html += `<mark style="background: rgba(99, 102, 241, 0.35); color: inherit; padding: 2px 4px; border-radius: 4px; font-weight: 700; border: 1px solid var(--accent-primary);">${escapeHtml(m[0])}</mark>`;
+              lastIdx = m.index + m[0].length;
+
+              rows.push(`
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 6px 12px; font-weight: 700;">#${idx + 1}</td>
+                  <td style="padding: 6px 12px; font-family: monospace;">${escapeHtml(m[0])}</td>
+                  <td style="padding: 6px 12px; font-family: monospace; color: var(--accent-success);">${escapeHtml(m[1] || '-')}</td>
+                  <td style="padding: 6px 12px; font-family: monospace; color: var(--accent-info);">${escapeHtml(m[2] || '-')}</td>
+                </tr>
+              `);
+            });
+
+            html += escapeHtml(text.slice(lastIdx));
+            display.innerHTML = html;
+          } else {
+            const m = text.match(re);
+            if (m) {
+              matchCount = 1;
+              const idx = m.index;
+              display.innerHTML = `${escapeHtml(text.slice(0, idx))}<mark style="background: rgba(99, 102, 241, 0.35); color: inherit; padding: 2px 4px; border-radius: 4px; font-weight: 700; border: 1px solid var(--accent-primary);">${escapeHtml(m[0])}</mark>${escapeHtml(text.slice(idx + m[0].length))}`;
+
+              rows.push(`
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 6px 12px; font-weight: 700;">#1</td>
+                  <td style="padding: 6px 12px; font-family: monospace;">${escapeHtml(m[0])}</td>
+                  <td style="padding: 6px 12px; font-family: monospace; color: var(--accent-success);">${escapeHtml(m[1] || '-')}</td>
+                  <td style="padding: 6px 12px; font-family: monospace; color: var(--accent-info);">${escapeHtml(m[2] || '-')}</td>
+                </tr>
+              `);
+            } else {
+              display.textContent = text;
+            }
+          }
+
+          countBadge.textContent = `${matchCount} Match${matchCount === 1 ? '' : 'es'}`;
+          if (rows.length > 0) {
+            groupsBox.style.display = "block";
+            groupsTbody.innerHTML = rows.join("");
+          } else {
+            groupsBox.style.display = "none";
+          }
+        } catch (e) {
+          countBadge.textContent = "Regex Error";
+          display.innerHTML = `<span style="color: var(--accent-danger);">⚠️ ${e.message}</span>`;
+          groupsBox.style.display = "none";
+        }
+      }
+
+      [patIn, flagsIn, textIn].forEach(el => el.addEventListener("input", testRegex));
+      [flagG, flagI, flagM, flagS].forEach(el => el.addEventListener("change", syncFlags));
+
+      testRegex();
+    });
+  </script>
+</body>
+</html>

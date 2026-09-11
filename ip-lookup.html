@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Address Lookup, CIDR Subnet Calculator & Converter | WebToolsHub</title>
+  <meta name="description" content="Check your public IP, lookup any IPv4/IPv6 address, calculate CIDR subnet ranges (network, broadcast, usable hosts), and convert IP to binary, hex, and integer.">
+  <meta name="keywords" content="ip lookup, what is my ip, cidr calculator, subnet calculator, ip to binary, ip to hex, ipv4 to integer">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/ip-lookup.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/ip-lookup.html">
+  <meta property="og:title" content="IP Address Lookup, CIDR Subnet Calculator & Converter | WebToolsHub">
+  <meta property="og:description" content="Check your public IP, lookup any IPv4/IPv6 address, calculate CIDR subnet ranges (network, broadcast, usable hosts), and convert IP to binary, hex, and integer.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/ip-lookup.html">
+  <meta name="twitter:title" content="IP Address Lookup, CIDR Subnet Calculator & Converter | WebToolsHub">
+  <meta name="twitter:description" content="Check your public IP, lookup any IPv4/IPv6 address, calculate CIDR subnet ranges (network, broadcast, usable hosts), and convert IP to binary, hex, and integer.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "IP Address Lookup and CIDR Subnet Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">IP Address Lookup & CIDR Subnet Calculator</h1>
+      <p class="tool-subtitle">Detect your public IP, calculate CIDR network host ranges, and convert IP formats to Binary, Hex, and Integer.</p>
+    </div>
+
+    <!-- Public IP Hero Card -->
+    <div class="ip-hero-card">
+      <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary);">Your Detected Public IP Address</div>
+      <div class="ip-display-text" id="my-ip-val">Detecting IP...</div>
+      <div style="font-size: 13px; color: var(--text-muted);" id="my-ip-meta">Checking connection & ISP provider...</div>
+      <div style="margin-top: 14px; display: flex; justify-content: center; gap: 8px;">
+        <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;" id="btn-copy-my-ip">📋 Copy IP</button>
+        <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;" id="btn-refresh-ip">🔄 Refresh</button>
+      </div>
+    </div>
+
+    <!-- CIDR Subnet Calculator -->
+    <div class="card" style="padding: 24px; margin-bottom: 24px;">
+      <h2 style="font-size: 18px; margin-bottom: 14px;">CIDR Subnet Calculator</h2>
+      <div class="grid" style="grid-template-columns: 2fr 1fr auto; gap: 12px; align-items: flex-end; margin-bottom: 16px;">
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="cidr-ip">IP Address</label>
+          <input type="text" class="input-field" id="cidr-ip" value="192.168.1.100" style="font-family: var(--font-mono);">
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="cidr-mask">Subnet Mask / Prefix</label>
+          <select class="select-field" id="cidr-mask" style="font-family: var(--font-mono);"></select>
+        </div>
+        <button class="btn btn-primary" id="btn-calc-cidr" style="height: 42px;">⚡ Calculate Subnet</button>
+      </div>
+
+      <table class="data-table">
+        <tr><td>Network Address:</td><td id="res-net">-</td></tr>
+        <tr><td>Broadcast Address:</td><td id="res-bcast">-</td></tr>
+        <tr><td>Subnet Mask:</td><td id="res-mask">-</td></tr>
+        <tr><td>Wildcard Mask:</td><td id="res-wildcard">-</td></tr>
+        <tr><td>Usable Host Range:</td><td id="res-range">-</td></tr>
+        <tr><td>Total Usable Hosts:</td><td id="res-hosts">-</td></tr>
+      </table>
+    </div>
+
+    <!-- IP Format Conversions -->
+    <div class="card" style="padding: 24px; margin-bottom: 24px;">
+      <h2 style="font-size: 18px; margin-bottom: 14px;">IPv4 Number Format Conversions</h2>
+      <div class="form-group">
+        <label class="form-label" for="conv-ip-input">Enter IPv4 Address</label>
+        <input type="text" class="input-field" id="conv-ip-input" value="192.168.1.1" style="font-family: var(--font-mono);">
+      </div>
+
+      <table class="data-table">
+        <tr><td>Dotted Decimal:</td><td id="conv-dotted">-</td></tr>
+        <tr><td>32-bit Binary:</td><td id="conv-bin">-</td></tr>
+        <tr><td>Hexadecimal:</td><td id="conv-hex">-</td></tr>
+        <tr><td>Integer (Decimal):</td><td id="conv-int">-</td></tr>
+        <tr><td>IP Classification:</td><td id="conv-class">-</td></tr>
+      </table>
+    </div>
+
+    <div class="seo-content card">
+      <h2>What is CIDR Subnetting?</h2>
+      <p>Classless Inter-Domain Routing (CIDR) is an IP addressing scheme that allocates IP addresses and routes internet protocol packets more efficiently. A subnet prefix like <code>/24</code> designates that the first 24 bits represent the network identity, leaving 8 bits (254 usable hosts) for individual network devices.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Network & Security Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="qr-code-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a>
+          <a href="url-encoder-decoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a>
+          <a href="user-agent-parser.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a>
+          <a href="meta-tag-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🏷️ Meta Tag & OG Generator</span><span class="badge-mini">SEO</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    // Populate CIDR mask options /1 to /32
+    const maskSelect = document.getElementById('cidr-mask');
+    for (let i = 32; i >= 1; i--) {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = `/${i} (${calcSubnetMask(i)})`;
+      if (i === 24) opt.selected = true;
+      maskSelect.appendChild(opt);
+    }
+
+    function calcSubnetMask(prefix) {
+      let mask = 0;
+      for (let i = 0; i < prefix; i++) {
+        mask |= (1 << (31 - i));
+      }
+      return [
+        (mask >>> 24) & 255,
+        (mask >>> 16) & 255,
+        (mask >>> 8) & 255,
+        mask & 255
+      ].join('.');
+    }
+
+    function ipToInt(ipStr) {
+      const parts = ipStr.trim().split('.').map(Number);
+      if (parts.length !== 4 || parts.some(p => isNaN(p) || p < 0 || p > 255)) return null;
+      return ((parts[0] << 24) >>> 0) + ((parts[1] << 16) >>> 0) + ((parts[2] << 8) >>> 0) + (parts[3] >>> 0);
+    }
+
+    function intToIp(intVal) {
+      return [
+        (intVal >>> 24) & 255,
+        (intVal >>> 16) & 255,
+        (intVal >>> 8) & 255,
+        intVal & 255
+      ].join('.');
+    }
+
+    function calculateCIDR() {
+      const ipStr = document.getElementById('cidr-ip').value.trim();
+      const prefix = parseInt(document.getElementById('cidr-mask').value);
+      const ip = ipToInt(ipStr);
+
+      if (ip === null) {
+        showToast('Invalid IPv4 address entered', 'error');
+        return;
+      }
+
+      let maskInt = 0;
+      for (let i = 0; i < prefix; i++) {
+        maskInt |= (1 << (31 - i));
+      }
+      maskInt = maskInt >>> 0;
+
+      const wildcardInt = (~maskInt) >>> 0;
+      const netInt = (ip & maskInt) >>> 0;
+      const bcastInt = (netInt | wildcardInt) >>> 0;
+
+      const totalHosts = Math.pow(2, 32 - prefix);
+      const usableHosts = prefix >= 31 ? 0 : totalHosts - 2;
+
+      document.getElementById('res-net').textContent = `${intToIp(netInt)} /${prefix}`;
+      document.getElementById('res-bcast').textContent = intToIp(bcastInt);
+      document.getElementById('res-mask').textContent = intToIp(maskInt);
+      document.getElementById('res-wildcard').textContent = intToIp(wildcardInt);
+
+      if (prefix >= 31) {
+        document.getElementById('res-range').textContent = 'N/A (Point-to-point / Host route)';
+      } else {
+        document.getElementById('res-range').textContent = `${intToIp(netInt + 1)} - ${intToIp(bcastInt - 1)}`;
+      }
+      document.getElementById('res-hosts').textContent = `${usableHosts.toLocaleString()} (${totalHosts.toLocaleString()} total addresses)`;
+    }
+
+    function convertIpFormats() {
+      const ipStr = document.getElementById('conv-ip-input').value.trim();
+      const num = ipToInt(ipStr);
+
+      if (num === null) return;
+
+      const parts = ipStr.split('.').map(Number);
+      const bin = parts.map(p => p.toString(2).padStart(8, '0')).join('.');
+      const hex = '0x' + num.toString(16).toUpperCase().padStart(8, '0');
+
+      let ipClass = 'Class A (Public)';
+      if (parts[0] === 10 || (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) || (parts[0] === 192 && parts[1] === 168)) {
+        ipClass = 'Private Network (RFC 1918)';
+      } else if (parts[0] === 127) {
+        ipClass = 'Loopback / Localhost (RFC 1122)';
+      } else if (parts[0] >= 224 && parts[0] <= 239) {
+        ipClass = 'Class D (Multicast)';
+      } else if (parts[0] >= 240) {
+        ipClass = 'Class E (Reserved)';
+      }
+
+      document.getElementById('conv-dotted').textContent = ipStr;
+      document.getElementById('conv-bin').textContent = bin;
+      document.getElementById('conv-hex').textContent = hex;
+      document.getElementById('conv-int').textContent = num.toLocaleString() + ` (${num})`;
+      document.getElementById('conv-class').textContent = ipClass;
+    }
+
+    // Public IP Fetcher
+    async function fetchPublicIp() {
+      const valEl = document.getElementById('my-ip-val');
+      const metaEl = document.getElementById('my-ip-meta');
+      valEl.textContent = 'Fetching...';
+      metaEl.textContent = 'Connecting to IP service...';
+
+      try {
+        const res = await fetch('https://api.ipify.org?format=json');
+        const data = await res.json();
+        valEl.textContent = data.ip;
+        metaEl.textContent = `IPv4 detected | Valid Internet Routing`;
+        document.getElementById('cidr-ip').value = data.ip;
+        calculateCIDR();
+      } catch (e) {
+        // Fallback local IP detection display
+        valEl.textContent = '127.0.0.1 (Localhost / Offline)';
+        metaEl.textContent = 'Client running locally or internet offline.';
+      }
+    }
+
+    document.getElementById('btn-calc-cidr').addEventListener('click', calculateCIDR);
+    document.getElementById('cidr-mask').addEventListener('change', calculateCIDR);
+    document.getElementById('conv-ip-input').addEventListener('input', convertIpFormats);
+    document.getElementById('btn-refresh-ip').addEventListener('click', fetchPublicIp);
+
+    document.getElementById('btn-copy-my-ip').addEventListener('click', () => {
+      const ip = document.getElementById('my-ip-val').textContent;
+      navigator.clipboard.writeText(ip);
+      showToast('IP copied to clipboard!');
+    });
+
+    calculateCIDR();
+    convertIpFormats();
+    fetchPublicIp();
+  </script>
+</body>
+</html>

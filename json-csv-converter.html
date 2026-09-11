@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON to CSV & CSV to JSON Converter | WebToolsHub</title>
+  <meta name="description" content="Convert JSON array data to CSV spreadsheets and transform CSV files into clean JSON objects. Custom delimiter selection, download .csv or .json. 100% private.">
+  <meta name="keywords" content="json to csv, csv to json, convert json to excel, json spreadsheet converter, json table converter">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/json-csv-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/json-csv-converter.html">
+  <meta property="og:title" content="JSON to CSV & CSV to JSON Converter | WebToolsHub">
+  <meta property="og:description" content="Convert JSON array data to CSV spreadsheets and transform CSV files into clean JSON objects. Custom delimiter selection, download .csv or .json. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/json-csv-converter.html">
+  <meta name="twitter:title" content="JSON to CSV & CSV to JSON Converter | WebToolsHub">
+  <meta name="twitter:description" content="Convert JSON array data to CSV spreadsheets and transform CSV files into clean JSON objects. Custom delimiter selection, download .csv or .json. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JSON to CSV Converter",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Bidirectional conversion between JSON structured data and CSV spreadsheets."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>JSON to CSV</span>
+      </nav>
+      <h1 class="tool-page-title">JSON to CSV & CSV to JSON Converter</h1>
+      <p class="tool-page-subtitle">Effortlessly convert nested JSON objects into Excel-ready CSV sheets, or parse CSV records back into formatted JSON arrays.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Mode selection -->
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+          <button class="filter-pill active" id="mode-json-to-csv">JSON &rarr; CSV</button>
+          <button class="filter-pill" id="mode-csv-to-json">CSV &rarr; JSON</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="input-data" id="lbl-input" style="margin-bottom: 0;">JSON Input:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+              </div>
+            </div>
+            <textarea id="input-data" class="form-textarea" style="min-height: 380px; font-family: monospace; font-size: 0.85rem;" placeholder="Paste JSON array or CSV here..."></textarea>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.4rem;">
+              <div class="categories-filter" style="margin: 0; justify-content: flex-start; gap: 0.35rem; align-items: center;">
+                <span id="lbl-output" style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); margin-right: 0.25rem;">CSV Output:</span>
+                <button type="button" class="filter-pill active" id="tab-out-raw" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">Converted Code</button>
+                <button type="button" class="filter-pill" id="tab-out-table" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">📊 Data Table Preview</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy</button>
+                <button type="button" id="btn-download" class="btn btn-secondary btn-sm">Download</button>
+              </div>
+            </div>
+            <div id="wrapper-raw">
+              <textarea id="output-data" class="form-textarea" readonly style="min-height: 380px; font-family: monospace; font-size: 0.85rem; background: var(--bg-surface);" placeholder="Converted output will appear here..."></textarea>
+            </div>
+            <div id="wrapper-table" style="display: none; min-height: 380px; max-height: 500px; overflow-y: auto; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface);">
+              <div id="table-preview-content" style="overflow-x: auto;">
+                <p style="color: var(--text-muted); font-style: italic;">Data table preview will appear here...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Developer Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="base64-encoder-decoder.html"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="html-entity-encoder.html"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a></li>
+            <li><a href="css-minifier.html"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a></li>
+            <li><a href="js-minifier.html"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Bridging JSON Data and Spreadsheet Applications</h2>
+      <p>Modern APIs and databases return payload data in JSON format, whereas business analysts and accountants work with spreadsheets in Microsoft Excel, Google Sheets, or Numbers. This utility performs instant conversions with full quotation escaping for commas and newlines.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let isJsonToCsv = true;
+      const input = document.getElementById("input-data");
+      const output = document.getElementById("output-data");
+      const lblInput = document.getElementById("lbl-input");
+      const lblOutput = document.getElementById("lbl-output");
+
+      const tabJ2C = document.getElementById("mode-json-to-csv");
+      const tabC2J = document.getElementById("mode-csv-to-json");
+
+      function escapeCsvCell(cell) {
+        if (cell === null || cell === undefined) return '';
+        const str = String(cell);
+        if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+          return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+      }
+
+      const tabRaw = document.getElementById("tab-out-raw");
+      const tabTable = document.getElementById("tab-out-table");
+      const wrapperRaw = document.getElementById("wrapper-raw");
+      const wrapperTable = document.getElementById("wrapper-table");
+      const tableContent = document.getElementById("table-preview-content");
+
+      function escapeHtml(text) {
+        return String(text || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function renderTablePreview(headers, rows) {
+        if (!headers || headers.length === 0 || !rows || rows.length === 0) {
+          tableContent.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">No rows available to preview.</p>';
+          return;
+        }
+
+        let html = '<table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">';
+        html += '<thead><tr style="background: var(--bg-subtle);">';
+        headers.forEach(h => {
+          html += `<th style="border: 1px solid var(--border-color); padding: 8px 12px; font-weight: 600; color: var(--text-primary);">${escapeHtml(h)}</th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        rows.forEach((row, idx) => {
+          const bg = idx % 2 === 0 ? "background: var(--bg-surface);" : "background: var(--bg-hover);";
+          html += `<tr style="${bg}">`;
+          headers.forEach(h => {
+            const val = row[h] !== undefined ? row[h] : "";
+            html += `<td style="border: 1px solid var(--border-color); padding: 8px 12px; color: var(--text-secondary);">${escapeHtml(val)}</td>`;
+          });
+          html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+        html += `<div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-muted);">${rows.length} total rows, ${headers.length} columns</div>`;
+        tableContent.innerHTML = html;
+      }
+
+      tabRaw.addEventListener("click", () => {
+        tabRaw.classList.add("active");
+        tabTable.classList.remove("active");
+        wrapperRaw.style.display = "block";
+        wrapperTable.style.display = "none";
+      });
+
+      tabTable.addEventListener("click", () => {
+        tabTable.classList.add("active");
+        tabRaw.classList.remove("active");
+        wrapperRaw.style.display = "none";
+        wrapperTable.style.display = "block";
+      });
+
+      function convert() {
+        const val = input.value.trim();
+        if (!val) {
+          output.value = "";
+          tableContent.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Data table preview will appear here...</p>';
+          return;
+        }
+
+        if (isJsonToCsv) {
+          try {
+            let data = JSON.parse(val);
+            if (!Array.isArray(data)) data = [data];
+
+            const headers = Array.from(new Set(data.flatMap(obj => Object.keys(obj))));
+            let csv = headers.map(escapeCsvCell).join(",") + "\n";
+
+            data.forEach(row => {
+              const line = headers.map(h => escapeCsvCell(row[h])).join(",");
+              csv += line + "\n";
+            });
+
+            output.value = csv.trim();
+            renderTablePreview(headers, data);
+          } catch (e) {
+            output.value = "JSON Parse Error: " + e.message;
+            tableContent.innerHTML = `<p style="color: var(--accent-danger);">⚠️ ${escapeHtml(e.message)}</p>`;
+          }
+        } else {
+          // CSV to JSON
+          try {
+            const lines = val.split(/\r?\n/).filter(Boolean);
+            if (lines.length < 1) return;
+
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^["']|["']$/g, ''));
+            const jsonArr = [];
+
+            for (let i = 1; i < lines.length; i++) {
+              const cells = lines[i].split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
+              const obj = {};
+              headers.forEach((h, idx) => {
+                obj[h] = cells[idx] !== undefined ? cells[idx] : "";
+              });
+              jsonArr.push(obj);
+            }
+
+            output.value = JSON.stringify(jsonArr, null, 2);
+            renderTablePreview(headers, jsonArr);
+          } catch (e) {
+            output.value = "CSV Parse Error: " + e.message;
+            tableContent.innerHTML = `<p style="color: var(--accent-danger);">⚠️ ${escapeHtml(e.message)}</p>`;
+          }
+        }
+      }
+
+      tabJ2C.addEventListener("click", () => {
+        isJsonToCsv = true;
+        tabJ2C.classList.add("active");
+        tabC2J.classList.remove("active");
+        lblInput.textContent = "JSON Input (Array of Objects):";
+        lblOutput.textContent = "CSV Output:";
+        input.value = "";
+        output.value = "";
+      });
+
+      tabC2J.addEventListener("click", () => {
+        isJsonToCsv = false;
+        tabC2J.classList.add("active");
+        tabJ2C.classList.remove("active");
+        lblInput.textContent = "CSV Input:";
+        lblOutput.textContent = "JSON Output:";
+        input.value = "";
+        output.value = "";
+      });
+
+      input.addEventListener("input", convert);
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        if (isJsonToCsv) {
+          input.value = JSON.stringify([
+            { id: 1, name: "Alice Johnson", role: "Frontend Dev", city: "New York" },
+            { id: 2, name: "Bob Smith", role: "DevOps Engineer", city: "Austin" },
+            { id: 3, name: "Charlie Davis", role: "Product Designer", city: "London" }
+          ], null, 2);
+        } else {
+          input.value = "id,name,role,city\n1,Alice Johnson,Frontend Dev,New York\n2,Bob Smith,DevOps Engineer,Austin\n3,Charlie Davis,Product Designer,London";
+        }
+        convert();
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "Output copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const ext = isJsonToCsv ? "csv" : "json";
+        const type = isJsonToCsv ? "text/csv;charset=utf-8" : "application/json;charset=utf-8";
+        const blob = new Blob([output.value], { type });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `converted.${ext}`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById("btn-sample").click();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebToolsHub — Free Online IT & Developer Tools (Fast, Secure & Private)</title>
+  <meta name="description" content="Free, fast, and private online IT & developer tools. Image compressor, QR code generator, JSON formatter, converters & 100+ utilities right in your browser.">
+  <meta name="keywords" content="it tools, developer tools, online web tools, image compressor, qr code generator, word counter, json formatter, password generator, case converter, unit converter">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/">
+  <meta property="og:title" content="WebToolsHub — Free Online IT & Developer Tools (Fast, Secure & Private)">
+  <meta property="og:description" content="Free, fast, and private online IT & developer tools. Image compressor, QR code generator, JSON formatter, converters & 100+ utilities right in your browser.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/">
+  <meta name="twitter:title" content="WebToolsHub — Free Online IT & Developer Tools (Fast, Secure & Private)">
+  <meta name="twitter:description" content="Free, fast, and private online IT & developer tools. Image compressor, QR code generator, JSON formatter, converters & 100+ utilities right in your browser.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<!-- Google Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Schema.org WebSite & Organization JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "WebToolsHub",
+    "url": "https://webtoolshub.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://webtoolshub.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Home</span>
+        </a>
+        <a href="#category-filter-container" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>All Tools</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search tools...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme" title="Switch dark/light mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge-wrap">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>⚡ 100+ Free Tools • 100% Client-Side Privacy • Zero Logs</span>
+        </div>
+      </div>
+      <h1 class="hero-title">Free Online <span class="gradient-text">IT & Developer</span> Platform</h1>
+      <p class="hero-subtitle">High-speed, browser-based utilities for developers, designers, and digital creators. No
+        file uploads to servers, no accounts needed.</p>
+
+      <!-- Hero Feature Highlights Ribbon -->
+      <div class="hero-highlights">
+        <div class="highlight-item"><span class="highlight-icon">⚡</span> 100% Client-Side</div>
+        <div class="highlight-item"><span class="highlight-icon">🔒</span> Zero Server Uploads</div>
+        <div class="highlight-item"><span class="highlight-icon">🚀</span> Instant Execution</div>
+        <div class="highlight-item"><span class="highlight-icon">⭐</span> 100+ Free Utilities</div>
+      </div>
+
+      <!-- Live Search Bar -->
+      <div class="hero-search-wrapper">
+        <div class="hero-search-inner">
+          <svg class="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="home-tool-search" class="hero-search-input"
+            placeholder="Search across 100+ tools (e.g. json, qr, compress, base64, password)..." autocomplete="off">
+          <button type="button" id="hero-search-clear-btn" class="hero-search-clear"
+            aria-label="Clear search">✕</button>
+        </div>
+        <!-- Quick Trending Tags -->
+        <div class="hero-quick-tags">
+          <span>Trending:</span>
+          <button type="button" class="quick-tag" data-tag="json">JSON Formatter</button>
+          <button type="button" class="quick-tag" data-tag="qr">QR Generator</button>
+          <button type="button" class="quick-tag" data-tag="compress">Image Compressor</button>
+          <button type="button" class="quick-tag" data-tag="base64">Base64</button>
+          <button type="button" class="quick-tag" data-tag="password">Password Gen</button>
+          <button type="button" class="quick-tag" data-tag="word">Word Counter</button>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="categories-filter-wrapper">
+        <div class="categories-filter" id="category-filter-container">
+          <button class="filter-pill active" data-category="beautifier">✨ Beautifiers & Formatters</button>
+          <button class="filter-pill" data-category="text">📝 Text & Content</button>
+          <button class="filter-pill" data-category="security">🔐 Security & Crypto</button>
+          <button class="filter-pill" data-category="web">🌐 Web & Network</button>
+          <button class="filter-pill" data-category="developer">💻 Developer & Code</button>
+          <button class="filter-pill" data-category="images">🖼️ Images & Media</button>
+          <button class="filter-pill" data-category="pdf">📄 PDF Utilities</button>
+          <button class="filter-pill" data-category="math">➗ Calculators & Math</button>
+          <button class="filter-pill" data-category="design">🎨 CSS & Design</button>
+          <button class="filter-pill" data-category="info">📚 Info & Reference</button>
+          <button class="filter-pill" data-category="utility">🛠️ Daily Utilities</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Grid Section -->
+    <section style="margin-bottom: 3rem;">
+      <!-- Toolbar & Category Header -->
+      <div class="homepage-toolbar" id="category-header-info">
+        <div class="toolbar-left">
+          <h2 id="current-category-title"
+            style="font-size: 1.3rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
+            <span>✨ Beautifiers & Formatters</span>
+            <span id="tools-count-badge" class="tool-badge"
+              style="background: rgba(14, 165, 233, 0.15); color: var(--accent-primary); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 9999px; font-weight: 700;">10
+              Tools</span>
+          </h2>
+          <p id="current-category-desc" style="font-size: 0.88rem; color: var(--text-secondary); margin: 0.2rem 0 0;">
+            Prettify, format, and re-indent messy scripts, queries, schemas, and documents.</p>
+        </div>
+
+        <!-- Quick User Action Buttons & View Mode Toggle -->
+        <div class="toolbar-actions">
+          <div class="view-mode-toggle" id="view-mode-toggle" title="Switch layout view">
+            <button type="button" class="view-mode-btn active" data-view="grid" title="Grid View">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Grid</span>
+            </button>
+            <button type="button" class="view-mode-btn" data-view="list" title="Compact List View">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              <span>List</span>
+            </button>
+          </div>
+
+          <button type="button" class="quick-action-btn" id="btn-random-tool" title="Open a random IT tool">
+            <span>🎲</span>
+            <span>Surprise Me</span>
+          </button>
+          <button type="button" class="quick-action-btn" id="btn-filter-popular"
+            title="Show only popular & trending tools">
+            <span>🔥</span>
+            <span>Trending</span>
+          </button>
+          <button type="button" class="quick-action-btn" id="btn-sort-az" title="Sort tools alphabetically">
+            <span>🔤</span>
+            <span id="sort-btn-text">Sort A-Z</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="tools-grid" id="tools-container">
+        <!-- Pre-rendered for instant SEO and zero-JS accessibility -->
+        <a href="image-compressor.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">🖼️</div>
+            <span class="tool-badge">Popular</span>
+          </div>
+          <h2 class="tool-card-title">Image Compressor</h2>
+          <p class="tool-card-desc">Compress JPEG, PNG, and WebP images with custom quality slider and real-time
+            preview.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="qr-code-generator.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">📱</div>
+            <span class="tool-badge">Free</span>
+          </div>
+          <h2 class="tool-card-title">QR Code Generator</h2>
+          <p class="tool-card-desc">Generate crisp custom QR codes for URLs, Wi-Fi, text, and phone numbers with PNG
+            download.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="word-counter.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">📝</div>
+            <span class="tool-badge">Fast</span>
+          </div>
+          <h2 class="tool-card-title">Word Counter & Analyzer</h2>
+          <p class="tool-card-desc">Count words, characters, sentences, paragraphs, reading speed, and keyword density.
+          </p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="case-converter.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔤</div>
+            <span class="tool-badge">Instant</span>
+          </div>
+          <h2 class="tool-card-title">Case Converter</h2>
+          <p class="tool-card-desc">Instantly convert text into UPPERCASE, lowercase, Title Case, camelCase, snake_case,
+            and more.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="password-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔐</div>
+            <span class="tool-badge">Secure</span>
+          </div>
+          <h2 class="tool-card-title">Password Generator</h2>
+          <p class="tool-card-desc">Generate ultra-secure cryptographically random passwords with entropy score meter.
+          </p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="json-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">✨</div>
+            <span class="tool-badge">Dev Tool</span>
+          </div>
+          <h2 class="tool-card-title">JSON Formatter & Validator</h2>
+          <p class="tool-card-desc">Prettify, format, validate, and minify JSON data with line-by-line syntax error
+            detection.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="url-encoder-decoder.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔗</div>
+            <span class="tool-badge">Utility</span>
+          </div>
+          <h2 class="tool-card-title">URL Encoder / Decoder</h2>
+          <p class="tool-card-desc">Encode and decode URLs, query parameters, and special characters safely in your
+            browser.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="percentage-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">➗</div>
+            <span class="tool-badge">Math</span>
+          </div>
+          <h2 class="tool-card-title">Percentage Calculator</h2>
+          <p class="tool-card-desc">Calculate percentages, percentage increases, decreases, discounts, and differences
+            in seconds.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="unit-converter.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">⚖️</div>
+            <span class="tool-badge">Multi-Unit</span>
+          </div>
+          <h2 class="tool-card-title">Unit Converter</h2>
+          <p class="tool-card-desc">Convert Length, Mass/Weight, Temperature, Digital Data Storage, and Speed with exact
+            formula accuracy.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="pdf-utilities.html" class="tool-card" data-category="pdf">
+          <div class="tool-card-header">
+            <div class="tool-icon">📄</div>
+            <span class="tool-badge">Privacy First</span>
+          </div>
+          <h2 class="tool-card-title">PDF Utilities (Image to PDF)</h2>
+          <p class="tool-card-desc">Convert photos and images into formatted PDF documents client-side without uploading
+            to any server.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="color-picker.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎨</div>
+            <span class="tool-badge">Design</span>
+          </div>
+          <h2 class="tool-card-title">Color Picker & Converter</h2>
+          <p class="tool-card-desc">Pick colors, convert HEX, RGB, HSL, check WCAG contrast readability, and generate
+            harmonies.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="hash-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🛡️</div>
+            <span class="tool-badge">Crypto</span>
+          </div>
+          <h2 class="tool-card-title">Hash Generator & Checksum</h2>
+          <p class="tool-card-desc">Calculate SHA-256, SHA-512, SHA-1, and MD5 hashes for text and local files securely.
+          </p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="lorem-ipsum-generator.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">📜</div>
+            <span class="tool-badge">Writing</span>
+          </div>
+          <h2 class="tool-card-title">Lorem Ipsum Generator</h2>
+          <p class="tool-card-desc">Generate placeholder filler text by paragraphs, sentences, or words with custom HTML
+            tags.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="markdown-previewer.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">📑</div>
+            <span class="tool-badge">Live Edit</span>
+          </div>
+          <h2 class="tool-card-title">Markdown Live Editor</h2>
+          <p class="tool-card-desc">Real-time Markdown editor with live preview, HTML export, table styling, and syntax
+            highlighting.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="text-diff.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">⚖️</div>
+            <span class="tool-badge">Compare</span>
+          </div>
+          <h2 class="tool-card-title">Text & Code Diff Checker</h2>
+          <p class="tool-card-desc">Compare two text snippets or code blocks side-by-side with additions and deletions
+            highlighted.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="slug-generator.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔗</div>
+            <span class="tool-badge">SEO</span>
+          </div>
+          <h2 class="tool-card-title">URL Slug Generator</h2>
+          <p class="tool-card-desc">Convert article titles and text into clean, lowercase, URL-friendly slugs for
+            websites.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="base64-encoder-decoder.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔣</div>
+            <span class="tool-badge">Utility</span>
+          </div>
+          <h2 class="tool-card-title">Base64 Encoder & Decoder</h2>
+          <p class="tool-card-desc">Encode and decode text, UTF-8 strings, and local binary files into Base64 format.
+          </p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="html-entity-encoder.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🏷️</div>
+            <span class="tool-badge">Web Dev</span>
+          </div>
+          <h2 class="tool-card-title">HTML Entity Encoder</h2>
+          <p class="tool-card-desc">Safely encode special characters to HTML entities and decode entities back to
+            readable text.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="css-minifier.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎨</div>
+            <span class="tool-badge">Speed</span>
+          </div>
+          <h2 class="tool-card-title">CSS Minifier & Beautifier</h2>
+          <p class="tool-card-desc">Compress CSS styles for faster page loading speeds, or beautify minified
+            stylesheets.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="js-minifier.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">⚡</div>
+            <span class="tool-badge">Speed</span>
+          </div>
+          <h2 class="tool-card-title">JavaScript Minifier</h2>
+          <p class="tool-card-desc">Minify JS code by stripping comments and unneeded spaces to reduce website file
+            transfer size.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+
+        <a href="ip-lookup.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌐</div>
+            <span class="tool-badge">Network</span>
+          </div>
+          <h2 class="tool-card-title">IP Address & Network Lookup</h2>
+          <p class="tool-card-desc">Discover your public IP address, ISP, location coordinates, and validate IPv4/IPv6
+            formats.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="user-agent-parser.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🖥️</div>
+            <span class="tool-badge">Browser</span>
+          </div>
+          <h2 class="tool-card-title">User Agent Parser</h2>
+          <p class="tool-card-desc">Inspect User-Agent headers to detect browser engine, operating system, and hardware
+            architecture.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="meta-tag-generator.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🏷️</div>
+            <span class="tool-badge">SEO</span>
+          </div>
+          <h2 class="tool-card-title">Meta Tag & OG Generator</h2>
+          <p class="tool-card-desc">Generate HTML meta tags, Open Graph, and Twitter Cards with real-time Google search
+            snippet previews.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="http-status-codes.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🚦</div>
+            <span class="tool-badge">Reference</span>
+          </div>
+          <h2 class="tool-card-title">HTTP Status Codes Directory</h2>
+          <p class="tool-card-desc">Quick reference for standard HTTP response status codes (1xx - 5xx) with RFC
+            definitions.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="uuid-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🆔</div>
+            <span class="tool-badge">Secure</span>
+          </div>
+          <h2 class="tool-card-title">UUID / GUID Generator (v4)</h2>
+          <p class="tool-card-desc">Generate cryptographically secure RFC 4122 v4 UUIDs individually or in bulk with
+            format options.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="timestamp-converter.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">⏱️</div>
+            <span class="tool-badge">Date/Time</span>
+          </div>
+          <h2 class="tool-card-title">Unix Timestamp Converter</h2>
+          <p class="tool-card-desc">Convert Unix Epoch timestamps to human dates and human dates to epoch with live
+            counter.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="number-base-converter.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔢</div>
+            <span class="tool-badge">Math</span>
+          </div>
+          <h2 class="tool-card-title">Number Base Converter</h2>
+          <p class="tool-card-desc">Simultaneously convert numbers between Binary, Octal, Decimal, and Hexadecimal.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="credit-card-validator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">💳</div>
+            <span class="tool-badge">Luhn Check</span>
+          </div>
+          <h2 class="tool-card-title">Credit Card Validator</h2>
+          <p class="tool-card-desc">Validate card numbers client-side using the Modulo 10 Luhn algorithm and identify
+            card brands.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="svg-to-png.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">🖼️</div>
+            <span class="tool-badge">Graphics</span>
+          </div>
+          <h2 class="tool-card-title">SVG to PNG Converter</h2>
+          <p class="tool-card-desc">Render vector SVG markup and files into high-resolution transparent PNG images.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="favicon-generator.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">⭐</div>
+            <span class="tool-badge">Brand</span>
+          </div>
+          <h2 class="tool-card-title">Favicon Generator</h2>
+          <p class="tool-card-desc">Create website favicons from emojis, text, or shapes with multi-size previews and
+            HTML tags.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <a href="aspect-ratio-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">📐</div>
+            <span class="tool-badge">Design/Math</span>
+          </div>
+          <h2 class="tool-card-title">Aspect Ratio Calculator</h2>
+          <p class="tool-card-desc">Calculate proportional dimensions for video, photography, and UI layouts with CSS
+            snippets.</p>
+          <div class="tool-card-footer">
+            <span>Launch Tool</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Category 1: Text & Content Tools -->
+        <a href="character-counter.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔢</div><span class="tool-badge">Text</span>
+          </div>
+          <h2 class="tool-card-title">Character Counter</h2>
+          <p class="tool-card-desc">Count characters with/without spaces, words, sentences, and byte size in real time.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="remove-duplicate-lines.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🧹</div><span class="tool-badge">Utility</span>
+          </div>
+          <h2 class="tool-card-title">Remove Duplicate Lines</h2>
+          <p class="tool-card-desc">Strip duplicate lines, preserve or sort order, trim whitespace, and clean text
+            lists.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="markdown-table-generator.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">📊</div><span class="tool-badge">Writer</span>
+          </div>
+          <h2 class="tool-card-title">Markdown Table Generator</h2>
+          <p class="tool-card-desc">Build, style, align, and export clean Markdown tables with instant HTML and CSV
+            copy.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="ascii-art-generator.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">👾</div><span class="tool-badge">Fun</span>
+          </div>
+          <h2 class="tool-card-title">ASCII Art Generator</h2>
+          <p class="tool-card-desc">Convert plain text into stylized retro FIGlet ASCII banners and terminal art.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="rot13-cipher.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔄</div><span class="tool-badge">Crypto</span>
+          </div>
+          <h2 class="tool-card-title">ROT13 & Caesar Cipher</h2>
+          <p class="tool-card-desc">Encrypt and decrypt text with the classic ROT13 cipher or custom alphabetical
+            shifts.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="line-counter-sorter.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔤</div><span class="tool-badge">Text</span>
+          </div>
+          <h2 class="tool-card-title">Line Counter & Sorter</h2>
+          <p class="tool-card-desc">Sort text lines alphabetically (A-Z, Z-A), natural sort, number lines, and invert
+            list.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="random-word-generator.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎲</div><span class="tool-badge">Creative</span>
+          </div>
+          <h2 class="tool-card-title">Random Word Generator</h2>
+          <p class="tool-card-desc">Generate random English words, nouns, verbs, and adjectives for creative writing.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="binary-to-text.html" class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-icon">0️⃣1️⃣</div><span class="tool-badge">Converter</span>
+          </div>
+          <h2 class="tool-card-title">Binary to Text Converter</h2>
+          <p class="tool-card-desc">Encode ASCII text into 8-bit binary strings and decode binary code back to text.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 2: Security & Cryptography Tools -->
+        <a href="password-strength-checker.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🛡️</div><span class="tool-badge">Security</span>
+          </div>
+          <h2 class="tool-card-title">Password Strength Checker</h2>
+          <p class="tool-card-desc">Evaluate password security, entropy bits, crack time estimation, and common flaws.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="jwt-decoder.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔑</div><span class="tool-badge">Dev/Sec</span>
+          </div>
+          <h2 class="tool-card-title">JWT Decoder & Inspector</h2>
+          <p class="tool-card-desc">Decode JSON Web Tokens (JWT) client-side into JSON header, payload, and expiry
+            dates.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="hmac-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔒</div><span class="tool-badge">Auth</span>
+          </div>
+          <h2 class="tool-card-title">HMAC Generator</h2>
+          <p class="tool-card-desc">Generate keyed-hash message authentication codes (HMAC) using SHA-256 and SHA-512.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="bcrypt-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🛡️</div><span class="tool-badge">Crypto</span>
+          </div>
+          <h2 class="tool-card-title">Bcrypt Hash Generator</h2>
+          <p class="tool-card-desc">Hash passwords with salted Bcrypt algorithms and verify hashes against plaintext.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="csr-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">📜</div><span class="tool-badge">SSL</span>
+          </div>
+          <h2 class="tool-card-title">CSR & RSA Key Generator</h2>
+          <p class="tool-card-desc">Create Certificate Signing Requests (CSR) and 2048-bit RSA private keys locally
+            in-browser.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="test-data-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">👤</div><span class="tool-badge">Mock</span>
+          </div>
+          <h2 class="tool-card-title">Dummy Test Data Generator</h2>
+          <p class="tool-card-desc">Generate realistic fake user profiles, names, email addresses, and addresses in
+            JSON/CSV.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="url-cleaner.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🧼</div><span class="tool-badge">Privacy</span>
+          </div>
+          <h2 class="tool-card-title">URL Cleaner & Stripper</h2>
+          <p class="tool-card-desc">Remove UTM tracking parameters, fbclid, gclid, and referral tokens from links.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="mnemonic-generator.html" class="tool-card" data-category="security">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌱</div><span class="tool-badge">Crypto</span>
+          </div>
+          <h2 class="tool-card-title">BIP-39 Mnemonic Generator</h2>
+          <p class="tool-card-desc">Generate secure 12, 18, and 24-word crypto seed recovery phrases with CSPRNG
+            entropy.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 3: Web, SEO & Network Tools -->
+        <a href="robots-txt-generator.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🤖</div><span class="tool-badge">SEO</span>
+          </div>
+          <h2 class="tool-card-title">Robots.txt Generator</h2>
+          <p class="tool-card-desc">Create standardized robots.txt directives for Googlebot, Bingbot, and search web
+            crawlers.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="sitemap-generator.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🗺️</div><span class="tool-badge">SEO</span>
+          </div>
+          <h2 class="tool-card-title">XML Sitemap Generator</h2>
+          <p class="tool-card-desc">Build clean Google-compliant XML sitemaps with change frequency and priority tags.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="dns-lookup.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔍</div><span class="tool-badge">Network</span>
+          </div>
+          <h2 class="tool-card-title">DNS Records Lookup</h2>
+          <p class="tool-card-desc">Query live DNS records including A, AAAA, MX, TXT, CNAME, and NS via
+            Google/Cloudflare DoH.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="http-status-checker.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌐</div><span class="tool-badge">DevOps</span>
+          </div>
+          <h2 class="tool-card-title">HTTP Status Inspector</h2>
+          <p class="tool-card-desc">Test server response codes, HTTP redirects, and SSL status for any public web
+            endpoint.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="url-shortener.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">✂️</div><span class="tool-badge">Web</span>
+          </div>
+          <h2 class="tool-card-title">Quick Link Shortener</h2>
+          <p class="tool-card-desc">Generate compact hash links, QR codes, and quick redirect bundles completely
+            client-side.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="og-card-previewer.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">👁️</div><span class="tool-badge">Social</span>
+          </div>
+          <h2 class="tool-card-title">OG Social Card Previewer</h2>
+          <p class="tool-card-desc">Live preview Open Graph tags and visual card mockups for Twitter, Facebook, and
+            LinkedIn.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="ping-tester.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">📶</div><span class="tool-badge">Network</span>
+          </div>
+          <h2 class="tool-card-title">Ping & Latency Tester</h2>
+          <p class="tool-card-desc">Benchmark HTTP connection latency, network jitter, and round-trip times to global
+            CDN servers.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="subnet-calculator.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🖧</div><span class="tool-badge">Network</span>
+          </div>
+          <h2 class="tool-card-title">IP Subnet Calculator</h2>
+          <p class="tool-card-desc">Calculate network address, broadcast address, netmask, usable host range, and
+            wildcard masks.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="mac-lookup.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">🏷️</div><span class="tool-badge">Network</span>
+          </div>
+          <h2 class="tool-card-title">MAC Address & OUI Lookup</h2>
+          <p class="tool-card-desc">Find hardware manufacturers, identify network card vendors, and parse MAC frame
+            architectures.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="port-lookup.html" class="tool-card" data-category="web">
+          <div class="tool-card-header">
+            <div class="tool-icon">📡</div><span class="tool-badge">Network</span>
+          </div>
+          <h2 class="tool-card-title">TCP/UDP Port Lookup</h2>
+          <p class="tool-card-desc">Search network ports, transport protocols (TCP/UDP), and standard internet service
+            assignments.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 4: Developer & Coding Utilities -->
+        <a href="html-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌐</div><span class="tool-badge">Code</span>
+          </div>
+          <h2 class="tool-card-title">HTML Formatter</h2>
+          <p class="tool-card-desc">Indent, clean, format, and structure unorganized HTML documents with custom
+            indentation.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="xml-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">📑</div><span class="tool-badge">Code</span>
+          </div>
+          <h2 class="tool-card-title">XML Formatter</h2>
+          <p class="tool-card-desc">Indent and prettify raw XML feeds, SOAP payloads, and config files with syntax
+            trees.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="api-tester.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🚀</div><span class="tool-badge">API</span>
+          </div>
+          <h2 class="tool-card-title">REST API Tester</h2>
+          <p class="tool-card-desc">Send GET, POST, PUT, DELETE HTTP requests with custom headers, JSON body, and
+            response preview.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="regex-tester.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔍</div><span class="tool-badge">Dev</span>
+          </div>
+          <h2 class="tool-card-title">Regex Tester & Debugger</h2>
+          <p class="tool-card-desc">Test Regular Expressions with live match highlighting, regex flags, and sample match
+            groups.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="cron-generator.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">⏰</div><span class="tool-badge">DevOps</span>
+          </div>
+          <h2 class="tool-card-title">Cron Expression Generator</h2>
+          <p class="tool-card-desc">Build, parse, and schedule standard 5-part crontab expressions with human-readable
+            descriptions.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="chmod-calculator.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🐧</div><span class="tool-badge">Linux</span>
+          </div>
+          <h2 class="tool-card-title">Chmod Calculator</h2>
+          <p class="tool-card-desc">Calculate Linux file permissions in octal (e.g. 755, 644) and symbolic (rwxr-xr-x)
+            notations.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="curl-converter.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔄</div><span class="tool-badge">Dev</span>
+          </div>
+          <h2 class="tool-card-title">cURL to Code Converter</h2>
+          <p class="tool-card-desc">Convert cURL terminal commands into executable JavaScript Fetch, Python Requests,
+            and PHP.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="json-csv-converter.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">📊</div><span class="tool-badge">Data</span>
+          </div>
+          <h2 class="tool-card-title">JSON to CSV Converter</h2>
+          <p class="tool-card-desc">Convert datasets between JSON array objects and tabular CSV spreadsheets with
+            instant download.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="yaml-json-converter.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">⚙️</div><span class="tool-badge">DevOps</span>
+          </div>
+          <h2 class="tool-card-title">YAML to JSON Converter</h2>
+          <p class="tool-card-desc">Convert configuration files seamlessly between YAML and JSON format with full syntax
+            validation.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="mime-types.html" class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-icon">📑</div><span class="tool-badge">Dev</span>
+          </div>
+          <h2 class="tool-card-title">MIME Types Directory</h2>
+          <p class="tool-card-desc">Lookup standard HTTP Content-Type headers, IANA media formats, and matching file
+            extensions.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 5: File, Image & Media Tools -->
+        <a href="image-resizer.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">📐</div><span class="tool-badge">Images</span>
+          </div>
+          <h2 class="tool-card-title">Image Resizer</h2>
+          <p class="tool-card-desc">Resize photos by pixel dimensions or percentages with aspect ratio lock and PNG/JPEG
+            export.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="image-converter.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔄</div><span class="tool-badge">Images</span>
+          </div>
+          <h2 class="tool-card-title">Image Format Converter</h2>
+          <p class="tool-card-desc">Convert images seamlessly between PNG, JPEG, WebP, and BMP format locally in your
+            browser.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="image-color-extractor.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎨</div><span class="tool-badge">Palette</span>
+          </div>
+          <h2 class="tool-card-title">Image Color Extractor</h2>
+          <p class="tool-card-desc">Extract dominant color palettes and HEX/RGB codes from any uploaded photograph.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="exif-viewer.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">📷</div><span class="tool-badge">Privacy</span>
+          </div>
+          <h2 class="tool-card-title">EXIF Data Viewer</h2>
+          <p class="tool-card-desc">Inspect camera settings, GPS geolocation tags, lens specs, and strip EXIF for
+            privacy.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="pdf-merger.html" class="tool-card" data-category="pdf">
+          <div class="tool-card-header">
+            <div class="tool-icon">📑</div><span class="tool-badge">PDF</span>
+          </div>
+          <h2 class="tool-card-title">PDF Merger</h2>
+          <p class="tool-card-desc">Combine multiple PDF documents into a single consolidated PDF file completely
+            client-side.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="pdf-splitter.html" class="tool-card" data-category="pdf">
+          <div class="tool-card-header">
+            <div class="tool-icon">✂️</div><span class="tool-badge">PDF</span>
+          </div>
+          <h2 class="tool-card-title">PDF Splitter</h2>
+          <p class="tool-card-desc">Extract page ranges, split PDF documents, and save selected pages as separate PDF
+            files.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="pdf-to-image.html" class="tool-card" data-category="pdf">
+          <div class="tool-card-header">
+            <div class="tool-icon">🖼️</div><span class="tool-badge">PDF</span>
+          </div>
+          <h2 class="tool-card-title">PDF to Image Converter</h2>
+          <p class="tool-card-desc">Render PDF document pages into high-resolution PNG and JPEG image files locally
+            in-browser.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="base64-image-converter.html" class="tool-card" data-category="images">
+          <div class="tool-card-header">
+            <div class="tool-icon">🔣</div><span class="tool-badge">Dev</span>
+          </div>
+          <h2 class="tool-card-title">Base64 Image Converter</h2>
+          <p class="tool-card-desc">Convert images to Base64 data URIs for inline CSS/HTML and decode Base64 strings to
+            images.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 6: Math, Financial & Conversion -->
+        <a href="currency-converter.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">💱</div><span class="tool-badge">Finance</span>
+          </div>
+          <h2 class="tool-card-title">Currency Converter</h2>
+          <p class="tool-card-desc">Calculate live foreign exchange rates between USD, EUR, GBP, JPY, CAD, and 30+
+            currencies.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="age-calculator.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎂</div><span class="tool-badge">Date</span>
+          </div>
+          <h2 class="tool-card-title">Age Calculator</h2>
+          <p class="tool-card-desc">Calculate exact chronological age in years, months, days, hours, and find upcoming
+            birthdays.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="timezone-converter.html" class="tool-card" data-category="info">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌍</div><span class="tool-badge">Time</span>
+          </div>
+          <h2 class="tool-card-title">Time Zone Converter</h2>
+          <p class="tool-card-desc">Compare international meeting times across UTC, EST, PST, GMT, CET, and global
+            zones.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="loan-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">🏦</div><span class="tool-badge">Finance</span>
+          </div>
+          <h2 class="tool-card-title">Loan & EMI Calculator</h2>
+          <p class="tool-card-desc">Calculate monthly loan EMI payments, total interest payable, and full amortization
+            tables.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="compound-interest-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">📈</div><span class="tool-badge">Finance</span>
+          </div>
+          <h2 class="tool-card-title">Compound Interest Calculator</h2>
+          <p class="tool-card-desc">Calculate investment growth, compound annual interest gains, and future investment
+            portfolios.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="discount-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">🏷️</div><span class="tool-badge">Shopping</span>
+          </div>
+          <h2 class="tool-card-title">Discount Calculator</h2>
+          <p class="tool-card-desc">Calculate final purchase price, savings amounts, and sales tax percentages
+            instantly.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="programmer-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">💻</div><span class="tool-badge">Dev</span>
+          </div>
+          <h2 class="tool-card-title">Programmer Calculator</h2>
+          <p class="tool-card-desc">Perform bitwise AND, OR, XOR, NOT, shift operations, and 64-bit integer calculations
+            in HEX/BIN/OCT.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="bmi-calculator.html" class="tool-card" data-category="math">
+          <div class="tool-card-header">
+            <div class="tool-icon">⚖️</div><span class="tool-badge">Health</span>
+          </div>
+          <h2 class="tool-card-title">BMI Calculator</h2>
+          <p class="tool-card-desc">Calculate Body Mass Index (BMI) using metric or imperial units with WHO health
+            category breakdown.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 7: Design & CSS Generators -->
+        <a href="css-box-shadow-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">📦</div><span class="tool-badge">CSS</span>
+          </div>
+          <h2 class="tool-card-title">Box Shadow Generator</h2>
+          <p class="tool-card-desc">Visual designer for single and multi-layer CSS box shadows with live interactive
+            preview.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="css-gradient-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌈</div><span class="tool-badge">CSS</span>
+          </div>
+          <h2 class="tool-card-title">CSS Gradient Generator</h2>
+          <p class="tool-card-desc">Design linear and radial CSS background gradients with customizable color stops and
+            CSS export.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="glassmorphism-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">🪟</div><span class="tool-badge">UI</span>
+          </div>
+          <h2 class="tool-card-title">Glassmorphism Generator</h2>
+          <p class="tool-card-desc">Create frosted glass UI cards with CSS backdrop-filter blur, border highlights, and
+            opacity.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="border-radius-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">⭕</div><span class="tool-badge">CSS</span>
+          </div>
+          <h2 class="tool-card-title">Border Radius Generator</h2>
+          <p class="tool-card-desc">Design 8-point fancy border-radius organic shapes and blobs with ready-to-copy CSS.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="clip-path-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">✂️</div><span class="tool-badge">CSS</span>
+          </div>
+          <h2 class="tool-card-title">Clip-Path Shape Generator</h2>
+          <p class="tool-card-desc">Mask HTML elements and images into geometric polygons, triangles, stars, and
+            hexagons.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="contrast-checker.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">♿</div><span class="tool-badge">A11y</span>
+          </div>
+          <h2 class="tool-card-title">Contrast Ratio Checker</h2>
+          <p class="tool-card-desc">Test foreground and background color combinations for WCAG 2.1 AA and AAA
+            accessibility.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="css-grid-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">📐</div><span class="tool-badge">CSS</span>
+          </div>
+          <h2 class="tool-card-title">CSS Grid Generator</h2>
+          <p class="tool-card-desc">Design custom CSS Grid layouts interactively with dynamic columns, rows, and gaps.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="svg-wave-generator.html" class="tool-card" data-category="design">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌊</div><span class="tool-badge">Vector</span>
+          </div>
+          <h2 class="tool-card-title">SVG Wave Generator</h2>
+          <p class="tool-card-desc">Generate organic, customizable SVG wave transitions and section dividers for modern
+            web pages.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 8: Information, Lookup & Reference -->
+        <a href="weather-checker.html" class="tool-card" data-category="info">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌤️</div><span class="tool-badge">Live</span>
+          </div>
+          <h2 class="tool-card-title">Live Weather Checker</h2>
+          <p class="tool-card-desc">Check real-time temperatures, atmospheric conditions, and 7-day forecasts for
+            worldwide cities.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="country-info.html" class="tool-card" data-category="info">
+          <div class="tool-card-header">
+            <div class="tool-icon">🌐</div><span class="tool-badge">Atlas</span>
+          </div>
+          <h2 class="tool-card-title">Country Info Explorer</h2>
+          <p class="tool-card-desc">Lookup official country flags, capitals, population statistics, currencies, and
+            dialing codes.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="dictionary.html" class="tool-card" data-category="info">
+          <div class="tool-card-header">
+            <div class="tool-icon">📖</div><span class="tool-badge">Lexicon</span>
+          </div>
+          <h2 class="tool-card-title">English Dictionary</h2>
+          <p class="tool-card-desc">Search comprehensive word definitions, phonetics, audio pronunciations, and
+            synonyms.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="random-facts.html" class="tool-card" data-category="info">
+          <div class="tool-card-header">
+            <div class="tool-icon">💡</div><span class="tool-badge">Trivia</span>
+          </div>
+          <h2 class="tool-card-title">Random Facts Generator</h2>
+          <p class="tool-card-desc">Learn astonishing, verified facts across science, technology, nature, history, and
+            the universe.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category 9: Daily Productivity & Utilities -->
+        <a href="barcode-generator.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">🏷️</div><span class="tool-badge">Barcode</span>
+          </div>
+          <h2 class="tool-card-title">Barcode Generator</h2>
+          <p class="tool-card-desc">Create retail, inventory, and logistics barcodes (Code 128, EAN-13, UPC) with
+            SVG/PNG exports.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="stopwatch-timer.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">⏱️</div><span class="tool-badge">Timer</span>
+          </div>
+          <h2 class="tool-card-title">Online Stopwatch</h2>
+          <p class="tool-card-desc">Accurate millisecond stopwatch with lap splits, fastest/slowest lap comparison, and
+            export.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="pomodoro-timer.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">🍅</div><span class="tool-badge">Focus</span>
+          </div>
+          <h2 class="tool-card-title">Pomodoro Focus Timer</h2>
+          <p class="tool-card-desc">Boost productivity with structured 25-minute work intervals and mindful recharge
+            breaks.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="random-picker.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎲</div><span class="tool-badge">Picker</span>
+          </div>
+          <h2 class="tool-card-title">Random Picker & Decision</h2>
+          <p class="tool-card-desc">Draw fair random winners from lists, make quick decisions, or choose raffle entries.
+          </p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="scratchpad.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">📝</div><span class="tool-badge">Notes</span>
+          </div>
+          <h2 class="tool-card-title">Online Scratchpad</h2>
+          <p class="tool-card-desc">Distraction-free auto-saving notepad. Draft thoughts and snippets securely in your
+            browser.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="typing-test.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">⌨️</div><span class="tool-badge">WPM</span>
+          </div>
+          <h2 class="tool-card-title">Live Typing Speed Test</h2>
+          <p class="tool-card-desc">Benchmark your Words Per Minute (WPM), keystroke precision, and typing accuracy in
+            real time.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="morse-code-translator.html" class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-icon">📻</div><span class="tool-badge">Audio</span>
+          </div>
+          <h2 class="tool-card-title">Morse Code Translator</h2>
+          <p class="tool-card-desc">Translate text to Morse code and decode back with synthesized telegraph audio
+            playback.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- Category: Code Beautifiers & Formatters -->
+        <a href="javascript-beautifier.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">🟨</div><span class="tool-badge">Popular</span>
+          </div>
+          <h2 class="tool-card-title">JavaScript Beautifier</h2>
+          <p class="tool-card-desc">Clean up, un-minify, and pretty-print JavaScript code with custom indentation and
+            brace styles.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="css-beautifier.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">🎨</div><span class="tool-badge">CSS</span>
+          </div>
+          <h2 class="tool-card-title">CSS Beautifier & Formatter</h2>
+          <p class="tool-card-desc">Un-minify stylesheets, format selectors, standardize indentations, and sort
+            properties alphabetically.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="sql-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">🗄️</div><span class="tool-badge">SQL</span>
+          </div>
+          <h2 class="tool-card-title">SQL Formatter & Beautifier</h2>
+          <p class="tool-card-desc">Format, beautify, and indent raw database queries for MySQL, PostgreSQL, SQLite, and
+            SQL Server.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="python-beautifier.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">🐍</div><span class="tool-badge">Python</span>
+          </div>
+          <h2 class="tool-card-title">Python Beautifier & Indenter</h2>
+          <p class="tool-card-desc">Standardize Python indentation, clean operator spacing, and align functions
+            conforming to PEP 8.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="markdown-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">📝</div><span class="tool-badge">Docs</span>
+          </div>
+          <h2 class="tool-card-title">Markdown Formatter & Tables</h2>
+          <p class="tool-card-desc">Align markdown tables into clean text spreadsheets and standardize headings, lists,
+            and quote blocks.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="yaml-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">⚙️</div><span class="tool-badge">YAML</span>
+          </div>
+          <h2 class="tool-card-title">YAML Formatter & Beautifier</h2>
+          <p class="tool-card-desc">Format, validate, and clean Kubernetes, Docker Compose, or GitHub Actions YAML
+            files.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <a href="graphql-formatter.html" class="tool-card" data-category="beautifier">
+          <div class="tool-card-header">
+            <div class="tool-icon">🕸️</div><span class="tool-badge">GraphQL</span>
+          </div>
+          <h2 class="tool-card-title">GraphQL Formatter</h2>
+          <p class="tool-card-desc">Clean up, indent, and format nested GraphQL queries, mutations, fragments, and
+            schema types.</p>
+          <div class="tool-card-footer"><span>Launch Tool</span><span>&rarr;</span></div>
+        </a>
+
+        <!-- No Results Fallback -->
+        <div id="tools-no-results"
+          style="display: none; grid-column: 1 / -1; text-align: center; padding: 4rem 1.5rem; background: var(--bg-surface); border: 1px dashed var(--border-color); border-radius: var(--radius-lg);">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">No Tools Found</h3>
+          <p style="color: var(--text-secondary); max-width: 460px; margin: 0 auto 1.5rem; font-size: 0.92rem;">
+            We couldn't find any tool matching your search query. Try another keyword or switch categories.
+          </p>
+          <button type="button" class="filter-pill active" onclick="resetSearchAndFilters()"
+            style="display: inline-block;">
+            Reset Filter
+          </button>
+        </div>
+      </div>
+
+      <!-- View More Pagination Section -->
+      <div class="view-more-container" id="view-more-section">
+        <button type="button" id="btn-view-more" class="btn-view-more">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span id="btn-view-more-text">View More Tools</span>
+          <span class="view-more-badge" id="view-more-remaining-badge">+4 More</span>
+        </button>
+        <div class="view-more-progress-wrap">
+          <div class="view-more-progress-bar">
+            <div class="view-more-progress-fill" id="view-more-progress-fill" style="width: 60%;"></div>
+          </div>
+          <span class="view-more-status-text" id="view-more-status-text">Showing 6 of 10 tools</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- In-Feed Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard" id="ad-slot-mid">
+      <span>Responsive In-Feed Banner Ad Slot (728x90 / Auto)</span>
+    </div>
+
+    <!-- SEO Information Section -->
+    <section class="seo-content-card">
+      <h2>Why Choose WebToolsHub for Your Daily Tasks?</h2>
+      <p>WebToolsHub is an all-in-one suite of online utilities engineered for everyday computer users, developers,
+        copywriters, and content creators. Our platform stands out from typical web tools through three core pillars:
+      </p>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0;">🔒 100% Client-Side Privacy</h3>
+          <p>Your data never touches our servers. Whether you are compressing family photos, generating bank passwords,
+            or formatting sensitive JSON payloads, everything runs locally inside your browser engine.</p>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0;">⚡ Zero Latency & Lightning Speed</h3>
+          <p>Because processing takes place directly on your device, there are no upload or download queues, no server
+            time-outs, and zero waiting periods. Your calculations and conversions happen instantly.</p>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0;">💯 Always Free & Accessible</h3>
+          <p>No subscriptions, no hidden paywalls, and no forced account registration. Bookmark your favorite tools and
+            access them from any mobile device, tablet, or desktop computer anytime.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are WebToolsHub tools really completely free?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! All tools on WebToolsHub are 100% free to use with no usage limits, no credit card required, and no
+            hidden subscriptions.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is it safe to compress images or generate passwords here?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Absolutely. All processing is carried out entirely on your computer through HTML5, JavaScript, and Web APIs.
+            Your images, text, and passwords never leave your browser and are never uploaded to any remote server or
+            database.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I use WebToolsHub on my smartphone or tablet?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, our website is fully responsive and designed to deliver an optimal user experience across iPhones,
+            Android devices, iPads, laptops, and 4K desktop displays.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard" id="ad-slot-bottom">
+      <span>Responsive Footer Leaderboard Ad Slot</span>
+    </div>
+
+  </main>
+
+  <!-- Quick Search Modal (Ctrl+K) -->
+
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand & Vision -->
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="logo-wrapper">
+            <div class="logo-icon">
+              <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+            </div>
+            <div class="logo-text">WebTools<span>Hub</span></div>
+          </a>
+          <p>
+            Free, lightning-fast, and 100% privacy-friendly browser utilities for developers, designers, and creators.
+            All calculations run client-side.
+          </p>
+          <div class="footer-badges">
+            <span class="system-status-badge">
+              <span class="system-status-dot"></span>
+              <span>100+ Free Tools Active</span>
+            </span>
+            <span class="system-status-badge">
+              <span>🔒 Zero Server Uploads</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 1: Popular Tools -->
+        <div class="footer-col">
+          <h4>🚀 Popular Tools</h4>
+          <ul class="footer-links">
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Generator</a></li>
+            <li><a href="image-compressor.html">Image Compressor</a></li>
+            <li><a href="password-generator.html">Password Generator</a></li>
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="base64-encoder-decoder.html">Base64 Encoder / Decoder</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Beautifiers & Dev Tools -->
+        <div class="footer-col">
+          <h4>✨ Formatters & Code</h4>
+          <ul class="footer-links">
+            <li><a href="sql-formatter.html">SQL Formatter</a></li>
+            <li><a href="javascript-beautifier.html">JavaScript Beautifier</a></li>
+            <li><a href="css-beautifier.html">CSS Beautifier</a></li>
+            <li><a href="python-beautifier.html">Python Beautifier</a></li>
+            <li><a href="html-formatter.html">HTML Formatter</a></li>
+            <li><a href="markdown-previewer.html">Markdown Live Editor</a></li>
+            <li><a href="text-diff.html">Text Diff Checker</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Security & Network -->
+        <div class="footer-col">
+          <h4>🔐 Security & Web</h4>
+          <ul class="footer-links">
+            <li><a href="password-strength-checker.html">Password Strength</a></li>
+            <li><a href="hash-generator.html">Hash Generator (SHA-256)</a></li>
+            <li><a href="uuid-generator.html">UUID Generator</a></li>
+            <li><a href="url-encoder-decoder.html">URL Encoder / Decoder</a></li>
+            <li><a href="http-status-codes.html">HTTP Status Codes</a></li>
+            <li><a href="ip-lookup.html">IP Lookup & Geo</a></li>
+            <li><a href="jwt-decoder.html">JWT Token Decoder</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Converters & Math -->
+        <div class="footer-col">
+          <h4>➗ Math & Converters</h4>
+          <ul class="footer-links">
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="unit-converter.html">Unit Converter</a></li>
+            <li><a href="aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+            <li><a href="number-base-converter.html">Number Base Converter</a></li>
+            <li><a href="color-picker.html">Color Picker & Palette</a></li>
+            <li><a href="pdf-utilities.html">PDF Utilities</a></li>
+            <li><a href="timestamp-converter.html">Timestamp Converter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 WebToolsHub. All rights reserved. 100% Client-Side Privacy Guaranteed.</div>
+        <div class="footer-bottom-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#category-filter-container">All Tools</a>
+          <a href="index.html#category-filter-container">Categories</a>
+          <button type="button" class="btn-scroll-top-footer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <span>↑ Back to Top</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/common.js"></script>
+  <script>
+    // Home Page Category Filtering, Interactive Buttons & Progressive View More Pagination Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("home-tool-search");
+      const filterPills = document.querySelectorAll("#category-filter-container .filter-pill");
+      const toolsContainer = document.getElementById("tools-container");
+      const catTitleElem = document.getElementById("current-category-title");
+      const countBadgeElem = document.getElementById("tools-count-badge");
+      const catDescElem = document.getElementById("current-category-desc");
+      const noResultsElem = document.getElementById("tools-no-results");
+
+      // View More Controls
+      const viewMoreSection = document.getElementById("view-more-section");
+      const btnViewMore = document.getElementById("btn-view-more");
+      const btnViewMoreText = document.getElementById("btn-view-more-text");
+      const viewMoreBadge = document.getElementById("view-more-remaining-badge");
+      const viewMoreProgressFill = document.getElementById("view-more-progress-fill");
+      const viewMoreStatusText = document.getElementById("view-more-status-text");
+
+      // Toolbar Action Buttons & View Modes
+      const btnRandom = document.getElementById("btn-random-tool");
+      const btnPopular = document.getElementById("btn-filter-popular");
+      const btnSortAZ = document.getElementById("btn-sort-az");
+      const sortBtnText = document.getElementById("sort-btn-text");
+      const viewModeBtns = document.querySelectorAll(".view-mode-btn");
+      const searchClearBtn = document.getElementById("hero-search-clear-btn");
+      const quickTags = document.querySelectorAll(".quick-tag");
+
+      const PAGE_SIZE = 9; // Number of tools shown per page
+      let visibleLimit = PAGE_SIZE;
+      let filterPopularOnly = false;
+      let currentSortMode = "default"; // "default", "az", "za"
+
+      const CATEGORY_META = {
+        beautifier: {
+          title: "✨ Beautifiers & Formatters",
+          desc: "Prettify, format, and re-indent messy code, queries, and data payloads."
+        },
+        text: {
+          title: "📝 Text & Content Tools",
+          desc: "Analyze, format, inspect, and convert text, content, and copy."
+        },
+        security: {
+          title: "🔐 Security & Cryptography",
+          desc: "Generate passwords, hashes, QR codes, and verify cryptographic security."
+        },
+        web: {
+          title: "🌐 Web, SEO & Network Tools",
+          desc: "Network utilities, DNS, IP lookup, SEO meta tags, and URL tools."
+        },
+        developer: {
+          title: "💻 Developer & Code Tools",
+          desc: "Essential utilities, encoders, decoders, minifiers, and testing tools for developers."
+        },
+        images: {
+          title: "🖼️ Images & Media Tools",
+          desc: "Compress, resize, convert, and inspect images and media files in your browser."
+        },
+        pdf: {
+          title: "📄 PDF Tools",
+          desc: "Fast and private client-side PDF manipulation, splitting, merging, and conversion."
+        },
+        math: {
+          title: "➗ Calculators & Math",
+          desc: "Calculators for percentages, financial loans, units, timezones, and number systems."
+        },
+        design: {
+          title: "🎨 CSS & Design Tools",
+          desc: "CSS generators, palette tools, gradients, shadows, and design utilities."
+        },
+        info: {
+          title: "📚 Info & Reference",
+          desc: "Reference tools, HTTP status codes, country details, dictionaries, and time data."
+        },
+        utility: {
+          title: "🛠️ Daily Utilities",
+          desc: "Everyday productivity helpers, timers, randomizers, and converters."
+        }
+      };
+
+      // Select initial category (supports ?cat=... or ?q=... or #category-...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const hashVal = window.location.hash.replace("#", "").replace("category-", "");
+      let currentCategory = "beautifier";
+      let searchQuery = "";
+
+      if (urlParams.get("q")) {
+        searchQuery = urlParams.get("q").trim().toLowerCase();
+        if (searchInput) {
+          searchInput.value = searchQuery;
+          if (searchClearBtn) searchClearBtn.classList.add("visible");
+        }
+      } else if (urlParams.get("cat") && CATEGORY_META[urlParams.get("cat")]) {
+        currentCategory = urlParams.get("cat");
+      } else if (hashVal && CATEGORY_META[hashVal]) {
+        currentCategory = hashVal;
+      } else {
+        const initialActivePill = document.querySelector("#category-filter-container .filter-pill.active") || filterPills[0];
+        currentCategory = initialActivePill ? initialActivePill.getAttribute("data-category") : "beautifier";
+      }
+
+      filterPills.forEach(p => p.classList.toggle("active", p.getAttribute("data-category") === currentCategory));
+
+      // Store initial cards array
+      const allCards = Array.from(toolsContainer.querySelectorAll(".tool-card"));
+
+      allCards.forEach(card => {
+        const href = card.getAttribute("href") || "";
+        const toolId = href.replace(".html", "").replace("./", "");
+        card.setAttribute("data-tool-id", toolId);
+      });
+
+      // View Mode Toggle (Grid vs List)
+      let savedViewMode = "grid";
+      try {
+        savedViewMode = localStorage.getItem("wth_view_mode") || "grid";
+      } catch (e) { }
+      setViewMode(savedViewMode);
+
+      viewModeBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const mode = btn.getAttribute("data-view");
+          setViewMode(mode);
+        });
+      });
+
+      function setViewMode(mode) {
+        if (mode === "list") {
+          toolsContainer.classList.add("list-view");
+        } else {
+          toolsContainer.classList.remove("list-view");
+        }
+        viewModeBtns.forEach(btn => {
+          btn.classList.toggle("active", btn.getAttribute("data-view") === mode);
+        });
+        try {
+          localStorage.setItem("wth_view_mode", mode);
+        } catch (e) { }
+      }
+
+      function getSortedCards(cardsList) {
+        if (currentSortMode === "default") {
+          return cardsList;
+        }
+        return [...cardsList].sort((a, b) => {
+          const titleA = (a.querySelector(".tool-card-title")?.textContent || "").trim().toLowerCase();
+          const titleB = (b.querySelector(".tool-card-title")?.textContent || "").trim().toLowerCase();
+          if (currentSortMode === "az") {
+            return titleA.localeCompare(titleB);
+          } else {
+            return titleB.localeCompare(titleA);
+          }
+        });
+      }
+
+      function filterCards(resetLimit = false) {
+        if (resetLimit) {
+          visibleLimit = PAGE_SIZE;
+        }
+
+        // Find matching cards
+        const matchingCards = [];
+        allCards.forEach(card => {
+          const cardCategories = (card.getAttribute("data-category") || "").toLowerCase().split(/\s+/);
+          const toolId = card.getAttribute("data-tool-id") || "";
+          const titleElem = card.querySelector(".tool-card-title");
+          const descElem = card.querySelector(".tool-card-desc");
+          const cardTitle = titleElem ? titleElem.textContent.toLowerCase() : "";
+          const cardDesc = descElem ? descElem.textContent.toLowerCase() : "";
+          const badgeElem = card.querySelector(".tool-badge");
+          const badgeText = badgeElem ? badgeElem.textContent.toLowerCase() : "";
+          const isPopular = badgeText.includes("popular") || badgeText.includes("fast") || badgeText.includes("free") || badgeText.includes("clean");
+
+          let matchesCategory = false;
+          if (searchQuery) {
+            matchesCategory = true;
+          } else {
+            matchesCategory = cardCategories.includes(currentCategory);
+          }
+
+          const matchesQuery = !searchQuery || cardTitle.includes(searchQuery) || cardDesc.includes(searchQuery);
+          const matchesPopular = !filterPopularOnly || isPopular;
+
+          if (matchesCategory && matchesQuery && matchesPopular) {
+            matchingCards.push(card);
+          }
+        });
+
+        const totalCount = matchingCards.length;
+        const sortedMatching = getSortedCards(matchingCards);
+
+        // Hide all cards first
+        allCards.forEach(card => {
+          card.style.display = "none";
+          card.classList.remove("tool-card-animated");
+        });
+
+        // Show only matching cards up to visibleLimit
+        const displayCards = sortedMatching.slice(0, visibleLimit);
+        displayCards.forEach((card, idx) => {
+          card.style.display = "flex";
+          toolsContainer.insertBefore(card, noResultsElem);
+          if (idx >= visibleLimit - PAGE_SIZE) {
+            card.classList.add("tool-card-animated");
+          }
+        });
+
+        const shownCount = displayCards.length;
+        const remainingCount = totalCount - shownCount;
+
+        // Update category title, desc and count badge
+        if (searchQuery) {
+          if (catTitleElem) {
+            catTitleElem.innerHTML = `<span>Search Results</span> <span id="tools-count-badge" class="tool-badge" style="background: rgba(14, 165, 233, 0.15); color: var(--accent-primary); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 9999px; font-weight: 700;">${totalCount} Found</span>`;
+          }
+          if (catDescElem) {
+            catDescElem.textContent = `Showing results matching "${searchQuery}".`;
+          }
+        } else if (filterPopularOnly) {
+          const catName = CATEGORY_META[currentCategory]?.title || currentCategory;
+          if (catTitleElem) {
+            catTitleElem.innerHTML = `<span>🔥 Trending Tools</span> <span id="tools-count-badge" class="tool-badge" style="background: rgba(14, 165, 233, 0.15); color: var(--accent-primary); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 9999px; font-weight: 700;">${totalCount} Tools</span>`;
+          }
+          if (catDescElem) {
+            catDescElem.textContent = `Displaying most popular and frequently used tools in this section.`;
+          }
+        } else {
+          const meta = CATEGORY_META[currentCategory] || { title: currentCategory, desc: "" };
+          if (catTitleElem) {
+            catTitleElem.innerHTML = `<span>${meta.title}</span> <span id="tools-count-badge" class="tool-badge" style="background: rgba(14, 165, 233, 0.15); color: var(--accent-primary); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 9999px; font-weight: 700;">${totalCount} Tools</span>`;
+          }
+          if (catDescElem) {
+            catDescElem.textContent = meta.desc;
+          }
+        }
+
+        // Toggle no-results container
+        if (noResultsElem) {
+          noResultsElem.style.display = totalCount === 0 ? "block" : "none";
+          if (totalCount === 0) {
+            noResultsElem.querySelector("h3").textContent = "No Tools Found";
+            noResultsElem.querySelector("p").textContent = "We couldn't find any tool matching your search. Try another keyword or browse categories.";
+          }
+        }
+
+        // Update View More Section UI
+        if (viewMoreSection) {
+          if (totalCount === 0) {
+            viewMoreSection.style.display = "none";
+          } else {
+            viewMoreSection.style.display = "flex";
+            const percent = Math.min(100, Math.round((shownCount / totalCount) * 100));
+            if (viewMoreProgressFill) viewMoreProgressFill.style.width = percent + "%";
+            if (viewMoreStatusText) viewMoreStatusText.textContent = `Showing ${shownCount} of ${totalCount} tools (${percent}%)`;
+
+            if (remainingCount > 0) {
+              btnViewMore.style.display = "inline-flex";
+              btnViewMore.classList.remove("btn-all-loaded");
+              btnViewMoreText.textContent = "View More Tools";
+              if (viewMoreBadge) {
+                viewMoreBadge.textContent = `+${remainingCount} More`;
+                viewMoreBadge.style.display = "inline-block";
+              }
+            } else {
+              if (totalCount <= PAGE_SIZE) {
+                btnViewMore.style.display = "none";
+              } else {
+                btnViewMore.style.display = "inline-flex";
+                btnViewMore.classList.add("btn-all-loaded");
+                btnViewMoreText.textContent = "✅ All Tools Displayed";
+                if (viewMoreBadge) viewMoreBadge.style.display = "none";
+              }
+            }
+          }
+        }
+      }
+
+      // View More Button Click
+      if (btnViewMore) {
+        btnViewMore.addEventListener("click", () => {
+          if (btnViewMore.classList.contains("btn-all-loaded")) return;
+          visibleLimit += PAGE_SIZE;
+          filterCards(false);
+        });
+      }
+
+      // Surprise Me / Random Tool Click
+      if (btnRandom) {
+        btnRandom.addEventListener("click", () => {
+          const list = (window.ALL_TOOLS && window.ALL_TOOLS.length > 0) ? window.ALL_TOOLS : allCards.map(c => ({
+            title: c.querySelector(".tool-card-title")?.textContent || "Tool",
+            url: c.getAttribute("href")
+          }));
+          const randomTool = list[Math.floor(Math.random() * list.length)];
+          if (randomTool && randomTool.url) {
+            if (window.showToast) {
+              window.showToast(`Opening ${randomTool.title || randomTool.name || 'Tool'}...`, "info");
+            }
+            setTimeout(() => {
+              window.location.href = randomTool.url;
+            }, 250);
+          }
+        });
+      }
+
+      // Trending Only Filter Click
+      if (btnPopular) {
+        btnPopular.addEventListener("click", () => {
+          filterPopularOnly = !filterPopularOnly;
+          btnPopular.classList.toggle("active", filterPopularOnly);
+          filterCards(true);
+        });
+      }
+
+      // Sort A-Z Click
+      if (btnSortAZ) {
+        btnSortAZ.addEventListener("click", () => {
+          if (currentSortMode === "default") {
+            currentSortMode = "az";
+            sortBtnText.textContent = "Sort: A-Z";
+            btnSortAZ.classList.add("active");
+          } else if (currentSortMode === "az") {
+            currentSortMode = "za";
+            sortBtnText.textContent = "Sort: Z-A";
+            btnSortAZ.classList.add("active");
+          } else {
+            currentSortMode = "default";
+            sortBtnText.textContent = "Sort A-Z";
+            btnSortAZ.classList.remove("active");
+          }
+          filterCards(false);
+        });
+      }
+
+      // Category Pill Clicks
+      filterPills.forEach(pill => {
+        pill.addEventListener("click", () => {
+          filterPills.forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          currentCategory = pill.getAttribute("data-category");
+
+          // Reset search bar when explicitly selecting a category
+          if (searchInput && searchInput.value) {
+            searchInput.value = "";
+            searchQuery = "";
+            if (searchClearBtn) searchClearBtn.classList.remove("visible");
+          }
+
+          filterCards(true);
+        });
+      });
+
+      // Search Input
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          searchQuery = e.target.value.trim().toLowerCase();
+          if (searchClearBtn) {
+            searchClearBtn.classList.toggle("visible", searchQuery.length > 0);
+          }
+          filterCards(true);
+        });
+      }
+
+      // Search Clear Button Click
+      if (searchClearBtn) {
+        searchClearBtn.addEventListener("click", () => {
+          if (searchInput) searchInput.value = "";
+          searchQuery = "";
+          searchClearBtn.classList.remove("visible");
+          filterCards(true);
+          if (searchInput) searchInput.focus();
+        });
+      }
+
+      // Trending Quick Tags Click
+      quickTags.forEach(tagBtn => {
+        tagBtn.addEventListener("click", () => {
+          const tag = tagBtn.getAttribute("data-tag") || tagBtn.textContent;
+          if (searchInput) {
+            searchInput.value = tag;
+            searchQuery = tag.toLowerCase();
+            if (searchClearBtn) searchClearBtn.classList.add("visible");
+            filterCards(true);
+            searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+      });
+
+      // Initial filter on load
+      filterCards(true);
+
+      // Reset search helper
+      window.resetSearchAndFilters = function () {
+        if (searchInput) searchInput.value = "";
+        searchQuery = "";
+        if (searchClearBtn) searchClearBtn.classList.remove("visible");
+        filterPopularOnly = false;
+        if (btnPopular) btnPopular.classList.remove("active");
+        currentSortMode = "default";
+        if (btnSortAZ) {
+          sortBtnText.textContent = "Sort A-Z";
+          btnSortAZ.classList.remove("active");
+        }
+        const targetPill = document.querySelector(`#category-filter-container .filter-pill[data-category="${currentCategory}"]`) || filterPills[0];
+        if (targetPill) {
+          filterPills.forEach(p => p.classList.remove("active"));
+          targetPill.classList.add("active");
+          currentCategory = targetPill.getAttribute("data-category");
+        }
+        filterCards(true);
+      };
+    });
+  </script>
+</body>
+
+</html>

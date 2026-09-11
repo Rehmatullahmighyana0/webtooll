@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXIF Metadata Viewer & Photo Privacy Scrubber | WebToolsHub</title>
+  <meta name="description" content="View hidden EXIF photo metadata: camera model, shutter speed, ISO, aperture, GPS location, and date taken. Strip metadata to protect privacy in browser.">
+  <meta name="keywords" content="exif viewer, view exif data, remove exif data, photo metadata viewer, image gps lookup, clean photo metadata">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/exif-viewer.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/exif-viewer.html">
+  <meta property="og:title" content="EXIF Metadata Viewer & Photo Privacy Scrubber | WebToolsHub">
+  <meta property="og:description" content="View hidden EXIF photo metadata: camera model, shutter speed, ISO, aperture, GPS location, and date taken. Strip metadata to protect privacy in browser.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/exif-viewer.html">
+  <meta name="twitter:title" content="EXIF Metadata Viewer & Photo Privacy Scrubber | WebToolsHub">
+  <meta name="twitter:description" content="View hidden EXIF photo metadata: camera model, shutter speed, ISO, aperture, GPS location, and date taken. Strip metadata to protect privacy in browser.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "EXIF Metadata Viewer & Scrubber",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Inspect and sanitize EXIF metadata tags in photographs."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Image Tools</span> &gt; <span>EXIF Viewer</span>
+      </nav>
+      <h1 class="tool-page-title">EXIF Metadata Viewer & Privacy Scrubber</h1>
+      <p class="tool-page-subtitle">Inspect hidden camera specs, exposure settings, timestamps, and GPS geolocation stored in photos, or sanitize images before sharing online.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Privacy</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Upload Dropzone -->
+        <div class="upload-dropzone" id="exif-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📷</div>
+          <h3 style="margin-bottom: 0.5rem;">Drag & drop photo here or click to browse</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Supports JPG, JPEG, TIFF, and HEIC photos</p>
+          <input type="file" id="exif-file-input" accept="image/jpeg,image/tiff" style="display: none;">
+        </div>
+
+        <!-- EXIF Results Area -->
+        <div id="exif-results-area" style="display: none;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+            <h3 style="font-size: 1.1rem; margin: 0;">Extracted EXIF Metadata</h3>
+            <button type="button" id="btn-scrub-exif" class="btn btn-primary btn-sm">🛡️ Scrub Metadata & Download Clean Image</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            
+            <!-- Table of EXIF attributes -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <tbody id="exif-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Preview Image -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; display: flex; align-items: center; justify-content: center;">
+              <img id="exif-preview" style="max-height: 280px; max-width: 100%; object-fit: contain; border-radius: 4px;" alt="Preview">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Images Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="image-compressor.html"><span>🖼️ Image Compressor</span><span class="badge-mini">Popular</span></a></li>
+            <li><a href="svg-to-png.html"><span>🖼️ SVG to PNG Converter</span><span class="badge-mini">Graphics</span></a></li>
+            <li><a href="favicon-generator.html"><span>⭐ Favicon Generator & Icon Maker</span><span class="badge-mini">Brand</span></a></li>
+            <li><a href="image-resizer.html"><span>📐 Image Resizer</span><span class="badge-mini">Images</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Photographic EXIF Metadata & Privacy Risks</h2>
+      <p>Exchangeable Image File Format (EXIF) metadata is automatically recorded by digital cameras and smartphones whenever a picture is captured. It frequently includes sensitive privacy details such as exact GPS longitude/latitude coordinates of your home, camera serial numbers, and exact timestamps. Scrubbing metadata protects your physical privacy before sharing photos on social networks.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropzone = document.getElementById("exif-dropzone");
+      const fileInput = document.getElementById("exif-file-input");
+      const resultsArea = document.getElementById("exif-results-area");
+      const tableBody = document.getElementById("exif-table-body");
+      const preview = document.getElementById("exif-preview");
+      const btnScrub = document.getElementById("btn-scrub-exif");
+
+      let currentFile = null;
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) inspectFile(e.dataTransfer.files[0]);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) inspectFile(e.target.files[0]);
+      });
+
+      function inspectFile(file) {
+        currentFile = file;
+        preview.src = URL.createObjectURL(file);
+
+        EXIF.getData(file, function() {
+          const allTags = EXIF.getAllTags(this);
+          resultsArea.style.display = "block";
+          resultsArea.scrollIntoView({ behavior: 'smooth' });
+
+          const interestingKeys = [
+            ["Camera Make", allTags.Make],
+            ["Camera Model", allTags.Model],
+            ["Date & Time", allTags.DateTime || allTags.DateTimeOriginal],
+            ["Exposure Time", allTags.ExposureTime ? `${allTags.ExposureTime.numerator}/${allTags.ExposureTime.denominator}s` : null],
+            ["F-Number (Aperture)", allTags.FNumber ? `f/${allTags.FNumber}` : null],
+            ["ISO Speed", allTags.ISOSpeedRatings],
+            ["Focal Length", allTags.FocalLength ? `${allTags.FocalLength}mm` : null],
+            ["Software", allTags.Software],
+            ["GPS Latitude", allTags.GPSLatitude ? formatGps(allTags.GPSLatitude, allTags.GPSLatitudeRef) : "None (Private)"],
+            ["GPS Longitude", allTags.GPSLongitude ? formatGps(allTags.GPSLongitude, allTags.GPSLongitudeRef) : "None (Private)"]
+          ];
+
+          let rows = "";
+          interestingKeys.forEach(([label, val]) => {
+            if (val) {
+              rows += `
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 700; width: 45%; color: var(--text-secondary);">${label}</td>
+                  <td style="padding: 10px 14px; font-family: monospace;">${val}</td>
+                </tr>
+              `;
+            }
+          });
+
+          if (!rows) {
+            rows = `<tr><td colspan="2" style="padding: 1.5rem; text-align: center; color: var(--text-muted);">No EXIF metadata found in this image (Already clean or sanitized).</td></tr>`;
+          }
+
+          tableBody.innerHTML = rows;
+        });
+      }
+
+      function formatGps(coords, ref) {
+        if (!coords || coords.length < 3) return null;
+        return `${coords[0]}° ${coords[1]}' ${coords[2]}" ${ref || ''}`;
+      }
+
+      btnScrub.addEventListener("click", () => {
+        if (!currentFile) return;
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+
+          // Re-encoding to canvas wipes all EXIF blocks
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `sanitized-${currentFile.name}`;
+            a.click();
+            URL.revokeObjectURL(url);
+          }, "image/jpeg", 0.95);
+        };
+        img.src = URL.createObjectURL(currentFile);
+      });
+    });
+  </script>
+</body>
+</html>

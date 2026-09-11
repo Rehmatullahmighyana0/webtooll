@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmer Bitwise Calculator (AND, OR, XOR, Shifts) | WebToolsHub</title>
+  <meta name="description" content="Programmer bitwise calculator. Perform AND, OR, XOR, NOT, left shift, and right shift bitwise operations simultaneously across Binary, Hex, and Decimal.">
+  <meta name="keywords" content="programmer calculator, bitwise calculator, binary math calculator, hex calculator, bit shift calculator, xor calculator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/programmer-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/programmer-calculator.html">
+  <meta property="og:title" content="Programmer Bitwise Calculator (AND, OR, XOR, Shifts) | WebToolsHub">
+  <meta property="og:description" content="Programmer bitwise calculator. Perform AND, OR, XOR, NOT, left shift, and right shift bitwise operations simultaneously across Binary, Hex, and Decimal.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/programmer-calculator.html">
+  <meta name="twitter:title" content="Programmer Bitwise Calculator (AND, OR, XOR, Shifts) | WebToolsHub">
+  <meta name="twitter:description" content="Programmer bitwise calculator. Perform AND, OR, XOR, NOT, left shift, and right shift bitwise operations simultaneously across Binary, Hex, and Decimal.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Programmer Bitwise Calculator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Perform bitwise binary, hexadecimal, and octal operations online."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>Programmer Calculator</span>
+      </nav>
+      <h1 class="tool-page-title">Programmer Bitwise Math Calculator</h1>
+      <p class="tool-page-subtitle">Execute bitwise boolean operations (AND, OR, XOR, NOT, Logical Shifts) with multi-base binary, decimal, and hexadecimal synchrony.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Input Operands -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end; margin-bottom: 1rem;">
+            <div>
+              <label class="form-label" for="val-a">Operand A (Decimal or 0xHex):</label>
+              <input type="text" id="val-a" class="form-input" value="255" style="font-family: monospace; font-size: 1.1rem; font-weight: 700;">
+            </div>
+
+            <div>
+              <label class="form-label" for="op-select">Operation:</label>
+              <select id="op-select" class="form-select" style="font-family: monospace; font-weight: 700;">
+                <option value="AND">AND (&)</option>
+                <option value="OR">OR (|)</option>
+                <option value="XOR" selected>XOR (^)</option>
+                <option value="NOT">NOT (~) [Unary A]</option>
+                <option value="SHL">Shift Left (<<)</option>
+                <option value="SHR">Shift Right (>>)</option>
+              </select>
+            </div>
+
+            <div id="wrapper-b">
+              <label class="form-label" for="val-b">Operand B:</label>
+              <input type="text" id="val-b" class="form-input" value="15" style="font-family: monospace; font-size: 1.1rem; font-weight: 700;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Base Result Dashboard -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem;">
+          <div style="padding: 1rem 1.25rem; background: var(--bg-subtle); border-bottom: 1px solid var(--border-color); font-weight: 700;">
+            Calculation Result Across Bases (32-Bit)
+          </div>
+
+          <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem;">
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase;">Decimal (Base 10):</div>
+              <div id="res-dec" style="font-size: 1.8rem; font-weight: 800; color: var(--accent-primary); font-family: monospace;">240</div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+              <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase;">Hexadecimal (Base 16):</div>
+              <div id="res-hex" style="font-size: 1.4rem; font-weight: 800; font-family: monospace; color: var(--accent-success);">0xF0</div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+              <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase;">Binary (Base 2):</div>
+              <div id="res-bin" style="font-size: 1.2rem; font-weight: 700; font-family: monospace; word-break: break-all; color: var(--accent-info);">00000000 00000000 00000000 11110000</div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+              <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase;">Octal (Base 8):</div>
+              <div id="res-oct" style="font-size: 1.1rem; font-weight: 700; font-family: monospace;">0360</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="percentage-calculator.html"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a></li>
+            <li><a href="unit-converter.html"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a></li>
+            <li><a href="timestamp-converter.html"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a></li>
+            <li><a href="number-base-converter.html"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Bitwise Operations in Computer Engineering</h2>
+      <p>Bitwise operations manipulate numbers directly at the bit level. <code>AND (&)</code> outputs 1 only when both bits are 1 (used for bit masking). <code>OR (|)</code> outputs 1 if either bit is 1. <code>XOR (^)</code> yields 1 when bits differ (the backbone of cryptography and checksums). Bit shifts multiply or divide values by powers of two in single-cycle CPU instructions.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inA = document.getElementById("val-a");
+      const inB = document.getElementById("val-b");
+      const opSelect = document.getElementById("op-select");
+      const wrapB = document.getElementById("wrapper-b");
+
+      const resDec = document.getElementById("res-dec");
+      const resHex = document.getElementById("res-hex");
+      const resBin = document.getElementById("res-bin");
+      const resOct = document.getElementById("res-oct");
+
+      function parseVal(str) {
+        str = str.trim();
+        if (str.startsWith("0x") || str.startsWith("0X")) return parseInt(str, 16);
+        if (str.startsWith("0b") || str.startsWith("0B")) return parseInt(str.slice(2), 2);
+        return parseInt(str, 10);
+      }
+
+      function formatBinary32(val) {
+        let bin = (val >>> 0).toString(2).padStart(32, '0');
+        return `${bin.slice(0, 8)} ${bin.slice(8, 16)} ${bin.slice(16, 24)} ${bin.slice(24, 32)}`;
+      }
+
+      function calculate() {
+        const a = parseVal(inA.value) || 0;
+        const b = parseVal(inB.value) || 0;
+        const op = opSelect.value;
+
+        if (op === "NOT") {
+          wrapB.style.display = "none";
+        } else {
+          wrapB.style.display = "block";
+        }
+
+        let res = 0;
+        switch (op) {
+          case "AND": res = (a & b) >>> 0; break;
+          case "OR":  res = (a | b) >>> 0; break;
+          case "XOR": res = (a ^ b) >>> 0; break;
+          case "NOT": res = (~a) >>> 0; break;
+          case "SHL": res = (a << b) >>> 0; break;
+          case "SHR": res = (a >>> b) >>> 0; break;
+        }
+
+        resDec.textContent = res.toString(10);
+        resHex.textContent = "0x" + res.toString(16).toUpperCase();
+        resBin.textContent = formatBinary32(res);
+        resOct.textContent = "0" + res.toString(8);
+      }
+
+      [inA, inB, opSelect].forEach(el => el.addEventListener("input", calculate));
+      calculate();
+    });
+  </script>
+</body>
+</html>

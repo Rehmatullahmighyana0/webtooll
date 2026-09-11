@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Meta Tag & Open Graph Generator (SEO & Social Cards) | WebToolsHub</title>
+  <meta name="description" content="Generate HTML meta tags, Open Graph (OG), and Twitter Cards with real-time Google and Social Media card preview. Boost your website SEO.">
+  <meta name="keywords" content="meta tag generator, open graph generator, twitter card generator, seo meta tags, html head tags">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/meta-tag-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/meta-tag-generator.html">
+  <meta property="og:title" content="Free Meta Tag & Open Graph Generator (SEO & Social Cards) | WebToolsHub">
+  <meta property="og:description" content="Generate HTML meta tags, Open Graph (OG), and Twitter Cards with real-time Google and Social Media card preview. Boost your website SEO.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/meta-tag-generator.html">
+  <meta name="twitter:title" content="Free Meta Tag & Open Graph Generator (SEO & Social Cards) | WebToolsHub">
+  <meta name="twitter:description" content="Generate HTML meta tags, Open Graph (OG), and Twitter Cards with real-time Google and Social Media card preview. Boost your website SEO.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Meta Tag Generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Meta Tag & Open Graph Generator</h1>
+      <p class="tool-subtitle">Build SEO-optimized HTML meta tags, Open Graph (Facebook/LinkedIn), and Twitter Cards with real-time SERP previews.</p>
+    </div>
+
+    <!-- Template Presets Bar -->
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+      <label style="font-size: 13px; font-weight: 600; color: var(--text-secondary);">Load Preset Template:</label>
+      <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px;" onclick="loadPreset('saas')">SaaS Web App</button>
+      <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px;" onclick="loadPreset('blog')">Blog Article</button>
+      <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px;" onclick="loadPreset('ecommerce')">E-Commerce Product</button>
+    </div>
+
+    <div class="meta-grid">
+      <!-- Form Input Column -->
+      <div>
+        <div class="card" style="padding: 24px;">
+          <h2 style="font-size: 18px; margin-bottom: 16px;">Core Meta Information</h2>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <label class="form-label" for="meta-title" style="margin: 0;">Page Title</label>
+              <span class="counter-badge" id="title-counter">0 / 60 chars</span>
+            </div>
+            <input type="text" class="input-field" id="meta-title" value="WebToolsHub - 100% Free Online Developer Tools">
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <label class="form-label" for="meta-desc" style="margin: 0;">Meta Description</label>
+              <span class="counter-badge" id="desc-counter">0 / 160 chars</span>
+            </div>
+            <textarea class="textarea-field" id="meta-desc" rows="3">Free online tools for developers and creators: Image compressor, QR code generator, JSON formatter, and 30+ more productivity utilities.</textarea>
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label" for="meta-url">Canonical URL</label>
+              <input type="url" class="input-field" id="meta-url" value="https://webtoolshub.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="meta-og-type">OG Content Type</label>
+              <select class="select-field" id="meta-og-type">
+                <option value="website">website</option>
+                <option value="article">article</option>
+                <option value="product">product</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="meta-image">Social Share Image (OG Image 1200x630)</label>
+            <input type="url" class="input-field" id="meta-image" value="https://webtoolshub.com/images/banner.png">
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label" for="meta-author">Author / Site Name</label>
+              <input type="text" class="input-field" id="meta-author" value="WebToolsHub">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="twitter-handle">Twitter @handle</label>
+              <input type="text" class="input-field" id="twitter-handle" value="@webtoolshub">
+            </div>
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label" for="twitter-card-type">Twitter Card Type</label>
+              <select class="select-field" id="twitter-card-type">
+                <option value="summary_large_image">summary_large_image (Large)</option>
+                <option value="summary">summary (Compact Square)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="robots-meta">Robots Directives</label>
+              <select class="select-field" id="robots-meta">
+                <option value="index, follow">index, follow (Standard)</option>
+                <option value="noindex, follow">noindex, follow</option>
+                <option value="noindex, nofollow">noindex, nofollow (Private)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Previews Column -->
+      <div>
+        <div class="card" style="padding: 24px;">
+          <h2 style="font-size: 18px; margin-bottom: 16px;">Live Visual Previews</h2>
+
+          <div style="margin-bottom: 22px;">
+            <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); display:block; margin-bottom: 8px;">GOOGLE SEARCH RESULT SNIPPET</span>
+            <div class="google-preview">
+              <div class="google-url" id="pv-google-url">https://webtoolshub.com</div>
+              <div class="google-title" id="pv-google-title">WebToolsHub - 100% Free Online Developer Tools</div>
+              <div class="google-desc" id="pv-google-desc">Free online tools for developers and creators...</div>
+            </div>
+          </div>
+
+          <div>
+            <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); display:block; margin-bottom: 8px;">SOCIAL MEDIA CARD (X / FACEBOOK / LINKEDIN)</span>
+            <div class="social-preview">
+              <div class="social-img" id="pv-social-img">1200 x 630 Share Banner</div>
+              <div class="social-body">
+                <div class="social-domain" id="pv-social-domain">WEBTOOLSHUB.COM</div>
+                <div class="social-title" id="pv-social-title">WebToolsHub - 100% Free Online Developer Tools</div>
+                <div class="social-desc" id="pv-social-desc">Free online tools for developers and creators...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Output Code Box -->
+    <div class="card" style="margin-top: 24px; padding: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+        <h2 style="font-size: 18px; margin: 0;">Generated HTML Meta Tags (Paste into &lt;head&gt;)</h2>
+        <button class="btn btn-primary" id="copy-btn">📋 Copy HTML Code</button>
+      </div>
+      <textarea class="textarea-field" id="output-tags" rows="12" readonly style="font-family: var(--font-mono); font-size: 13px;"></textarea>
+    </div>
+
+    <div class="seo-content card" style="margin-top: 32px;">
+      <h2>Why Meta Tags Matter for SEO & Social Engagement</h2>
+      <p>Title tags and meta descriptions directly dictate your organic search click-through rate (CTR). Meanwhile, Open Graph and Twitter Card tags ensure that when users share your links on social platforms, crisp images, descriptive headlines, and brand domain badges render automatically.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related SEO & Web Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="qr-code-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a>
+          <a href="url-encoder-decoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a>
+          <a href="ip-lookup.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a>
+          <a href="user-agent-parser.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const inputs = ['meta-title', 'meta-desc', 'meta-url', 'meta-og-type', 'meta-image', 'meta-author', 'twitter-handle', 'twitter-card-type', 'robots-meta'];
+
+    const PRESETS = {
+      saas: {
+        title: "DevSprint - The All-in-One Cloud Workspace",
+        desc: "Accelerate software engineering velocity with automated deployments, real-time telemetry, and code collaboration.",
+        url: "https://devsprint.io",
+        type: "website",
+        image: "https://devsprint.io/assets/og-hero.jpg",
+        author: "DevSprint Team",
+        twitter: "@devsprint"
+      },
+      blog: {
+        title: "10 CSS Performance Tips Every Developer Should Know in 2026",
+        desc: "Learn how to optimize critical rendering path, eliminate unused CSS styles, and achieve a perfect 100 Google Lighthouse score.",
+        url: "https://example.com/blog/css-tips-2026",
+        type: "article",
+        image: "https://example.com/blog/covers/css-tips.jpg",
+        author: "Sarah Jenkins",
+        twitter: "@sarah_dev"
+      },
+      ecommerce: {
+        title: "Ergonomic Mechanical Keyboard with Hot-Swap Switches | ApexTech",
+        desc: "Custom RGB mechanical keyboard featuring Gateron Brown switches, aluminum frame, and wireless Bluetooth connectivity. Free shipping.",
+        url: "https://apextech.store/products/keyboard",
+        type: "product",
+        image: "https://apextech.store/images/keyboard-og.jpg",
+        author: "ApexTech Store",
+        twitter: "@apextech"
+      }
+    };
+
+    function loadPreset(key) {
+      const p = PRESETS[key];
+      if (!p) return;
+      document.getElementById('meta-title').value = p.title;
+      document.getElementById('meta-desc').value = p.desc;
+      document.getElementById('meta-url').value = p.url;
+      document.getElementById('meta-og-type').value = p.type;
+      document.getElementById('meta-image').value = p.image;
+      document.getElementById('meta-author').value = p.author;
+      document.getElementById('twitter-handle').value = p.twitter;
+      updateTags();
+      showToast(`Loaded ${key.toUpperCase()} template!`);
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function updateTags() {
+      const title = document.getElementById('meta-title').value.trim() || 'Your Website Title';
+      const desc = document.getElementById('meta-desc').value.trim() || 'Your Website Description';
+      const url = document.getElementById('meta-url').value.trim() || 'https://example.com';
+      const ogType = document.getElementById('meta-og-type').value;
+      const img = document.getElementById('meta-image').value.trim() || 'https://example.com/og.jpg';
+      const author = document.getElementById('meta-author').value.trim() || 'Site Name';
+      const twitter = document.getElementById('twitter-handle').value.trim() || '@handle';
+      const cardType = document.getElementById('twitter-card-type').value;
+      const robots = document.getElementById('robots-meta').value;
+
+      // Counters & Quality Badges
+      const titleCounter = document.getElementById('title-counter');
+      titleCounter.textContent = `${title.length} / 60 chars`;
+      titleCounter.className = 'counter-badge ' + (title.length >= 30 && title.length <= 60 ? 'counter-good' : 'counter-warn');
+
+      const descCounter = document.getElementById('desc-counter');
+      descCounter.textContent = `${desc.length} / 160 chars`;
+      descCounter.className = 'counter-badge ' + (desc.length >= 70 && desc.length <= 160 ? 'counter-good' : 'counter-warn');
+
+      // Visual updates
+      document.getElementById('pv-google-title').textContent = title;
+      document.getElementById('pv-google-desc').textContent = desc;
+      document.getElementById('pv-google-url').textContent = url;
+
+      document.getElementById('pv-social-title').textContent = title;
+      document.getElementById('pv-social-desc').textContent = desc;
+      try {
+        const u = new URL(url);
+        document.getElementById('pv-social-domain').textContent = u.hostname.toUpperCase();
+      } catch(e) {
+        document.getElementById('pv-social-domain').textContent = url.toUpperCase();
+      }
+
+      const code = `<!-- Primary Meta Tags -->
+<title>${escapeHtml(title)}</title>
+<meta name="title" content="${escapeHtml(title)}">
+<meta name="description" content="${escapeHtml(desc)}">
+<meta name="author" content="${escapeHtml(author)}">
+<meta name="robots" content="${escapeHtml(robots)}">
+<link rel="canonical" href="${escapeHtml(url)}">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="${escapeHtml(ogType)}">
+<meta property="og:url" content="${escapeHtml(url)}">
+<meta property="og:title" content="${escapeHtml(title)}">
+<meta property="og:description" content="${escapeHtml(desc)}">
+<meta property="og:image" content="${escapeHtml(img)}">
+<meta property="og:site_name" content="${escapeHtml(author)}">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="${escapeHtml(cardType)}">
+<meta name="twitter:url" content="${escapeHtml(url)}">
+<meta name="twitter:site" content="${escapeHtml(twitter)}">
+<meta name="twitter:title" content="${escapeHtml(title)}">
+<meta name="twitter:description" content="${escapeHtml(desc)}">
+<meta name="twitter:image" content="${escapeHtml(img)}">`;
+
+      document.getElementById('output-tags').value = code;
+    }
+
+    inputs.forEach(id => {
+      document.getElementById(id).addEventListener('input', updateTags);
+      document.getElementById(id).addEventListener('change', updateTags);
+    });
+
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      const code = document.getElementById('output-tags').value;
+      navigator.clipboard.writeText(code);
+      showToast('Meta tags copied to clipboard!');
+    });
+
+    updateTags();
+  </script>
+</body>
+</html>

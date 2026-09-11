@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online PDF Splitter & Page Extractor | WebToolsHub</title>
+  <meta name="description" content="Split PDF files and extract specific pages (e.g. 1-3, 5, 8-10) directly in your browser. 100% private, no file uploads, fast PDF page extraction.">
+  <meta name="keywords" content="pdf splitter, split pdf online, extract pages from pdf, separate pdf pages, free pdf splitter">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/pdf-splitter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/pdf-splitter.html">
+  <meta property="og:title" content="Free Online PDF Splitter & Page Extractor | WebToolsHub">
+  <meta property="og:description" content="Split PDF files and extract specific pages (e.g. 1-3, 5, 8-10) directly in your browser. 100% private, no file uploads, fast PDF page extraction.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/pdf-splitter.html">
+  <meta name="twitter:title" content="Free Online PDF Splitter & Page Extractor | WebToolsHub">
+  <meta name="twitter:description" content="Split PDF files and extract specific pages (e.g. 1-3, 5, 8-10) directly in your browser. 100% private, no file uploads, fast PDF page extraction.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PDF Splitter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Split and extract page ranges from PDF files locally in-browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>PDF Tools</span> &gt; <span>PDF Splitter</span>
+      </nav>
+      <h1 class="tool-page-title">Online PDF Splitter & Page Extractor</h1>
+      <p class="tool-page-subtitle">Extract desired pages or custom page intervals from large PDF files. Processed locally in memory with zero document uploads.</p>
+      <div class="privacy-badge">🔒 100% Private Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Dropzone -->
+        <div class="upload-dropzone" id="pdf-split-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✂️</div>
+          <h3 style="margin-bottom: 0.5rem;">Drag & drop PDF document here or click to browse</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Upload any multi-page PDF document</p>
+          <input type="file" id="pdf-split-input" accept="application/pdf" style="display: none;">
+        </div>
+
+        <!-- Split Controls -->
+        <div id="split-controls-box" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <strong id="pdf-filename" style="font-size: 1.05rem;">document.pdf</strong>
+              <div id="pdf-page-count" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;">Total Pages: 0</div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('pdf-split-input').click()">Change PDF</button>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="page-range-input">Pages to Extract (e.g. 1, 3-5, 8):</label>
+            <input type="text" id="page-range-input" class="form-input" placeholder="e.g. 1-3, 5" value="1">
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.4rem;">
+              Separate specific pages with commas, or specify ranges with hyphens.
+            </div>
+          </div>
+
+          <button type="button" id="btn-extract-pdf" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">
+            📥 Extract & Download Selected Pages
+          </button>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related PDF Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="pdf-utilities.html"><span>📄 PDF Utilities (Image to PDF)</span><span class="badge-mini">Privacy First</span></a></li>
+            <li><a href="pdf-merger.html"><span>📑 PDF Merger</span><span class="badge-mini">PDF</span></a></li>
+            <li><a href="pdf-to-image.html"><span>🖼️ PDF to Image Converter</span><span class="badge-mini">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>How to Extract Pages from Large PDF Files</h2>
+      <p>Need to extract just a signed contract page or a specific chapter from an ebook? Our client-side PDF splitter reads page trees directly in memory and writes out a brand new PDF consisting exclusively of your selected sheets without degrading document resolution.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropzone = document.getElementById("pdf-split-dropzone");
+      const fileInput = document.getElementById("pdf-split-input");
+      const controlsBox = document.getElementById("split-controls-box");
+      const filenameLabel = document.getElementById("pdf-filename");
+      const pageCountLabel = document.getElementById("pdf-page-count");
+      const rangeInput = document.getElementById("page-range-input");
+      const btnExtract = document.getElementById("btn-extract-pdf");
+
+      let currentPdfDoc = null;
+      let totalPages = 0;
+      let originalName = "document";
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) handlePdf(e.dataTransfer.files[0]);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) handlePdf(e.target.files[0]);
+      });
+
+      async function handlePdf(file) {
+        if (!file.name.toLowerCase().endsWith(".pdf")) return;
+        originalName = file.name.replace(/\.[^/.]+$/, "");
+        filenameLabel.textContent = file.name;
+
+        const arrayBuffer = await file.arrayBuffer();
+        currentPdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+        totalPages = currentPdfDoc.getPageCount();
+
+        pageCountLabel.textContent = `Total Pages: ${totalPages}`;
+        rangeInput.value = totalPages > 1 ? `1-${Math.min(3, totalPages)}` : "1";
+
+        dropzone.style.display = "none";
+        controlsBox.style.display = "block";
+      }
+
+      function parsePageRanges(str, max) {
+        const pages = new Set();
+        const parts = str.split(',').map(s => s.trim()).filter(Boolean);
+
+        parts.forEach(p => {
+          if (p.includes('-')) {
+            const [start, end] = p.split('-').map(n => parseInt(n.trim(), 10));
+            if (!isNaN(start) && !isNaN(end)) {
+              for (let i = Math.max(1, start); i <= Math.min(max, end); i++) {
+                pages.add(i - 1); // 0-indexed
+              }
+            }
+          } else {
+            const n = parseInt(p, 10);
+            if (!isNaN(n) && n >= 1 && n <= max) {
+              pages.add(n - 1);
+            }
+          }
+        });
+
+        return Array.from(pages).sort((a, b) => a - b);
+      }
+
+      btnExtract.addEventListener("click", async () => {
+        if (!currentPdfDoc) return;
+        const indices = parsePageRanges(rangeInput.value, totalPages);
+
+        if (indices.length === 0) {
+          alert("Please enter a valid page number or range (e.g. 1-3).");
+          return;
+        }
+
+        btnExtract.textContent = "⏳ Extracting Pages...";
+        btnExtract.disabled = true;
+
+        try {
+          const newPdf = await PDFLib.PDFDocument.create();
+          const copiedPages = await newPdf.copyPages(currentPdfDoc, indices);
+          copiedPages.forEach(p => newPdf.addPage(p));
+
+          const pdfBytes = await newPdf.save();
+          const blob = new Blob([pdfBytes], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `${originalName}-extracted.pdf`;
+          a.click();
+          URL.revokeObjectURL(url);
+        } catch (e) {
+          alert("Error extracting pages: " + e.message);
+        } finally {
+          btnExtract.textContent = "📥 Extract & Download Selected Pages";
+          btnExtract.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

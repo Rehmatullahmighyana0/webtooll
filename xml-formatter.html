@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XML Formatter, Beautifier & Validator | WebToolsHub</title>
+  <meta name="description" content="Format, beautify, indent, and validate XML documents in your browser. Detect XML syntax errors and minify XML files for optimized data transfer. 100% private.">
+  <meta name="keywords" content="xml formatter, xml beautifier, validate xml online, xml pretty print, minify xml, xml syntax checker">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/xml-formatter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/xml-formatter.html">
+  <meta property="og:title" content="XML Formatter, Beautifier & Validator | WebToolsHub">
+  <meta property="og:description" content="Format, beautify, indent, and validate XML documents in your browser. Detect XML syntax errors and minify XML files for optimized data transfer. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/xml-formatter.html">
+  <meta name="twitter:title" content="XML Formatter, Beautifier & Validator | WebToolsHub">
+  <meta name="twitter:description" content="Format, beautify, indent, and validate XML documents in your browser. Detect XML syntax errors and minify XML files for optimized data transfer. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "XML Formatter & Validator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Beautify, indent, and validate XML code completely client-side."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>XML Formatter</span>
+      </nav>
+      <h1 class="tool-page-title">XML Formatter, Beautifier & Validator</h1>
+      <p class="tool-page-subtitle">Indent raw XML strings into clean hierarchy, validate XML syntax for well-formedness, and minify for lightweight transmission.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Validation alert bar -->
+        <div id="xml-alert" style="display: none; padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; font-weight: 600;"></div>
+
+        <!-- Controls -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <button type="button" id="btn-format" class="btn btn-primary btn-sm">✨ Beautify XML</button>
+            <button type="button" id="btn-minify" class="btn btn-secondary btn-sm">⚡ Minify XML</button>
+            <button type="button" id="btn-validate" class="btn btn-secondary btn-sm">🔍 Validate XML</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 0.875rem; color: var(--text-secondary);">Indent:</span>
+            <select id="indent-size" class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.85rem;">
+              <option value="2" selected>2 Spaces</option>
+              <option value="4">4 Spaces</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Editor Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="xml-input" style="margin-bottom: 0;">Input XML:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+              </div>
+            </div>
+            <textarea id="xml-input" class="form-textarea" style="min-height: 380px; font-family: monospace; font-size: 0.9rem;" placeholder="Paste raw XML here..."></textarea>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.4rem;">
+              <div class="categories-filter" style="margin: 0; justify-content: flex-start; gap: 0.35rem;">
+                <button type="button" class="filter-pill active" id="tab-xml-code" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">Formatted XML</button>
+                <button type="button" class="filter-pill" id="tab-xml-tree" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">🌳 XML Tree Viewer</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy</button>
+                <button type="button" id="btn-download" class="btn btn-secondary btn-sm">Download .xml</button>
+              </div>
+            </div>
+            <div id="wrapper-xml-code">
+              <textarea id="xml-output" class="form-textarea" readonly style="min-height: 380px; font-family: monospace; font-size: 0.9rem; background: var(--bg-surface);" placeholder="Formatted XML output..."></textarea>
+            </div>
+            <div id="wrapper-xml-tree" style="display: none; min-height: 380px; max-height: 520px; overflow-y: auto; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+              <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-expand-all" style="padding: 2px 8px; font-size: 0.75rem;">➕ Expand All</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-collapse-all" style="padding: 2px 8px; font-size: 0.75rem;">➖ Collapse All</button>
+              </div>
+              <div id="xml-tree-root"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="html-formatter.html"><span>🌐 HTML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="javascript-beautifier.html"><span>🟨 JavaScript Beautifier</span><span class="badge-mini">Popular</span></a></li>
+            <li><a href="css-beautifier.html"><span>🎨 CSS Beautifier & Formatter</span><span class="badge-mini">CSS</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Client-Side XML Formatting and Syntax Checking</h2>
+      <p>Extensible Markup Language (XML) is the foundational format behind SOAP web services, RSS/Atom web feeds, Android layouts, SVG vectors, and configuration files. This browser utility verifies XML document structure and provides customizable spacing indentation.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("xml-input");
+      const output = document.getElementById("xml-output");
+      const alertBox = document.getElementById("xml-alert");
+      const indentSelect = document.getElementById("indent-size");
+      const tabCode = document.getElementById("tab-xml-code");
+      const tabTree = document.getElementById("tab-xml-tree");
+      const wrapperCode = document.getElementById("wrapper-xml-code");
+      const wrapperTree = document.getElementById("wrapper-xml-tree");
+      const treeRoot = document.getElementById("xml-tree-root");
+
+      function showAlert(msg, isSuccess) {
+        alertBox.style.display = "block";
+        if (isSuccess) {
+          alertBox.style.background = "rgba(16, 185, 129, 0.15)";
+          alertBox.style.color = "var(--accent-success)";
+          alertBox.style.border = "1px solid var(--accent-success)";
+          alertBox.textContent = msg;
+        } else {
+          alertBox.style.background = "rgba(239, 68, 68, 0.15)";
+          alertBox.style.color = "var(--accent-danger)";
+          alertBox.style.border = "1px solid var(--accent-danger)";
+          alertBox.textContent = msg;
+        }
+      }
+
+      function escapeHtml(text) {
+        return (text || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function formatXMLNode(node, depth, indentSpaces) {
+        const indent = indentSpaces.repeat(depth);
+        if (node.nodeType === Node.TEXT_NODE) {
+          const val = node.nodeValue.trim();
+          return val ? val : "";
+        }
+        if (node.nodeType === Node.COMMENT_NODE) {
+          return `${indent}<!--${node.nodeValue}-->\n`;
+        }
+        if (node.nodeType !== Node.ELEMENT_NODE) {
+          return "";
+        }
+
+        let attrs = "";
+        for (let i = 0; i < node.attributes.length; i++) {
+          const a = node.attributes[i];
+          attrs += ` ${a.name}="${escapeHtml(a.value)}"`;
+        }
+
+        const children = Array.from(node.childNodes).filter(n => {
+          if (n.nodeType === Node.TEXT_NODE) return n.nodeValue.trim().length > 0;
+          return true;
+        });
+
+        if (children.length === 0) {
+          return `${indent}<${node.nodeName}${attrs}/>\n`;
+        }
+
+        // Single text child -> render inline
+        if (children.length === 1 && children[0].nodeType === Node.TEXT_NODE) {
+          return `${indent}<${node.nodeName}${attrs}>${escapeHtml(children[0].nodeValue.trim())}</${node.nodeName}>\n`;
+        }
+
+        let inner = "";
+        children.forEach(c => {
+          inner += formatXMLNode(c, depth + 1, indentSpaces);
+        });
+
+        return `${indent}<${node.nodeName}${attrs}>\n${inner}${indent}</${node.nodeName}>\n`;
+      }
+
+      function buildTreeDom(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const val = node.nodeValue.trim();
+          if (!val) return null;
+          const textEl = document.createElement("span");
+          textEl.style.color = "var(--text-primary)";
+          textEl.textContent = ` "${val}"`;
+          return textEl;
+        }
+        if (node.nodeType === Node.COMMENT_NODE) {
+          const cEl = document.createElement("div");
+          cEl.style.color = "var(--text-muted)";
+          cEl.style.fontStyle = "italic";
+          cEl.textContent = `<!-- ${node.nodeValue} -->`;
+          return cEl;
+        }
+        if (node.nodeType !== Node.ELEMENT_NODE) return null;
+
+        const container = document.createElement("div");
+        container.className = "xml-tree-node";
+        container.style.margin = "3px 0 3px 14px";
+        container.style.lineHeight = "1.5";
+
+        const header = document.createElement("div");
+        header.style.cursor = "pointer";
+        header.style.display = "inline-flex";
+        header.style.alignItems = "center";
+        header.style.gap = "4px";
+
+        const children = Array.from(node.childNodes).filter(n => {
+          if (n.nodeType === Node.TEXT_NODE) return n.nodeValue.trim().length > 0;
+          return true;
+        });
+
+        const hasChildren = children.length > 0 && !(children.length === 1 && children[0].nodeType === Node.TEXT_NODE);
+
+        const toggle = document.createElement("span");
+        toggle.className = "xml-toggle";
+        toggle.style.fontSize = "0.75rem";
+        toggle.style.width = "14px";
+        toggle.style.display = "inline-block";
+        toggle.style.userSelect = "none";
+        toggle.textContent = hasChildren ? "▼" : "•";
+        toggle.style.color = hasChildren ? "var(--accent-primary)" : "var(--text-muted)";
+        header.appendChild(toggle);
+
+        const tagStart = document.createElement("span");
+        tagStart.style.color = "#3b82f6";
+        tagStart.style.fontWeight = "600";
+        tagStart.textContent = `<${node.nodeName}`;
+        header.appendChild(tagStart);
+
+        for (let i = 0; i < node.attributes.length; i++) {
+          const a = node.attributes[i];
+          const attrEl = document.createElement("span");
+          attrEl.innerHTML = ` <span style="color:#ec4899;">${a.name}</span>=<span style="color:#10b981;">"${escapeHtml(a.value)}"</span>`;
+          header.appendChild(attrEl);
+        }
+
+        const tagEnd = document.createElement("span");
+        tagEnd.style.color = "#3b82f6";
+        tagEnd.style.fontWeight = "600";
+        tagEnd.textContent = ">";
+        header.appendChild(tagEnd);
+
+        // Inline text node
+        if (children.length === 1 && children[0].nodeType === Node.TEXT_NODE) {
+          const valEl = document.createElement("span");
+          valEl.style.color = "var(--text-primary)";
+          valEl.style.fontWeight = "normal";
+          valEl.textContent = ` ${children[0].nodeValue.trim()} `;
+          header.appendChild(valEl);
+
+          const closeTag = document.createElement("span");
+          closeTag.style.color = "#3b82f6";
+          closeTag.style.fontWeight = "600";
+          closeTag.textContent = `</${node.nodeName}>`;
+          header.appendChild(closeTag);
+
+          container.appendChild(header);
+          return container;
+        }
+
+        container.appendChild(header);
+
+        if (children.length === 0) {
+          tagStart.textContent = `<${node.nodeName}`;
+          tagEnd.textContent = " />";
+          return container;
+        }
+
+        const body = document.createElement("div");
+        body.className = "xml-tree-body";
+        body.style.borderLeft = "1px dashed var(--border-color)";
+        body.style.paddingLeft = "8px";
+        body.style.marginLeft = "6px";
+
+        children.forEach(c => {
+          const el = buildTreeDom(c);
+          if (el) body.appendChild(el);
+        });
+
+        container.appendChild(body);
+
+        const closeFoot = document.createElement("div");
+        closeFoot.style.color = "#3b82f6";
+        closeFoot.style.fontWeight = "600";
+        closeFoot.style.marginLeft = "14px";
+        closeFoot.textContent = `</${node.nodeName}>`;
+        container.appendChild(closeFoot);
+
+        if (hasChildren) {
+          header.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (body.style.display === "none") {
+              body.style.display = "block";
+              closeFoot.style.display = "block";
+              toggle.textContent = "▼";
+            } else {
+              body.style.display = "none";
+              closeFoot.style.display = "none";
+              toggle.textContent = "▶";
+            }
+          });
+        }
+
+        return container;
+      }
+
+      function updateTree(doc) {
+        treeRoot.innerHTML = "";
+        if (!doc || !doc.documentElement) {
+          treeRoot.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">No valid XML document to display.</p>';
+          return;
+        }
+        const treeEl = buildTreeDom(doc.documentElement);
+        if (treeEl) treeRoot.appendChild(treeEl);
+      }
+
+      function formatXML(xml) {
+        if (!xml.trim()) return null;
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(xml, "application/xml");
+        const parserError = doc.querySelector("parsererror");
+
+        if (parserError) {
+          showAlert("⚠️ XML Syntax Error: " + parserError.textContent.slice(0, 150), false);
+          return null;
+        }
+
+        showAlert("✅ Well-formed XML document! Successfully validated and parsed.", true);
+
+        const indentSpaces = " ".repeat(parseInt(indentSelect.value, 10));
+        let formatted = "";
+        
+        // Add XML declaration if present
+        if (/^<\?xml/i.test(xml.trim())) {
+          const match = xml.trim().match(/^(<\?xml[^?]+\?>)/i);
+          if (match) formatted += match[1] + "\n";
+        }
+
+        formatted += formatXMLNode(doc.documentElement, 0, indentSpaces).trim();
+        updateTree(doc);
+        return formatted;
+      }
+
+      function minifyXML(xml) {
+        return xml.replace(/>\s+</g, '><').replace(/\s+/g, ' ').trim();
+      }
+
+      tabCode.addEventListener("click", () => {
+        tabCode.classList.add("active");
+        tabTree.classList.remove("active");
+        wrapperCode.style.display = "block";
+        wrapperTree.style.display = "none";
+      });
+
+      tabTree.addEventListener("click", () => {
+        tabTree.classList.add("active");
+        tabCode.classList.remove("active");
+        wrapperCode.style.display = "none";
+        wrapperTree.style.display = "block";
+        if (!treeRoot.hasChildNodes() && input.value.trim()) {
+          formatXML(input.value);
+        }
+      });
+
+      document.getElementById("btn-expand-all").addEventListener("click", () => {
+        treeRoot.querySelectorAll(".xml-tree-body").forEach(b => b.style.display = "block");
+        treeRoot.querySelectorAll(".xml-toggle").forEach(t => { if (t.textContent === "▶") t.textContent = "▼"; });
+      });
+
+      document.getElementById("btn-collapse-all").addEventListener("click", () => {
+        treeRoot.querySelectorAll(".xml-tree-body").forEach(b => b.style.display = "none");
+        treeRoot.querySelectorAll(".xml-toggle").forEach(t => { if (t.textContent === "▼") t.textContent = "▶"; });
+      });
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        if (!input.value.trim()) return;
+        const res = formatXML(input.value);
+        if (res) output.value = res;
+      });
+
+      document.getElementById("btn-minify").addEventListener("click", () => {
+        if (!input.value.trim()) return;
+        output.value = minifyXML(input.value);
+        showAlert("XML minified successfully.", true);
+      });
+
+      document.getElementById("btn-validate").addEventListener("click", () => {
+        if (!input.value.trim()) return;
+        formatXML(input.value);
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <book id="bk101">
+    <author>Gambardella, Matthew</author>
+    <title>XML Developer's Guide</title>
+    <genre>Computer</genre>
+    <price currency="USD">44.95</price>
+    <publish_date>2026-01-01</publish_date>
+    <description>An in-depth look at creating modern web applications with XML data feeds.</description>
+  </book>
+  <book id="bk102">
+    <author>Ralls, Kim</author>
+    <title>Midnight Rain</title>
+    <genre>Fantasy</genre>
+    <price currency="EUR">35.50</price>
+    <publish_date>2026-02-15</publish_date>
+    <description>A former architect battles an evil syndicate with high-tech magic.</description>
+  </book>
+</catalog>`;
+        const res = formatXML(input.value);
+        if (res) output.value = res;
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        treeRoot.innerHTML = "";
+        alertBox.style.display = "none";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "XML copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "application/xml;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "formatted.xml";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById("btn-sample").click();
+    });
+  </script>
+</body>
+</html>

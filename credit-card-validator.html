@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Validator & Test Card Generator (Luhn Algorithm) | WebToolsHub</title>
+  <meta name="description" content="Free client-side credit card number validator using the MOD-10 Luhn Algorithm. Includes expiry check, CVV validation, and developer test card generator.">
+  <meta name="keywords" content="credit card validator, luhn algorithm, card number checker, test credit card, luhn check, test card generator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/credit-card-validator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/credit-card-validator.html">
+  <meta property="og:title" content="Credit Card Validator & Test Card Generator (Luhn Algorithm) | WebToolsHub">
+  <meta property="og:description" content="Free client-side credit card number validator using the MOD-10 Luhn Algorithm. Includes expiry check, CVV validation, and developer test card generator.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/credit-card-validator.html">
+  <meta name="twitter:title" content="Credit Card Validator & Test Card Generator (Luhn Algorithm) | WebToolsHub">
+  <meta name="twitter:description" content="Free client-side credit card number validator using the MOD-10 Luhn Algorithm. Includes expiry check, CVV validation, and developer test card generator.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Credit Card Validator and Test Generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Credit Card Validator & Simulator</h1>
+      <p class="tool-subtitle">Validate card numbers with the ISO/IEC 7812 Luhn algorithm, check expiration & CVV, or generate test card numbers for development.</p>
+    </div>
+
+    <!-- Visual Interactive Card Mockup -->
+    <div class="card-graphic">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="card-chip"></div>
+        <div class="card-brand-badge" id="card-brand-label">GENERIC CARD</div>
+      </div>
+      <div class="card-display-num" id="card-display">•••• •••• •••• ••••</div>
+      <div style="display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8; font-family: var(--font-mono);">
+        <div>
+          <span style="font-size: 9px; display: block; opacity: 0.6;">CARD HOLDER</span>
+          <span id="card-name-display">JOHN DOE</span>
+        </div>
+        <div>
+          <span style="font-size: 9px; display: block; opacity: 0.6;">EXPIRES</span>
+          <span id="card-exp-display">MM/YY</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulator Form -->
+    <div class="card" style="max-width: 580px; margin: 0 auto 32px; padding: 24px;">
+      <div class="form-group">
+        <label class="form-label" for="card-input">Card Number</label>
+        <input type="text" class="input-field" id="card-input" placeholder="4532 0150 0000 0000" maxlength="23" style="font-family: var(--font-mono); font-size: 17px; letter-spacing: 1px;">
+      </div>
+
+      <div class="grid" style="grid-template-columns: 2fr 1fr 1fr; gap: 12px;">
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="holder-name">Cardholder Name</label>
+          <input type="text" class="input-field" id="holder-name" placeholder="John Doe">
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="card-exp">Expiry (MM/YY)</label>
+          <input type="text" class="input-field" id="card-exp" placeholder="12/28" maxlength="5" style="font-family: var(--font-mono); text-align: center;">
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="card-cvv">CVV</label>
+          <input type="text" class="input-field" id="card-cvv" placeholder="123" maxlength="4" style="font-family: var(--font-mono); text-align: center;">
+        </div>
+      </div>
+
+      <div id="validation-result"></div>
+
+      <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--border-color); font-size: 12.5px; color: var(--text-muted);">
+        🔒 <strong>100% Client-Side Privacy:</strong> Computations run mathematically inside your local browser. No data is stored, logged, or transmitted anywhere.
+      </div>
+    </div>
+
+    <!-- Sandbox Developer Test Card Generator -->
+    <div class="card" style="max-width: 580px; margin: 0 auto 32px; padding: 24px;">
+      <h2 style="font-size: 18px; margin-bottom: 12px;">Generate Valid Test Card (Sandbox / Developer)</h2>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 14px;">Generate dummy card numbers that pass the Luhn algorithm strictly for testing mock payment gateways.</p>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+        <button type="button" class="btn btn-secondary" onclick="generateTestCard('visa')">💳 Visa Test</button>
+        <button type="button" class="btn btn-secondary" onclick="generateTestCard('mastercard')">💳 Mastercard Test</button>
+        <button type="button" class="btn btn-secondary" onclick="generateTestCard('amex')">💳 Amex Test</button>
+        <button type="button" class="btn btn-secondary" onclick="generateTestCard('discover')">💳 Discover Test</button>
+      </div>
+
+      <!-- Dedicated Result Box for Generated Card -->
+      <div id="gen-card-result-container" style="background: var(--bg-subtle); border: 1.5px solid var(--accent-primary); border-radius: var(--radius-md); padding: 16px; margin-top: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary);" id="gen-card-brand-tag">💳 VISA TEST CARD</span>
+          <span style="font-size: 11px; font-weight: 700; color: var(--accent-success); background: rgba(16, 185, 129, 0.12); padding: 2px 8px; border-radius: var(--radius-full);">✓ Luhn Algorithm Passed</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 10px;">
+          <span id="gen-card-number-text" style="font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--text-primary); letter-spacing: 1px;">4532 0150 0000 0000</span>
+          <button type="button" class="btn btn-primary btn-sm" onclick="copyToClipboard(document.getElementById('gen-card-number-text').textContent.replace(/\s/g, ''), 'Card number copied!')">Copy Number</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 8px 12px;">
+            <span style="font-size: 12px; color: var(--text-muted);">Expiry: <strong id="gen-card-exp-text" style="color: var(--text-primary); font-family: var(--font-mono);">12/29</strong></span>
+            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 11px;" onclick="copyToClipboard(document.getElementById('gen-card-exp-text').textContent, 'Expiry copied!')">Copy</button>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 8px 12px;">
+            <span style="font-size: 12px; color: var(--text-muted);">CVV: <strong id="gen-card-cvv-text" style="color: var(--text-primary); font-family: var(--font-mono);">123</strong></span>
+            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 11px;" onclick="copyToClipboard(document.getElementById('gen-card-cvv-text').textContent, 'CVV copied!')">Copy</button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 11.5px; color: var(--text-muted);">
+          <span>Also loaded into interactive card preview above ↑</span>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="window.scrollTo({top: 150, behavior: 'smooth'})" style="font-size: 11px;">View Card Mockup ↑</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content card" style="max-width: 580px; margin: 0 auto;">
+      <h2>How Does the Luhn Mod-10 Algorithm Work?</h2>
+      <p>The Luhn algorithm doubles every second digit from right to left, subtracting 9 if the result exceeds 9. The sum of all digits must be a multiple of 10. Major payment card networks (Visa, Mastercard, Amex, Discover) strictly use this standard to catch typos and fraud.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Security Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="password-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔐 Password Generator</span><span class="badge-mini">Secure</span></a>
+          <a href="hash-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🛡️ Hash Generator & Checksum</span><span class="badge-mini">Crypto</span></a>
+          <a href="uuid-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🆔 UUID / GUID Generator (v4)</span><span class="badge-mini">Secure</span></a>
+          <a href="password-strength-checker.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🛡️ Password Strength Checker</span><span class="badge-mini">Security</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const cardInput = document.getElementById('card-input');
+    const cardDisplay = document.getElementById('card-display');
+    const brandLabel = document.getElementById('card-brand-label');
+    const resultBox = document.getElementById('validation-result');
+    const nameInput = document.getElementById('holder-name');
+    const expInput = document.getElementById('card-exp');
+    const cvvInput = document.getElementById('card-cvv');
+
+    function checkLuhn(str) {
+      let sum = 0;
+      let shouldDouble = false;
+      for (let i = str.length - 1; i >= 0; i--) {
+        let digit = parseInt(str.charAt(i), 10);
+        if (shouldDouble) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+        shouldDouble = !shouldDouble;
+      }
+      return sum % 10 === 0;
+    }
+
+    function detectBrand(digits) {
+      if (/^4/.test(digits)) return { name: 'Visa', length: [16, 19], cvv: 3 };
+      if (/^(5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[01]|2720)/.test(digits)) return { name: 'Mastercard', length: [16], cvv: 3 };
+      if (/^3[47]/.test(digits)) return { name: 'American Express', length: [15], cvv: 4 };
+      if (/^6(?:011|5[0-9]{2})/.test(digits)) return { name: 'Discover', length: [16], cvv: 3 };
+      if (/^35(?:2[89]|[3-8][0-9])/.test(digits)) return { name: 'JCB', length: [16], cvv: 3 };
+      if (/^3(?:0[0-5]|[68][0-9])/.test(digits)) return { name: 'Diners Club', length: [14], cvv: 3 };
+      return { name: 'Unknown Brand', length: [16], cvv: 3 };
+    }
+
+    function formatNumber(digits) {
+      return digits.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').trim();
+    }
+
+    function validateAll() {
+      const raw = cardInput.value.replace(/\D/g, '');
+      const formatted = formatNumber(raw);
+      cardDisplay.textContent = formatted || '•••• •••• •••• ••••';
+
+      const brand = detectBrand(raw);
+      brandLabel.textContent = raw ? brand.name : 'GENERIC CARD';
+
+      if (!raw) {
+        resultBox.innerHTML = '';
+        return;
+      }
+
+      if (raw.length >= 13) {
+        const isLuhnValid = checkLuhn(raw);
+        if (isLuhnValid) {
+          resultBox.innerHTML = `
+            <div class="validation-status status-valid">
+              <span>✓</span>
+              <div>
+                <strong>Valid Card Number (Luhn Check Passed)</strong>
+                <div style="font-size: 12px; font-weight: normal; margin-top: 2px;">Brand: ${brand.name} | Length: ${raw.length} digits</div>
+              </div>
+            </div>`;
+        } else {
+          resultBox.innerHTML = `
+            <div class="validation-status status-invalid">
+              <span>✕</span>
+              <div>
+                <strong>Invalid Card Number (Checksum Failed)</strong>
+                <div style="font-size: 12px; font-weight: normal; margin-top: 2px;">The digits do not satisfy the Modulo 10 formula. Check for typos.</div>
+              </div>
+            </div>`;
+        }
+      } else {
+        resultBox.innerHTML = `<div style="font-size: 13px; color: var(--text-muted); margin-top: 10px;">Enter at least 13 digits to calculate checksum...</div>`;
+      }
+    }
+
+    cardInput.addEventListener('input', (e) => {
+      let raw = e.target.value.replace(/\D/g, '');
+      e.target.value = formatNumber(raw);
+      validateAll();
+    });
+
+    nameInput.addEventListener('input', (e) => {
+      document.getElementById('card-name-display').textContent = e.target.value.toUpperCase() || 'JOHN DOE';
+    });
+
+    expInput.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '');
+      if (val.length > 2) val = val.substring(0, 2) + '/' + val.substring(2, 4);
+      e.target.value = val;
+      document.getElementById('card-exp-display').textContent = val || 'MM/YY';
+    });
+
+    // Generator for dummy test cards
+    function generateTestCard(brand) {
+      let prefix = '4';
+      let targetLen = 16;
+      if (brand === 'mastercard') { prefix = '52'; targetLen = 16; }
+      else if (brand === 'amex') { prefix = '37'; targetLen = 15; }
+      else if (brand === 'discover') { prefix = '6011'; targetLen = 16; }
+
+      let num = prefix;
+      while (num.length < targetLen - 1) {
+        num += Math.floor(Math.random() * 10);
+      }
+
+      // Calculate check digit
+      for (let d = 0; d <= 9; d++) {
+        if (checkLuhn(num + d)) {
+          num = num + d;
+          break;
+        }
+      }
+
+      const formattedNum = formatNumber(num);
+      const expDate = '12/29';
+      const cvvVal = brand === 'amex' ? '1234' : '123';
+
+      cardInput.value = formattedNum;
+      expInput.value = expDate;
+      document.getElementById('card-exp-display').textContent = expDate;
+      cvvInput.value = cvvVal;
+
+      // Update dedicated output result box
+      const resultContainer = document.getElementById('gen-card-result-container');
+      const brandTag = document.getElementById('gen-card-brand-tag');
+      const numText = document.getElementById('gen-card-number-text');
+      const expText = document.getElementById('gen-card-exp-text');
+      const cvvText = document.getElementById('gen-card-cvv-text');
+
+      if (resultContainer) resultContainer.style.display = 'block';
+      if (brandTag) brandTag.textContent = `💳 ${brand.toUpperCase()} TEST CARD`;
+      if (numText) numText.textContent = formattedNum;
+      if (expText) expText.textContent = expDate;
+      if (cvvText) cvvText.textContent = cvvVal;
+
+      validateAll();
+      showToast(`Generated valid ${brand.toUpperCase()} test card!`, "success");
+    }
+
+    // Generate initial sample on load
+    generateTestCard('visa');
+  </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bcrypt Hash Generator & Password Verifier | WebToolsHub</title>
+  <meta name="description" content="Generate secure Bcrypt password hashes and verify plaintext passwords against existing Bcrypt hashes. Customizable work factors (rounds 4 to 12). 100% private.">
+  <meta name="keywords" content="bcrypt generator, bcrypt hash generator, verify bcrypt password, bcrypt online, bcrypt checker">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/bcrypt-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/bcrypt-generator.html">
+  <meta property="og:title" content="Bcrypt Hash Generator & Password Verifier | WebToolsHub">
+  <meta property="og:description" content="Generate secure Bcrypt password hashes and verify plaintext passwords against existing Bcrypt hashes. Customizable work factors (rounds 4 to 12). 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/bcrypt-generator.html">
+  <meta name="twitter:title" content="Bcrypt Hash Generator & Password Verifier | WebToolsHub">
+  <meta name="twitter:description" content="Generate secure Bcrypt password hashes and verify plaintext passwords against existing Bcrypt hashes. Customizable work factors (rounds 4 to 12). 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Bcrypt Hash Generator & Verifier",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Generate and verify Bcrypt password hashes in your browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Security Tools</span> &gt; <span>Bcrypt Generator</span>
+      </nav>
+      <h1 class="tool-page-title">Bcrypt Hash Generator & Verifier</h1>
+      <p class="tool-page-subtitle">Hash plaintext passwords into cryptographically strong Bcrypt strings with adaptive salt rounds, or test if a password matches a known hash.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Privacy Guaranteed</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+          <button class="filter-pill active" id="tab-gen">Generate Bcrypt Hash</button>
+          <button class="filter-pill" id="tab-verify">Verify Password vs Hash</button>
+        </div>
+
+        <!-- Mode 1: Generator -->
+        <div id="section-gen">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <div class="form-group">
+              <label class="form-label" for="bcrypt-plain">Plaintext String / Password to Hash:</label>
+              <input type="text" id="bcrypt-plain" class="form-input" placeholder="e.g. MySuperSecretPass!123" value="CorrectHorseBatteryStaple!">
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-end; margin-bottom: 1.25rem;">
+              <div>
+                <label class="form-label" for="bcrypt-rounds">Salt Rounds (Work Factor: 4 - 12):</label>
+                <select id="bcrypt-rounds" class="form-select" style="width: 140px;">
+                  <option value="4">4 (Fastest)</option>
+                  <option value="8">8</option>
+                  <option value="10" selected>10 (Recommended)</option>
+                  <option value="12">12 (Strong)</option>
+                </select>
+              </div>
+              <button type="button" id="btn-hash" class="btn btn-primary">⚡ Generate Hash</button>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <label class="form-label" style="margin-bottom: 0;">Generated Bcrypt Hash:</label>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('bcrypt-output').value, 'Bcrypt hash copied!')">Copy Hash</button>
+              </div>
+              <input type="text" id="bcrypt-output" class="form-input" readonly style="font-family: monospace; font-size: 0.95rem; background: var(--bg-subtle);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode 2: Verifier -->
+        <div id="section-verify" style="display: none;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <div class="form-group">
+              <label class="form-label" for="check-plain">Plaintext Password:</label>
+              <input type="text" id="check-plain" class="form-input" placeholder="Enter password to test...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="check-hash">Existing Bcrypt Hash:</label>
+              <input type="text" id="check-hash" class="form-input" placeholder="e.g. $2a$10$..." style="font-family: monospace;">
+            </div>
+
+            <button type="button" id="btn-check-match" class="btn btn-primary" style="margin-bottom: 1rem;">🔍 Test Match</button>
+
+            <div id="verify-result-box" style="display: none; padding: 1rem; border-radius: var(--radius-md); font-weight: 600;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Security Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="password-generator.html"><span>🔐 Password Generator</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="hash-generator.html"><span>🛡️ Hash Generator & Checksum</span><span class="badge-mini">Crypto</span></a></li>
+            <li><a href="uuid-generator.html"><span>🆔 UUID / GUID Generator (v4)</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="credit-card-validator.html"><span>💳 Credit Card Validator</span><span class="badge-mini">Luhn Check</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Why Use Bcrypt for Password Storage?</h2>
+      <p>Unlike raw MD5 or SHA-256 algorithms designed for maximum speed, Bcrypt is intentionally designed with an adaptive cost factor to remain computationally expensive. This slows down offline password cracking and dictionary attacks by orders of magnitude, making it the industry standard across Node.js, Ruby on Rails, Django, and Spring applications.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabGen = document.getElementById("tab-gen");
+      const tabVerify = document.getElementById("tab-verify");
+      const secGen = document.getElementById("section-gen");
+      const secVerify = document.getElementById("section-verify");
+
+      const plainIn = document.getElementById("bcrypt-plain");
+      const roundsIn = document.getElementById("bcrypt-rounds");
+      const hashOut = document.getElementById("bcrypt-output");
+      const btnHash = document.getElementById("btn-hash");
+
+      const checkPlain = document.getElementById("check-plain");
+      const checkHash = document.getElementById("check-hash");
+      const btnCheckMatch = document.getElementById("btn-check-match");
+      const verifyResult = document.getElementById("verify-result-box");
+
+      tabGen.addEventListener("click", () => {
+        tabGen.classList.add("active");
+        tabVerify.classList.remove("active");
+        secGen.style.display = "block";
+        secVerify.style.display = "none";
+      });
+
+      tabVerify.addEventListener("click", () => {
+        tabVerify.classList.add("active");
+        tabGen.classList.remove("active");
+        secVerify.style.display = "block";
+        secGen.style.display = "none";
+      });
+
+      function getBcryptLib() {
+        if (typeof dcodeIO !== "undefined" && dcodeIO.bcrypt) return dcodeIO.bcrypt;
+        if (typeof bcrypt !== "undefined") return bcrypt;
+        return null;
+      }
+
+      function doHash() {
+        const str = plainIn.value;
+        if (!str) return;
+        const rounds = parseInt(roundsIn.value) || 10;
+        const b = getBcryptLib();
+        if (!b) {
+          hashOut.value = "Bcrypt engine loading...";
+          return;
+        }
+        try {
+          const salt = b.genSaltSync(rounds);
+          const hash = b.hashSync(str, salt);
+          hashOut.value = hash;
+        } catch (e) {
+          hashOut.value = "Error generating hash: " + e.message;
+        }
+      }
+
+      btnHash.addEventListener("click", doHash);
+
+      btnCheckMatch.addEventListener("click", () => {
+        const pw = checkPlain.value;
+        const h = checkHash.value.trim();
+        verifyResult.style.display = "block";
+
+        if (!pw || !h) {
+          verifyResult.style.background = "rgba(245, 158, 11, 0.15)";
+          verifyResult.style.color = "var(--accent-warning)";
+          verifyResult.style.border = "1px solid var(--accent-warning)";
+          verifyResult.textContent = "Please enter both the plaintext password and hash.";
+          return;
+        }
+
+        const b = getBcryptLib();
+        if (!b) {
+          verifyResult.textContent = "Bcrypt engine not ready.";
+          return;
+        }
+
+        try {
+          const isMatch = b.compareSync(pw, h);
+          if (isMatch) {
+            verifyResult.style.background = "rgba(16, 185, 129, 0.15)";
+            verifyResult.style.color = "var(--accent-success)";
+            verifyResult.style.border = "1px solid var(--accent-success)";
+            verifyResult.textContent = "✅ MATCH! The password correctly matches the Bcrypt hash.";
+          } else {
+            verifyResult.style.background = "rgba(239, 68, 68, 0.15)";
+            verifyResult.style.color = "var(--accent-danger)";
+            verifyResult.style.border = "1px solid var(--accent-danger)";
+            verifyResult.textContent = "❌ MISMATCH! The password does NOT match this hash.";
+          }
+        } catch (e) {
+          verifyResult.style.background = "rgba(239, 68, 68, 0.15)";
+          verifyResult.style.color = "var(--accent-danger)";
+          verifyResult.style.border = "1px solid var(--accent-danger)";
+          verifyResult.textContent = "⚠️ Invalid Bcrypt hash format: " + e.message;
+        }
+      });
+
+      doHash();
+    });
+  </script>
+</body>
+</html>

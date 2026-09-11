@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Color Picker, Hex to RGB & Palette Generator | WebToolsHub</title>
+  <meta name="description" content="Online color picker with HEX, RGB, HSL, and CMYK conversions. Generate color harmonies, check WCAG contrast ratios, and copy CSS color codes instantly.">
+  <meta name="keywords" content="color picker, hex to rgb, rgb to hex, color converter, color palette generator, wcag contrast checker">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/color-picker.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/color-picker.html">
+  <meta property="og:title" content="Free Online Color Picker, Hex to RGB & Palette Generator | WebToolsHub">
+  <meta property="og:description" content="Online color picker with HEX, RGB, HSL, and CMYK conversions. Generate color harmonies, check WCAG contrast ratios, and copy CSS color codes instantly.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/color-picker.html">
+  <meta name="twitter:title" content="Free Online Color Picker, Hex to RGB & Palette Generator | WebToolsHub">
+  <meta name="twitter:description" content="Online color picker with HEX, RGB, HSL, and CMYK conversions. Generate color harmonies, check WCAG contrast ratios, and copy CSS color codes instantly.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Color Picker & Palette Converter",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Convert HEX, RGB, HSL color codes and generate color palette harmonies."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Design Tools</span> &gt; <span>Color Picker & Converter</span>
+      </nav>
+      <h1 class="tool-page-title">Color Picker & Palette Converter</h1>
+      <p class="tool-page-subtitle">Pick colors, convert seamlessly between HEX, RGB, HSL, and CMYK formats, check WCAG contrast accessibility, and generate color harmonies.</p>
+      <div class="privacy-badge">🔒 100% Client-Side</div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Top Ad Placement -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Leaderboard Ad Slot (728x90)</span>
+    </div>
+
+    <div class="tool-layout with-sidebar">
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Main Color Picker & Values Section -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: start; margin-bottom: 2rem;">
+          
+          <!-- Color Preview & Visual Picker -->
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <div id="color-preview-box" style="width: 100%; height: 180px; border-radius: var(--radius-md); background-color: #4f46e5; box-shadow: var(--shadow-md); margin-bottom: 1.25rem; transition: background-color 0.15s ease;"></div>
+            
+            <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+              <input type="color" id="native-color-picker" value="#4f46e5" style="width: 50px; height: 44px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer; padding: 2px;">
+              <input type="text" id="hex-main-input" class="form-control" value="#4f46e5" style="font-family: 'Consolas', monospace; font-size: 1.1rem; font-weight: 700; text-transform: uppercase;">
+              <button type="button" id="btn-random-color" class="btn btn-secondary" title="Pick Random Color">🎲</button>
+            </div>
+          </div>
+
+          <!-- Color Codes Breakdown (Hex, RGB, HSL, CMYK) -->
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            <!-- HEX -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">HEX</span>
+                <div id="val-hex" style="font-family: 'Consolas', monospace; font-weight: 700; font-size: 1.05rem;">#4f46e5</div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('val-hex').textContent)">Copy</button>
+            </div>
+
+            <!-- RGB -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">RGB</span>
+                <div id="val-rgb" style="font-family: 'Consolas', monospace; font-weight: 700; font-size: 1.05rem;">rgb(79, 70, 229)</div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('val-rgb').textContent)">Copy</button>
+            </div>
+
+            <!-- HSL -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">HSL</span>
+                <div id="val-hsl" style="font-family: 'Consolas', monospace; font-weight: 700; font-size: 1.05rem;">hsl(243, 75%, 59%)</div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('val-hsl').textContent)">Copy</button>
+            </div>
+
+            <!-- CSS Variable -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">CSS VARIABLE</span>
+                <div id="val-css" style="font-family: 'Consolas', monospace; font-weight: 700; font-size: 0.95rem;">--primary-color: #4f46e5;</div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('val-css').textContent)">Copy</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Color Harmonies / Palette Generator -->
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 1rem;">Color Harmonies & Palettes</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Complementary -->
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-secondary);">Complementary (Opposite on color wheel)</div>
+              <div id="palette-complementary" style="display: flex; height: 50px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color);"></div>
+            </div>
+
+            <!-- Analogous -->
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-secondary);">Analogous (Adjacent harmonious colors)</div>
+              <div id="palette-analogous" style="display: flex; height: 50px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color);"></div>
+            </div>
+
+            <!-- Triadic -->
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-secondary);">Triadic (Evenly spaced on wheel)</div>
+              <div id="palette-triadic" style="display: flex; height: 50px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WCAG Accessibility & Contrast Ratio -->
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">WCAG Readability & Contrast Checker</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Test how readable white and black text are against your selected color:</p>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <!-- White Text -->
+            <div id="contrast-white-card" style="padding: 1.25rem; border-radius: var(--radius-md); background-color: #4f46e5; color: #ffffff; text-align: center;">
+              <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">White Text Preview</div>
+              <div style="font-size: 0.85rem;" id="contrast-white-ratio">Ratio: 5.6:1</div>
+              <span id="badge-white-wcag" style="display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); margin-top: 0.5rem; background: #fff; color: #10b981;">WCAG AA Pass</span>
+            </div>
+
+            <!-- Black Text -->
+            <div id="contrast-black-card" style="padding: 1.25rem; border-radius: var(--radius-md); background-color: #4f46e5; color: #000000; text-align: center;">
+              <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Black Text Preview</div>
+              <div style="font-size: 0.85rem;" id="contrast-black-ratio">Ratio: 3.7:1</div>
+              <span id="badge-black-wcag" style="display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); margin-top: 0.5rem; background: #000; color: #ef4444;">WCAG AA Fail</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Design & Dev Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="image-color-extractor.html"><span>🎨 Image Color Extractor & Palette</span><span class="badge-mini">Palette</span></a></li>
+            <li><a href="css-box-shadow-generator.html"><span>📦 CSS Box Shadow Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="css-gradient-generator.html"><span>🌈 CSS Gradient Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="glassmorphism-generator.html"><span>🪟 Glassmorphism CSS Generator</span><span class="badge-mini">UI</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-card">
+      <h2>Understanding Digital Color Models (HEX, RGB & HSL)</h2>
+      <p>Whether you are designing a website, building an iOS/Android application, or preparing marketing assets, utilizing the correct digital color representation is crucial for design fidelity.</p>
+
+      <h3>Color Models Explained</h3>
+      <ul>
+        <li><strong>HEX (#RRGGBB):</strong> A 6-character hexadecimal code representing Red, Green, and Blue intensity from 00 (0) to FF (255). Standard for HTML and CSS.</li>
+        <li><strong>RGB (rgb(r, g, b)):</strong> Represents additive colors via red, green, and blue light components ranging from 0 to 255.</li>
+        <li><strong>HSL (hsl(h, s, l)):</strong> Represents Hue (angle on the 360° color wheel), Saturation (percentage), and Lightness (percentage). Favored by UI designers because tinting and shading are intuitive.</li>
+      </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is the WCAG accessibility contrast ratio?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            The Web Content Accessibility Guidelines (WCAG 2.1) require a minimum contrast ratio of 4.5:1 for normal body text and 3:1 for large text (AA compliance) to ensure readability for visually impaired users.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do color harmonies work?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Color harmonies are mathematically calculated relationships on the 360-degree color wheel. Complementary colors sit 180° apart, while triadic colors form an equilateral triangle (120° apart).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Footer Ad Slot</span>
+    </div>
+
+  </main>
+
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WebToolsHub. All rights reserved. <a href="index.html">Back to All Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("color-picker");
+
+      const picker = document.getElementById("native-color-picker");
+      const hexInput = document.getElementById("hex-main-input");
+      const previewBox = document.getElementById("color-preview-box");
+      const btnRandom = document.getElementById("btn-random-color");
+
+      const valHex = document.getElementById("val-hex");
+      const valRgb = document.getElementById("val-rgb");
+      const valHsl = document.getElementById("val-hsl");
+      const valCss = document.getElementById("val-css");
+
+      const palComplementary = document.getElementById("palette-complementary");
+      const palAnalogous = document.getElementById("palette-analogous");
+      const palTriadic = document.getElementById("palette-triadic");
+
+      const contrastWhiteCard = document.getElementById("contrast-white-card");
+      const contrastBlackCard = document.getElementById("contrast-black-card");
+      const contrastWhiteRatio = document.getElementById("contrast-white-ratio");
+      const contrastBlackRatio = document.getElementById("contrast-black-ratio");
+      const badgeWhite = document.getElementById("badge-white-wcag");
+      const badgeBlack = document.getElementById("badge-black-wcag");
+
+      function hexToRgb(hex) {
+        let c = hex.replace("#", "");
+        if (c.length === 3) c = c.split('').map(x => x + x).join('');
+        const num = parseInt(c, 16);
+        return {
+          r: (num >> 16) & 255,
+          g: (num >> 8) & 255,
+          b: num & 255
+        };
+      }
+
+      function rgbToHex(r, g, b) {
+        return "#" + [r, g, b].map(x => {
+          const hex = Math.round(x).toString(16);
+          return hex.length === 1 ? "0" + hex : hex;
+        }).join("");
+      }
+
+      function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max === min) {
+          h = s = 0;
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+        return {
+          h: Math.round(h * 360),
+          s: Math.round(s * 100),
+          l: Math.round(l * 100)
+        };
+      }
+
+      function hslToRgb(h, s, l) {
+        h /= 360; s /= 100; l /= 100;
+        let r, g, b;
+        if (s === 0) {
+          r = g = b = l;
+        } else {
+          const hue2rgb = (p, q, t) => {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1/6) return p + (q - p) * 6 * t;
+            if (t < 1/2) return q;
+            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+          };
+          const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+          const p = 2 * l - q;
+          r = hue2rgb(p, q, h + 1/3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1/3);
+        }
+        return {
+          r: Math.round(r * 255),
+          g: Math.round(g * 255),
+          b: Math.round(b * 255)
+        };
+      }
+
+      function getLuminance(r, g, b) {
+        const a = [r, g, b].map(v => {
+          v /= 255;
+          return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+        });
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+      }
+
+      function getContrastRatio(l1, l2) {
+        const lighter = Math.max(l1, l2);
+        const darker = Math.min(l1, l2);
+        return (lighter + 0.05) / (darker + 0.05);
+      }
+
+      function renderPalette(container, colors) {
+        container.innerHTML = "";
+        colors.forEach(col => {
+          const bar = document.createElement("div");
+          bar.style.flex = "1";
+          bar.style.backgroundColor = col;
+          bar.style.cursor = "pointer";
+          bar.title = `Click to copy ${col}`;
+          bar.addEventListener("click", () => copyToClipboard(col, `Copied ${col}`));
+          container.appendChild(bar);
+        });
+      }
+
+      function updateAll(hex) {
+        if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) return;
+
+        picker.value = hex;
+        hexInput.value = hex.toUpperCase();
+        previewBox.style.backgroundColor = hex;
+
+        const rgb = hexToRgb(hex);
+        const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+
+        valHex.textContent = hex.toUpperCase();
+        valRgb.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+        valHsl.textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+        valCss.textContent = `--primary-color: ${hex.toLowerCase()};`;
+
+        // Harmonies
+        // Complementary: +180
+        const compH = (hsl.h + 180) % 360;
+        const compRgb = hslToRgb(compH, hsl.s, hsl.l);
+        renderPalette(palComplementary, [hex, rgbToHex(compRgb.r, compRgb.g, compRgb.b)]);
+
+        // Analogous: -30, 0, +30
+        const an1 = hslToRgb((hsl.h - 30 + 360) % 360, hsl.s, hsl.l);
+        const an2 = hslToRgb((hsl.h + 30) % 360, hsl.s, hsl.l);
+        renderPalette(palAnalogous, [
+          rgbToHex(an1.r, an1.g, an1.b),
+          hex,
+          rgbToHex(an2.r, an2.g, an2.b)
+        ]);
+
+        // Triadic: 0, +120, +240
+        const tri1 = hslToRgb((hsl.h + 120) % 360, hsl.s, hsl.l);
+        const tri2 = hslToRgb((hsl.h + 240) % 360, hsl.s, hsl.l);
+        renderPalette(palTriadic, [
+          hex,
+          rgbToHex(tri1.r, tri1.g, tri1.b),
+          rgbToHex(tri2.r, tri2.g, tri2.b)
+        ]);
+
+        // Contrast
+        const lum = getLuminance(rgb.r, rgb.g, rgb.b);
+        const ratioWhite = getContrastRatio(1.0, lum);
+        const ratioBlack = getContrastRatio(lum, 0.0);
+
+        contrastWhiteCard.style.backgroundColor = hex;
+        contrastBlackCard.style.backgroundColor = hex;
+
+        contrastWhiteRatio.textContent = `Ratio: ${ratioWhite.toFixed(2)}:1`;
+        contrastBlackRatio.textContent = `Ratio: ${ratioBlack.toFixed(2)}:1`;
+
+        badgeWhite.textContent = ratioWhite >= 4.5 ? "WCAG AA Pass" : "WCAG AA Fail";
+        badgeWhite.style.color = ratioWhite >= 4.5 ? "#10b981" : "#ef4444";
+
+        badgeBlack.textContent = ratioBlack >= 4.5 ? "WCAG AA Pass" : "WCAG AA Fail";
+        badgeBlack.style.color = ratioBlack >= 4.5 ? "#10b981" : "#ef4444";
+      }
+
+      picker.addEventListener("input", (e) => updateAll(e.target.value));
+
+      hexInput.addEventListener("input", (e) => {
+        let val = e.target.value.trim();
+        if (!val.startsWith("#")) val = "#" + val;
+        if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+          updateAll(val);
+        }
+      });
+
+      btnRandom.addEventListener("click", () => {
+        const randomHex = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+        updateAll(randomHex);
+      });
+
+      updateAll("#4f46e5");
+    });
+  </script>
+</body>
+</html>

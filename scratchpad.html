@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Scratchpad & Quick Auto-Saving Notes | WebToolsHub</title>
+  <meta name="description" content="Free distraction-free online scratchpad. Auto-saves notes locally in your browser, tracks real-time word counts, and exports to TXT or Markdown.">
+  <meta name="keywords" content="online scratchpad, quick notes, auto save notepad, browser notepad, text editor online, distraction free scratchpad">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/scratchpad.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/scratchpad.html">
+  <meta property="og:title" content="Online Scratchpad & Quick Auto-Saving Notes | WebToolsHub">
+  <meta property="og:description" content="Free distraction-free online scratchpad. Auto-saves notes locally in your browser, tracks real-time word counts, and exports to TXT or Markdown.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/scratchpad.html">
+  <meta name="twitter:title" content="Online Scratchpad & Quick Auto-Saving Notes | WebToolsHub">
+  <meta name="twitter:description" content="Free distraction-free online scratchpad. Auto-saves notes locally in your browser, tracks real-time word counts, and exports to TXT or Markdown.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Online Scratchpad",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Distraction-free browser scratchpad with auto-saving local storage."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Utility Tools</span> &gt; <span>Scratchpad</span>
+      </nav>
+      <h1 class="tool-page-title">Online Scratchpad & Quick Notes</h1>
+      <p class="tool-page-subtitle">Distraction-free auto-saving notepad. Draft thoughts, temporary code snippets, or quick agendas securely in your browser.</p>
+      <div class="privacy-badge">💾 Auto-Saved Locally</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Live Stats & Auto-Save Indicator -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 1.25rem; font-size: 0.85rem; font-weight: 600;">
+            <span>Words: <strong id="stat-words" style="color: var(--accent-primary);">0</strong></span>
+            <span>Characters: <strong id="stat-chars" style="color: var(--accent-primary);">0</strong></span>
+            <span>Lines: <strong id="stat-lines" style="color: var(--accent-primary);">1</strong></span>
+            <span>Est. Reading: <strong id="stat-read" style="color: var(--accent-primary);">0 min</strong></span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 700; color: #10b981;">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+            <span id="save-status">Saved Locally</span>
+          </div>
+        </div>
+
+        <!-- Custom Editing Toolbar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-bottom: none; border-radius: var(--radius-md) var(--radius-md) 0 0; padding: 0.75rem 1rem;">
+          
+          <!-- Primary Action Row -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-undo" title="Undo (Ctrl+Z)" disabled>↶ Undo</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-redo" title="Redo (Ctrl+Y)" disabled>↷ Redo</button>
+              
+              <div style="width: 1px; height: 20px; background: var(--border-color); margin: 0 0.2rem;"></div>
+
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-find" title="Find & Replace">🔍 Find & Replace</button>
+
+              <div style="width: 1px; height: 20px; background: var(--border-color); margin: 0 0.2rem;"></div>
+
+              <!-- Markdown / Text Snippets -->
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('# ')" title="Heading 1">H1</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('## ')" title="Heading 2">H2</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('**', '**')" title="Bold"><strong>B</strong></button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('*', '*')" title="Italic"><em>I</em></button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('- ')" title="Bullet List">• List</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('[ ] ')" title="Checkbox">☑ Task</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertSnippet('```\n', '\n```')" title="Code block">&lt;/&gt;</button>
+            </div>
+
+            <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-copy">Copy All</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-download-txt">.TXT</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-download-md">.MD</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-clear" style="color: #ef4444;">Clear</button>
+            </div>
+          </div>
+
+          <!-- Secondary Format & Typography Row -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+            <!-- Case & Clean Tools -->
+            <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary);">Edit:</span>
+              <button type="button" class="filter-pill" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;" onclick="applyPadEdit('upper')">UPPER</button>
+              <button type="button" class="filter-pill" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;" onclick="applyPadEdit('lower')">lower</button>
+              <button type="button" class="filter-pill" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;" onclick="applyPadEdit('title')">Title Case</button>
+              <button type="button" class="filter-pill" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;" onclick="applyPadEdit('spaces')">Strip Spaces</button>
+              <button type="button" class="filter-pill" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;" onclick="applyPadEdit('blank-lines')">Remove Empty Lines</button>
+              <button type="button" class="filter-pill" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;" onclick="applyPadEdit('line-numbers')">1. 2. 3.</button>
+            </div>
+
+            <!-- Typography Settings -->
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary);">Font:</span>
+              <select id="pad-font-family" class="form-control" style="width: 100px; height: 26px; font-size: 0.75rem; padding: 0.1rem 0.3rem;">
+                <option value="inherit">Sans / System</option>
+                <option value="Georgia, serif">Serif</option>
+                <option value="'JetBrains Mono', monospace">Monospace</option>
+              </select>
+              <select id="pad-font-size" class="form-control" style="width: 75px; height: 26px; font-size: 0.75rem; padding: 0.1rem 0.3rem;">
+                <option value="14px">14px</option>
+                <option value="16px" selected>16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Drawer: Find & Replace -->
+          <div id="pad-drawer-find" style="display: none; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.6rem 0.8rem; margin-top: 0.6rem;">
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <input type="text" id="pad-find-q" class="form-control" placeholder="Find text..." style="flex: 1; min-width: 150px; height: 32px; font-size: 0.85rem;">
+              <input type="text" id="pad-replace-q" class="form-control" placeholder="Replace with..." style="flex: 1; min-width: 150px; height: 32px; font-size: 0.85rem;">
+              <label style="display: flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap;">
+                <input type="checkbox" id="pad-find-case"> Match Case
+              </label>
+              <button type="button" class="btn btn-primary btn-sm" id="btn-pad-replace-all" style="height: 32px;">Replace All</button>
+              <span id="pad-find-status" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-primary);"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Textarea Editor -->
+        <textarea id="pad-editor" class="form-control" placeholder="Start typing your notes, reminders, or drafts here. Everything auto-saves instantly to your browser's private local storage..." style="min-height: 420px; font-family: inherit; font-size: 16px; line-height: 1.6; border-radius: 0 0 var(--radius-md) var(--radius-md); resize: vertical; margin-bottom: 1.5rem;"></textarea>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Utility Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="age-calculator.html"><span>🎂 Age Calculator & Chronometer</span><span class="badge-mini">Date</span></a></li>
+            <li><a href="barcode-generator.html"><span>🏷️ Online Barcode Generator</span><span class="badge-mini">Barcode</span></a></li>
+            <li><a href="stopwatch-timer.html"><span>⏱️ Online Stopwatch & Lap Recorder</span><span class="badge-mini">Timer</span></a></li>
+            <li><a href="pomodoro-timer.html"><span>🍅 Pomodoro Focus Timer</span><span class="badge-mini">Focus</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Will my notes disappear if I close my browser tab?</h3>
+        <p>No. Every keystroke is saved immediately into your browser's persistent local storage. Your notes will be right where you left them when you reopen the page.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can anyone else on the network view my scratchpad?</h3>
+        <p>No. Since data is saved exclusively inside your browser's private client-side storage, no server or network intermediary can access it.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    let applyPadEdit; // Global export for button onclicks
+
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("scratchpad");
+
+      const STORAGE_KEY = 'webtoolshub_scratchpad_content';
+      const editor = document.getElementById('pad-editor');
+      const statWords = document.getElementById('stat-words');
+      const statChars = document.getElementById('stat-chars');
+      const statLines = document.getElementById('stat-lines');
+      const statRead = document.getElementById('stat-read');
+      const saveStatus = document.getElementById('save-status');
+
+      const btnUndo = document.getElementById('btn-undo');
+      const btnRedo = document.getElementById('btn-redo');
+      const btnToggleFind = document.getElementById('btn-toggle-find');
+      const drawerFind = document.getElementById('pad-drawer-find');
+      const findQ = document.getElementById('pad-find-q');
+      const replaceQ = document.getElementById('pad-replace-q');
+      const findCase = document.getElementById('pad-find-case');
+      const findStatus = document.getElementById('pad-find-status');
+      const btnReplaceAll = document.getElementById('btn-pad-replace-all');
+
+      const fontSelect = document.getElementById('pad-font-family');
+      const sizeSelect = document.getElementById('pad-font-size');
+
+      // Undo / Redo History Stack
+      const historyStack = [];
+      const redoStack = [];
+
+      function pushState() {
+        if (historyStack.length === 0 || historyStack[historyStack.length - 1] !== editor.value) {
+          historyStack.push(editor.value);
+          if (historyStack.length > 35) historyStack.shift();
+          redoStack.length = 0;
+          updateUndoRedoBtns();
+        }
+      }
+
+      function updateUndoRedoBtns() {
+        btnUndo.disabled = historyStack.length <= 1;
+        btnRedo.disabled = redoStack.length === 0;
+      }
+
+      function undo() {
+        if (historyStack.length > 1) {
+          redoStack.push(historyStack.pop());
+          editor.value = historyStack[historyStack.length - 1];
+          updateUndoRedoBtns();
+          updateStats();
+        }
+      }
+
+      function redo() {
+        if (redoStack.length > 0) {
+          const nxt = redoStack.pop();
+          historyStack.push(nxt);
+          editor.value = nxt;
+          updateUndoRedoBtns();
+          updateStats();
+        }
+      }
+
+      btnUndo.addEventListener('click', undo);
+      btnRedo.addEventListener('click', redo);
+
+      editor.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'z') {
+          e.preventDefault();
+          undo();
+        } else if (e.ctrlKey && e.key === 'y') {
+          e.preventDefault();
+          redo();
+        }
+      });
+
+      function updateStats() {
+        const text = editor.value;
+        const chars = text.length;
+        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+        const lines = text ? text.split('\n').length : 1;
+        const readingMinutes = Math.ceil(words / 200);
+
+        statWords.textContent = words.toLocaleString();
+        statChars.textContent = chars.toLocaleString();
+        statLines.textContent = lines.toLocaleString();
+        statRead.textContent = `${readingMinutes} min`;
+
+        // Auto save
+        localStorage.setItem(STORAGE_KEY, text);
+        saveStatus.textContent = 'Saved Locally';
+      }
+
+      window.insertSnippet = function(before, after = '') {
+        editor.focus();
+        pushState();
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+        const selected = editor.value.substring(start, end);
+        const replacement = before + selected + after;
+        editor.setRangeText(replacement, start, end, 'end');
+        pushState();
+        updateStats();
+      };
+
+      // Load saved content
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        editor.value = saved;
+      }
+      pushState();
+      updateStats();
+
+      let typeTimer = null;
+      editor.addEventListener('input', () => {
+        saveStatus.textContent = 'Saving...';
+        clearTimeout(typeTimer);
+        typeTimer = setTimeout(pushState, 500);
+        updateStats();
+      });
+
+      // Quick transforms
+      window.applyPadEdit = function(type) {
+        const text = editor.value;
+        if (!text) return;
+        pushState();
+
+        let newText = text;
+        switch (type) {
+          case 'upper':
+            newText = text.toUpperCase();
+            break;
+          case 'lower':
+            newText = text.toLowerCase();
+            break;
+          case 'title':
+            newText = text.toLowerCase().replace(/\b\w+/g, w => w.charAt(0).toUpperCase() + w.slice(1));
+            break;
+          case 'spaces':
+            newText = text.split('\n').map(l => l.replace(/[^\S\r\n]+/g, ' ').trim()).join('\n');
+            break;
+          case 'blank-lines':
+            newText = text.split('\n').filter(l => l.trim().length > 0).join('\n');
+            break;
+          case 'line-numbers':
+            const lines = text.split('\n');
+            const isNumbered = lines.every(l => !l.trim() || /^\d+[\.\)]\s/.test(l));
+            if (isNumbered) {
+              newText = lines.map(l => l.replace(/^\d+[\.\)]\s/, '')).join('\n');
+            } else {
+              newText = lines.map((l, i) => `${i + 1}. ${l}`).join('\n');
+            }
+            break;
+        }
+
+        editor.value = newText;
+        pushState();
+        updateStats();
+        showToast("Custom text edit applied!");
+      };
+
+      // Drawer toggle
+      btnToggleFind.addEventListener('click', () => {
+        drawerFind.style.display = drawerFind.style.display === 'none' ? 'block' : 'none';
+        if (drawerFind.style.display === 'block') findQ.focus();
+      });
+
+      // Find & Replace
+      btnReplaceAll.addEventListener('click', () => {
+        const f = findQ.value;
+        const r = replaceQ.value;
+        if (!f) return;
+
+        pushState();
+        const flags = findCase.checked ? 'g' : 'gi';
+        const escaped = f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const reg = new RegExp(escaped, flags);
+        let count = 0;
+        editor.value = editor.value.replace(reg, () => {
+          count++;
+          return r;
+        });
+        findStatus.textContent = count > 0 ? `Replaced ${count} matches` : 'No matches found';
+        pushState();
+        updateStats();
+      });
+
+      // Typography
+      fontSelect.addEventListener('change', (e) => {
+        editor.style.fontFamily = e.target.value;
+      });
+
+      sizeSelect.addEventListener('change', (e) => {
+        editor.style.fontSize = e.target.value;
+      });
+
+      document.getElementById('btn-copy').addEventListener('click', () => {
+        copyToClipboard(editor.value, 'All notes copied to clipboard!');
+      });
+
+      document.getElementById('btn-download-txt').addEventListener('click', () => {
+        const blob = new Blob([editor.value], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `scratchpad-notes-${new Date().toISOString().slice(0, 10)}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById('btn-download-md').addEventListener('click', () => {
+        const blob = new Blob([editor.value], { type: 'text/markdown;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `scratchpad-notes-${new Date().toISOString().slice(0, 10)}.md`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById('btn-clear').addEventListener('click', () => {
+        if (confirm('Are you sure you want to clear your scratchpad?')) {
+          pushState();
+          editor.value = '';
+          pushState();
+          updateStats();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

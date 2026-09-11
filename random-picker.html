@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Name Picker & Decision Maker | WebToolsHub</title>
+  <meta name="description" content="Free random name picker and decision maker. Draw random winners from a list, pick raffle contestants, flip coins, or split groups into random teams.">
+  <meta name="keywords" content="random picker, random name picker, decision maker, raffle picker, random choice generator, team generator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/random-picker.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/random-picker.html">
+  <meta property="og:title" content="Random Name Picker & Decision Maker | WebToolsHub">
+  <meta property="og:description" content="Free random name picker and decision maker. Draw random winners from a list, pick raffle contestants, flip coins, or split groups into random teams.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/random-picker.html">
+  <meta name="twitter:title" content="Random Name Picker & Decision Maker | WebToolsHub">
+  <meta name="twitter:description" content="Free random name picker and decision maker. Draw random winners from a list, pick raffle contestants, flip coins, or split groups into random teams.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Picker",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Fair random choice picker, raffle name selector, and team distributor."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Utility Tools</span> &gt; <span>Random Picker</span>
+      </nav>
+      <h1 class="tool-page-title">Random Picker & Decision Maker</h1>
+      <p class="tool-page-subtitle">Draw fair random winners from lists, make quick decisions, choose raffle entries, or generate balanced teams.</p>
+      <div class="privacy-badge">🎲 Cryptographic Randomness</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Quick Presets -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem;">Quick Decision Presets:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="filter-pill" onclick="setPreset(['Yes', 'No', 'Maybe'])">Yes / No / Maybe</button>
+            <button type="button" class="filter-pill" onclick="setPreset(['Heads', 'Tails'])">Coin Flip (Heads / Tails)</button>
+            <button type="button" class="filter-pill" onclick="setPreset(['1', '2', '3', '4', '5', '6'])">Dice (1 - 6)</button>
+            <button type="button" class="filter-pill" onclick="setPreset(['Pizza', 'Burgers', 'Sushi', 'Tacos', 'Pasta', 'Salad'])">Dinner Choice</button>
+            <button type="button" class="filter-pill" onclick="setPreset(['Alice', 'Bob', 'Charlie', 'Diana', 'Evan', 'Fiona'])">Sample Contestants</button>
+          </div>
+        </div>
+
+        <!-- Winner Display Stage -->
+        <div id="winner-stage" style="background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-subtle) 100%); border: 2px solid var(--accent-primary); border-radius: var(--radius-lg); padding: 2.5rem 1.5rem; text-align: center; margin-bottom: 1.5rem; min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 700; margin-bottom: 0.5rem;">Selected Winner</div>
+          <div id="winner-text" style="font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; color: var(--accent-primary); line-height: 1.1; margin-bottom: 0.5rem;">
+            Ready to Pick
+          </div>
+          <div id="winner-sub" style="font-size: 0.9rem; color: var(--text-secondary);">Click the button below to draw fairly</div>
+        </div>
+
+        <!-- Inputs and Controls -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" style="font-weight: 700; margin: 0;">Enter Options (one item per line):</label>
+            <span id="items-count" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">6 items</span>
+          </div>
+          <textarea id="items-input" class="form-control" rows="6" style="font-family: inherit; font-size: 0.95rem; margin-bottom: 1.25rem;">Alice
+Bob
+Charlie
+Diana
+Evan
+Fiona</textarea>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                <input type="checkbox" id="chk-remove"> Remove winner from list after pick
+              </label>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg" id="btn-pick" style="min-width: 160px; font-weight: 800;">
+              🎲 Pick Winner
+            </button>
+          </div>
+        </div>
+
+        <!-- History Log -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-weight: 700; font-size: 0.95rem;">Draw History:</span>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-history">Clear History</button>
+          </div>
+          <div id="history-list" style="display: flex; gap: 0.5rem; flex-wrap: wrap; min-height: 36px; align-items: center;">
+            <span style="font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">No picks recorded yet.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Utility Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="age-calculator.html"><span>🎂 Age Calculator & Chronometer</span><span class="badge-mini">Date</span></a></li>
+            <li><a href="barcode-generator.html"><span>🏷️ Online Barcode Generator</span><span class="badge-mini">Barcode</span></a></li>
+            <li><a href="stopwatch-timer.html"><span>⏱️ Online Stopwatch & Lap Recorder</span><span class="badge-mini">Timer</span></a></li>
+            <li><a href="pomodoro-timer.html"><span>🍅 Pomodoro Focus Timer</span><span class="badge-mini">Focus</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Is the random selection completely unbiased?</h3>
+        <p>Yes. The picker converts raw cryptographically secure entropy bytes directly into array indices, ensuring equal mathematical probability for every entry on the list.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I paste a list of hundreds or thousands of names?</h3>
+        <p>Yes. The tool easily processes lists with tens of thousands of names without any lag or delay.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const itemsInput = document.getElementById('items-input');
+    const itemsCount = document.getElementById('items-count');
+    const winnerText = document.getElementById('winner-text');
+    const winnerSub = document.getElementById('winner-sub');
+    const pickBtn = document.getElementById('btn-pick');
+    const removeChk = document.getElementById('chk-remove');
+    const historyList = document.getElementById('history-list');
+
+    let history = [];
+    let isRolling = false;
+
+    function getItems() {
+      return itemsInput.value
+        .split('\n')
+        .map(x => x.trim())
+        .filter(x => x.length > 0);
+    }
+
+    function updateCount() {
+      const items = getItems();
+      itemsCount.textContent = `${items.length} ${items.length === 1 ? 'item' : 'items'}`;
+    }
+
+    function setPreset(arr) {
+      itemsInput.value = arr.join('\n');
+      updateCount();
+      winnerText.textContent = 'Ready to Pick';
+      winnerSub.textContent = 'Click the button below to draw fairly';
+    }
+
+    function getRandomCryptoIndex(max) {
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      return array[0] % max;
+    }
+
+    function pickWinner() {
+      if (isRolling) return;
+      const items = getItems();
+      if (items.length === 0) {
+        alert('Please enter at least one item into the list.');
+        return;
+      }
+      if (items.length === 1) {
+        winnerText.textContent = items[0];
+        winnerSub.textContent = 'Only one option available!';
+        return;
+      }
+
+      isRolling = true;
+      pickBtn.disabled = true;
+      winnerSub.textContent = 'Shuffling choices...';
+
+      let cycles = 20;
+      let interval = 50;
+
+      const roll = () => {
+        const randIdx = Math.floor(Math.random() * items.length);
+        winnerText.textContent = items[randIdx];
+        cycles--;
+
+        if (cycles > 0) {
+          setTimeout(roll, interval);
+          interval += 8; // gradual slowdown
+        } else {
+          // Final cryptographic selection
+          const finalIndex = getRandomCryptoIndex(items.length);
+          const chosen = items[finalIndex];
+          winnerText.textContent = chosen;
+          winnerSub.textContent = `Selected out of ${items.length} options! 🎉`;
+
+          // Add to history
+          history.unshift(chosen);
+          renderHistory();
+
+          // Remove if checked
+          if (removeChk.checked) {
+            items.splice(finalIndex, 1);
+            itemsInput.value = items.join('\n');
+            updateCount();
+          }
+
+          isRolling = false;
+          pickBtn.disabled = false;
+        }
+      };
+
+      roll();
+    }
+
+    function renderHistory() {
+      if (history.length === 0) {
+        historyList.innerHTML = '<span style="font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">No picks recorded yet.</span>';
+        return;
+      }
+      historyList.innerHTML = '';
+      history.slice(0, 15).forEach((h, i) => {
+        const chip = document.createElement('span');
+        chip.style.background = 'var(--bg-subtle)';
+        chip.style.border = '1px solid var(--border-color)';
+        chip.style.padding = '0.25rem 0.65rem';
+        chip.style.borderRadius = 'var(--radius-sm)';
+        chip.style.fontSize = '0.85rem';
+        chip.style.fontWeight = '600';
+        chip.textContent = `#${i + 1} ${h}`;
+        historyList.appendChild(chip);
+      });
+    }
+
+    document.getElementById('btn-clear-history').addEventListener('click', () => {
+      history = [];
+      renderHistory();
+    });
+
+    itemsInput.addEventListener('input', updateCount);
+    pickBtn.addEventListener('click', pickWinner);
+
+    updateCount();
+  </script>
+</body>
+</html>

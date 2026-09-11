@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Beautifier & Formatter Online — Free & Instant | WebToolsHub</title>
+  <meta name="description" content="Free online JavaScript beautifier and formatter. Un-minify, re-indent, and clean up messy JS code with custom spaces, tabs, and brace formatting. 100% private.">
+  <meta name="keywords" content="javascript beautifier, js formatter, unminify javascript, format js online, clean javascript code, pretty print js">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/javascript-beautifier.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/javascript-beautifier.html">
+  <meta property="og:title" content="JavaScript Beautifier & Formatter Online — Free & Instant | WebToolsHub">
+  <meta property="og:description" content="Free online JavaScript beautifier and formatter. Un-minify, re-indent, and clean up messy JS code with custom spaces, tabs, and brace formatting. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/javascript-beautifier.html">
+  <meta name="twitter:title" content="JavaScript Beautifier & Formatter Online — Free & Instant | WebToolsHub">
+  <meta name="twitter:description" content="Free online JavaScript beautifier and formatter. Un-minify, re-indent, and clean up messy JS code with custom spaces, tabs, and brace formatting. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JavaScript Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Beautify, un-minify, and format messy JavaScript code with custom indentation client-side."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Beautifiers & Formatters</span> &gt; <span>JavaScript Beautifier</span>
+      </nav>
+      <h1 class="tool-page-title">JavaScript Beautifier & Formatter</h1>
+      <p class="tool-page-subtitle">Instantly reformat, un-minify, and pretty-print messy JS scripts with clean indentation and bracket spacing.</p>
+      <div class="privacy-badge">⚡ 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <label for="indent-size" style="font-size: 0.85rem; font-weight: 600;">Indentation:</label>
+              <select id="indent-size" class="form-control" style="width: 110px; height: 32px; font-size: 0.85rem; padding: 0.2rem 0.5rem;">
+                <option value="2" selected>2 Spaces</option>
+                <option value="4">4 Spaces</option>
+                <option value="tab">1 Tab</option>
+              </select>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <label for="brace-style" style="font-size: 0.85rem; font-weight: 600;">Braces:</label>
+              <select id="brace-style" class="form-control" style="width: 130px; height: 32px; font-size: 0.85rem; padding: 0.2rem 0.5rem;">
+                <option value="collapse" selected>Same Line (1TBS)</option>
+                <option value="expand">New Line (Allman)</option>
+              </select>
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-semicolons" checked> Add Semicolons
+            </label>
+          </div>
+
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-format">✨ Beautify JS</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sample">Sample</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-clear" style="color: #ef4444;">Clear</button>
+          </div>
+        </div>
+
+        <!-- Code Editor Columns -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- Input -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Input Messy or Minified JS:</span>
+              <span id="input-stats" style="font-size: 0.8rem; color: var(--text-muted);">0 lines</span>
+            </div>
+            <textarea id="js-input" class="form-control" placeholder="Paste unformatted or minified JavaScript here (e.g. function test(a,b){return a+b;})..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; resize: vertical;"></textarea>
+          </div>
+
+          <!-- Output -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">Beautified JavaScript:</span>
+              <div style="display: flex; gap: 0.35rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Copy</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-download" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Download .js</button>
+              </div>
+            </div>
+            <textarea id="js-output" class="form-control" readonly placeholder="Clean, formatted, properly indented code will appear here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; background: var(--bg-surface); resize: vertical;"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="html-formatter.html"><span>🌐 HTML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="xml-formatter.html"><span>📑 XML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="css-beautifier.html"><span>🎨 CSS Beautifier & Formatter</span><span class="badge-mini">CSS</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How does JavaScript un-minification work?</h3>
+        <p>The parser scans syntax tokens, expands compacted statements across line breaks, restores indentation depth within block structures, and pads operators with standard whitespace.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is my JavaScript transmitted to an external server?</h3>
+        <p>No. 100% of formatting is done directly in your web browser using client-side JavaScript. Your code and proprietary logic never leave your computer.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("javascript-beautifier");
+
+      const input = document.getElementById("js-input");
+      const output = document.getElementById("js-output");
+      const indentSelect = document.getElementById("indent-size");
+      const braceSelect = document.getElementById("brace-style");
+      const semiCheck = document.getElementById("opt-semicolons");
+      const inputStats = document.getElementById("input-stats");
+
+      function getIndentStr() {
+        const val = indentSelect.value;
+        if (val === "tab") return "\t";
+        return " ".repeat(parseInt(val, 10));
+      }
+
+      function beautifyJS(code) {
+        if (!code || !code.trim()) return "";
+        const indentStr = getIndentStr();
+        const expandBraces = braceSelect.value === "expand";
+        const ensureSemis = semiCheck.checked;
+
+        // Clean input
+        let src = code.trim();
+
+        // Token-friendly pass: normalize common delimiters
+        let out = "";
+        let depth = 0;
+        let inString = false;
+        let stringChar = "";
+        let inSingleComment = false;
+        let inMultiComment = false;
+        let i = 0;
+
+        function currentIndent() {
+          return indentStr.repeat(Math.max(0, depth));
+        }
+
+        while (i < src.length) {
+          const ch = src[i];
+          const next = src[i + 1] || "";
+          const prev = src[i - 1] || "";
+
+          // Handle String literals
+          if (inString) {
+            out += ch;
+            if (ch === stringChar && prev !== "\\") {
+              inString = false;
+            }
+            i++;
+            continue;
+          }
+
+          // Handle Single Line Comment
+          if (inSingleComment) {
+            out += ch;
+            if (ch === "\n") {
+              inSingleComment = false;
+              out += currentIndent();
+            }
+            i++;
+            continue;
+          }
+
+          // Handle Multi Line Comment
+          if (inMultiComment) {
+            out += ch;
+            if (ch === "*" && next === "/") {
+              out += "/";
+              inMultiComment = false;
+              i += 2;
+              continue;
+            }
+            i++;
+            continue;
+          }
+
+          // Detect Strings
+          if (ch === '"' || ch === "'" || ch === "`") {
+            inString = true;
+            stringChar = ch;
+            out += ch;
+            i++;
+            continue;
+          }
+
+          // Detect Comments
+          if (ch === "/" && next === "/") {
+            inSingleComment = true;
+            out += "//";
+            i += 2;
+            continue;
+          }
+          if (ch === "/" && next === "*") {
+            inMultiComment = true;
+            out += "/*";
+            i += 2;
+            continue;
+          }
+
+          // Open Block {
+          if (ch === "{") {
+            depth++;
+            if (expandBraces) {
+              out = out.trimEnd() + "\n" + currentIndent() + "{\n" + indentStr.repeat(depth);
+            } else {
+              out = out.trimEnd() + " {\n" + indentStr.repeat(depth);
+            }
+            i++;
+            // skip following whitespace
+            while (src[i] === " " || src[i] === "\t" || src[i] === "\n") i++;
+            continue;
+          }
+
+          // Close Block }
+          if (ch === "}") {
+            depth = Math.max(0, depth - 1);
+            out = out.trimEnd() + "\n" + indentStr.repeat(depth) + "}";
+            if (next && next !== ";" && next !== "," && next !== ")") {
+              out += "\n" + indentStr.repeat(depth);
+            }
+            i++;
+            while (src[i] === " " || src[i] === "\t" || src[i] === "\n") i++;
+            continue;
+          }
+
+          // Semicolon
+          if (ch === ";") {
+            out = out.trimEnd() + ";\n" + currentIndent();
+            i++;
+            while (src[i] === " " || src[i] === "\t" || src[i] === "\n") i++;
+            continue;
+          }
+
+          // Comma
+          if (ch === ",") {
+            out = out.trimEnd() + ", ";
+            i++;
+            while (src[i] === " " || src[i] === "\t") i++;
+            continue;
+          }
+
+          // Operators spacing (=, +, -, *, /, ==, ===, !=, !==, &&, ||, =>)
+          if ((ch === "=" || ch === "+" || ch === "-" || ch === "*" || ch === "&" || ch === "|") && prev !== "\\" && next !== "/") {
+            if (next === "=" || next === ">" || (ch === "&" && next === "&") || (ch === "|" && next === "|")) {
+              out = out.trimEnd() + " " + ch + next + " ";
+              i += 2;
+              while (src[i] === " ") i++;
+              continue;
+            }
+            if (prev !== "+" && prev !== "-" && prev !== "=" && prev !== "!" && next !== "+" && next !== "-") {
+              out = out.trimEnd() + " " + ch + " ";
+              i++;
+              while (src[i] === " ") i++;
+              continue;
+            }
+          }
+
+          // Newline in source
+          if (ch === "\n") {
+            const trimmedOut = out.trimEnd();
+            if (trimmedOut.length > 0 && !trimmedOut.endsWith("\n")) {
+              out = trimmedOut + "\n" + currentIndent();
+            }
+            i++;
+            while (src[i] === " " || src[i] === "\t" || src[i] === "\n") i++;
+            continue;
+          }
+
+          out += ch;
+          i++;
+        }
+
+        // Post-processing cleanup
+        let lines = out.split("\n").map(l => l.trimRight());
+        // Collapse excess blank lines
+        let cleaned = [];
+        let consecutiveBlank = 0;
+        for (let l of lines) {
+          if (!l.trim()) {
+            consecutiveBlank++;
+            if (consecutiveBlank <= 1) cleaned.push("");
+          } else {
+            consecutiveBlank = 0;
+            cleaned.push(l);
+          }
+        }
+        return cleaned.join("\n").trim();
+      }
+
+      function format() {
+        const res = beautifyJS(input.value);
+        output.value = res;
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      }
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        format();
+        showToast("JavaScript beautified!");
+      });
+
+      indentSelect.addEventListener("change", format);
+      braceSelect.addEventListener("change", format);
+      semiCheck.addEventListener("change", format);
+
+      input.addEventListener("input", () => {
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `// Sample minified JavaScript\nfunction calculateInvoice(items,taxRate){let total=0;for(let i=0;i<items.length;i++){let item=items[i];if(item.price&&item.qty){let subtotal=item.price*item.qty;total+=subtotal;console.log("Processed:",item.name,subtotal);}}let tax=total*taxRate;return{subtotal:total,tax:tax,grandTotal:total+tax};}const result=calculateInvoice([{name:"Widget",price:24.5,qty:3},{name:"Gadget",price:99.9,qty:1}],0.08);console.log(result);`;
+        format();
+        showToast("Sample loaded & beautified!");
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        inputStats.textContent = "0 lines";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        if (!output.value) return;
+        copyToClipboard(output.value, "Beautified JavaScript copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "text/javascript;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `beautified-script-${new Date().toISOString().slice(0, 10)}.js`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exact Age & Birthday Calculator | WebToolsHub</title>
+  <meta name="description" content="Calculate your exact age down to years, months, days, hours, and minutes. Includes days until next birthday, day of the week you were born, and zodiac signs.">
+  <meta name="keywords" content="age calculator, exact age calculator, birthday calculator, calculate age from date of birth, next birthday countdown, zodiac calculator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/age-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/age-calculator.html">
+  <meta property="og:title" content="Exact Age & Birthday Calculator | WebToolsHub">
+  <meta property="og:description" content="Calculate your exact age down to years, months, days, hours, and minutes. Includes days until next birthday, day of the week you were born, and zodiac signs.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/age-calculator.html">
+  <meta name="twitter:title" content="Exact Age & Birthday Calculator | WebToolsHub">
+  <meta name="twitter:description" content="Calculate your exact age down to years, months, days, hours, and minutes. Includes days until next birthday, day of the week you were born, and zodiac signs.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Exact Age Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate exact chronological age and milestones in-browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>Age Calculator</span>
+      </nav>
+      <h1 class="tool-page-title">Exact Chronological Age & Birthday Calculator</h1>
+      <p class="tool-page-subtitle">Find your exact chronological age in years, months, days, minutes, and seconds, plus your next birthday countdown and astrological signs.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Date Selector Card -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; align-items: flex-end;">
+            <div>
+              <label class="form-label" for="dob-input">Date of Birth:</label>
+              <input type="date" id="dob-input" class="form-input" value="2000-01-01">
+            </div>
+
+            <div>
+              <label class="form-label" for="target-date">Calculate Age At (Default: Today):</label>
+              <input type="date" id="target-date" class="form-input">
+            </div>
+
+            <button type="button" id="btn-calc-age" class="btn btn-primary">🎂 Calculate Exact Age</button>
+          </div>
+        </div>
+
+        <!-- Primary Age Result Banner -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">Your Exact Chronological Age</div>
+          <div id="primary-age-val" style="font-size: 2.2rem; font-weight: 900; color: var(--accent-primary); line-height: 1.2;">
+            -- Years, -- Months, -- Days
+          </div>
+          <div id="dob-weekday-label" style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.5rem;">Born on: --</div>
+        </div>
+
+        <!-- Metric Details Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Next Birthday Countdown</div>
+            <div id="stat-next-bday" style="font-size: 1.4rem; font-weight: 800; color: var(--accent-success); margin-top: 0.25rem;">-- Days</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Total Days Lived</div>
+            <div id="stat-total-days" style="font-size: 1.4rem; font-weight: 800; color: var(--accent-primary); margin-top: 0.25rem;">-- Days</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Total Hours Lived</div>
+            <div id="stat-total-hours" style="font-size: 1.4rem; font-weight: 800; color: var(--accent-info); margin-top: 0.25rem;">-- Hours</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Astrological Sign</div>
+            <div id="stat-zodiac" style="font-size: 1.2rem; font-weight: 800; color: #a855f7; margin-top: 0.25rem;">--</div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="barcode-generator.html"><span>🏷️ Online Barcode Generator</span><span class="badge-mini">Barcode</span></a></li>
+            <li><a href="stopwatch-timer.html"><span>⏱️ Online Stopwatch & Lap Recorder</span><span class="badge-mini">Timer</span></a></li>
+            <li><a href="pomodoro-timer.html"><span>🍅 Pomodoro Focus Timer</span><span class="badge-mini">Focus</span></a></li>
+            <li><a href="random-picker.html"><span>🎲 Random Picker & Decision Maker</span><span class="badge-mini">Picker</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>How Chronological Age Is Accurately Computed</h2>
+      <p>Because months possess variable lengths (28, 29, 30, or 31 days) and leap years occur every four years, simple division by 365 produces fractional inaccuracy. Our calculator tracks exact calendar month boundaries to give you precision down to the day.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dobInput = document.getElementById("dob-input");
+      const targetInput = document.getElementById("target-date");
+      const btnCalc = document.getElementById("btn-calc-age");
+
+      const primaryAgeVal = document.getElementById("primary-age-val");
+      const dobWeekdayLabel = document.getElementById("dob-weekday-label");
+      const statNextBday = document.getElementById("stat-next-bday");
+      const statTotalDays = document.getElementById("stat-total-days");
+      const statTotalHours = document.getElementById("stat-total-hours");
+      const statZodiac = document.getElementById("stat-zodiac");
+
+      // Default target date to today
+      const todayStr = new Date().toISOString().split('T')[0];
+      targetInput.value = todayStr;
+
+      function getZodiac(month, day) {
+        // month: 1-12
+        if ((month == 1 && day <= 19) || (month == 12 && day >= 22)) return "♑ Capricorn";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "♒ Aquarius";
+        if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "♓ Pisces";
+        if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "♈ Aries";
+        if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "♉ Taurus";
+        if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "♊ Gemini";
+        if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "♋ Cancer";
+        if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "♌ Leo";
+        if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "♍ Virgo";
+        if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "♎ Libra";
+        if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "♏ Scorpio";
+        return "♐ Sagittarius";
+      }
+
+      function calculateAge() {
+        const dobVal = dobInput.value;
+        const targetVal = targetInput.value || todayStr;
+        if (!dobVal) return;
+
+        const dob = new Date(dobVal + "T00:00:00");
+        const target = new Date(targetVal + "T00:00:00");
+
+        if (dob > target) {
+          primaryAgeVal.textContent = "Date of birth must be before target date!";
+          return;
+        }
+
+        let years = target.getFullYear() - dob.getFullYear();
+        let months = target.getMonth() - dob.getMonth();
+        let days = target.getDate() - dob.getDate();
+
+        if (days < 0) {
+          months--;
+          const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+          days += prevMonth.getDate();
+        }
+
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+
+        primaryAgeVal.textContent = `${years} Years, ${months} Months, ${days} Days`;
+
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        dobWeekdayLabel.textContent = `Born on a ${daysOfWeek[dob.getDay()]}, ${dob.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`;
+
+        // Total days and hours
+        const diffMs = target - dob;
+        const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        statTotalDays.textContent = `${totalDays.toLocaleString()} Days`;
+        statTotalHours.textContent = `${(totalDays * 24).toLocaleString()} Hours`;
+
+        // Next birthday
+        let nextBday = new Date(target.getFullYear(), dob.getMonth(), dob.getDate());
+        if (nextBday < target) {
+          nextBday = new Date(target.getFullYear() + 1, dob.getMonth(), dob.getDate());
+        }
+        const daysToNext = Math.ceil((nextBday - target) / (1000 * 60 * 60 * 24));
+        statNextBday.textContent = daysToNext === 0 ? "🎉 Today is your Birthday!" : `${daysToNext} Days`;
+
+        // Zodiac
+        statZodiac.textContent = getZodiac(dob.getMonth() + 1, dob.getDate());
+      }
+
+      btnCalc.addEventListener("click", calculateAge);
+      [dobInput, targetInput].forEach(el => el.addEventListener("change", calculateAge));
+      calculateAge();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAML Formatter & Beautifier Online — Validate & Prettify YAML | WebToolsHub</title>
+  <meta name="description" content="Free online YAML formatter and validator. Beautify messy YAML configurations, fix indentation, sort keys alphabetically, and inspect syntax errors client-side.">
+  <meta name="keywords" content="yaml formatter, yaml beautifier, format yaml online, prettify yaml, validate yaml, clean yaml config, docker compose formatter">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/yaml-formatter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/yaml-formatter.html">
+  <meta property="og:title" content="YAML Formatter & Beautifier Online — Validate & Prettify YAML | WebToolsHub">
+  <meta property="og:description" content="Free online YAML formatter and validator. Beautify messy YAML configurations, fix indentation, sort keys alphabetically, and inspect syntax errors client-side.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/yaml-formatter.html">
+  <meta name="twitter:title" content="YAML Formatter & Beautifier Online — Validate & Prettify YAML | WebToolsHub">
+  <meta name="twitter:description" content="Free online YAML formatter and validator. Beautify messy YAML configurations, fix indentation, sort keys alphabetically, and inspect syntax errors client-side.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "YAML Formatter & Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Beautify, format, and validate YAML configurations client-side."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Beautifiers & Formatters</span> &gt; <span>YAML Formatter</span>
+      </nav>
+      <h1 class="tool-page-title">YAML Formatter & Beautifier</h1>
+      <p class="tool-page-subtitle">Format, validate, and clean Kubernetes, Docker Compose, or GitHub Actions YAML files with customizable indentation.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Private Validation</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <label for="indent-size" style="font-size: 0.85rem; font-weight: 600;">Indentation:</label>
+              <select id="indent-size" class="form-control" style="width: 110px; height: 32px; font-size: 0.85rem; padding: 0.2rem 0.5rem;">
+                <option value="2" selected>2 Spaces</option>
+                <option value="4">4 Spaces</option>
+              </select>
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-sort-keys"> Sort Keys A-Z
+            </label>
+
+            <span id="yaml-status-badge" style="display: none; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700;"></span>
+          </div>
+
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-format">✨ Beautify YAML</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sample">Sample</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-clear" style="color: #ef4444;">Clear</button>
+          </div>
+        </div>
+
+        <!-- Code Editor Columns -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- Input -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Input Raw YAML:</span>
+              <span id="input-stats" style="font-size: 0.8rem; color: var(--text-muted);">0 lines</span>
+            </div>
+            <textarea id="yaml-input" class="form-control" placeholder="Paste unformatted YAML here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; resize: vertical;"></textarea>
+          </div>
+
+          <!-- Output -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">Beautified YAML:</span>
+              <div style="display: flex; gap: 0.35rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Copy</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-download" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Download .yaml</button>
+              </div>
+            </div>
+            <textarea id="yaml-output" class="form-control" readonly placeholder="Properly indented, validated YAML will appear here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; background: var(--bg-surface); resize: vertical;"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="html-formatter.html"><span>🌐 HTML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="xml-formatter.html"><span>📑 XML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="javascript-beautifier.html"><span>🟨 JavaScript Beautifier</span><span class="badge-mini">Popular</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Why does YAML indentation fail so often?</h3>
+        <p>Unlike JSON, YAML uses indentation depth as syntax scope and forbids tab characters (<code>\t</code>). Using 2 or 4 consistent space characters is required by the official YAML specification.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("yaml-formatter");
+
+      const input = document.getElementById("yaml-input");
+      const output = document.getElementById("yaml-output");
+      const indentSelect = document.getElementById("indent-size");
+      const sortKeysCheck = document.getElementById("opt-sort-keys");
+      const statusBadge = document.getElementById("yaml-status-badge");
+      const inputStats = document.getElementById("input-stats");
+
+      function format() {
+        const val = input.value.trim();
+        if (!val) {
+          output.value = "";
+          statusBadge.style.display = "none";
+          return;
+        }
+
+        try {
+          // Replace any forbidden tabs with 2 spaces before parsing
+          const sanitized = val.replace(/\t/g, "  ");
+          const parsed = jsyaml.load(sanitized);
+
+          const indentSpaces = parseInt(indentSelect.value, 10);
+          const sortKeys = sortKeysCheck.checked;
+
+          const dumped = jsyaml.dump(parsed, {
+            indent: indentSpaces,
+            sortKeys: sortKeys,
+            lineWidth: -1,
+            noRefs: true
+          });
+
+          output.value = dumped;
+          statusBadge.style.display = "inline-block";
+          statusBadge.style.background = "#dcfce7";
+          statusBadge.style.color = "#15803d";
+          statusBadge.textContent = "✓ Valid YAML";
+        } catch (err) {
+          output.value = `YAML Parsing Error:\n${err.message}`;
+          statusBadge.style.display = "inline-block";
+          statusBadge.style.background = "#fee2e2";
+          statusBadge.style.color = "#b91c1c";
+          statusBadge.textContent = "✗ Syntax Error";
+        }
+
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      }
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        format();
+        showToast("YAML formatted & validated!");
+      });
+
+      indentSelect.addEventListener("change", format);
+      sortKeysCheck.addEventListener("change", format);
+
+      input.addEventListener("input", () => {
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `version: "3.8"
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      NODE_ENV: production
+      LOG_LEVEL: info
+    volumes:
+      - ./html:/usr/share/nginx/html
+    restart: always
+  database:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: app_production
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret_password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
+    driver: local`;
+        format();
+        showToast("Sample loaded & beautified!");
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        statusBadge.style.display = "none";
+        inputStats.textContent = "0 lines";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        if (!output.value) return;
+        copyToClipboard(output.value, "Beautified YAML copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "application/x-yaml;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `beautified-config-${new Date().toISOString().slice(0, 10)}.yaml`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>

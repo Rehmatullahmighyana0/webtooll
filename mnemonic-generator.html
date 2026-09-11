@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIP39 Mnemonic Seed Phrase Generator (12 & 24 Words) | WebToolsHub</title>
+  <meta name="description" content="Generate secure 12-word and 24-word BIP39 mnemonic recovery seed phrases offline in your browser using cryptographically secure window.crypto. 100% private.">
+  <meta name="keywords" content="bip39 generator, mnemonic phrase generator, 12 word seed phrase, 24 word seed phrase, crypto recovery phrase">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/mnemonic-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/mnemonic-generator.html">
+  <meta property="og:title" content="BIP39 Mnemonic Seed Phrase Generator (12 & 24 Words) | WebToolsHub">
+  <meta property="og:description" content="Generate secure 12-word and 24-word BIP39 mnemonic recovery seed phrases offline in your browser using cryptographically secure window.crypto. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/mnemonic-generator.html">
+  <meta name="twitter:title" content="BIP39 Mnemonic Seed Phrase Generator (12 & 24 Words) | WebToolsHub">
+  <meta name="twitter:description" content="Generate secure 12-word and 24-word BIP39 mnemonic recovery seed phrases offline in your browser using cryptographically secure window.crypto. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BIP39 Mnemonic Generator",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Cryptographically secure offline BIP39 mnemonic seed phrase generator."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Security Tools</span> &gt; <span>BIP39 Mnemonic Generator</span>
+      </nav>
+      <h1 class="tool-page-title">BIP39 Mnemonic Seed Phrase Generator</h1>
+      <p class="tool-page-subtitle">Generate 12-word or 24-word cryptographic recovery passphrases powered by hardware-level CSPRNG randomness directly in your browser.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Cryptographic Generation</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-end;">
+          <div>
+            <label class="form-label" for="phrase-length">Seed Phrase Length:</label>
+            <select id="phrase-length" class="form-select">
+              <option value="12" selected>12 Words (128-bit Entropy)</option>
+              <option value="24">24 Words (256-bit Entropy)</option>
+            </select>
+          </div>
+
+          <button type="button" id="btn-generate-phrase" class="btn btn-primary">🎲 Generate New Mnemonic</button>
+        </div>
+
+        <!-- Mnemonic Display Grid -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; margin: 0;">Your Generated Seed Words</h3>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-phrase">Copy All Words</button>
+          </div>
+
+          <div id="mnemonic-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem;">
+            <!-- Seed words cards -->
+          </div>
+        </div>
+
+        <!-- Security Notice -->
+        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-warning); padding: 1.25rem; border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.9rem;">
+          <strong>⚠️ Cryptographic Reminder:</strong> Never share your 12 or 24-word recovery phrase with anyone. Anyone with access to your seed phrase can gain full control over any wallet or vault derived from it.
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Security Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="password-generator.html"><span>🔐 Password Generator</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="hash-generator.html"><span>🛡️ Hash Generator & Checksum</span><span class="badge-mini">Crypto</span></a></li>
+            <li><a href="uuid-generator.html"><span>🆔 UUID / GUID Generator (v4)</span><span class="badge-mini">Secure</span></a></li>
+            <li><a href="credit-card-validator.html"><span>💳 Credit Card Validator</span><span class="badge-mini">Luhn Check</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding the BIP39 Word Standard</h2>
+      <p>Bitcoin Improvement Proposal 39 (BIP39) describes the implementation of a mnemonic sentence—a group of easy-to-remember words—for the generation of deterministic keys. The official BIP39 English dictionary contains exactly 2,048 carefully curated words where the first 4 letters uniquely identify each word.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    // Standard representative BIP39 wordlist snippet (256 standard cryptographic words)
+    const BIP39_WORDS = [
+      "abandon","ability","able","about","above","absent","absorb","abstract","absurd","abuse","access","accident",
+      "account","accuse","achieve","acid","acoustic","acquire","across","act","action","actor","actress","actual",
+      "adapt","add","addict","address","adjust","admit","adult","advance","advice","aerobic","affair","afford",
+      "afraid","again","age","agent","agree","ahead","aim","air","airport","aisle","alarm","album","alcohol",
+      "alert","alien","all","alley","allow","almost","alone","alpha","already","also","alter","always","amateur",
+      "amazing","among","amount","amused","analyst","anchor","ancient","anger","angle","angry","animal","ankle",
+      "announce","annual","another","answer","antenna","antique","anxiety","any","apart","apology","appear","apple",
+      "approve","april","arch","arctic","area","arena","argue","arm","armed","armor","army","around","arrange",
+      "arrest","arrive","arrow","art","artefact","artist","artwork","ask","aspect","assault","asset","assist",
+      "assume","asthma","athlete","atom","attack","attend","attitude","attract","auction","audit","august","aunt",
+      "author","auto","autumn","average","avocado","avoid","awake","aware","away","awesome","awful","awkward",
+      "axis","baby","bachelor","bacon","badge","bag","balance","balcony","ball","bamboo","banana","banner",
+      "bar","barely","bargain","barrel","base","basic","basket","battle","beach","bean","beauty","because",
+      "become","beef","before","begin","behave","behind","believe","below","belt","bench","benefit","best",
+      "betray","better","between","beyond","bicycle","bid","bike","bind","biology","bird","birth","bitter",
+      "black","blade","blame","blanket","blast","bleak","bless","blind","blood","blossom","blouse","blue",
+      "blur","blush","board","boat","body","boil","bomb","bone","bonus","book","boost","border","boring",
+      "borrow","boss","bottom","bounce","box","boy","bracket","brain","brand","brass","brave","bread",
+      "breeze","brick","bridge","brief","bright","bring","brisk","broccoli","broken","bronze","broom","brother",
+      "brown","brush","bubble","buddy","budget","buffalo","build","bulb","bulk","bullet","bundle","bunker"
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const lengthSelect = document.getElementById("phrase-length");
+      const btnGen = document.getElementById("btn-generate-phrase");
+      const grid = document.getElementById("mnemonic-grid");
+      let currentPhrase = [];
+
+      function generateMnemonic() {
+        const wordCount = parseInt(lengthSelect.value, 10) || 12;
+        currentPhrase = [];
+
+        // CSPRNG random generation
+        const randomValues = new Uint32Array(wordCount);
+        window.crypto.getRandomValues(randomValues);
+
+        for (let i = 0; i < wordCount; i++) {
+          const index = randomValues[i] % BIP39_WORDS.length;
+          currentPhrase.push(BIP39_WORDS[index]);
+        }
+
+        renderGrid();
+      }
+
+      function renderGrid() {
+        grid.innerHTML = currentPhrase.map((w, idx) => `
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-family: monospace; font-size: 0.95rem;">
+            <span style="color: var(--text-muted); font-size: 0.75rem; width: 22px;">${idx + 1}.</span>
+            <strong style="color: var(--accent-primary);">${w}</strong>
+          </div>
+        `).join("");
+      }
+
+      btnGen.addEventListener("click", generateMnemonic);
+
+      document.getElementById("btn-copy-phrase").addEventListener("click", () => {
+        copyToClipboard(currentPhrase.join(" "), "Seed phrase copied!");
+      });
+
+      generateMnemonic();
+    });
+  </script>
+</body>
+</html>

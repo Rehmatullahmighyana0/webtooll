@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Color Palette Extractor & Dominant Color Finder | WebToolsHub</title>
+  <meta name="description" content="Extract dominant colors and harmonious color palettes from any photo or image. Copy HEX, RGB, and HSL codes with single-click clipboard copy. 100% private.">
+  <meta name="keywords" content="image color extractor, image palette generator, extract colors from image, dominant color finder, photo color picker">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/image-color-extractor.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/image-color-extractor.html">
+  <meta property="og:title" content="Image Color Palette Extractor & Dominant Color Finder | WebToolsHub">
+  <meta property="og:description" content="Extract dominant colors and harmonious color palettes from any photo or image. Copy HEX, RGB, and HSL codes with single-click clipboard copy. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/image-color-extractor.html">
+  <meta name="twitter:title" content="Image Color Palette Extractor & Dominant Color Finder | WebToolsHub">
+  <meta name="twitter:description" content="Extract dominant colors and harmonious color palettes from any photo or image. Copy HEX, RGB, and HSL codes with single-click clipboard copy. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Image Color Palette Extractor",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Extract dominant color swatches and hex codes from pictures."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Design Tools</span> &gt; <span>Color Extractor</span>
+      </nav>
+      <h1 class="tool-page-title">Image Color Palette Extractor</h1>
+      <p class="tool-page-subtitle">Upload any graphic or photo to automatically analyze its dominant color scheme and export HEX swatches.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Action Controls Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <button type="button" id="btn-load-sample" class="btn btn-secondary btn-sm">🖼️ Load Sample Photo</button>
+            <button type="button" id="btn-clear-image" class="btn btn-secondary btn-sm" style="color: var(--accent-danger);">🗑️ Clear</button>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Format:</span>
+            <div class="categories-filter" style="margin: 0; gap: 0.25rem;">
+              <button type="button" class="filter-pill active" id="pill-fmt-hex" style="padding: 0.2rem 0.6rem; font-size: 0.78rem;">HEX</button>
+              <button type="button" class="filter-pill" id="pill-fmt-rgb" style="padding: 0.2rem 0.6rem; font-size: 0.78rem;">RGB</button>
+              <button type="button" class="filter-pill" id="pill-fmt-hsl" style="padding: 0.2rem 0.6rem; font-size: 0.78rem;">HSL</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upload Dropzone -->
+        <div class="upload-dropzone" id="palette-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem; transition: var(--transition);">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.15rem;">Drag & drop image here or click to browse</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0 0 1rem 0;">Supports PNG, JPEG, WebP, SVG, and GIF</p>
+          <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('palette-file-input').click();">📁 Select Image File</button>
+          <input type="file" id="palette-file-input" accept="image/*" style="display: none;">
+        </div>
+
+        <!-- Palette Results -->
+        <div id="palette-results" style="display: none;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <h3 style="font-size: 1.15rem; margin: 0 0 0.25rem 0; font-weight: 700;">Extracted Dominant Color Swatches</h3>
+                <span id="palette-count-info" style="font-size: 0.8rem; color: var(--text-muted);">8 dominant color clusters found</span>
+              </div>
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                <button type="button" id="btn-copy-all" class="btn btn-primary btn-sm">📋 Copy All HEX</button>
+                <button type="button" id="btn-export-css" class="btn btn-secondary btn-sm">🎨 Export CSS Variables</button>
+                <button type="button" id="btn-download-json" class="btn btn-secondary btn-sm">💾 Download JSON</button>
+              </div>
+            </div>
+            
+            <div id="swatches-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+              <!-- Swatches will be rendered here -->
+            </div>
+
+            <!-- Uploaded Image Preview -->
+            <div style="display: flex; flex-direction: column; align-items: center; background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.75rem;">Analyzed Source Image</span>
+              <img id="img-display" style="max-height: 280px; max-width: 100%; object-fit: contain; border-radius: 6px; box-shadow: var(--shadow-sm);" alt="Analyzed photo">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Images Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="color-picker.html"><span>🎨 Color Picker & Palette Converter</span><span class="badge-mini">Design</span></a></li>
+            <li><a href="css-box-shadow-generator.html"><span>📦 CSS Box Shadow Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="css-gradient-generator.html"><span>🌈 CSS Gradient Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="glassmorphism-generator.html"><span>🪟 Glassmorphism CSS Generator</span><span class="badge-mini">UI</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Generating Color Schemes from Photography</h2>
+      <p>Extracting color palettes directly from inspiring nature or brand photography is one of the most effective techniques in modern UI/UX design. Our client-side pixel quantization algorithm scans image pixels directly via canvas, computing prominent color clusters without sending photos to any remote server.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("image-color-extractor");
+
+      const dropzone = document.getElementById("palette-dropzone");
+      const fileInput = document.getElementById("palette-file-input");
+      const resultsDiv = document.getElementById("palette-results");
+      const swatchesGrid = document.getElementById("swatches-grid");
+      const imgDisplay = document.getElementById("img-display");
+      const btnSample = document.getElementById("btn-load-sample");
+      const btnClear = document.getElementById("btn-clear-image");
+      const btnCopyAll = document.getElementById("btn-copy-all");
+      const btnExportCss = document.getElementById("btn-export-css");
+      const btnDownloadJson = document.getElementById("btn-download-json");
+
+      let currentColors = [];
+      let activeFormat = "hex"; // "hex" | "rgb" | "hsl"
+
+      const pillHex = document.getElementById("pill-fmt-hex");
+      const pillRgb = document.getElementById("pill-fmt-rgb");
+      const pillHsl = document.getElementById("pill-fmt-hsl");
+
+      function setFormat(fmt) {
+        activeFormat = fmt;
+        [pillHex, pillRgb, pillHsl].forEach(p => p.classList.remove("active"));
+        if (fmt === "hex") pillHex.classList.add("active");
+        if (fmt === "rgb") pillRgb.classList.add("active");
+        if (fmt === "hsl") pillHsl.classList.add("active");
+        renderSwatches();
+      }
+
+      pillHex.addEventListener("click", () => setFormat("hex"));
+      pillRgb.addEventListener("click", () => setFormat("rgb"));
+      pillHsl.addEventListener("click", () => setFormat("hsl"));
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) handleImage(e.dataTransfer.files[0]);
+      });
+
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) handleImage(e.target.files[0]);
+      });
+
+      function rgbToHex(r, g, b) {
+        return "#" + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('').toUpperCase();
+      }
+
+      function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+        if (max === min) {
+          h = s = 0;
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+        return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
+      }
+
+      function getColorString(c) {
+        if (activeFormat === "rgb") return `rgb(${c.r}, ${c.g}, ${c.b})`;
+        if (activeFormat === "hsl") return rgbToHsl(c.r, c.g, c.b);
+        return c.hex;
+      }
+
+      function handleImage(file) {
+        if (!file.type.startsWith("image/")) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const img = new Image();
+          img.onload = () => {
+            imgDisplay.src = ev.target.result;
+            extractColors(img);
+            resultsDiv.style.display = "block";
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function renderSwatches() {
+        if (!currentColors.length) return;
+        swatchesGrid.innerHTML = currentColors.map((c, idx) => {
+          const formattedVal = getColorString(c);
+          return `
+            <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-surface); text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='none'">
+              <div style="height: 75px; background: rgb(${c.r},${c.g},${c.b}); cursor: pointer; position: relative;" onclick="copyToClipboard('${formattedVal}', 'Color ${formattedVal} copied!')" title="Click to copy">
+                <span style="position: absolute; bottom: 4px; right: 6px; font-size: 0.65rem; background: rgba(0,0,0,0.5); color: #fff; padding: 1px 4px; border-radius: 3px;">#${idx + 1}</span>
+              </div>
+              <div style="padding: 0.6rem 0.5rem;">
+                <strong style="font-family: monospace; font-size: 0.85rem; display: block; word-break: break-all;">${formattedVal}</strong>
+                <button type="button" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 0.4rem; padding: 3px 0; font-size: 0.75rem;" onclick="copyToClipboard('${formattedVal}', 'Color ${formattedVal} copied!')">📋 Copy</button>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      function extractColors(img) {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const w = 120;
+        const h = 120;
+        canvas.width = w;
+        canvas.height = h;
+        ctx.drawImage(img, 0, 0, w, h);
+
+        const imgData = ctx.getImageData(0, 0, w, h).data;
+        const colorCounts = {};
+
+        // Sample pixels with quantization (step of 12 for high accuracy)
+        for (let i = 0; i < imgData.length; i += 12) {
+          const r = Math.round(imgData[i] / 20) * 20;
+          const g = Math.round(imgData[i + 1] / 20) * 20;
+          const b = Math.round(imgData[i + 2] / 20) * 20;
+          const a = imgData[i + 3];
+
+          if (a > 128) {
+            const key = `${r},${g},${b}`;
+            colorCounts[key] = (colorCounts[key] || 0) + 1;
+          }
+        }
+
+        const sorted = Object.entries(colorCounts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+
+        currentColors = sorted.map(([rgbStr]) => {
+          const [r, g, b] = rgbStr.split(',').map(Number);
+          return { r, g, b, hex: rgbToHex(r, g, b) };
+        });
+
+        renderSwatches();
+      }
+
+      function createSampleImage() {
+        const canvas = document.createElement("canvas");
+        canvas.width = 400;
+        canvas.height = 300;
+        const ctx = canvas.getContext("2d");
+
+        // Rich vibrant sunset mountain artwork
+        const grad = ctx.createLinearGradient(0, 0, 0, 300);
+        grad.addColorStop(0, "#f43f5e");
+        grad.addColorStop(0.4, "#fb923c");
+        grad.addColorStop(0.7, "#facc15");
+        grad.addColorStop(1, "#38bdf8");
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 400, 300);
+
+        // Sun
+        ctx.beginPath();
+        ctx.arc(200, 140, 50, 0, Math.PI * 2);
+        ctx.fillStyle = "#fef08a";
+        ctx.fill();
+
+        // Mountains
+        ctx.beginPath();
+        ctx.moveTo(0, 300);
+        ctx.lineTo(120, 180);
+        ctx.lineTo(240, 260);
+        ctx.lineTo(360, 160);
+        ctx.lineTo(400, 220);
+        ctx.lineTo(400, 300);
+        ctx.closePath();
+        ctx.fillStyle = "#4338ca";
+        ctx.fill();
+
+        // Foreground hill
+        ctx.beginPath();
+        ctx.moveTo(0, 300);
+        ctx.quadraticCurveTo(150, 230, 400, 280);
+        ctx.lineTo(400, 300);
+        ctx.closePath();
+        ctx.fillStyle = "#1e1b4b";
+        ctx.fill();
+
+        return canvas.toDataURL("image/png");
+      }
+
+      btnSample.addEventListener("click", () => {
+        const sampleUrl = createSampleImage();
+        const img = new Image();
+        img.onload = () => {
+          imgDisplay.src = sampleUrl;
+          extractColors(img);
+          resultsDiv.style.display = "block";
+          resultsDiv.scrollIntoView({ behavior: 'smooth' });
+          showToast("Sample photo generated and analyzed!");
+        };
+        img.src = sampleUrl;
+      });
+
+      btnClear.addEventListener("click", () => {
+        currentColors = [];
+        imgDisplay.src = "";
+        swatchesGrid.innerHTML = "";
+        resultsDiv.style.display = "none";
+        fileInput.value = "";
+        showToast("Cleared extractor workspace.");
+      });
+
+      btnCopyAll.addEventListener("click", () => {
+        if (!currentColors.length) return;
+        const hexList = currentColors.map(c => c.hex).join(", ");
+        copyToClipboard(hexList, "All HEX color codes copied!");
+      });
+
+      btnExportCss.addEventListener("click", () => {
+        if (!currentColors.length) return;
+        let css = ":root {\n";
+        currentColors.forEach((c, idx) => {
+          css += `  --palette-color-${idx + 1}: ${c.hex};\n`;
+        });
+        css += "}";
+        copyToClipboard(css, "CSS Variables theme copied!");
+      });
+
+      btnDownloadJson.addEventListener("click", () => {
+        if (!currentColors.length) return;
+        const paletteData = {
+          name: "Extracted Color Palette",
+          created: new Date().toISOString(),
+          colors: currentColors.map((c, idx) => ({
+            index: idx + 1,
+            hex: c.hex,
+            rgb: `rgb(${c.r}, ${c.g}, ${c.b})`,
+            hsl: rgbToHsl(c.r, c.g, c.b)
+          }))
+        };
+        const blob = new Blob([JSON.stringify(paletteData, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `palette-${Date.now()}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("Palette JSON downloaded!");
+      });
+    });
+  </script>
+</body>
+</html>

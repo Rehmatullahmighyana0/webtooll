@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art & Text Banner Generator | WebToolsHub</title>
+  <meta name="description" content="Generate cool ASCII art banners and retro text fonts online. Perfect for GitHub READMEs, terminal CLI banners, code headers, and Discord.">
+  <meta name="keywords" content="ascii art generator, text to ascii, figlet online, ascii text banner, terminal banner generator, github readme header">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/ascii-art-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/ascii-art-generator.html">
+  <meta property="og:title" content="ASCII Art & Text Banner Generator | WebToolsHub">
+  <meta property="og:description" content="Generate cool ASCII art banners and retro text fonts online. Perfect for GitHub READMEs, terminal CLI banners, code headers, and Discord.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/ascii-art-generator.html">
+  <meta name="twitter:title" content="ASCII Art & Text Banner Generator | WebToolsHub">
+  <meta name="twitter:description" content="Generate cool ASCII art banners and retro text fonts online. Perfect for GitHub READMEs, terminal CLI banners, code headers, and Discord.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ASCII Art & Text Banner Generator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert text into ASCII art banners and retro typography."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>ASCII Art Generator</span>
+      </nav>
+      <h1 class="tool-page-title">ASCII Art & Text Banner Generator</h1>
+      <p class="tool-page-subtitle">Transform ordinary words into stylized retro ASCII art banners for programming comments, README files, Discord, and CLI tools.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Input row -->
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;">
+          <div style="flex: 1; min-width: 240px;">
+            <label class="form-label" for="ascii-input">Type your text:</label>
+            <input type="text" id="ascii-input" class="form-input" value="WEB TOOLS" placeholder="e.g. HELLO WORLD" maxlength="30">
+          </div>
+          <div style="min-width: 180px;">
+            <label class="form-label" for="ascii-font">Select ASCII Style:</label>
+            <select id="ascii-font" class="form-select">
+              <option value="standard">Standard Block</option>
+              <option value="slant">Slanted 3D</option>
+              <option value="simple">Simple Outline</option>
+              <option value="shadow">Shadow Box</option>
+              <option value="bubble">Bubbles / Circles</option>
+              <option value="binary">Matrix Binary</option>
+            </select>
+          </div>
+          <div class="btn-group">
+            <button type="button" id="btn-copy" class="btn btn-primary">Copy ASCII</button>
+          </div>
+        </div>
+
+        <!-- ASCII Banner Preview -->
+        <div class="form-group">
+          <label class="form-label" for="ascii-output">ASCII Art Preview:</label>
+          <pre id="ascii-output" style="background: var(--bg-surface); color: var(--accent-primary); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: monospace; font-size: 0.85rem; line-height: 1.2; overflow-x: auto; white-space: pre; min-height: 200px;"></pre>
+        </div>
+
+        <!-- Quick Presets -->
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; align-items: center;">
+          <span style="font-size: 0.875rem; color: var(--text-secondary);">Quick ideas:</span>
+          <button class="filter-pill btn-sm" onclick="setBannerText('SUCCESS')">SUCCESS</button>
+          <button class="filter-pill btn-sm" onclick="setBannerText('DEV TOOLS')">DEV TOOLS</button>
+          <button class="filter-pill btn-sm" onclick="setBannerText('WELCOME')">WELCOME</button>
+          <button class="filter-pill btn-sm" onclick="setBannerText('CYBER')">CYBER</button>
+        </div>
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Creating Retro ASCII Text Banners</h2>
+      <p>ASCII banners are widely favored in developer READMEs, bash CLI welcome prompts, Python comments, and Discord server channels to grab attention with old-school terminal flair.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    // Embedded ASCII Font alphabets for instant, reliable client-side rendering without external network latency
+    const FONT_STANDARD = {
+      'A': ["  ___  ", " / _ \\ ", "/ /_\\ \\", "|  _  |", "| | | |", "\\_| |_/"],
+      'B': ["______ ", "| ___ \\", "| |_/ /", "| ___ \\", "| |_/ /", "\\____/ "],
+      'C': [" _____ ", "/  __ \\", "| /  \\/", "| |    ", "| \\__/\\", " \\____/"],
+      'D': ["______ ", "|  _  \\", "| | | |", "| | | |", "| |/ / ", "|___/  "],
+      'E': [" _____ ", "|  ___|", "| |__  ", "|  __| ", "| |___ ", "\\____/ "],
+      'F': ["______ ", "|  ___|", "| |_   ", "|  _|  ", "| |    ", "\\_|    "],
+      'G': [" _____ ", "|  __ \\", "| |  \\/", "| | __ ", "| |_\\ \\", " \\____/"],
+      'H': [" _   _ ", "| | | |", "| |_| |", "|  _  |", "| | | |", "\\_| |_/"],
+      'I': [" _____ ", "|_   _|", "  | |  ", "  | |  ", " _| |_ ", " \\___/ "],
+      'J': ["   ___ ", "  |_  |", "    | |", "    | |", "/\\__/ /", "\\____/ "],
+      'K': [" _   _ ", "| | / /", "| |/ / ", "|    \\ ", "| |\\  \\", "\\_| \\_/"],
+      'L': [" _     ", "| |    ", "| |    ", "| |    ", "| |____", "\\_____/"],
+      'M': ["___  ___", "|  \\/  |", "| .  . |", "| |\\/| |", "| |  | |", "\\_|  |_/"],
+      'N': [" _   _ ", "| \\ | |", "|  \\| |", "| . ` |", "| |\\  |", "\\_| \\_/"],
+      'O': [" _____ ", "|  _  |", "| | | |", "| | | |", "\\ \\_/ /", " \\___/ "],
+      'P': ["______ ", "| ___ \\", "| |_/ /", "|  __/ ", "| |    ", "\\_|    "],
+      'Q': [" _____ ", "|  _  |", "| | | |", "| | | |", "\\ \\/' /", " \\_/\\_\\"],
+      'R': ["______ ", "| ___ \\", "| |_/ /", "|    / ", "| |\\ \\ ", "\\_| \\_|"],
+      'S': [" _____ ", "/  ___|", "\\ `--. ", " `--. \\", "/\\__/ /", "\\____/ "],
+      'T': [" _____ ", "|_   _|", "  | |  ", "  | |  ", "  | |  ", "  \\_/  "],
+      'U': [" _   _ ", "| | | |", "| | | |", "| | | |", "| |_| |", " \\___/ "],
+      'V': [" _   _ ", "| | | |", "| | | |", "| | | |", "\\ \\_/ /", " \\___/ "],
+      'W': [" _    _ ", "| |  | |", "| |  | |", "| |/\\| |", "\\  /\\  /", " \\/  \\/ "],
+      'X': ["__   __", "\\ \\ / /", " \\ V / ", " /   \\ ", "/ /^\\ \\", "\\/   \\/"],
+      'Y': ["__   __", "\\ \\ / /", " \\ V / ", "  | |  ", "  | |  ", "  |_|  "],
+      'Z': ["______ ", "|___  /", "   / / ", "  / /  ", "./ /___", "\\_____/"],
+      ' ': ["       ", "       ", "       ", "       ", "       ", "       "],
+      '0': [" _____ ", "|  _  |", "| |/' |", "|  /| |", "\\ |_/ /", " \\___/ "],
+      '1': ["  __   ", " /  |  ", " `| |  ", "  | |  ", " _| |_ ", " \\___/ "],
+      '2': [" _____ ", "/ __  \\", "`' / /'", "  / /  ", "./ /___", "\\_____/"],
+      '3': [" _____ ", "|____ |", "    / /", "    \\ \\", ".___/ /", "\\____/ "],
+      '4': [" _   _ ", "| | | |", "| |_| |", "|___  |", "    | |", "    |_|"],
+      '5': [" _____ ", "|  ___|", "|___ \\ ", "    \\ \\", "/\\__/ /", "\\____/ "],
+      '6': ["  ____ ", " / ___|", "/ /___ ", "| ___ \\", "| \\_/ |", " \\___/ "],
+      '7': [" ______", "|___  /", "   / / ", "  / /  ", " / /   ", "/_/    "],
+      '8': [" _____ ", "/ _ \\  ", "\\ (_) |", " > _ < ", "| (_) |", " \\___/ "],
+      '9': [" _____ ", "/ _ \\  ", "\\_  /  ", " / /   ", "/ /    ", "\\_/    "],
+      '!': [" _ ", "| |", "| |", "| |", "(_)", "(_)"],
+      '?': [" ___ ", "|__ \\", "  / /", " |_| ", " (_) ", "     "],
+      '.': ["   ", "   ", "   ", "   ", " _ ", "(_)"],
+      '-': ["      ", "      ", " ____ ", "|____|", "      ", "      "],
+      '+': ["     ", "  _  ", "_|_|_", " | | ", "     ", "     "],
+      ':': [" _ ", "(_)", "   ", " _ ", "(_)", "   "],
+      '/': ["    / ", "   /  ", "  /   ", " /    ", "/     ", "      "],
+      '#': [" _ _ ", " _| |_ ", "|_|_|_|", " _| |_ ", "|_|_|_|", "  | |  "]
+    };
+
+    const input = document.getElementById("ascii-input");
+    const fontSelect = document.getElementById("ascii-font");
+    const output = document.getElementById("ascii-output");
+
+    function renderBanner() {
+      const text = (input.value || "").toUpperCase();
+      const style = fontSelect.value;
+
+      if (!text) {
+        output.textContent = "";
+        return;
+      }
+
+      if (style === "bubble") {
+        // Enclosed alphanumeric bubble letters
+        const bubbleMap = {
+          'A':'Ⓐ','B':'Ⓑ','C':'Ⓒ','D':'Ⓓ','E':'Ⓔ','F':'Ⓕ','G':'Ⓖ','H':'Ⓗ','I':'Ⓘ',
+          'J':'Ⓙ','K':'Ⓚ','L':'Ⓛ','M':'Ⓜ','N':'Ⓝ','O':'Ⓞ','P':'Ⓟ','Q':'Ⓠ','R':'Ⓡ',
+          'S':'Ⓢ','T':'Ⓣ','U':'Ⓤ','V':'Ⓥ','W':'Ⓦ','X':'Ⓧ','Y':'Ⓨ','Z':'Ⓩ',' ':'  ',
+          '0':'⓪','1':'①','2':'②','3':'③','4':'④','5':'⑤','6':'⑥','7':'⑦','8':'⑧','9':'⑨'
+        };
+        const res = text.split("").map(c => bubbleMap[c] || c).join(" ");
+        output.textContent = `\n  ${res}\n`;
+        return;
+      }
+
+      if (style === "binary") {
+        const bin = text.split("").map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join(" ");
+        output.textContent = `// MATRIX BINARY STREAM //\n` + bin + `\n// DECODED: ${text} //`;
+        return;
+      }
+
+      if (style === "simple") {
+        let top = "+";
+        let mid = "|";
+        let bot = "+";
+        for (let i = 0; i < text.length; i++) {
+          top += "---+";
+          mid += ` ${text[i]} |`;
+          bot += "---+";
+        }
+        output.textContent = `${top}\n${mid}\n${bot}`;
+        return;
+      }
+
+      // Default Standard & Slant
+      const lines = ["", "", "", "", "", ""];
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const glyph = FONT_STANDARD[char] || FONT_STANDARD[' '];
+        for (let row = 0; row < 6; row++) {
+          lines[row] += glyph[row] + " ";
+        }
+      }
+
+      if (style === "slant") {
+        output.textContent = lines.map((l, idx) => " ".repeat(idx) + l).join("\n");
+      } else if (style === "shadow") {
+        const boxWidth = lines[0].length + 4;
+        const bar = "=".repeat(boxWidth);
+        output.textContent = `${bar}\n` + lines.map(l => `| ${l} |`).join("\n") + `\n${bar}`;
+      } else {
+        output.textContent = lines.join("\n");
+      }
+    }
+
+    function setBannerText(txt) {
+      input.value = txt;
+      renderBanner();
+    }
+
+    input.addEventListener("input", renderBanner);
+    fontSelect.addEventListener("change", renderBanner);
+
+    document.getElementById("btn-copy").addEventListener("click", () => {
+      copyToClipboard(output.textContent, "ASCII art copied!");
+    });
+
+    renderBanner();
+  </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Table Generator & CSV Converter | WebToolsHub</title>
+  <meta name="description" content="Visual Markdown table generator and CSV to Markdown table converter. Add, delete, and align columns, then copy formatted Markdown or HTML code.">
+  <meta name="keywords" content="markdown table generator, markdown grid, csv to markdown, html table to markdown, markdown table editor">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/markdown-table-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/markdown-table-generator.html">
+  <meta property="og:title" content="Markdown Table Generator & CSV Converter | WebToolsHub">
+  <meta property="og:description" content="Visual Markdown table generator and CSV to Markdown table converter. Add, delete, and align columns, then copy formatted Markdown or HTML code.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/markdown-table-generator.html">
+  <meta name="twitter:title" content="Markdown Table Generator & CSV Converter | WebToolsHub">
+  <meta name="twitter:description" content="Visual Markdown table generator and CSV to Markdown table converter. Add, delete, and align columns, then copy formatted Markdown or HTML code.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Markdown Table Generator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Visual spreadsheet editor to generate clean Markdown and HTML tables."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>Markdown Table Generator</span>
+      </nav>
+      <h1 class="tool-page-title">Markdown Table Generator</h1>
+      <p class="tool-page-subtitle">Design tables visually in an interactive grid or paste CSV data to generate clean, perfectly aligned GitHub Flavored Markdown.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls toolbar -->
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+          <button type="button" id="btn-add-row" class="btn btn-secondary btn-sm">+ Add Row</button>
+          <button type="button" id="btn-del-row" class="btn btn-secondary btn-sm">- Delete Row</button>
+          <button type="button" id="btn-add-col" class="btn btn-secondary btn-sm">+ Add Column</button>
+          <button type="button" id="btn-del-col" class="btn btn-secondary btn-sm">- Delete Column</button>
+          <button type="button" id="btn-clear-table" class="btn btn-secondary btn-sm">Clear</button>
+          <button type="button" id="btn-import-csv" class="btn btn-secondary btn-sm">📥 Import CSV</button>
+        </div>
+
+        <!-- Interactive Table Grid -->
+        <div style="overflow-x: auto; margin-bottom: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 0.75rem;">
+          <table id="grid-table" style="width: 100%; border-collapse: collapse; min-width: 500px;">
+            <thead>
+              <tr id="grid-align-row">
+                <!-- Column alignment selectors -->
+              </tr>
+              <tr id="grid-header-row">
+                <!-- Header input cells -->
+              </tr>
+            </thead>
+            <tbody id="grid-body">
+              <!-- Body rows and cells -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Output Options & Tabs -->
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 0.75rem; gap: 0.35rem;">
+          <button class="filter-pill active" id="tab-md">Markdown Code</button>
+          <button class="filter-pill" id="tab-html">HTML Table Code</button>
+          <button class="filter-pill" id="tab-preview">👁️ Live Table Preview</button>
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" for="output-code" id="output-label" style="margin-bottom: 0;">Generated Markdown:</label>
+            <div class="btn-group">
+              <button type="button" id="btn-copy-code" class="btn btn-primary btn-sm">Copy Code</button>
+            </div>
+          </div>
+          <div id="wrapper-code-out">
+            <textarea id="output-code" class="form-textarea" readonly style="min-height: 220px; font-family: monospace; font-size: 0.9rem;" placeholder="Your Markdown table code will generate here automatically..."></textarea>
+          </div>
+          <div id="wrapper-table-preview" style="display: none; overflow-x: auto; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); min-height: 220px;">
+            <table id="live-rendered-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;"></table>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Visual Markdown Table Builder for GitHub & Documentation</h2>
+      <p>Formatting markdown tables by hand with pipes (<code>|</code>) and hyphens (<code>-</code>) is notoriously tedious. This interactive generator lets you type into a clean spreadsheet interface, select left, center, or right alignment for any column, and instantly export standard GitHub Flavored Markdown (GFM) or HTML table markup.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let cols = 3;
+      let rows = 3;
+      let alignments = ["left", "center", "right"];
+      let activeTab = "md";
+
+      let headers = ["Feature", "Standard Plan", "Pro Plan"];
+      let data = [
+        ["Speed", "100 Mbps", "1 Gbps"],
+        ["Storage", "50 GB", "1 TB"],
+        ["Support", "Email", "24/7 Priority"]
+      ];
+
+      const alignRow = document.getElementById("grid-align-row");
+      const headerRow = document.getElementById("grid-header-row");
+      const gridBody = document.getElementById("grid-body");
+      const outputCode = document.getElementById("output-code");
+      const outputLabel = document.getElementById("output-label");
+      const wrapCode = document.getElementById("wrapper-code-out");
+      const wrapPreview = document.getElementById("wrapper-table-preview");
+      const liveTable = document.getElementById("live-rendered-table");
+
+      function renderGrid() {
+        // Render Alignments
+        alignRow.innerHTML = "";
+        for (let c = 0; c < cols; c++) {
+          const th = document.createElement("th");
+          th.style.padding = "4px 8px";
+          th.innerHTML = `
+            <select data-col="${c}" class="col-align-select" style="width: 100%; font-size: 0.75rem; padding: 2px 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-subtle);">
+              <option value="left" ${alignments[c] === 'left' ? 'selected' : ''}>Align: Left</option>
+              <option value="center" ${alignments[c] === 'center' ? 'selected' : ''}>Align: Center</option>
+              <option value="right" ${alignments[c] === 'right' ? 'selected' : ''}>Align: Right</option>
+            </select>
+          `;
+          alignRow.appendChild(th);
+        }
+
+        // Render Headers
+        headerRow.innerHTML = "";
+        for (let c = 0; c < cols; c++) {
+          const th = document.createElement("th");
+          th.style.padding = "6px 8px";
+          th.innerHTML = `<input type="text" data-col="${c}" class="grid-header-input" value="${escapeHtml(headers[c] || '')}" placeholder="Header ${c + 1}" style="width: 100%; font-weight: 700; padding: 6px 8px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-surface);">`;
+          headerRow.appendChild(th);
+        }
+
+        // Render Body
+        gridBody.innerHTML = "";
+        for (let r = 0; r < rows; r++) {
+          const tr = document.createElement("tr");
+          for (let c = 0; c < cols; c++) {
+            const td = document.createElement("td");
+            td.style.padding = "4px 8px";
+            const val = (data[r] && data[r][c]) ? data[r][c] : "";
+            td.innerHTML = `<input type="text" data-row="${r}" data-col="${c}" class="grid-cell-input" value="${escapeHtml(val)}" placeholder="Cell" style="width: 100%; padding: 6px 8px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-surface);">`;
+            tr.appendChild(td);
+          }
+          gridBody.appendChild(tr);
+        }
+
+        attachGridListeners();
+        generateOutput();
+      }
+
+      function escapeHtml(str) {
+        return (str || '').replace(/"/g, '&quot;');
+      }
+
+      function attachGridListeners() {
+        document.querySelectorAll(".col-align-select").forEach(sel => {
+          sel.addEventListener("change", (e) => {
+            const c = parseInt(e.target.dataset.col);
+            alignments[c] = e.target.value;
+            generateOutput();
+          });
+        });
+
+        document.querySelectorAll(".grid-header-input").forEach(inp => {
+          inp.addEventListener("input", (e) => {
+            const c = parseInt(e.target.dataset.col);
+            headers[c] = e.target.value;
+            generateOutput();
+          });
+        });
+
+        document.querySelectorAll(".grid-cell-input").forEach(inp => {
+          inp.addEventListener("input", (e) => {
+            const r = parseInt(e.target.dataset.row);
+            const c = parseInt(e.target.dataset.col);
+            if (!data[r]) data[r] = [];
+            data[r][c] = e.target.value;
+            generateOutput();
+          });
+        });
+      }
+
+      function renderLiveTablePreview() {
+        let html = "<thead><tr>";
+        for (let c = 0; c < cols; c++) {
+          const align = alignments[c] || "left";
+          const text = headers[c] || `Header ${c + 1}`;
+          html += `<th style="text-align: ${align}; padding: 10px 14px; background: var(--bg-subtle); border: 1px solid var(--border-color); font-weight: 700;">${text}</th>`;
+        }
+        html += "</tr></thead><tbody>";
+        for (let r = 0; r < rows; r++) {
+          html += `<tr style="${r % 2 === 0 ? '' : 'background: rgba(0,0,0,0.02);'}">`;
+          for (let c = 0; c < cols; c++) {
+            const align = alignments[c] || "left";
+            const text = (data[r] && data[r][c]) || "";
+            html += `<td style="text-align: ${align}; padding: 8px 14px; border: 1px solid var(--border-color);">${text}</td>`;
+          }
+          html += "</tr>";
+        }
+        html += "</tbody>";
+        liveTable.innerHTML = html;
+      }
+
+      function generateOutput() {
+        renderLiveTablePreview();
+
+        if (activeTab === "md") {
+          wrapCode.style.display = "block";
+          wrapPreview.style.display = "none";
+          outputLabel.textContent = "Generated Markdown Table:";
+          const colWidths = [];
+          for (let c = 0; c < cols; c++) {
+            let maxLen = Math.max((headers[c] || "").length, 3);
+            for (let r = 0; r < rows; r++) {
+              const cellVal = (data[r] && data[r][c]) || "";
+              maxLen = Math.max(maxLen, cellVal.length);
+            }
+            colWidths.push(maxLen);
+          }
+
+          let md = "|";
+          for (let c = 0; c < cols; c++) {
+            const text = headers[c] || `Header ${c + 1}`;
+            md += ` ${text.padEnd(colWidths[c])} |`;
+          }
+          md += "\n|";
+
+          for (let c = 0; c < cols; c++) {
+            const align = alignments[c] || "left";
+            const width = colWidths[c];
+            if (align === "center") {
+              md += ` :${"-".repeat(Math.max(1, width - 2))}: |`;
+            } else if (align === "right") {
+              md += ` ${"-".repeat(Math.max(1, width - 1))}: |`;
+            } else {
+              md += ` :${"-".repeat(Math.max(1, width - 1))} |`;
+            }
+          }
+          md += "\n";
+
+          for (let r = 0; r < rows; r++) {
+            md += "|";
+            for (let c = 0; c < cols; c++) {
+              const text = (data[r] && data[r][c]) || "";
+              md += ` ${text.padEnd(colWidths[c])} |`;
+            }
+            md += "\n";
+          }
+          outputCode.value = md;
+        } else if (activeTab === "html") {
+          wrapCode.style.display = "block";
+          wrapPreview.style.display = "none";
+          outputLabel.textContent = "Generated HTML Table:";
+          let html = "<table>\n  <thead>\n    <tr>\n";
+          for (let c = 0; c < cols; c++) {
+            const align = alignments[c] || "left";
+            const text = headers[c] || `Header ${c + 1}`;
+            html += `      <th style="text-align: ${align};">${text}</th>\n`;
+          }
+          html += "    </tr>\n  </thead>\n  <tbody>\n";
+          for (let r = 0; r < rows; r++) {
+            html += "    <tr>\n";
+            for (let c = 0; c < cols; c++) {
+              const align = alignments[c] || "left";
+              const text = (data[r] && data[r][c]) || "";
+              html += `      <td style="text-align: ${align};">${text}</td>\n`;
+            }
+            html += "    </tr>\n";
+          }
+          html += "  </tbody>\n</table>";
+          outputCode.value = html;
+        } else if (activeTab === "preview") {
+          wrapCode.style.display = "none";
+          wrapPreview.style.display = "block";
+          outputLabel.textContent = "Live Interactive Table Preview:";
+        }
+      }
+
+      document.getElementById("btn-add-row").addEventListener("click", () => {
+        rows++;
+        data.push(new Array(cols).fill(""));
+        renderGrid();
+      });
+
+      document.getElementById("btn-del-row").addEventListener("click", () => {
+        if (rows > 1) {
+          rows--;
+          data.pop();
+          renderGrid();
+        }
+      });
+
+      document.getElementById("btn-add-col").addEventListener("click", () => {
+        cols++;
+        headers.push(`Header ${cols}`);
+        alignments.push("left");
+        for (let r = 0; r < rows; r++) {
+          if (!data[r]) data[r] = [];
+          data[r].push("");
+        }
+        renderGrid();
+      });
+
+      document.getElementById("btn-del-col").addEventListener("click", () => {
+        if (cols > 1) {
+          cols--;
+          headers.pop();
+          alignments.pop();
+          for (let r = 0; r < rows; r++) {
+            if (data[r]) data[r].pop();
+          }
+          renderGrid();
+        }
+      });
+
+      document.getElementById("btn-clear-table").addEventListener("click", () => {
+        headers = headers.map(() => "");
+        data = data.map(r => r.map(() => ""));
+        renderGrid();
+      });
+
+      document.getElementById("btn-import-csv").addEventListener("click", () => {
+        const raw = prompt("Paste your CSV content (comma or tab delimited):");
+        if (!raw) return;
+        const lines = raw.trim().split(/\r?\n/).map(l => l.split(/,|\t/).map(s => s.trim()));
+        if (lines.length > 0) {
+          headers = lines[0];
+          cols = headers.length;
+          data = lines.slice(1);
+          rows = Math.max(1, data.length);
+          alignments = new Array(cols).fill("left");
+          renderGrid();
+        }
+      });
+
+      document.getElementById("tab-md").addEventListener("click", () => {
+        activeTab = "md";
+        document.getElementById("tab-md").classList.add("active");
+        document.getElementById("tab-html").classList.remove("active");
+        document.getElementById("tab-preview").classList.remove("active");
+        generateOutput();
+      });
+
+      document.getElementById("tab-html").addEventListener("click", () => {
+        activeTab = "html";
+        document.getElementById("tab-html").classList.add("active");
+        document.getElementById("tab-md").classList.remove("active");
+        document.getElementById("tab-preview").classList.remove("active");
+        generateOutput();
+      });
+
+      document.getElementById("tab-preview").addEventListener("click", () => {
+        activeTab = "preview";
+        document.getElementById("tab-preview").classList.add("active");
+        document.getElementById("tab-md").classList.remove("active");
+        document.getElementById("tab-html").classList.remove("active");
+        generateOutput();
+      });
+
+      document.getElementById("btn-copy-code").addEventListener("click", () => {
+        copyToClipboard(outputCode.value, "Table code copied to clipboard!");
+      });
+
+      renderGrid();
+    });
+  </script>
+</body>
+</html>

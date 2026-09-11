@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Status Codes Directory & Developer Reference | WebToolsHub</title>
+  <meta name="description" content="Searchable reference directory for all HTTP status codes (1xx - 5xx) with RFC specifications, troubleshooting guides, and Node.js / Python code snippets.">
+  <meta name="keywords" content="http status codes, 404 not found, 500 internal server error, http error codes, http response codes, rfc status codes">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/http-status-codes.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/http-status-codes.html">
+  <meta property="og:title" content="HTTP Status Codes Directory & Developer Reference | WebToolsHub">
+  <meta property="og:description" content="Searchable reference directory for all HTTP status codes (1xx - 5xx) with RFC specifications, troubleshooting guides, and Node.js / Python code snippets.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/http-status-codes.html">
+  <meta name="twitter:title" content="HTTP Status Codes Directory & Developer Reference | WebToolsHub">
+  <meta name="twitter:description" content="Searchable reference directory for all HTTP status codes (1xx - 5xx) with RFC specifications, troubleshooting guides, and Node.js / Python code snippets.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTTP Status Codes Directory",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">HTTP Status Codes Directory</h1>
+      <p class="tool-subtitle">Complete reference guide for standard HTTP response status codes with causes, fixes, and server code snippets.</p>
+    </div>
+
+    <div class="card" style="padding: 20px; margin-bottom: 24px;">
+      <div class="form-group" style="margin-bottom: 14px;">
+        <input type="text" class="input-field" id="search-input" placeholder="Search by code (404, 500) or phrase (Unauthorized, Gateway, Bad Request)..." autofocus>
+      </div>
+      <div class="status-filters">
+        <button class="btn btn-secondary filter-btn active" data-filter="all">All (30+)</button>
+        <button class="btn btn-secondary filter-btn" data-filter="1xx">1xx Informational</button>
+        <button class="btn btn-secondary filter-btn" data-filter="2xx">2xx Success</button>
+        <button class="btn btn-secondary filter-btn" data-filter="3xx">3xx Redirection</button>
+        <button class="btn btn-secondary filter-btn" data-filter="4xx">4xx Client Error</button>
+        <button class="btn btn-secondary filter-btn" data-filter="5xx">5xx Server Error</button>
+      </div>
+    </div>
+
+    <!-- Status Cards Container -->
+    <div id="status-list"></div>
+
+    <div class="seo-content card" style="margin-top: 32px;">
+      <h2>Understanding HTTP Response Status Codes</h2>
+      <p>HTTP status codes are 3-digit integers issued by a server in response to a client request. The first digit defines the response category: 1xx (Informational), 2xx (Success), 3xx (Redirection), 4xx (Client Error), and 5xx (Server Error).</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Developer Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="qr-code-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a>
+          <a href="url-encoder-decoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a>
+          <a href="ip-lookup.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a>
+          <a href="user-agent-parser.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="detail-modal-overlay" id="detail-modal">
+    <div class="detail-modal">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="status-badge" id="modal-code">200</span>
+          <h2 style="font-size: 22px; margin: 0;" id="modal-phrase">OK</h2>
+        </div>
+        <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 16px;" onclick="closeModal()">✕</button>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <h4 style="margin: 0 0 6px; color: var(--text-secondary); font-size: 13px; text-transform: uppercase;">Official Definition (RFC)</h4>
+        <p id="modal-desc" style="font-size: 14px; line-height: 1.6;"></p>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <h4 style="margin: 0 0 6px; color: var(--text-secondary); font-size: 13px; text-transform: uppercase;">Common Causes & Real-World Use</h4>
+        <p id="modal-causes" style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);"></p>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <h4 style="margin: 0 0 6px; color: var(--text-secondary); font-size: 13px; text-transform: uppercase;">How to Fix / Debug</h4>
+        <p id="modal-fixes" style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);"></p>
+      </div>
+
+      <div>
+        <h4 style="margin: 0 0 8px; color: var(--text-secondary); font-size: 13px; text-transform: uppercase;">Server Implementation Code Example</h4>
+        <pre id="modal-snippet" style="background: var(--bg-subtle); padding: 12px; border-radius: 6px; font-family: var(--font-mono); font-size: 12.5px; overflow-x: auto;"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const statusCodes = [
+      { code: 200, phrase: "OK", cat: "2xx", desc: "The standard response for successful HTTP requests.", causes: "GET request succeeded with resource payload, or POST processed properly.", fixes: "No fix needed. Payload successfully served.", snippet: "// Node.js (Express)\nres.status(200).json({ status: 'success', data: items });" },
+      { code: 201, phrase: "Created", cat: "2xx", desc: "The request has been fulfilled, resulting in the creation of a new resource.", causes: "Commonly issued after a successful POST request creating a user, product, or record.", fixes: "Often paired with a 'Location' header pointing to the new resource URI.", snippet: "// Node.js (Express)\nres.status(201).location(`/api/items/${newItem.id}`).json(newItem);" },
+      { code: 204, phrase: "No Content", cat: "2xx", desc: "The server successfully processed the request and does not need to return any entity body.", causes: "Typical response for DELETE requests or PUT actions where client needs no payload.", fixes: "Do not send any body in the HTTP response.", snippet: "// Node.js (Express)\nres.status(204).send();" },
+      { code: 301, phrase: "Moved Permanently", cat: "3xx", desc: "The target resource has been assigned a new permanent URI.", causes: "Website domain migration, URL redesign, or HTTP to HTTPS canonical redirection.", fixes: "Always configure 301 for SEO link equity passing.", snippet: "// Node.js (Express)\nres.redirect(301, 'https://newdomain.com/page');" },
+      { code: 302, phrase: "Found (Temporary Redirect)", cat: "3xx", desc: "Tells the client to look at another URI temporarily.", causes: "Temporary maintenance redirects, geo-location landing routing.", fixes: "Use 307 if the request method (POST/PUT) must be preserved.", snippet: "// Node.js (Express)\nres.redirect(302, '/maintenance');" },
+      { code: 304, phrase: "Not Modified", cat: "3xx", desc: "Indicates that the resource has not been modified since the version specified by the ETag or If-Modified-Since header.", causes: "Client browser cache is already fresh and valid.", fixes: "Saves massive bandwidth. No body returned.", snippet: "// Node.js (Express)\nres.status(304).end();" },
+      { code: 400, phrase: "Bad Request", cat: "4xx", desc: "The server cannot or will not process the request due to perceived client error.", causes: "Malformed JSON payload syntax, missing required fields, invalid parameters.", fixes: "Check API request body schema, validate query parameters in client request.", snippet: "// Node.js (Express)\nif (!req.body.email) return res.status(400).json({ error: 'Email required' });" },
+      { code: 401, phrase: "Unauthorized", cat: "4xx", desc: "Authentication is required and has failed or has not yet been provided.", causes: "Missing JWT bearer token, expired API key, or bad login credentials.", fixes: "Supply valid Authorization header: Bearer <token>.", snippet: "// Node.js (Express)\nres.status(401).json({ error: 'Invalid or expired bearer token' });" },
+      { code: 403, phrase: "Forbidden", cat: "4xx", desc: "The server understood the request but refuses to authorize it.", causes: "User is authenticated, but lacks permissions (e.g. non-admin accessing admin panel).", fixes: "Check user role and permissions. Re-authenticating with same token won't help.", snippet: "// Node.js (Express)\nres.status(403).json({ error: 'Access denied: Admin role required' });" },
+      { code: 404, phrase: "Not Found", cat: "4xx", desc: "The server cannot find the requested resource.", causes: "Broken hyperlink, mistyped URL endpoint, or deleted database entity.", fixes: "Verify route URL path, check rewrite rules in Nginx/Apache.", snippet: "// Node.js (Express)\nres.status(404).json({ error: 'Endpoint or resource not found' });" },
+      { code: 405, phrase: "Method Not Allowed", cat: "4xx", desc: "The request method is known by the server but is not supported by the target resource.", causes: "Sending a POST or DELETE to a route that only accepts GET.", fixes: "Check Allowed HTTP methods in API documentation. Include 'Allow' header.", snippet: "// Node.js (Express)\nres.set('Allow', 'GET, HEAD').status(405).end();" },
+      { code: 409, phrase: "Conflict", cat: "4xx", desc: "The request could not be completed due to a conflict with current resource state.", causes: "Attempting to register an email that already exists in the database.", fixes: "Prompt the user to resolve duplicate or conflicting records.", snippet: "// Node.js (Express)\nres.status(409).json({ error: 'User with this email already exists' });" },
+      { code: 422, phrase: "Unprocessable Entity", cat: "4xx", desc: "The request was well-formed but contains semantic validation errors.", causes: "Password fails minimum length requirements, email fails format regex.", fixes: "Return detailed field validation error array to the client form.", snippet: "// Node.js (Express)\nres.status(422).json({ errors: [{ field: 'age', message: 'Must be >= 18' }] });" },
+      { code: 429, phrase: "Too Many Requests", cat: "4xx", desc: "The user has sent too many requests in a given amount of time (rate limit exceeded).", causes: "Client API abuse, DDoS, or bot scraping.", fixes: "Implement exponential backoff in client. Check 'Retry-After' header.", snippet: "// Node.js (Express)\nres.set('Retry-After', '60').status(429).json({ error: 'Rate limit exceeded' });" },
+      { code: 500, phrase: "Internal Server Error", cat: "5xx", desc: "A generic error message indicating an unexpected condition on the server.", causes: "Uncaught exception, database connection drop, syntax crash in backend code.", fixes: "Inspect backend application server logs and stack traces.", snippet: "// Node.js (Express)\nres.status(500).json({ error: 'Internal server error. Incident logged.' });" },
+      { code: 502, phrase: "Bad Gateway", cat: "5xx", desc: "The server, while acting as a gateway or proxy, received an invalid response from upstream.", causes: "Reverse proxy (Nginx/Cloudflare) cannot connect to Node.js/Python backend process.", fixes: "Verify PM2/Docker container is running and listening on the configured port.", snippet: "# Nginx Configuration\nproxy_pass http://127.0.0.1:3000;\nproxy_connect_timeout 60s;" },
+      { code: 503, phrase: "Service Unavailable", cat: "5xx", desc: "The server is currently unable to handle the request due to maintenance or overload.", causes: "Server CPU/RAM maxed out, scheduled database maintenance.", fixes: "Send Retry-After header with estimated downtime in seconds.", snippet: "// Node.js (Express)\nres.set('Retry-After', '300').status(503).send('Site under maintenance');" },
+      { code: 504, phrase: "Gateway Timeout", cat: "5xx", desc: "The gateway or proxy did not receive a timely response from upstream server.", causes: "Long-running database query, external API timeout, slow file processing.", fixes: "Increase proxy_read_timeout in Nginx or optimize database query indexing.", snippet: "# Nginx timeout adjustment\nproxy_read_timeout 120s;" }
+    ];
+
+    let currentFilter = 'all';
+    const listEl = document.getElementById('status-list');
+    const searchInput = document.getElementById('search-input');
+
+    function renderCodes() {
+      const q = searchInput.value.toLowerCase().trim();
+      const filtered = statusCodes.filter(item => {
+        const matchesFilter = currentFilter === 'all' || item.cat === currentFilter;
+        const matchesSearch = !q || item.code.toString().includes(q) || item.phrase.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<div class="card" style="padding: 40px; text-align: center; color: var(--text-muted);">No HTTP status codes match your criteria.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(item => `
+        <div class="status-card" onclick="openDetail(${item.code})">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="status-badge badge-${item.cat}">${item.code}</span>
+              <strong style="font-size: 16px;">${item.phrase}</strong>
+            </div>
+            <span style="font-size: 12px; color: var(--accent-primary); font-weight: 600;">View Fix & Code &rarr;</span>
+          </div>
+          <p style="margin: 0; font-size: 14px; color: var(--text-secondary); line-height: 1.5;">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    function openDetail(code) {
+      const item = statusCodes.find(c => c.code === code);
+      if (!item) return;
+
+      const modalCode = document.getElementById('modal-code');
+      modalCode.textContent = item.code;
+      modalCode.className = `status-badge badge-${item.cat}`;
+
+      document.getElementById('modal-phrase').textContent = item.phrase;
+      document.getElementById('modal-desc').textContent = item.desc;
+      document.getElementById('modal-causes').textContent = item.causes;
+      document.getElementById('modal-fixes').textContent = item.fixes;
+      document.getElementById('modal-snippet').textContent = item.snippet;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').style.display = 'none';
+    }
+
+    document.getElementById('detail-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'detail-modal') closeModal();
+    });
+
+    searchInput.addEventListener('input', renderCodes);
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        renderCodes();
+      });
+    });
+
+    renderCodes();
+  </script>
+</body>
+</html>

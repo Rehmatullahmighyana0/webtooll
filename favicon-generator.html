@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Favicon Generator & Package Creator (Multi-Resolution) | WebToolsHub</title>
+  <meta name="description" content="Create website favicons from emoji, text, or uploaded image logos. Instant previews in 16x16, 32x32, 48x48, 180x180 (Apple), and 512x512 (PWA) with HTML code.">
+  <meta name="keywords" content="favicon generator, create favicon, image to favicon, apple touch icon, favicon html code, pwa icon">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/favicon-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/favicon-generator.html">
+  <meta property="og:title" content="Free Favicon Generator & Package Creator (Multi-Resolution) | WebToolsHub">
+  <meta property="og:description" content="Create website favicons from emoji, text, or uploaded image logos. Instant previews in 16x16, 32x32, 48x48, 180x180 (Apple), and 512x512 (PWA) with HTML code.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/favicon-generator.html">
+  <meta name="twitter:title" content="Free Favicon Generator & Package Creator (Multi-Resolution) | WebToolsHub">
+  <meta name="twitter:description" content="Create website favicons from emoji, text, or uploaded image logos. Instant previews in 16x16, 32x32, 48x48, 180x180 (Apple), and 512x512 (PWA) with HTML code.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Favicon Generator and Icon Maker",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Favicon Generator & Icon Creator</h1>
+      <p class="tool-subtitle">Design multi-resolution favicon packages from emojis, custom text, or uploaded brand images with ready-to-use HTML code.</p>
+    </div>
+
+    <div class="favicon-grid">
+      <!-- Customization Form -->
+      <div>
+        <div class="card" style="padding: 24px;">
+          <h2 style="font-size: 18px; margin-bottom: 16px;">1. Design or Upload Icon</h2>
+
+          <div class="form-group">
+            <label class="form-label" for="img-file-upload">Upload Image or Logo (Optional)</label>
+            <input type="file" id="img-file-upload" accept="image/*" class="input-field">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="icon-char">Or Text / Emoji (1-2 characters)</label>
+            <input type="text" class="input-field" id="icon-char" value="⚡" maxlength="2" style="font-size: 16px; text-align: center; width: 64px; height: 38px;">
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label" for="bg-color">Background Color</label>
+              <input type="color" class="input-field" id="bg-color" value="#6366f1" style="height: 42px; padding: 4px; cursor: pointer;">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="text-color">Text / Icon Color</label>
+              <input type="color" class="input-field" id="text-color" value="#ffffff" style="height: 42px; padding: 4px; cursor: pointer;">
+            </div>
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label" for="shape-style">Shape & Corners</label>
+              <select class="select-field" id="shape-style">
+                <option value="rounded">Rounded Square</option>
+                <option value="circle">Full Circle</option>
+                <option value="square">Sharp Square</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="font-family">Font Family</label>
+              <select class="select-field" id="font-family">
+                <option value="sans-serif">Sans Serif (Inter/Arial)</option>
+                <option value="serif">Serif (Times/Georgia)</option>
+                <option value="monospace">Monospace (Courier)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Previews & Download Column -->
+      <div>
+        <div class="card" style="padding: 24px;">
+          <h2 style="font-size: 18px; margin-bottom: 16px;">2. Multi-Size Browser Previews</h2>
+
+          <div class="preview-sizes">
+            <div class="size-box">
+              <canvas id="c-180" width="180" height="180" style="width: 52px; height: 52px;"></canvas>
+              <span>180x180 Apple</span>
+            </div>
+            <div class="size-box">
+              <canvas id="c-64" width="64" height="64" style="width: 40px; height: 40px;"></canvas>
+              <span>64x64</span>
+            </div>
+            <div class="size-box">
+              <canvas id="c-48" width="48" height="48" style="width: 32px; height: 32px;"></canvas>
+              <span>48x48</span>
+            </div>
+            <div class="size-box">
+              <canvas id="c-32" width="32" height="32" style="width: 24px; height: 24px;"></canvas>
+              <span>32x32</span>
+            </div>
+            <div class="size-box">
+              <canvas id="c-16" width="16" height="16" style="width: 16px; height: 16px;"></canvas>
+              <span>16x16</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn btn-primary" id="btn-dl-32">💾 Download 32x32 (.png)</button>
+            <button class="btn btn-secondary" id="btn-dl-180">💾 Apple Touch (180x180)</button>
+            <button class="btn btn-secondary" id="btn-dl-16">💾 16x16 Favicon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HTML Head Code Snippet -->
+    <div class="card" style="margin-top: 24px; padding: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+        <h2 style="font-size: 18px; margin: 0;">HTML Code to Embed in &lt;head&gt;</h2>
+        <button class="btn btn-secondary" id="btn-copy-html">📋 Copy HTML Code</button>
+      </div>
+      <textarea class="textarea-field" id="favicon-html" rows="5" readonly style="font-family: var(--font-mono); font-size: 13px;"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest"></textarea>
+    </div>
+
+    <div class="seo-content card" style="margin-top: 32px;">
+      <h2>Standard Favicon Resolutions</h2>
+      <p>Modern web standards recommend supplying a 32x32 PNG for desktop browser tabs, a 16x16 PNG for browser bookmark bars, a 180x180 Apple Touch Icon for iOS home screen shortcuts, and a 192x192 or 512x512 icon inside the Progressive Web App (PWA) manifest.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Images Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="image-compressor.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🖼️ Image Compressor</span><span class="badge-mini">Popular</span></a>
+          <a href="svg-to-png.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🖼️ SVG to PNG Converter</span><span class="badge-mini">Graphics</span></a>
+          <a href="image-resizer.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📐 Image Resizer</span><span class="badge-mini">Images</span></a>
+          <a href="image-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔄 Image Format Converter</span><span class="badge-mini">Images</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const charInput = document.getElementById('icon-char');
+    const bgColorInput = document.getElementById('bg-color');
+    const textColorInput = document.getElementById('text-color');
+    const shapeSelect = document.getElementById('shape-style');
+    const fontSelect = document.getElementById('font-family');
+    const fileUpload = document.getElementById('img-file-upload');
+
+    let uploadedImg = null;
+
+    const canvases = [
+      document.getElementById('c-180'),
+      document.getElementById('c-64'),
+      document.getElementById('c-48'),
+      document.getElementById('c-32'),
+      document.getElementById('c-16')
+    ];
+
+    function drawFavicon(canvas) {
+      const size = canvas.width;
+      const ctx = canvas.getContext('2d');
+      const text = charInput.value || '★';
+      const bg = bgColorInput.value;
+      const fg = textColorInput.value;
+      const shape = shapeSelect.value;
+      const font = fontSelect.value;
+
+      ctx.clearRect(0, 0, size, size);
+
+      // Draw background shape
+      ctx.fillStyle = bg;
+      ctx.beginPath();
+      if (shape === 'circle') {
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      } else if (shape === 'rounded') {
+        const radius = size * 0.22;
+        ctx.roundRect(0, 0, size, size, radius);
+      } else {
+        ctx.rect(0, 0, size, size);
+      }
+      ctx.fill();
+
+      // Draw uploaded image OR text
+      if (uploadedImg) {
+        ctx.save();
+        ctx.clip();
+        ctx.drawImage(uploadedImg, 0, 0, size, size);
+        ctx.restore();
+      } else {
+        ctx.fillStyle = fg;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const fontSize = Math.round(size * 0.58);
+        ctx.font = `bold ${fontSize}px ${font}`;
+        ctx.fillText(text, size / 2, size / 2 + (size * 0.04));
+      }
+    }
+
+    function updateAll() {
+      canvases.forEach(c => drawFavicon(c));
+    }
+
+    fileUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const img = new Image();
+        img.onload = () => {
+          uploadedImg = img;
+          updateAll();
+          showToast('Image logo loaded!');
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    [charInput, bgColorInput, textColorInput, shapeSelect, fontSelect].forEach(el => {
+      el.addEventListener('input', () => { uploadedImg = null; updateAll(); });
+      el.addEventListener('change', () => { uploadedImg = null; updateAll(); });
+    });
+
+    function downloadCanvas(canvasId, filename) {
+      const c = document.getElementById(canvasId);
+      const a = document.createElement('a');
+      a.href = c.toDataURL('image/png');
+      a.download = filename;
+      a.click();
+      showToast(`Downloaded ${filename}`);
+    }
+
+    document.getElementById('btn-dl-32').addEventListener('click', () => downloadCanvas('c-32', 'favicon-32x32.png'));
+    document.getElementById('btn-dl-180').addEventListener('click', () => downloadCanvas('c-180', 'apple-touch-icon.png'));
+    document.getElementById('btn-dl-16').addEventListener('click', () => downloadCanvas('c-16', 'favicon-16x16.png'));
+
+    document.getElementById('btn-copy-html').addEventListener('click', () => {
+      navigator.clipboard.writeText(document.getElementById('favicon-html').value);
+      showToast('HTML code copied to clipboard!');
+    });
+
+    updateAll();
+  </script>
+</body>
+</html>

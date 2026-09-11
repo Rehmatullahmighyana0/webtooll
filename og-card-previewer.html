@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Graph & Twitter Card Previewer | WebToolsHub</title>
+  <meta name="description" content="Preview how your web pages look when shared across Twitter / X, Facebook, LinkedIn, and Discord. Test og:title, og:image, and Twitter card meta tags live.">
+  <meta name="keywords" content="open graph previewer, twitter card preview, og image test, social share preview, discord link preview">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/og-card-previewer.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/og-card-previewer.html">
+  <meta property="og:title" content="Open Graph & Twitter Card Previewer | WebToolsHub">
+  <meta property="og:description" content="Preview how your web pages look when shared across Twitter / X, Facebook, LinkedIn, and Discord. Test og:title, og:image, and Twitter card meta tags live.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/og-card-previewer.html">
+  <meta name="twitter:title" content="Open Graph & Twitter Card Previewer | WebToolsHub">
+  <meta name="twitter:description" content="Preview how your web pages look when shared across Twitter / X, Facebook, LinkedIn, and Discord. Test og:title, og:image, and Twitter card meta tags live.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Social Card & OG Previewer",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Preview Open Graph and Twitter Cards for social media sharing."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Web & SEO Tools</span> &gt; <span>OG Card Previewer</span>
+      </nav>
+      <h1 class="tool-page-title">Open Graph & Twitter Social Card Previewer</h1>
+      <p class="tool-page-subtitle">See exactly how your link previews will look when shared on Twitter / X, Facebook, LinkedIn, and Discord before publishing.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Simulation</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          
+          <!-- Input fields -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Social Metadata Details</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="meta-title">Page Title (og:title):</label>
+              <input type="text" id="meta-title" class="form-input" value="WebToolsHub — Free Online IT & Developer Utilities">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="meta-desc">Description (og:description):</label>
+              <textarea id="meta-desc" class="form-textarea" style="min-height: 80px;">Lightning-fast browser utilities. Compress images, generate passwords, format JSON, decode JWT, and calculate network subnets completely client-side.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="meta-url">Target URL (og:url):</label>
+              <input type="url" id="meta-url" class="form-input" value="https://webtoolshub.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="meta-img">Banner Image URL (og:image):</label>
+              <input type="url" id="meta-img" class="form-input" value="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=630&fit=crop">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="platform-tab">Select Preview Platform:</label>
+              <select id="platform-tab" class="form-select">
+                <option value="twitter" selected>Twitter / X (Summary Large Image)</option>
+                <option value="facebook">Facebook News Feed</option>
+                <option value="linkedin">LinkedIn Card</option>
+                <option value="discord">Discord Embed Card</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Live Preview Canvas -->
+          <div>
+            <label class="form-label" style="font-weight: 700; margin-bottom: 0.5rem;">Live Simulated Social Feed Preview:</label>
+            
+            <div id="preview-container" style="background: #000000; border-radius: 16px; padding: 1.25rem; border: 1px solid #2f3336; color: #e7e9ea; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+              <!-- Simulated Post Avatar & Author -->
+              <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent-primary); display: flex; align-items: center; justify-content: center; font-weight: 700;">W</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem;">WebToolsHub <span style="font-weight: 400; color: #71767b;">@webtoolshub</span></div>
+                  <div style="font-size: 0.85rem; color: #71767b;">Check out our newest tools collection!</div>
+                </div>
+              </div>
+
+              <!-- The Card -->
+              <div id="social-card-box" style="border: 1px solid #2f3336; border-radius: 14px; overflow: hidden; background: #0f1419;">
+                <div style="width: 100%; height: 180px; overflow: hidden; background: #1a2234;">
+                  <img id="card-img" src="" alt="Social banner" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 12px 14px;">
+                  <div id="card-domain" style="font-size: 0.75rem; color: #71767b; text-transform: lowercase; margin-bottom: 4px;">webtoolshub.com</div>
+                  <div id="card-title" style="font-weight: 700; font-size: 0.95rem; line-height: 1.3; margin-bottom: 6px;">Title here...</div>
+                  <div id="card-desc" style="font-size: 0.82rem; color: #71767b; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Description here...</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HTML Tags copy -->
+            <div style="margin-top: 1rem;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-meta">Copy HTML Meta Tags</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related SEO & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>The Importance of Open Graph (OG) Meta Tags</h2>
+      <p>Without Open Graph tags (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>), platforms like Facebook, Discord, and LinkedIn randomly choose an image and snippet from your page, resulting in cropped logos, low click-through rates, and broken branding. Verifying your cards ensures every link shared commands maximum attention.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const titleIn = document.getElementById("meta-title");
+      const descIn = document.getElementById("meta-desc");
+      const urlIn = document.getElementById("meta-url");
+      const imgIn = document.getElementById("meta-img");
+      const platSelect = document.getElementById("platform-tab");
+
+      const cardImg = document.getElementById("card-img");
+      const cardDomain = document.getElementById("card-domain");
+      const cardTitle = document.getElementById("card-title");
+      const cardDesc = document.getElementById("card-desc");
+      const prevContainer = document.getElementById("preview-container");
+
+      function updateCard() {
+        const title = titleIn.value;
+        const desc = descIn.value;
+        const url = urlIn.value;
+        const img = imgIn.value;
+        const plat = platSelect.value;
+
+        cardTitle.textContent = title;
+        cardDesc.textContent = desc;
+        cardImg.src = img || "images/logo.svg";
+
+        try {
+          const parsed = new URL(url.startsWith("http") ? url : "https://" + url);
+          cardDomain.textContent = parsed.hostname;
+        } catch (e) {
+          cardDomain.textContent = "example.com";
+        }
+
+        // Adjust styling based on platform
+        if (plat === "facebook") {
+          prevContainer.style.background = "#ffffff";
+          prevContainer.style.color = "#050505";
+          cardDomain.style.color = "#65676b";
+          cardDesc.style.color = "#65676b";
+        } else if (plat === "discord") {
+          prevContainer.style.background = "#313338";
+          prevContainer.style.color = "#dbdee1";
+          cardDomain.style.color = "#949ba4";
+          cardDesc.style.color = "#949ba4";
+        } else {
+          // Twitter dark
+          prevContainer.style.background = "#000000";
+          prevContainer.style.color = "#e7e9ea";
+          cardDomain.style.color = "#71767b";
+          cardDesc.style.color = "#71767b";
+        }
+      }
+
+      [titleIn, descIn, urlIn, imgIn, platSelect].forEach(el => el.addEventListener("input", updateCard));
+
+      document.getElementById("btn-copy-meta").addEventListener("click", () => {
+        const code = `
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="${urlIn.value}">
+<meta property="og:title" content="${titleIn.value}">
+<meta property="og:description" content="${descIn.value}">
+<meta property="og:image" content="${imgIn.value}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="${urlIn.value}">
+<meta property="twitter:title" content="${titleIn.value}">
+<meta property="twitter:description" content="${descIn.value}">
+<meta property="twitter:image" content="${imgIn.value}">
+        `.trim();
+        copyToClipboard(code, "Meta tags copied to clipboard!");
+      });
+
+      updateCard();
+    });
+  </script>
+</body>
+</html>

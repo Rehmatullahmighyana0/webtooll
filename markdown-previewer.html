@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Markdown Editor & Live HTML Previewer | WebToolsHub</title>
+  <meta name="description" content="Write, edit, and preview Markdown in real-time with an interactive formatting toolbar, README templates, live word count, and HTML/MD export.">
+  <meta name="keywords" content="markdown editor, markdown previewer, markdown to html, live markdown editor, readme generator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/markdown-previewer.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/markdown-previewer.html">
+  <meta property="og:title" content="Free Markdown Editor & Live HTML Previewer | WebToolsHub">
+  <meta property="og:description" content="Write, edit, and preview Markdown in real-time with an interactive formatting toolbar, README templates, live word count, and HTML/MD export.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/markdown-previewer.html">
+  <meta name="twitter:title" content="Free Markdown Editor & Live HTML Previewer | WebToolsHub">
+  <meta name="twitter:description" content="Write, edit, and preview Markdown in real-time with an interactive formatting toolbar, README templates, live word count, and HTML/MD export.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Markdown Live Editor",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Markdown Live Editor & Previewer</h1>
+      <p class="tool-subtitle">Real-time split-screen Markdown editor with formatting tools, template library, and HTML/MD export.</p>
+    </div>
+
+    <!-- Template Bar & Actions -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <label class="form-label" style="margin: 0; font-size: 13px;">Load Template:</label>
+        <select class="select-field" id="template-select" style="padding: 6px 12px; font-size: 13px;">
+          <option value="custom">Choose Template...</option>
+          <option value="readme">GitHub README.md</option>
+          <option value="api">REST API Documentation</option>
+          <option value="notes">Meeting Notes / Agenda</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;" id="btn-copy-html">📋 Copy HTML</button>
+        <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;" id="btn-dl-md">💾 Save .md</button>
+        <button class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;" id="btn-dl-html">🌐 Export HTML File</button>
+      </div>
+    </div>
+
+    <!-- Editor Toolbar -->
+    <div class="md-toolbar">
+      <button class="tb-btn" onclick="insertSyntax('**', '**', 'bold text')"><strong>B</strong> Bold</button>
+      <button class="tb-btn" onclick="insertSyntax('*', '*', 'italic text')"><em>I</em> Italic</button>
+      <button class="tb-btn" onclick="insertLineSyntax('# ')">H1</button>
+      <button class="tb-btn" onclick="insertLineSyntax('## ')">H2</button>
+      <button class="tb-btn" onclick="insertLineSyntax('### ')">H3</button>
+      <button class="tb-btn" onclick="insertLineSyntax('> ')">❝ Quote</button>
+      <button class="tb-btn" onclick="insertSyntax('`', '`', 'code')">&lt;/&gt; Inline</button>
+      <button class="tb-btn" onclick="insertSyntax('```\n', '\n```', 'console.log(&quot;Hello&quot;);')">{ } Code Block</button>
+      <button class="tb-btn" onclick="insertSyntax('[', '](https://example.com)', 'Link Title')">🔗 Link</button>
+      <button class="tb-btn" onclick="insertSyntax('![', '](https://via.placeholder.com/150)', 'Alt Text')">🖼️ Image</button>
+      <button class="tb-btn" onclick="insertLineSyntax('- ')">• Bullet</button>
+      <button class="tb-btn" onclick="insertLineSyntax('1. ')">1. Number</button>
+      <button class="tb-btn" onclick="insertTable()">📊 Table</button>
+      <button class="tb-btn" onclick="document.getElementById('md-input').value='';render();">🗑️ Clear</button>
+    </div>
+
+    <!-- Split Screen Editor -->
+    <div class="md-container">
+      <textarea id="md-input" spellcheck="false" placeholder="Type Markdown here..."></textarea>
+      <div id="md-preview"></div>
+    </div>
+
+    <!-- Live Metrics -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border-color); border-top: none; border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);">
+      <span id="md-stats">0 words | 0 characters | 0 lines</span>
+      <span id="reading-time">~0 min read</span>
+    </div>
+
+    <div class="seo-content card" style="margin-top: 32px;">
+      <h2>What is Markdown?</h2>
+      <p>Markdown is a lightweight markup language with plain text formatting syntax. It is widely used by developers on GitHub, Reddit, and blogging platforms like Dev.to to format rich text easily without touching messy raw HTML tags.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Text Tools Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="word-counter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a>
+          <a href="case-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a>
+          <a href="lorem-ipsum-generator.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a>
+          <a href="text-diff.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⚖️ Text & Code Diff Checker</span><span class="badge-mini">Compare</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const inputEl = document.getElementById('md-input');
+    const previewEl = document.getElementById('md-preview');
+
+    const TEMPLATES = {
+      readme: `# Project Title 🚀\n\nA short description of what this project does and who it's for.\n\n## Features ✨\n- Feature 1: Super fast processing\n- Feature 2: 100% client-side security\n- Feature 3: Responsive design\n\n## Installation 📦\n\`\`\`bash\nnpm install my-awesome-tool\nnpm run dev\n\`\`\`\n\n## Contributing 🤝\nPull requests are welcome. For major changes, please open an issue first.`,
+      api: `# REST API Reference 📡\n\n### GET /api/v1/users\nRetrieve a list of active users.\n\n| Parameter | Type | Required | Description |\n| :--- | :--- | :--- | :--- |\n| \`limit\` | integer | Optional | Max items to return (default: 20) |\n| \`page\` | integer | Optional | Page offset index |\n\n#### Example Response\n\`\`\`json\n{\n  "status": "success",\n  "data": [\n    { "id": 1, "name": "John Doe", "role": "admin" }\n  ]\n}\n\`\`\``,
+      notes: `# Team Sprint Planning Notes 📅\n**Date:** ${new Date().toLocaleDateString()}\n**Attendees:** Alex, Sarah, Michael, Linda\n\n### Action Items\n- [ ] Finalize Q3 roadmap by Friday\n- [ ] Audit application bundle performance\n- [ ] Review customer feedback tickets\n\n### Open Discussion Topics\n1. Database migration timelines\n2. Infrastructure budget optimization`
+    };
+
+    function parseMarkdown(md) {
+      if (!md) return '';
+      let html = md
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        // Code blocks
+        .replace(/```([\s\S]*?)```/g, (m, code) => `<pre><code>${code.trim()}</code></pre>`)
+        // Inline code
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        // Headings
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        // Blockquotes
+        .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+        // Bold & Italic
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        // Images & Links
+        .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%; border-radius:6px;">')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        // Tables
+        .replace(/\|(.+)\|/g, (match) => {
+          const cells = match.split('|').filter(c => c.trim() !== '');
+          if (cells.some(c => /:?---+:?/.test(c))) return '';
+          return '<tr>' + cells.map(c => `<td>${c.trim()}</td>`).join('') + '</tr>';
+        })
+        // Unordered lists
+        .replace(/^\- (.*$)/gim, '<li>$1</li>')
+        // Line breaks
+        .replace(/\n\n/g, '<p></p>')
+        .replace(/\n/g, '<br>');
+
+      html = html.replace(/(<tr>.*?<\/tr>)/gs, '<table>$1</table>');
+      return html;
+    }
+
+    function render() {
+      const text = inputEl.value;
+      previewEl.innerHTML = parseMarkdown(text);
+
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      const chars = text.length;
+      const lines = text.split('\n').length;
+      const readMin = Math.ceil(words / 200) || 1;
+
+      document.getElementById('md-stats').textContent = `${words.toLocaleString()} words | ${chars.toLocaleString()} characters | ${lines} lines`;
+      document.getElementById('reading-time').textContent = `~${readMin} min read`;
+    }
+
+    function insertSyntax(before, after, placeholder) {
+      const start = inputEl.selectionStart;
+      const end = inputEl.selectionEnd;
+      const val = inputEl.value;
+      const sel = val.substring(start, end) || placeholder;
+      inputEl.value = val.substring(0, start) + before + sel + after + val.substring(end);
+      inputEl.focus();
+      inputEl.setSelectionRange(start + before.length, start + before.length + sel.length);
+      render();
+    }
+
+    function insertLineSyntax(prefix) {
+      const start = inputEl.selectionStart;
+      const val = inputEl.value;
+      const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+      inputEl.value = val.substring(0, lineStart) + prefix + val.substring(lineStart);
+      inputEl.focus();
+      render();
+    }
+
+    function insertTable() {
+      const table = `\n| Column 1 | Column 2 | Column 3 |\n| :--- | :--- | :--- |\n| Row 1 | Data A | Value X |\n| Row 2 | Data B | Value Y |\n\n`;
+      insertSyntax('', '', table);
+    }
+
+    document.getElementById('template-select').addEventListener('change', (e) => {
+      const tpl = TEMPLATES[e.target.value];
+      if (tpl) {
+        inputEl.value = tpl;
+        render();
+        showToast('Template loaded!');
+      }
+    });
+
+    document.getElementById('btn-copy-html').addEventListener('click', () => {
+      const html = previewEl.innerHTML;
+      navigator.clipboard.writeText(html);
+      showToast('Rendered HTML copied to clipboard!');
+    });
+
+    document.getElementById('btn-dl-md').addEventListener('click', () => {
+      const blob = new Blob([inputEl.value], { type: 'text/markdown' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `document-${Date.now()}.md`;
+      a.click();
+    });
+
+    document.getElementById('btn-dl-html').addEventListener('click', () => {
+      const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Exported Markdown</title><style>body{font-family:system-ui,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;line-height:1.6;color:#333;}pre{background:#f4f4f5;padding:12px;border-radius:6px;}table{border-collapse:collapse;width:100%;}th,td{border:1px solid #ddd;padding:8px;}</style></head><body>${previewEl.innerHTML}</body></html>`;
+      const blob = new Blob([fullHtml], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `page-${Date.now()}.html`;
+      a.click();
+      showToast('HTML page exported!');
+    });
+
+    inputEl.addEventListener('input', render);
+
+    // Initial load
+    inputEl.value = TEMPLATES.readme;
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cURL to JavaScript Fetch, Axios & Python Requests Converter | WebToolsHub</title>
+  <meta name="description" content="Convert cURL requests into JavaScript (Fetch, Axios), Python (Requests), and PHP code. Parse headers, HTTP methods, and body payloads 100% client-side.">
+  <meta name="keywords" content="curl to fetch, curl to python, curl to axios, curl converter online, convert curl command">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/curl-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/curl-converter.html">
+  <meta property="og:title" content="cURL to JavaScript Fetch, Axios & Python Requests Converter | WebToolsHub">
+  <meta property="og:description" content="Convert cURL requests into JavaScript (Fetch, Axios), Python (Requests), and PHP code. Parse headers, HTTP methods, and body payloads 100% client-side.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/curl-converter.html">
+  <meta name="twitter:title" content="cURL to JavaScript Fetch, Axios & Python Requests Converter | WebToolsHub">
+  <meta name="twitter:description" content="Convert cURL requests into JavaScript (Fetch, Axios), Python (Requests), and PHP code. Parse headers, HTTP methods, and body payloads 100% client-side.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "cURL Code Converter",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert cURL commands into JavaScript Fetch, Axios, Python, and PHP code."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>cURL Converter</span>
+      </nav>
+      <h1 class="tool-page-title">cURL to Fetch, Axios & Python Converter</h1>
+      <p class="tool-page-subtitle">Paste a cURL command copied from browser DevTools or API documentation to generate ready-to-use production code.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Input Form -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" for="curl-input" style="margin-bottom: 0;">Paste cURL Command:</label>
+            <div class="btn-group">
+              <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+              <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+            </div>
+          </div>
+          <textarea id="curl-input" class="form-textarea" style="min-height: 140px; font-family: monospace; font-size: 0.85rem;" placeholder="curl 'https://api.example.com/data' -H 'Authorization: Bearer token123'"></textarea>
+        </div>
+
+        <!-- Target Language Selector -->
+        <div class="categories-filter" style="justify-content: flex-start; margin-bottom: 0.75rem;">
+          <button class="filter-pill active" data-lang="fetch">JavaScript (Fetch)</button>
+          <button class="filter-pill" data-lang="axios">JavaScript (Axios)</button>
+          <button class="filter-pill" data-lang="python">Python (Requests)</button>
+          <button class="filter-pill" data-lang="php">PHP (cURL)</button>
+        </div>
+
+        <!-- Code Output -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" id="lang-label" style="margin-bottom: 0; font-weight: 700;">Generated Code:</label>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-copy">Copy Code</button>
+          </div>
+          <textarea id="code-output" class="form-textarea" readonly style="min-height: 280px; font-family: monospace; font-size: 0.9rem; background: var(--bg-surface);"></textarea>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Developer Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="base64-encoder-decoder.html"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="html-entity-encoder.html"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a></li>
+            <li><a href="css-minifier.html"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a></li>
+            <li><a href="js-minifier.html"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Translate cURL Requests into Application Code</h2>
+      <p>When inspecting network requests in Chrome DevTools or reading API guides, copying as cURL is standard. Our generator parses flags (<code>-X POST</code>, <code>-H "Header"</code>, <code>-d '{"key":"val"}'</code>, and basic auth) into clean, idiomatic code for modern web architectures.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const curlIn = document.getElementById("curl-input");
+      const codeOut = document.getElementById("code-output");
+      const langLabel = document.getElementById("lang-label");
+      let activeLang = "fetch";
+
+      function parseCurl(str) {
+        let url = "";
+        let method = "GET";
+        const headers = {};
+        let body = null;
+
+        // Clean trailing backslashes
+        str = str.replace(/\\\r?\n/g, ' ');
+
+        // Extract URL
+        const urlMatch = str.match(/(?:curl\s+)?(?:"([^"]+)"|'([^']+)'|([^\s"']+))/);
+        if (urlMatch) {
+          url = urlMatch[1] || urlMatch[2] || urlMatch[3];
+          if (url.startsWith("curl")) {
+            // Find next token
+            const tokens = str.match(/'[^']*'|"[^"]*"|\S+/g) || [];
+            for (let i = 1; i < tokens.length; i++) {
+              if (!tokens[i].startsWith('-')) {
+                url = tokens[i].replace(/^['"]|['"]$/g, '');
+                break;
+              }
+            }
+          }
+        }
+
+        // Method
+        const methodMatch = str.match(/(?:-X|--request)\s+([A-Z]+)/i);
+        if (methodMatch) {
+          method = methodMatch[1].toUpperCase();
+        }
+
+        // Headers
+        const headerMatches = str.matchAll(/(?:-H|--header)\s+(?:"([^"]+)"|'([^']+)')/g);
+        for (const hm of headerMatches) {
+          const h = (hm[1] || hm[2] || "").trim();
+          const colonIdx = h.indexOf(':');
+          if (colonIdx > -1) {
+            const k = h.slice(0, colonIdx).trim();
+            const v = h.slice(colonIdx + 1).trim();
+            headers[k] = v;
+          }
+        }
+
+        // Body
+        const dataMatch = str.match(/(?:-d|--data|--data-raw)\s+(?:"([^"]+)"|'([^']+)')/);
+        if (dataMatch) {
+          body = dataMatch[1] || dataMatch[2];
+          if (method === "GET") method = "POST";
+        }
+
+        return { url, method, headers, body };
+      }
+
+      function generateCode() {
+        const raw = curlIn.value.trim();
+        if (!raw) {
+          codeOut.value = "";
+          return;
+        }
+
+        const { url, method, headers, body } = parseCurl(raw);
+
+        if (activeLang === "fetch") {
+          langLabel.textContent = "JavaScript (Fetch API):";
+          let code = `fetch("${url}", {\n`;
+          code += `  method: "${method}",\n`;
+          if (Object.keys(headers).length > 0) {
+            code += `  headers: ${JSON.stringify(headers, null, 4).replace(/\n/g, '\n  ')},\n`;
+          }
+          if (body) {
+            code += `  body: JSON.stringify(${body.startsWith('{') ? body : JSON.stringify(body)})\n`;
+          }
+          code += `})\n  .then(res => res.json())\n  .then(data => console.log(data))\n  .catch(err => console.error(err));`;
+          codeOut.value = code;
+        } else if (activeLang === "axios") {
+          langLabel.textContent = "JavaScript (Axios):";
+          let code = `const axios = require('axios');\n\n`;
+          code += `axios({\n  method: '${method.toLowerCase()}',\n  url: '${url}',\n`;
+          if (Object.keys(headers).length > 0) {
+            code += `  headers: ${JSON.stringify(headers, null, 4).replace(/\n/g, '\n  ')},\n`;
+          }
+          if (body) {
+            code += `  data: ${body}\n`;
+          }
+          code += `})\n.then(response => console.log(response.data))\n.catch(error => console.error(error));`;
+          codeOut.value = code;
+        } else if (activeLang === "python") {
+          langLabel.textContent = "Python (Requests):";
+          let code = `import requests\n\nurl = "${url}"\n`;
+          if (Object.keys(headers).length > 0) {
+            code += `headers = ${JSON.stringify(headers, null, 4)}\n`;
+          }
+          if (body) {
+            code += `payload = ${body}\n`;
+          }
+          code += `\nresponse = requests.${method.toLowerCase()}(url${Object.keys(headers).length ? ', headers=headers' : ''}${body ? ', json=payload' : ''})\n`;
+          code += `print(response.json())`;
+          codeOut.value = code;
+        } else {
+          langLabel.textContent = "PHP (cURL):";
+          let code = `<?php\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n`;
+          code += `  CURLOPT_URL => '${url}',\n`;
+          code += `  CURLOPT_RETURNTRANSFER => true,\n`;
+          code += `  CURLOPT_CUSTOMREQUEST => '${method}',\n`;
+          if (body) {
+            code += `  CURLOPT_POSTFIELDS => '${body.replace(/'/g, "\\'")}',\n`;
+          }
+          if (Object.keys(headers).length > 0) {
+            const hList = Object.entries(headers).map(([k, v]) => `'${k}: ${v}'`).join(", ");
+            code += `  CURLOPT_HTTPHEADER => array(${hList}),\n`;
+          }
+          code += `));\n\n$response = curl_exec($curl);\ncurl_close($curl);\necho $response;`;
+          codeOut.value = code;
+        }
+      }
+
+      curlIn.addEventListener("input", generateCode);
+
+      document.querySelectorAll(".categories-filter button").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          document.querySelectorAll(".categories-filter button").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeLang = btn.dataset.lang;
+          generateCode();
+        });
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        curlIn.value = `curl -X POST "https://api.example.com/v1/users" -H "Content-Type: application/json" -H "Authorization: Bearer mySecretToken" -d '{"name":"Alice","role":"admin"}'`;
+        generateCode();
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        curlIn.value = "";
+        codeOut.value = "";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(codeOut.value, "Code copied!");
+      });
+
+      document.getElementById("btn-sample").click();
+    });
+  </script>
+</body>
+</html>

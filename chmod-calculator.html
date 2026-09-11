@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Chmod Permissions Calculator & Generator | WebToolsHub</title>
+  <meta name="description" content="Visual Linux chmod calculator. Toggle Read, Write, and Execute permissions for Owner, Group, Public with instant Octal (755, 644) and Symbolic commands.">
+  <meta name="keywords" content="chmod calculator, linux permissions calculator, chmod 755, chmod 644, symbolic permissions, file permissions generator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/chmod-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/chmod-calculator.html">
+  <meta property="og:title" content="Linux Chmod Permissions Calculator & Generator | WebToolsHub">
+  <meta property="og:description" content="Visual Linux chmod calculator. Toggle Read, Write, and Execute permissions for Owner, Group, Public with instant Octal (755, 644) and Symbolic commands.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/chmod-calculator.html">
+  <meta name="twitter:title" content="Linux Chmod Permissions Calculator & Generator | WebToolsHub">
+  <meta name="twitter:description" content="Visual Linux chmod calculator. Toggle Read, Write, and Execute permissions for Owner, Group, Public with instant Octal (755, 644) and Symbolic commands.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Chmod Permissions Calculator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate Linux chmod file permissions in octal and symbolic formats."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>Chmod Calculator</span>
+      </nav>
+      <h1 class="tool-page-title">Linux Chmod Permissions Calculator</h1>
+      <p class="tool-page-subtitle">Toggle Read, Write, and Execute bits visually to calculate octal notation (e.g. 755), symbolic permissions (rwxr-xr-x), and executable commands.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Results Scorecard -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Octal Notation</div>
+            <div id="octal-display" style="font-size: 2.2rem; font-weight: 900; font-family: monospace; color: var(--accent-primary);">0755</div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Symbolic Notation</div>
+            <div id="symbolic-display" style="font-size: 1.8rem; font-weight: 800; font-family: monospace; color: var(--accent-success);">rwxr-xr-x</div>
+          </div>
+        </div>
+
+        <!-- Checkbox Grid -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; min-width: 480px;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                <th style="padding: 10px 14px;">Scope</th>
+                <th style="padding: 10px 14px;">Read (r = 4)</th>
+                <th style="padding: 10px 14px;">Write (w = 2)</th>
+                <th style="padding: 10px 14px;">Execute (x = 1)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Owner -->
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 14px; font-weight: 700;">Owner (User)</td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="u-r" checked style="width: 20px; height: 20px;"></td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="u-w" checked style="width: 20px; height: 20px;"></td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="u-x" checked style="width: 20px; height: 20px;"></td>
+              </tr>
+              <!-- Group -->
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 14px; font-weight: 700;">Group</td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="g-r" checked style="width: 20px; height: 20px;"></td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="g-w" style="width: 20px; height: 20px;"></td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="g-x" checked style="width: 20px; height: 20px;"></td>
+              </tr>
+              <!-- Others -->
+              <tr>
+                <td style="padding: 12px 14px; font-weight: 700;">Public (Others)</td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="o-r" checked style="width: 20px; height: 20px;"></td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="o-w" style="width: 20px; height: 20px;"></td>
+                <td style="padding: 12px 14px;"><input type="checkbox" id="o-x" checked style="width: 20px; height: 20px;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Generated Linux Commands -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" style="margin-bottom: 0; font-weight: 700;">Terminal Command:</label>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('cmd-output').value, 'Command copied!')">Copy Command</button>
+          </div>
+          <input type="text" id="cmd-output" class="form-input" readonly style="font-family: monospace; font-size: 1.05rem; font-weight: 700; color: var(--accent-primary);" value="chmod 755 filename">
+        </div>
+
+        <!-- Common Presets -->
+        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">Popular Presets:</span>
+          <button type="button" class="filter-pill btn-sm" onclick="setChmod(7, 5, 5)">755 (Directories & Scripts)</button>
+          <button type="button" class="filter-pill btn-sm" onclick="setChmod(6, 4, 4)">644 (Standard Files)</button>
+          <button type="button" class="filter-pill btn-sm" onclick="setChmod(7, 0, 0)">700 (Private Executable)</button>
+          <button type="button" class="filter-pill btn-sm" onclick="setChmod(6, 0, 0)">600 (Private SSH Key)</button>
+          <button type="button" class="filter-pill btn-sm" onclick="setChmod(7, 7, 7)">777 (Full Access)</button>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Developer Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="base64-encoder-decoder.html"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="html-entity-encoder.html"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a></li>
+            <li><a href="css-minifier.html"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a></li>
+            <li><a href="js-minifier.html"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Understanding Linux Chmod Octal Permissions</h2>
+      <p>In UNIX and Linux systems, file permissions are assigned to three scopes: the file's <strong>Owner</strong>, the group owner <strong>Group</strong>, and all <strong>Others</strong>. Each permission is represented by an octal digit calculated by summing:
+      <ul>
+        <li><code>4</code> for Read access (<code>r</code>)</li>
+        <li><code>2</code> for Write access (<code>w</code>)</li>
+        <li><code>1</code> for Execute access (<code>x</code>)</li>
+      </ul>
+      Hence, <code>7 (4+2+1)</code> grants full read/write/execute rights, and <code>5 (4+1)</code> grants read and execute only.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ur = document.getElementById("u-r");
+      const uw = document.getElementById("u-w");
+      const ux = document.getElementById("u-x");
+
+      const gr = document.getElementById("g-r");
+      const gw = document.getElementById("g-w");
+      const gx = document.getElementById("g-x");
+
+      const or_ = document.getElementById("o-r");
+      const ow = document.getElementById("o-w");
+      const ox = document.getElementById("o-x");
+
+      const octalDisplay = document.getElementById("octal-display");
+      const symbolicDisplay = document.getElementById("symbolic-display");
+      const cmdOutput = document.getElementById("cmd-output");
+
+      function updateChmod() {
+        const u = (ur.checked ? 4 : 0) + (uw.checked ? 2 : 0) + (ux.checked ? 1 : 0);
+        const g = (gr.checked ? 4 : 0) + (gw.checked ? 2 : 0) + (gx.checked ? 1 : 0);
+        const o = (or_.checked ? 4 : 0) + (ow.checked ? 2 : 0) + (ox.checked ? 1 : 0);
+
+        octalDisplay.textContent = `0${u}${g}${o}`;
+        cmdOutput.value = `chmod ${u}${g}${o} filename`;
+
+        let sym = "";
+        sym += ur.checked ? "r" : "-";
+        sym += uw.checked ? "w" : "-";
+        sym += ux.checked ? "x" : "-";
+
+        sym += gr.checked ? "r" : "-";
+        sym += gw.checked ? "w" : "-";
+        sym += gx.checked ? "x" : "-";
+
+        sym += or_.checked ? "r" : "-";
+        sym += ow.checked ? "w" : "-";
+        sym += ox.checked ? "x" : "-";
+
+        symbolicDisplay.textContent = sym;
+      }
+
+      window.setChmod = function(u, g, o) {
+        ur.checked = !!(u & 4);
+        uw.checked = !!(u & 2);
+        ux.checked = !!(u & 1);
+
+        gr.checked = !!(g & 4);
+        gw.checked = !!(g & 2);
+        gx.checked = !!(g & 1);
+
+        or_.checked = !!(o & 4);
+        ow.checked = !!(o & 2);
+        ox.checked = !!(o & 1);
+
+        updateChmod();
+      };
+
+      document.querySelectorAll("input[type=checkbox]").forEach(cb => cb.addEventListener("change", updateChmod));
+      updateChmod();
+    });
+  </script>
+</body>
+</html>

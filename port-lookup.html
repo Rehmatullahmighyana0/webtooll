@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCP/UDP Port Number Lookup & Directory | WebToolsHub</title>
+  <meta name="description" content="Search standard TCP and UDP port numbers, protocols, and network services. Instant lookup for well-known and registered ports from 0 to 65535.">
+  <meta name="keywords" content="port lookup, tcp port numbers, udp ports, common network ports, port 443, port 22, well known ports">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/port-lookup.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/port-lookup.html">
+  <meta property="og:title" content="TCP/UDP Port Number Lookup & Directory | WebToolsHub">
+  <meta property="og:description" content="Search standard TCP and UDP port numbers, protocols, and network services. Instant lookup for well-known and registered ports from 0 to 65535.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/port-lookup.html">
+  <meta name="twitter:title" content="TCP/UDP Port Number Lookup & Directory | WebToolsHub">
+  <meta name="twitter:description" content="Search standard TCP and UDP port numbers, protocols, and network services. Instant lookup for well-known and registered ports from 0 to 65535.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Network Port Directory",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Comprehensive searchable directory of standard TCP and UDP network ports."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Web & Network</span> &gt; <span>Port Lookup</span>
+      </nav>
+      <h1 class="tool-page-title">TCP/UDP Port Number Lookup</h1>
+      <p class="tool-page-subtitle">Search network ports, transport protocols (TCP/UDP), and standard internet service assignments.</p>
+      <div class="privacy-badge">📡 IANA Port Standards</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Search & Filters -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <label class="form-label" style="font-weight: 700;">Search by Port Number, Service, or Protocol:</label>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <input type="text" id="port-search-input" class="form-control" placeholder="e.g. 443, 22, SSH, MySQL, Redis, DNS, HTTPS..." style="flex-grow: 1; min-width: 260px;">
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Categories:</span>
+            <button type="button" class="filter-pill active" onclick="filterPortCat('all')">All Ports</button>
+            <button type="button" class="filter-pill" onclick="filterPortCat('web')">Web (HTTP/S)</button>
+            <button type="button" class="filter-pill" onclick="filterPortCat('database')">Databases</button>
+            <button type="button" class="filter-pill" onclick="filterPortCat('remote')">Remote & Admin</button>
+            <button type="button" class="filter-pill" onclick="filterPortCat('mail')">Mail (SMTP/IMAP)</button>
+          </div>
+        </div>
+
+        <!-- Port Highlight Card (When searched specifically) -->
+        <div id="port-highlight-box" style="display: none; background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-subtle) 100%); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">Target Port Details</div>
+              <h2 id="hl-title" style="margin: 0.25rem 0 0; font-size: 2rem; color: var(--accent-primary); font-weight: 900;">Port 443 - HTTPS</h2>
+              <p id="hl-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin: 0.5rem 0 0;">Hypertext Transfer Protocol Secure over TLS/SSL encryption.</p>
+            </div>
+            <div id="hl-badge" style="background: var(--accent-subtle); color: var(--accent-primary); font-weight: 700; padding: 0.35rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
+              Well-Known Port
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Table -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+            <thead>
+              <tr style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-color);">
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">Port</th>
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">Transport</th>
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">Service / Protocol</th>
+                <th style="padding: 0.85rem 1rem; font-weight: 700;">Description</th>
+              </tr>
+            </thead>
+            <tbody id="port-table-body">
+              <!-- Rendered rows -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Network & Web Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="qr-code-generator.html"><span>📱 QR Code Generator</span><span class="badge-mini">Free</span></a></li>
+            <li><a href="url-encoder-decoder.html"><span>🔗 URL Encoder & Decoder</span><span class="badge-mini">Utility</span></a></li>
+            <li><a href="ip-lookup.html"><span>🌐 IP Address & Network Lookup</span><span class="badge-mini">Network</span></a></li>
+            <li><a href="user-agent-parser.html"><span>🖥️ User Agent Parser & Tester</span><span class="badge-mini">Browser</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How many total TCP/UDP ports exist?</h3>
+        <p>A port number is an unsigned 16-bit integer, meaning there are 65,536 total possible port numbers ranging from 0 to 65535.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the difference between TCP and UDP?</h3>
+        <p>TCP (Transmission Control Protocol) is connection-oriented and guarantees ordered delivery of packets. UDP (User Datagram Protocol) is connectionless and prioritizes low latency speed over packet verification.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const portsDb = [
+      { port: 20, proto: 'TCP', name: 'FTP-DATA', cat: 'remote', desc: 'File Transfer Protocol (Data Channel)' },
+      { port: 21, proto: 'TCP', name: 'FTP', cat: 'remote', desc: 'File Transfer Protocol (Control Channel)' },
+      { port: 22, proto: 'TCP/UDP', name: 'SSH / SFTP', cat: 'remote', desc: 'Secure Shell for remote encrypted terminal access' },
+      { port: 23, proto: 'TCP', name: 'Telnet', cat: 'remote', desc: 'Unencrypted text communications (legacy)' },
+      { port: 25, proto: 'TCP', name: 'SMTP', cat: 'mail', desc: 'Simple Mail Transfer Protocol for email routing' },
+      { port: 53, proto: 'TCP/UDP', name: 'DNS', cat: 'web', desc: 'Domain Name System name resolution queries' },
+      { port: 67, proto: 'UDP', name: 'DHCP Server', cat: 'remote', desc: 'Dynamic Host Configuration Protocol (Server)' },
+      { port: 68, proto: 'UDP', name: 'DHCP Client', cat: 'remote', desc: 'Dynamic Host Configuration Protocol (Client)' },
+      { port: 69, proto: 'UDP', name: 'TFTP', cat: 'remote', desc: 'Trivial File Transfer Protocol' },
+      { port: 80, proto: 'TCP', name: 'HTTP', cat: 'web', desc: 'Hypertext Transfer Protocol unencrypted web traffic' },
+      { port: 110, proto: 'TCP', name: 'POP3', cat: 'mail', desc: 'Post Office Protocol v3 for retrieving email' },
+      { port: 123, proto: 'UDP', name: 'NTP', cat: 'remote', desc: 'Network Time Protocol clock synchronization' },
+      { port: 143, proto: 'TCP', name: 'IMAP', cat: 'mail', desc: 'Internet Message Access Protocol for email sync' },
+      { port: 161, proto: 'UDP', name: 'SNMP', cat: 'remote', desc: 'Simple Network Management Protocol' },
+      { port: 389, proto: 'TCP/UDP', name: 'LDAP', cat: 'remote', desc: 'Lightweight Directory Access Protocol' },
+      { port: 443, proto: 'TCP', name: 'HTTPS', cat: 'web', desc: 'HTTP over TLS/SSL secure encrypted web' },
+      { port: 445, proto: 'TCP', name: 'SMB', cat: 'remote', desc: 'Server Message Block file & print sharing' },
+      { port: 465, proto: 'TCP', name: 'SMTPS', cat: 'mail', desc: 'SMTP over SSL secure email transmission' },
+      { port: 587, proto: 'TCP', name: 'SMTP Submission', cat: 'mail', desc: 'Email message submission port' },
+      { port: 993, proto: 'TCP', name: 'IMAPS', cat: 'mail', desc: 'IMAP over TLS/SSL encrypted email' },
+      { port: 995, proto: 'TCP', name: 'POP3S', cat: 'mail', desc: 'POP3 over TLS/SSL encrypted email' },
+      { port: 1433, proto: 'TCP', name: 'MS SQL Server', cat: 'database', desc: 'Microsoft SQL Server Database Engine' },
+      { port: 1521, proto: 'TCP', name: 'Oracle DB', cat: 'database', desc: 'Oracle Database Listener service' },
+      { port: 2049, proto: 'TCP/UDP', name: 'NFS', cat: 'remote', desc: 'Network File System network storage' },
+      { port: 3306, proto: 'TCP', name: 'MySQL / MariaDB', cat: 'database', desc: 'MySQL relational database management server' },
+      { port: 3389, proto: 'TCP/UDP', name: 'RDP', cat: 'remote', desc: 'Remote Desktop Protocol for Windows desktop access' },
+      { port: 5432, proto: 'TCP', name: 'PostgreSQL', cat: 'database', desc: 'PostgreSQL open source database server' },
+      { port: 5900, proto: 'TCP', name: 'VNC', cat: 'remote', desc: 'Virtual Network Computing graphical desktop' },
+      { port: 6379, proto: 'TCP', name: 'Redis', cat: 'database', desc: 'Redis in-memory key-value data store' },
+      { port: 8080, proto: 'TCP', name: 'HTTP Alternate', cat: 'web', desc: 'Common secondary web proxy and dev server port' },
+      { port: 8443, proto: 'TCP', name: 'HTTPS Alternate', cat: 'web', desc: 'Common secondary SSL web service port' },
+      { port: 9200, proto: 'TCP', name: 'Elasticsearch', cat: 'database', desc: 'Elasticsearch REST API search engine' },
+      { port: 27017, proto: 'TCP', name: 'MongoDB', cat: 'database', desc: 'MongoDB NoSQL document database server' }
+    ];
+
+    let activeCat = 'all';
+
+    function renderTable() {
+      const q = document.getElementById('port-search-input').value.toLowerCase().trim();
+      const tbody = document.getElementById('port-table-body');
+      tbody.innerHTML = '';
+
+      const filtered = portsDb.filter(item => {
+        const matchesCat = activeCat === 'all' || item.cat === activeCat;
+        const matchesQuery = !q ||
+          item.port.toString().includes(q) ||
+          item.name.toLowerCase().includes(q) ||
+          item.desc.toLowerCase().includes(q) ||
+          item.proto.toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="padding: 2rem; text-align: center; color: var(--text-secondary);">No matching ports found. Try another number or service keyword.</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border-color)';
+
+        let rangeType = 'Well-Known';
+        if (p.port > 1023 && p.port <= 49151) rangeType = 'Registered';
+        else if (p.port > 49151) rangeType = 'Dynamic';
+
+        tr.innerHTML = `
+          <td style="padding: 0.75rem 1rem; font-family: monospace; font-weight: 700; color: var(--accent-primary); font-size: 1rem;">${p.port}</td>
+          <td style="padding: 0.75rem 1rem;"><span style="background: var(--bg-subtle); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700;">${p.proto}</span></td>
+          <td style="padding: 0.75rem 1rem; font-weight: 700;">${p.name}</td>
+          <td style="padding: 0.75rem 1rem; color: var(--text-secondary); font-size: 0.85rem;">${p.desc}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Highlight single search
+      const highlightBox = document.getElementById('port-highlight-box');
+      if (q && filtered.length === 1) {
+        const item = filtered[0];
+        highlightBox.style.display = 'block';
+        document.getElementById('hl-title').textContent = `Port ${item.port} - ${item.name}`;
+        document.getElementById('hl-desc').textContent = `${item.desc} (${item.proto})`;
+      } else {
+        highlightBox.style.display = 'none';
+      }
+    }
+
+    function filterPortCat(cat) {
+      activeCat = cat;
+      const pills = document.querySelectorAll('.filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      renderTable();
+    }
+
+    document.getElementById('port-search-input').addEventListener('input', renderTable);
+
+    renderTable();
+  </script>
+</body>
+</html>

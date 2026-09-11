@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Percentage Calculator — Quick % Math & Change | WebToolsHub</title>
+  <meta name="description" content="Calculate percentage of a number, percentage increase/decrease, fractions, and percentage difference instantly. Free, reactive online percentage calculator.">
+  <meta name="keywords" content="percentage calculator, percent increase calculator, percentage change, calculate percentage, discount calculator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/percentage-calculator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/percentage-calculator.html">
+  <meta property="og:title" content="Free Online Percentage Calculator — Quick % Math & Change | WebToolsHub">
+  <meta property="og:description" content="Calculate percentage of a number, percentage increase/decrease, fractions, and percentage difference instantly. Free, reactive online percentage calculator.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/percentage-calculator.html">
+  <meta name="twitter:title" content="Free Online Percentage Calculator — Quick % Math & Change | WebToolsHub">
+  <meta name="twitter:description" content="Calculate percentage of a number, percentage increase/decrease, fractions, and percentage difference instantly. Free, reactive online percentage calculator.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Percentage Calculator",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Calculate percentages, percentage increases, decreases, discounts, and differences in seconds."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>Percentage Calculator</span>
+      </nav>
+      <h1 class="tool-page-title">Percentage Calculator</h1>
+      <p class="tool-page-subtitle">Instant percentage calculations with formula breakdowns: percentage of a number, percentage increase/decrease, and ratios.</p>
+      <div class="privacy-badge">🔒 Fast & 100% Client-Side</div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Top Ad Placement -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Leaderboard Ad Slot (728x90)</span>
+    </div>
+
+    <div class="tool-layout with-sidebar">
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Calculator Cards Grid -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+          <!-- Card 1: What is X% of Y? -->
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--text-primary);">1. Percentage of a Number</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">What is <strong style="color: var(--accent-primary);">X %</strong> of <strong style="color: var(--accent-primary);">Y</strong>?</p>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
+              <span>What is</span>
+              <input type="number" id="c1-x" class="form-control" style="width: 90px;" value="15" placeholder="X">
+              <span>% of</span>
+              <input type="number" id="c1-y" class="form-control" style="width: 110px;" value="120" placeholder="Y">
+              <span>=</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-surface); border: 2px solid var(--accent-primary); border-radius: var(--radius-sm); padding: 0.5rem 1rem;">
+                <strong id="c1-result" style="font-size: 1.25rem; color: var(--accent-primary);">18</strong>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('c1-result').textContent)">Copy</button>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+              Formula: <code>(X / 100) × Y</code>
+            </div>
+          </div>
+
+          <!-- Card 2: X is what % of Y? -->
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--text-primary);">2. Percentage Ratio</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;"><strong style="color: var(--accent-primary);">X</strong> is what percent of <strong style="color: var(--accent-primary);">Y</strong>?</p>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
+              <input type="number" id="c2-x" class="form-control" style="width: 100px;" value="30" placeholder="X">
+              <span>is what % of</span>
+              <input type="number" id="c2-y" class="form-control" style="width: 110px;" value="150" placeholder="Y">
+              <span>=</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-surface); border: 2px solid var(--accent-primary); border-radius: var(--radius-sm); padding: 0.5rem 1rem;">
+                <strong id="c2-result" style="font-size: 1.25rem; color: var(--accent-primary);">20 %</strong>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('c2-result').textContent)">Copy</button>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+              Formula: <code>(X / Y) × 100</code>
+            </div>
+          </div>
+
+          <!-- Card 3: Percentage Increase / Decrease -->
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--text-primary);">3. Percentage Increase / Decrease</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Percentage change from value <strong style="color: var(--accent-primary);">X</strong> to <strong style="color: var(--accent-primary);">Y</strong></p>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;">
+              <span>From</span>
+              <input type="number" id="c3-x" class="form-control" style="width: 100px;" value="80" placeholder="From">
+              <span>to</span>
+              <input type="number" id="c3-y" class="form-control" style="width: 100px;" value="100" placeholder="To">
+              <span>=</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-surface); border: 2px solid var(--accent-primary); border-radius: var(--radius-sm); padding: 0.5rem 1rem;">
+                <strong id="c3-result" style="font-size: 1.25rem; color: var(--accent-success);">+25 % (Increase)</strong>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copyToClipboard(document.getElementById('c3-result').textContent)">Copy</button>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+              Formula: <code>((Y - X) / X) × 100</code>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="unit-converter.html"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a></li>
+            <li><a href="timestamp-converter.html"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a></li>
+            <li><a href="number-base-converter.html"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a></li>
+            <li><a href="aspect-ratio-calculator.html"><span>📐 Aspect Ratio Calculator</span><span class="badge-mini">Design/Math</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-card">
+      <h2>How to Calculate Percentages in Everyday Life</h2>
+      <p>Percentages represent fractions out of 100 and are commonly used for calculating discounts, sales taxes, tips at restaurants, and investment returns.</p>
+
+      <h3>Real-World Percentage Examples</h3>
+      <ul>
+        <li><strong>Shopping Discounts:</strong> If an item costs $80 with a 25% discount, you calculate <code>25% of 80 = $20 off</code>, making the final price $60.</li>
+        <li><strong>Salary & Price Increases:</strong> If a price rises from $50 to $65, the change is <code>(65 - 50) / 50 = +30% increase</code>.</li>
+        <li><strong>Grade & Score Percentages:</strong> If a student scores 42 out of 50 on an exam, the grade is <code>(42 / 50) × 100 = 84%</code>.</li>
+      </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What happens if the starting value (X) is zero in percentage change?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Mathematically, calculating a percentage increase from zero is undefined because division by zero is impossible. The initial number must be non-zero.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does this calculator support negative numbers?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! You can enter negative values to calculate changes involving financial deficits or negative temperatures.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="ad-slot ad-slot-leaderboard">
+      <span>Responsive Footer Ad Slot</span>
+    </div>
+
+  </main>
+
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WebToolsHub. All rights reserved. <a href="index.html">Back to All Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("percentage-calculator");
+
+      // Card 1
+      const c1X = document.getElementById("c1-x");
+      const c1Y = document.getElementById("c1-y");
+      const c1Res = document.getElementById("c1-result");
+
+      function calcC1() {
+        const x = parseFloat(c1X.value);
+        const y = parseFloat(c1Y.value);
+        if (isNaN(x) || isNaN(y)) {
+          c1Res.textContent = "...";
+          return;
+        }
+        const val = (x / 100) * y;
+        c1Res.textContent = Number.isInteger(val) ? val : val.toFixed(2);
+      }
+
+      // Card 2
+      const c2X = document.getElementById("c2-x");
+      const c2Y = document.getElementById("c2-y");
+      const c2Res = document.getElementById("c2-result");
+
+      function calcC2() {
+        const x = parseFloat(c2X.value);
+        const y = parseFloat(c2Y.value);
+        if (isNaN(x) || isNaN(y) || y === 0) {
+          c2Res.textContent = "...";
+          return;
+        }
+        const val = (x / y) * 100;
+        c2Res.textContent = `${Number.isInteger(val) ? val : val.toFixed(2)} %`;
+      }
+
+      // Card 3
+      const c3X = document.getElementById("c3-x");
+      const c3Y = document.getElementById("c3-y");
+      const c3Res = document.getElementById("c3-result");
+
+      function calcC3() {
+        const x = parseFloat(c3X.value);
+        const y = parseFloat(c3Y.value);
+        if (isNaN(x) || isNaN(y) || x === 0) {
+          c3Res.textContent = "...";
+          return;
+        }
+        const change = ((y - x) / Math.abs(x)) * 100;
+        const formatted = Number.isInteger(change) ? change : change.toFixed(2);
+        if (change > 0) {
+          c3Res.textContent = `+${formatted} % (Increase)`;
+          c3Res.style.color = "var(--accent-success)";
+        } else if (change < 0) {
+          c3Res.textContent = `${formatted} % (Decrease)`;
+          c3Res.style.color = "var(--accent-danger)";
+        } else {
+          c3Res.textContent = `0 % (No Change)`;
+          c3Res.style.color = "var(--text-secondary)";
+        }
+      }
+
+      [c1X, c1Y].forEach(el => el.addEventListener("input", calcC1));
+      [c2X, c2Y].forEach(el => el.addEventListener("input", calcC2));
+      [c3X, c3Y].forEach(el => el.addEventListener("input", calcC3));
+
+      calcC1();
+      calcC2();
+      calcC3();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Formatter & Table Beautifier Online — Clean MD Docs | WebToolsHub</title>
+  <meta name="description" content="Free online Markdown formatter and table beautifier. Automatically align markdown tables, fix heading spacing, correct list numbering, and clean raw text.">
+  <meta name="keywords" content="markdown formatter, markdown beautifier, format markdown table, pretty markdown, clean markdown document, align markdown tables">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/markdown-formatter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/markdown-formatter.html">
+  <meta property="og:title" content="Markdown Formatter & Table Beautifier Online — Clean MD Docs | WebToolsHub">
+  <meta property="og:description" content="Free online Markdown formatter and table beautifier. Automatically align markdown tables, fix heading spacing, correct list numbering, and clean raw text.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/markdown-formatter.html">
+  <meta name="twitter:title" content="Markdown Formatter & Table Beautifier Online — Clean MD Docs | WebToolsHub">
+  <meta name="twitter:description" content="Free online Markdown formatter and table beautifier. Automatically align markdown tables, fix heading spacing, correct list numbering, and clean raw text.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Markdown Formatter & Table Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Beautify raw Markdown text, align tables, and standardize headings and lists client-side."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Beautifiers & Formatters</span> &gt; <span>Markdown Formatter</span>
+      </nav>
+      <h1 class="tool-page-title">Markdown Formatter & Table Beautifier</h1>
+      <p class="tool-page-subtitle">Align markdown table columns into neat text spreadsheets and standardize headings, lists, and quote blocks.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Private Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-align-tables" checked> Align Tables
+            </label>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-fix-headings" checked> Format Headings
+            </label>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-fix-lists" checked> Renumber Lists (1. 2. 3.)
+            </label>
+          </div>
+
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-format">✨ Beautify Markdown</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sample">Sample</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-clear" style="color: #ef4444;">Clear</button>
+          </div>
+        </div>
+
+        <!-- Code Editor Columns -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- Input -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Raw / Unaligned Markdown:</span>
+              <span id="input-stats" style="font-size: 0.8rem; color: var(--text-muted);">0 lines</span>
+            </div>
+            <textarea id="md-input" class="form-control" placeholder="Paste raw markdown with unaligned tables or inconsistent spacing here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; resize: vertical;"></textarea>
+          </div>
+
+          <!-- Output -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap; gap: 0.4rem;">
+              <div class="categories-filter" style="margin: 0; justify-content: flex-start; gap: 0.35rem;">
+                <button type="button" class="filter-pill active" id="tab-code" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">Formatted Markdown</button>
+                <button type="button" class="filter-pill" id="tab-preview" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">👁️ Live Rendered Preview</button>
+              </div>
+              <div style="display: flex; gap: 0.35rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Copy</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-download" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Download .md</button>
+              </div>
+            </div>
+            <div id="wrapper-md-code">
+              <textarea id="md-output" class="form-control" readonly placeholder="Crisp, cleanly aligned tables and formatted markdown will appear here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; background: var(--bg-surface); resize: vertical;"></textarea>
+            </div>
+            <div id="wrapper-md-preview" style="display: none; min-height: 380px; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); overflow-y: auto; line-height: 1.6;">
+              <div id="rendered-md-content"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="html-formatter.html"><span>🌐 HTML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="xml-formatter.html"><span>📑 XML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="javascript-beautifier.html"><span>🟨 JavaScript Beautifier</span><span class="badge-mini">Popular</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How does table alignment work?</h3>
+        <p>The formatter calculates the maximum character width for every column in the table, then pads each cell with trailing spaces so that pipe delimiters (<code>|</code>) align in vertical columns across all rows.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("markdown-formatter");
+
+      const input = document.getElementById("md-input");
+      const output = document.getElementById("md-output");
+      const alignTablesCheck = document.getElementById("opt-align-tables");
+      const fixHeadingsCheck = document.getElementById("opt-fix-headings");
+      const fixListsCheck = document.getElementById("opt-fix-lists");
+      const inputStats = document.getElementById("input-stats");
+
+      function formatMarkdownTable(rows) {
+        if (!rows || rows.length === 0) return [];
+        // Parse rows into cells
+        const parsedRows = rows.map(r => {
+          let line = r.trim();
+          if (line.startsWith("|")) line = line.substring(1);
+          if (line.endsWith("|")) line = line.substring(0, line.length - 1);
+          return line.split("|").map(c => c.trim());
+        });
+
+        // Determine column count
+        let colCount = 0;
+        parsedRows.forEach(r => {
+          if (r.length > colCount) colCount = r.length;
+        });
+
+        // Calculate max width for each column
+        let colWidths = new Array(colCount).fill(3);
+        parsedRows.forEach((row, rowIdx) => {
+          // Skip delimiter row when computing text widths (delimiter row typically has dashes)
+          const isDelimiter = rowIdx === 1 && row.every(c => /^:?-+:?$/.test(c));
+          if (!isDelimiter) {
+            row.forEach((cell, colIdx) => {
+              if (cell.length > colWidths[colIdx]) {
+                colWidths[colIdx] = cell.length;
+              }
+            });
+          }
+        });
+
+        // Build formatted table lines
+        return parsedRows.map((row, rowIdx) => {
+          const isDelimiter = rowIdx === 1 && row.every(c => /^:?-+:?$/.test(c));
+          let lineCells = [];
+
+          for (let c = 0; c < colCount; c++) {
+            const val = row[c] || "";
+            const width = colWidths[c];
+
+            if (isDelimiter) {
+              // Preserve alignments (:---, :---:, ---:)
+              let leftAlign = val.startsWith(":");
+              let rightAlign = val.endsWith(":");
+              let dashes = "-".repeat(Math.max(3, width - (leftAlign ? 1 : 0) - (rightAlign ? 1 : 0)));
+              let formattedDelim = (leftAlign ? ":" : "") + dashes + (rightAlign ? ":" : "");
+              lineCells.push(formattedDelim.padEnd(width, "-"));
+            } else {
+              lineCells.push(val.padEnd(width, " "));
+            }
+          }
+
+          return "| " + lineCells.join(" | ") + " |";
+        });
+      }
+
+      function beautifyMarkdown(md) {
+        if (!md || !md.trim()) return "";
+        const alignTables = alignTablesCheck.checked;
+        const fixHeadings = fixHeadingsCheck.checked;
+        const fixLists = fixListsCheck.checked;
+
+        const lines = md.split("\n");
+        let result = [];
+        let tableBuffer = [];
+        let inCodeBlock = false;
+        let listCounter = 0;
+
+        for (let i = 0; i < lines.length; i++) {
+          const rawLine = lines[i];
+          const trimmed = rawLine.trim();
+
+          // Codeblock toggle
+          if (trimmed.startsWith("```")) {
+            if (tableBuffer.length > 0) {
+              result.push(...formatMarkdownTable(tableBuffer));
+              tableBuffer = [];
+            }
+            inCodeBlock = !inCodeBlock;
+            result.push(rawLine);
+            continue;
+          }
+
+          if (inCodeBlock) {
+            result.push(rawLine);
+            continue;
+          }
+
+          // Table detection: line contains pipe |
+          if (alignTables && trimmed.includes("|") && (trimmed.startsWith("|") || trimmed.endsWith("|") || /\|.*\|/.test(trimmed))) {
+            tableBuffer.push(trimmed);
+            continue;
+          } else {
+            if (tableBuffer.length > 0) {
+              result.push(...formatMarkdownTable(tableBuffer));
+              tableBuffer = [];
+            }
+          }
+
+          // Format Headings (# Heading)
+          if (fixHeadings && /^#{1,6}\s*\S/.test(trimmed)) {
+            // Ensure space after hashes
+            let formattedHeading = trimmed.replace(/^(#{1,6})\s*(.*)$/, "$1 $2");
+            // Add blank line before heading if not already present
+            if (result.length > 0 && result[result.length - 1] !== "") {
+              result.push("");
+            }
+            result.push(formattedHeading);
+            listCounter = 0;
+            continue;
+          }
+
+          // Format Numbered Lists (1. 2. 3.)
+          if (fixLists && /^\d+[\.\)]\s/.test(trimmed)) {
+            listCounter++;
+            let rest = trimmed.replace(/^\d+[\.\)]\s*/, "");
+            result.push(`${listCounter}. ${rest}`);
+            continue;
+          } else if (trimmed.length > 0 && !trimmed.startsWith("-") && !trimmed.startsWith("*")) {
+            listCounter = 0;
+          }
+
+          result.push(rawLine);
+        }
+
+        if (tableBuffer.length > 0) {
+          result.push(...formatMarkdownTable(tableBuffer));
+        }
+
+        return result.join("\n").trim();
+      }
+
+      const tabCode = document.getElementById("tab-code");
+      const tabPreview = document.getElementById("tab-preview");
+      const wrapperCode = document.getElementById("wrapper-md-code");
+      const wrapperPreview = document.getElementById("wrapper-md-preview");
+      const renderedContent = document.getElementById("rendered-md-content");
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+      }
+
+      function renderMarkdownToHtml(md) {
+        if (!md || !md.trim()) {
+          return '<p style="color: var(--text-muted); font-style: italic;">Rendered preview will appear here...</p>';
+        }
+
+        const lines = md.split("\n");
+        let html = [];
+        let inCode = false;
+        let codeBuffer = [];
+        let inList = false;
+        let listType = "";
+        let inTable = false;
+        let tableRows = [];
+
+        function flushList() {
+          if (inList) {
+            html.push(listType === "ol" ? "</ol>" : "</ul>");
+            inList = false;
+            listType = "";
+          }
+        }
+
+        function flushTable() {
+          if (inTable && tableRows.length > 0) {
+            let tableHtml = '<div style="overflow-x: auto; margin: 1rem 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">';
+            tableRows.forEach((r, idx) => {
+              // Check if delimiter row
+              const isDelim = idx === 1 && r.every(c => /^:?-+:?$/.test(c.trim()));
+              if (isDelim) return;
+
+              const tag = idx === 0 ? "th" : "td";
+              const bg = idx === 0 ? "background: var(--bg-hover); font-weight: 600;" : "";
+              tableHtml += `<tr>${r.map(c => `<${tag} style="border: 1px solid var(--border-color); padding: 0.5rem 0.75rem; text-align: left; ${bg}">${parseInline(c)}</${tag}>`).join("")}</tr>`;
+            });
+            tableHtml += "</table></div>";
+            html.push(tableHtml);
+            inTable = false;
+            tableRows = [];
+          }
+        }
+
+        function parseInline(str) {
+          let s = escapeHtml(str);
+          // Inline code
+          s = s.replace(/`([^`]+)`/g, '<code style="background: var(--bg-hover); padding: 0.15rem 0.35rem; border-radius: 4px; font-family: monospace; font-size: 0.85em;">$1</code>');
+          // Bold
+          s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+          // Italic
+          s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+          // Strikethrough
+          s = s.replace(/~~([^~]+)~~/g, "<del>$1</del>");
+          // Links
+          s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: underline;">$1</a>');
+          return s;
+        }
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          const trimmed = line.trim();
+
+          // Code block
+          if (trimmed.startsWith("```")) {
+            flushList();
+            flushTable();
+            if (inCode) {
+              html.push(`<pre style="background: var(--bg-base); padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color); font-family: monospace; font-size: 0.85rem; margin: 0.8rem 0;"><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
+              codeBuffer = [];
+              inCode = false;
+            } else {
+              inCode = true;
+            }
+            continue;
+          }
+
+          if (inCode) {
+            codeBuffer.push(line);
+            continue;
+          }
+
+          // Table
+          if (trimmed.includes("|") && (trimmed.startsWith("|") || trimmed.endsWith("|") || /\|.*\|/.test(trimmed))) {
+            flushList();
+            inTable = true;
+            let cells = trimmed;
+            if (cells.startsWith("|")) cells = cells.substring(1);
+            if (cells.endsWith("|")) cells = cells.substring(0, cells.length - 1);
+            tableRows.push(cells.split("|").map(c => c.trim()));
+            continue;
+          } else {
+            flushTable();
+          }
+
+          // Headings
+          if (/^#{1,6}\s+/.test(trimmed)) {
+            flushList();
+            const level = trimmed.match(/^(#{1,6})\s+/)[1].length;
+            const text = trimmed.replace(/^#{1,6}\s+/, "");
+            const sizes = { 1: "1.75rem", 2: "1.45rem", 3: "1.25rem", 4: "1.1rem", 5: "1rem", 6: "0.9rem" };
+            html.push(`<h${level} style="font-size: ${sizes[level]}; font-weight: 700; margin: 1.25rem 0 0.5rem 0; color: var(--text-primary); border-bottom: ${level <= 2 ? '1px solid var(--border-color)' : 'none'}; padding-bottom: ${level <= 2 ? '0.3rem' : '0'};">${parseInline(text)}</h${level}>`);
+            continue;
+          }
+
+          // Horizontal rule
+          if (/^(\*\*\*|---|___)$/.test(trimmed)) {
+            flushList();
+            html.push('<hr style="border: none; border-top: 1px solid var(--border-color); margin: 1.25rem 0;">');
+            continue;
+          }
+
+          // Blockquote
+          if (trimmed.startsWith(">")) {
+            flushList();
+            const quoteText = trimmed.replace(/^>\s?/, "");
+            html.push(`<blockquote style="border-left: 4px solid var(--accent-primary); margin: 0.75rem 0; padding: 0.5rem 1rem; background: var(--bg-hover); color: var(--text-secondary); border-radius: 0 4px 4px 0;">${parseInline(quoteText)}</blockquote>`);
+            continue;
+          }
+
+          // Unordered list
+          if (/^[-*+]\s+/.test(trimmed)) {
+            if (!inList || listType !== "ul") {
+              flushList();
+              html.push('<ul style="padding-left: 1.5rem; margin: 0.5rem 0;">');
+              inList = true;
+              listType = "ul";
+            }
+            html.push(`<li style="margin: 0.25rem 0;">${parseInline(trimmed.replace(/^[-*+]\s+/, ""))}</li>`);
+            continue;
+          }
+
+          // Ordered list
+          if (/^\d+[\.\)]\s+/.test(trimmed)) {
+            if (!inList || listType !== "ol") {
+              flushList();
+              html.push('<ol style="padding-left: 1.5rem; margin: 0.5rem 0;">');
+              inList = true;
+              listType = "ol";
+            }
+            html.push(`<li style="margin: 0.25rem 0;">${parseInline(trimmed.replace(/^\d+[\.\)]\s+/, ""))}</li>`);
+            continue;
+          }
+
+          // Empty line
+          if (!trimmed) {
+            flushList();
+            continue;
+          }
+
+          // Normal paragraph
+          flushList();
+          html.push(`<p style="margin: 0.5rem 0; color: var(--text-primary);">${parseInline(trimmed)}</p>`);
+        }
+
+        flushList();
+        flushTable();
+        return html.join("\n");
+      }
+
+      function updatePreview() {
+        const textToRender = output.value || input.value;
+        renderedContent.innerHTML = renderMarkdownToHtml(textToRender);
+      }
+
+      tabCode.addEventListener("click", () => {
+        tabCode.classList.add("active");
+        tabPreview.classList.remove("active");
+        wrapperCode.style.display = "block";
+        wrapperPreview.style.display = "none";
+      });
+
+      tabPreview.addEventListener("click", () => {
+        tabPreview.classList.add("active");
+        tabCode.classList.remove("active");
+        wrapperCode.style.display = "none";
+        wrapperPreview.style.display = "block";
+        updatePreview();
+      });
+
+      function format() {
+        const res = beautifyMarkdown(input.value);
+        output.value = res;
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+        updatePreview();
+      }
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        format();
+        showToast("Markdown document beautified!");
+      });
+
+      alignTablesCheck.addEventListener("change", format);
+      fixHeadingsCheck.addEventListener("change", format);
+      fixListsCheck.addEventListener("change", format);
+
+      input.addEventListener("input", () => {
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+        if (wrapperPreview.style.display !== "none") {
+          updatePreview();
+        }
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `# API Endpoints Documentation
+Here is a table of current authentication services:
+
+| Method | Endpoint | Description | Status |
+|---|---|---|---|
+| POST | /api/v1/auth/login | User authentication credential verification | Active |
+| GET | /api/v1/user/profile | Retrieves logged-in account metadata | Active |
+| DELETE | /api/v1/session/logout | Revokes bearer token session | Deprecated |
+
+### Deployment Checklist
+1. Verify environment variables
+1. Run automated migrations
+1. Check CDN cache invalidation
+1. Perform smoke ping tests`;
+        format();
+        showToast("Sample loaded & beautified!");
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        renderedContent.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Rendered preview will appear here...</p>';
+        inputStats.textContent = "0 lines";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        if (!output.value) return;
+        copyToClipboard(output.value, "Beautified Markdown copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "text/markdown;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `beautified-doc-${new Date().toISOString().slice(0, 10)}.md`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>

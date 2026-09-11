@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Lorem Ipsum Generator (Latin, Tech, Hipster, Corporate) | WebToolsHub</title>
+  <meta name="description" content="Generate customizable dummy placeholder text in Standard Latin, Cyber Tech, Hipster Artisan, and Corporate Buzzword flavors. Export as HTML or plain text.">
+  <meta name="keywords" content="lorem ipsum generator, dummy text, placeholder text, hipster ipsum, tech ipsum, corporate ipsum">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/lorem-ipsum-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/lorem-ipsum-generator.html">
+  <meta property="og:title" content="Free Lorem Ipsum Generator (Latin, Tech, Hipster, Corporate) | WebToolsHub">
+  <meta property="og:description" content="Generate customizable dummy placeholder text in Standard Latin, Cyber Tech, Hipster Artisan, and Corporate Buzzword flavors. Export as HTML or plain text.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/lorem-ipsum-generator.html">
+  <meta name="twitter:title" content="Free Lorem Ipsum Generator (Latin, Tech, Hipster, Corporate) | WebToolsHub">
+  <meta name="twitter:description" content="Generate customizable dummy placeholder text in Standard Latin, Cyber Tech, Hipster Artisan, and Corporate Buzzword flavors. Export as HTML or plain text.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lorem Ipsum Generator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Lorem Ipsum Generator</h1>
+      <p class="tool-subtitle">Generate realistic placeholder dummy text for UI mockups, websites, and document layout design.</p>
+    </div>
+
+    <div class="card" style="padding: 24px; margin-bottom: 24px;">
+      <!-- Controls -->
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 18px;">
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="flavor-select">Flavor / Theme</label>
+          <select class="select-field" id="flavor-select">
+            <option value="latin">Standard Latin (Classic Cicero)</option>
+            <option value="tech">Tech & Cybersecurity</option>
+            <option value="hipster">Hipster & Artisan</option>
+            <option value="corporate">Corporate Buzzwords</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="type-select">Generate By</label>
+          <select class="select-field" id="type-select">
+            <option value="paragraphs">Paragraphs</option>
+            <option value="sentences">Sentences</option>
+            <option value="words">Words</option>
+            <option value="list">Bullet List Items (&lt;li&gt;)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="count-input">Quantity Count</label>
+          <input type="number" class="input-field" id="count-input" min="1" max="50" value="4">
+        </div>
+      </div>
+
+      <!-- Toggles -->
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; padding: 12px; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer;">
+          <input type="checkbox" id="start-classic" checked>
+          <span>Start with <em>"Lorem ipsum dolor sit amet..."</em></span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer;">
+          <input type="checkbox" id="wrap-html">
+          <span>Wrap with HTML tags (<code>&lt;p&gt;</code> or <code>&lt;li&gt;</code>)</span>
+        </label>
+      </div>
+
+      <!-- Buttons -->
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+        <button class="btn btn-primary" id="btn-generate">⚡ Generate Text</button>
+        <button class="btn btn-secondary" id="btn-copy-plain">📋 Copy Text</button>
+        <button class="btn btn-secondary" id="btn-copy-html">🏷️ Copy as HTML</button>
+        <button class="btn btn-secondary" id="btn-download">💾 Download .txt</button>
+      </div>
+
+      <!-- Output stats -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <label class="form-label" style="margin: 0;">Generated Output</label>
+        <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);" id="output-stats">0 words | 0 characters</span>
+      </div>
+      <textarea class="textarea-field" id="output-text" rows="12" style="font-size: 14px; line-height: 1.7;"></textarea>
+    </div>
+
+    <div class="seo-content card">
+      <h2>Why Use Lorem Ipsum?</h2>
+      <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Designers use dummy text so that clients and viewers focus on visual layout, typography, and color schemes without being distracted by readable content.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Text Tools Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="word-counter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a>
+          <a href="case-converter.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a>
+          <a href="markdown-previewer.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a>
+          <a href="text-diff.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⚖️ Text & Code Diff Checker</span><span class="badge-mini">Compare</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const VOCABULARY = {
+      latin: [
+        "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit", "sed", "do",
+        "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore", "magna", "aliqua", "enim",
+        "ad", "minim", "veniam", "quis", "nostrud", "exercitation", "ullamco", "laboris", "nisi", "aliquip",
+        "ex", "ea", "commodo", "consequat", "duis", "aute", "irure", "in", "reprehenderit", "voluptate",
+        "velit", "esse", "cillum", "fugiat", "nulla", "pariatur", "excepteur", "sint", "occaecat", "cupidatat",
+        "non", "proident", "sunt", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum"
+      ],
+      tech: [
+        "microservices", "kubernetes", "cloud", "docker", "serverless", "graphql", "api", "latency",
+        "encryption", "blockchain", "neural", "network", "zero-trust", "payload", "distributed", "telemetry",
+        "asynchronous", "thread", "concurrency", "firewall", "gateway", "cache", "redis", "devops",
+        "ci-cd", "pipeline", "backend", "frontend", "react", "typescript", "scalability", "load-balancer",
+        "webhook", "websocket", "protocol", "tls", "handshake", "firmware", "sandbox", "observability"
+      ],
+      hipster: [
+        "artisan", "cold-brew", "kombucha", "quinoa", "bespoke", "vinyl", "fixie", "beard", "pour-over",
+        "succulent", "tote-bag", "biodiesel", "retro", "mustache", "irony", "craft-beer", "sustainable",
+        "organic", "farm-to-table", "aesthetic", "helvetica", "polaroid", "chillwave", "brunch", "distillery",
+        "paleo", "raw-denim", "foraged", "post-ironic", "slow-carb", "normcore", "cardigan", "crucifix"
+      ],
+      corporate: [
+        "synergy", "paradigm", "deliverables", "leverage", "bandwidth", "actionable", "roi", "stakeholders",
+        "alignment", "streamline", "pivot", "disruptive", "scalable", "benchmark", "core-competency",
+        "low-hanging-fruit", "touchpoint", "ecosystem", "value-add", "visibility", "drill-down", "agile",
+        "scrum", "sprint", "milestone", "kpi", "holistic", "empowerment", "wheelhouse", "best-practice"
+      ]
+    };
+
+    function randomChoice(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function capitalize(str) {
+      if (!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function makeSentence(flavor) {
+      const words = VOCABULARY[flavor] || VOCABULARY.latin;
+      const len = 8 + Math.floor(Math.random() * 10);
+      const list = [];
+      for (let i = 0; i < len; i++) {
+        list.push(randomChoice(words));
+      }
+      return capitalize(list.join(' ')) + '.';
+    }
+
+    function makeParagraph(flavor, sentenceCount = 5) {
+      const sentences = [];
+      for (let i = 0; i < sentenceCount; i++) {
+        sentences.push(makeSentence(flavor));
+      }
+      return sentences.join(' ');
+    }
+
+    function generate() {
+      const flavor = document.getElementById('flavor-select').value;
+      const type = document.getElementById('type-select').value;
+      let count = parseInt(document.getElementById('count-input').value) || 1;
+      count = Math.min(Math.max(count, 1), 100);
+
+      const startClassic = document.getElementById('start-classic').checked;
+      const wrapHtml = document.getElementById('wrap-html').checked;
+      const outputEl = document.getElementById('output-text');
+
+      let items = [];
+
+      if (type === 'paragraphs') {
+        for (let i = 0; i < count; i++) {
+          let p = makeParagraph(flavor);
+          if (i === 0 && startClassic && flavor === 'latin') {
+            p = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " + p;
+          }
+          items.push(wrapHtml ? `<p>${p}</p>` : p);
+        }
+      } else if (type === 'sentences') {
+        for (let i = 0; i < count; i++) {
+          let s = makeSentence(flavor);
+          if (i === 0 && startClassic && flavor === 'latin') {
+            s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+          }
+          items.push(s);
+        }
+      } else if (type === 'words') {
+        const words = VOCABULARY[flavor] || VOCABULARY.latin;
+        for (let i = 0; i < count; i++) {
+          items.push(randomChoice(words));
+        }
+        if (startClassic && flavor === 'latin' && items.length >= 2) {
+          items[0] = "lorem";
+          items[1] = "ipsum";
+        }
+      } else if (type === 'list') {
+        for (let i = 0; i < count; i++) {
+          const s = makeSentence(flavor);
+          items.push(wrapHtml ? `<li>${s}</li>` : `• ${s}`);
+        }
+        if (wrapHtml) {
+          items = ['<ul>', ...items.map(it => '  ' + it), '</ul>'];
+        }
+      }
+
+      const joiner = (type === 'words') ? ' ' : '\n\n';
+      const result = items.join(joiner);
+      outputEl.value = result;
+
+      // Update stats
+      const wordCount = result.trim().split(/\s+/).filter(Boolean).length;
+      const charCount = result.length;
+      document.getElementById('output-stats').textContent = `${wordCount.toLocaleString()} words | ${charCount.toLocaleString()} characters`;
+    }
+
+    document.getElementById('btn-generate').addEventListener('click', generate);
+    ['flavor-select', 'type-select', 'count-input', 'start-classic', 'wrap-html'].forEach(id => {
+      document.getElementById(id).addEventListener('change', generate);
+    });
+
+    document.getElementById('btn-copy-plain').addEventListener('click', () => {
+      const val = document.getElementById('output-text').value;
+      if (!val) return;
+      // Strip HTML if present for plain copy
+      const plain = val.replace(/<[^>]*>/g, '');
+      navigator.clipboard.writeText(plain);
+      showToast('Copied plain text to clipboard!');
+    });
+
+    document.getElementById('btn-copy-html').addEventListener('click', () => {
+      let val = document.getElementById('output-text').value;
+      if (!val) return;
+      if (!val.includes('<')) {
+        val = val.split('\n\n').map(p => `<p>${p}</p>`).join('\n\n');
+      }
+      navigator.clipboard.writeText(val);
+      showToast('Copied HTML markup to clipboard!');
+    });
+
+    document.getElementById('btn-download').addEventListener('click', () => {
+      const val = document.getElementById('output-text').value;
+      if (!val) return;
+      const blob = new Blob([val], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `lorem-ipsum-${Date.now()}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    generate();
+  </script>
+</body>
+</html>

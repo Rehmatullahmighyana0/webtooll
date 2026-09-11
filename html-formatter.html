@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Formatter, Beautifier & Minifier | WebToolsHub</title>
+  <meta name="description" content="Format, beautify, and clean messy HTML code with customizable indentation (2 spaces, 4 spaces, tabs). Minify HTML to reduce file size. 100% in-browser.">
+  <meta name="keywords" content="html formatter, html beautifier, format html online, html minifier, clean html, pretty print html">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/html-formatter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/html-formatter.html">
+  <meta property="og:title" content="HTML Formatter, Beautifier & Minifier | WebToolsHub">
+  <meta property="og:description" content="Format, beautify, and clean messy HTML code with customizable indentation (2 spaces, 4 spaces, tabs). Minify HTML to reduce file size. 100% in-browser.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/html-formatter.html">
+  <meta name="twitter:title" content="HTML Formatter, Beautifier & Minifier | WebToolsHub">
+  <meta name="twitter:description" content="Format, beautify, and clean messy HTML code with customizable indentation (2 spaces, 4 spaces, tabs). Minify HTML to reduce file size. 100% in-browser.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTML Formatter & Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Beautify, indent, or minify HTML documents client-side."
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Developer Tools</span> &gt; <span>HTML Formatter</span>
+      </nav>
+      <h1 class="tool-page-title">HTML Formatter & Beautifier</h1>
+      <p class="tool-page-subtitle">Clean, indent, and format messy HTML documents or compress HTML for faster web
+        performance. 100% private in-browser processing.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+
+        <!-- Controls -->
+        <div
+          style="background: var(--bg-subtle); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <button type="button" id="btn-format" class="btn btn-primary btn-sm">✨ Beautify HTML</button>
+            <button type="button" id="btn-minify" class="btn btn-secondary btn-sm">⚡ Minify HTML</button>
+            <button type="button" id="btn-strip-styles" class="btn btn-secondary btn-sm">🧹 Strip Styles</button>
+            <button type="button" id="btn-strip-comments" class="btn btn-secondary btn-sm">💬 Strip Comments</button>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 600;">Indent:</span>
+              <select id="indent-size" class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.85rem;">
+                <option value="2" selected>2 Spaces</option>
+                <option value="4">4 Spaces</option>
+                <option value="tab">1 Tab</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editor Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="html-input" style="margin-bottom: 0;">Input HTML Code:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm" style="color: var(--accent-danger);">Clear</button>
+              </div>
+            </div>
+            <textarea id="html-input" class="form-textarea"
+              style="min-height: 380px; font-family: monospace; font-size: 0.9rem;"
+              placeholder="Paste unformatted HTML here..."></textarea>
+          </div>
+
+          <div>
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div class="categories-filter" style="margin: 0; justify-content: flex-start; gap: 0.35rem;">
+                <button type="button" class="filter-pill active" id="tab-code"
+                  style="padding: 0.3rem 0.85rem; font-size: 0.82rem;">Formatted Code</button>
+                <button type="button" class="filter-pill" id="tab-preview"
+                  style="padding: 0.3rem 0.85rem; font-size: 0.82rem;">🌐 Live Interactive Preview</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy</button>
+                <button type="button" id="btn-download" class="btn btn-secondary btn-sm">Download</button>
+                <button type="button" id="btn-new-tab" class="btn btn-secondary btn-sm" title="Open preview in full new window">🚀 Open Tab</button>
+              </div>
+            </div>
+            <div id="wrapper-output-code">
+              <textarea id="html-output" class="form-textarea" readonly
+                style="min-height: 380px; font-family: monospace; font-size: 0.9rem; background: var(--bg-surface);"
+                placeholder="Formatted code will appear here..."></textarea>
+            </div>
+            <div id="wrapper-output-preview"
+              style="display: none; min-height: 380px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: #ffffff; overflow: hidden;">
+              <iframe id="html-preview-frame" sandbox="allow-scripts allow-modals allow-forms allow-popups"
+                style="width: 100%; height: 380px; border: none; background: #ffffff;"></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="xml-formatter.html"><span>📑 XML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="javascript-beautifier.html"><span>🟨 JavaScript Beautifier</span><span class="badge-mini">Popular</span></a></li>
+            <li><a href="css-beautifier.html"><span>🎨 CSS Beautifier & Formatter</span><span class="badge-mini">CSS</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Why Format and Beautify HTML?</h2>
+      <p>Clean indentation transforms chaotic, minified website source code into neat, human-readable tags with
+        standardized hierarchy. This accelerates frontend debugging, improves maintainability, and makes code
+        inspections effortless.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("html-input");
+      const output = document.getElementById("html-output");
+      const indentSelect = document.getElementById("indent-size");
+      const tabCode = document.getElementById("tab-code");
+      const tabPreview = document.getElementById("tab-preview");
+      const wrapCode = document.getElementById("wrapper-output-code");
+      const wrapPreview = document.getElementById("wrapper-output-preview");
+      const previewFrame = document.getElementById("html-preview-frame");
+
+      function updateLivePreview() {
+        if (!previewFrame) return;
+        const content = output.value || input.value || "";
+        previewFrame.srcdoc = content;
+      }
+
+      function formatHTML(html) {
+        const indentType = indentSelect.value;
+        const indentStr = indentType === "tab" ? "\t" : " ".repeat(parseInt(indentType, 10));
+
+        let tab = '';
+        let result = '';
+        html = html.replace(/>\s*</g, '><').trim();
+
+        const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+        const tokens = html.split(/(<[^>]+>)/g).filter(Boolean);
+
+        tokens.forEach(token => {
+          if (token.startsWith('</')) {
+            tab = tab.slice(indentStr.length);
+            result += '\n' + tab + token;
+          } else if (token.startsWith('<') && !token.startsWith('<!') && !token.startsWith('<?')) {
+            const tagNameMatch = token.match(/<([a-zA-Z0-9]+)/);
+            const tagName = tagNameMatch ? tagNameMatch[1].toLowerCase() : '';
+            const isSelfClosing = token.endsWith('/>') || voidTags.has(tagName);
+
+            result += (result ? '\n' : '') + tab + token;
+            if (!isSelfClosing) {
+              tab += indentStr;
+            }
+          } else if (token.startsWith('<!') || token.startsWith('<?')) {
+            result += (result ? '\n' : '') + tab + token;
+          } else {
+            const text = token.trim();
+            if (text) {
+              result += text;
+            }
+          }
+        });
+
+        return result;
+      }
+
+      function minifyHTML(html) {
+        return html
+          .replace(/<!--[\s\S]*?-->/g, '') // strip comments
+          .replace(/>\s+</g, '><')          // strip whitespace between tags
+              .replace(/\s+/g, ' ')             // collapse whitespace
+              .trim()
+      }
+
+      tabCode.addEventListener("click", () => {
+        tabCode.classList.add("active");
+        tabPreview.classList.remove("active");
+        wrapCode.style.display = "block";
+        wrapPreview.style.display = "none";
+      });
+
+      tabPreview.addEventListener("click", () => {
+        tabPreview.classList.add("active");
+        tabCode.classList.remove("active");
+        wrapCode.style.display = "none";
+        wrapPreview.style.display = "block";
+        updateLivePreview();
+      });
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        if (!input.value) return;
+        output.value = formatHTML(input.value);
+        updateLivePreview();
+        showToast("HTML formatted & beautified!");
+      });
+
+      document.getElementById("btn-minify").addEventListener("click", () => {
+        if (!input.value) return;
+        output.value = minifyHTML(input.value);
+        updateLivePreview();
+        showToast("HTML minified!");
+      });
+
+      document.getElementById("btn-strip-styles").addEventListener("click", () => {
+        if (!input.value) return;
+        let clean = input.value.replace(/\s*style="[^"]*"/gi, '').replace(/<style[\s\S]*?<\/style>/gi, '');
+        output.value = formatHTML(clean);
+        updateLivePreview();
+        showToast("Inline styles stripped from HTML!");
+      });
+
+      document.getElementById("btn-strip-comments").addEventListener("click", () => {
+        if (!input.value) return;
+        let clean = input.value.replace(/<!--[\s\S]*?-->/g, '');
+        output.value = formatHTML(clean);
+        updateLivePreview();
+        showToast("HTML comments removed!");
+      });
+
+      document.getElementById("btn-new-tab").addEventListener("click", () => {
+        const content = output.value || input.value;
+        if (!content.trim()) {
+          showToast("No HTML content to preview in new tab!", "warning");
+          return;
+        }
+        const win = window.open("", "_blank");
+        if (win) {
+          win.document.open();
+          win.document.write(content);
+          win.document.close();
+          showToast("Opened interactive preview in new tab!");
+        } else {
+          showToast("Pop-up was blocked by browser", "warning");
+        }
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 500px; margin: 20px auto;">
+  <h2 style="color: #4f46e5; margin-top: 0; font-size: 20px;">🚀 Interactive HTML Live Preview</h2>
+  <p style="color: #475569; font-size: 14px; line-height: 1.5;">Test live markup, buttons, styling, and interactive JavaScript directly in the sandboxed previewer:</p>
+  <div style="display: flex; gap: 8px; margin-top: 16px;">
+    <button onclick="alert('Hello from WebToolsHub live preview!')" style="background: #4f46e5; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer;">Click Alert</button>
+    <button onclick="this.style.background='#10b981'; this.innerText='Active!';" style="background: #e2e8f0; color: #1e293b; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer;">Toggle State</button>
+  </div>
+</div>`;
+        output.value = formatHTML(input.value);
+        updateLivePreview();
+        showToast("Sample loaded & rendered!");
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        updateLivePreview();
+        showToast("Workspace cleared.");
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        if (!output.value) return;
+        copyToClipboard(output.value, "HTML code copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "text/html;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `formatted-${Date.now()}.html`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("HTML document downloaded!");
+      });
+
+      document.getElementById("btn-sample").click();
+    });
+  </script>
+</body>
+
+</html>

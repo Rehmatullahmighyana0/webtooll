@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Character Counter & Social Media Character Limit Checker | WebToolsHub</title>
+  <meta name="description" content="Free character counter with live tracking for Twitter/X (280), SMS (160), Instagram bio (150), LinkedIn (3,000), meta descriptions, and UTF-8 byte counter.">
+  <meta name="keywords" content="character counter, tweet character counter, twitter limit, sms character counter, byte counter, letters counter">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/character-counter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/character-counter.html">
+  <meta property="og:title" content="Free Character Counter & Social Media Character Limit Checker | WebToolsHub">
+  <meta property="og:description" content="Free character counter with live tracking for Twitter/X (280), SMS (160), Instagram bio (150), LinkedIn (3,000), meta descriptions, and UTF-8 byte counter.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/character-counter.html">
+  <meta name="twitter:title" content="Free Character Counter & Social Media Character Limit Checker | WebToolsHub">
+  <meta name="twitter:description" content="Free character counter with live tracking for Twitter/X (280), SMS (160), Instagram bio (150), LinkedIn (3,000), meta descriptions, and UTF-8 byte counter.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Character Counter & Social Media Limits",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Accurate character, word, and byte counting with social media limit indicators."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>Character Counter</span>
+      </nav>
+      <h1 class="tool-page-title">Character Counter & Social Media Limits</h1>
+      <p class="tool-page-subtitle">Accurate character count with and without spaces, letter count, byte sizes, and real-time social platform limit meters.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Main Stats Grid -->
+        <div class="stats-grid" style="margin-top: 0; margin-bottom: 1.5rem;">
+          <div class="stat-item">
+            <div class="stat-value" id="stat-chars">0</div>
+            <div class="stat-label">Total Characters</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-chars-nospace">0</div>
+            <div class="stat-label">Chars (No Spaces)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-words">0</div>
+            <div class="stat-label">Words</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-letters">0</div>
+            <div class="stat-label">Letters</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-digits">0</div>
+            <div class="stat-label">Digits</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-bytes">0 B</div>
+            <div class="stat-label">UTF-8 Bytes</div>
+          </div>
+        </div>
+
+        <!-- Custom Editing Toolbar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1rem;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-undo" title="Undo (Ctrl+Z)" disabled>↶ Undo</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-redo" title="Redo (Ctrl+Y)" disabled>↷ Redo</button>
+              <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 0.25rem;"></div>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-find">🔍 Find & Replace</button>
+            </div>
+
+            <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+              <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+              <button type="button" id="btn-copy" class="btn btn-secondary btn-sm">Copy</button>
+              <button type="button" id="btn-download-txt" class="btn btn-secondary btn-sm">Download .TXT</button>
+              <button type="button" id="btn-clear" class="btn btn-secondary btn-sm" style="color: #ef4444;">Clear</button>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Transform:</span>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('upper')">UPPER</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('lower')">lower</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('title')">Title Case</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('sentence')">Sentence case</button>
+            </div>
+
+            <div style="width: 1px; height: 20px; background: var(--border-color); margin: 0 0.2rem;"></div>
+
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Clean:</span>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('spaces')">Strip Extra Spaces</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('blank-lines')">Remove Blank Lines</button>
+              <button type="button" class="filter-pill" style="padding: 0.2rem 0.55rem; font-size: 0.8rem;" onclick="applyCharEdit('strip-html')">Strip HTML</button>
+            </div>
+          </div>
+
+          <!-- Collapsible Find & Replace -->
+          <div id="char-drawer-find" style="display: none; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-top: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <input type="text" id="char-find-query" class="form-control" placeholder="Find text..." style="flex: 1; min-width: 160px; height: 34px; font-size: 0.85rem;">
+              <input type="text" id="char-replace-query" class="form-control" placeholder="Replace with..." style="flex: 1; min-width: 160px; height: 34px; font-size: 0.85rem;">
+              <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap;">
+                <input type="checkbox" id="char-match-case"> Match Case
+              </label>
+              <button type="button" class="btn btn-primary btn-sm" id="btn-char-replace-all" style="height: 34px;">Replace All</button>
+              <span id="char-find-status" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-primary);"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Input Area -->
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <textarea id="char-input" class="form-textarea" style="min-height: 240px; font-size: 15px; line-height: 1.6; border-radius: var(--radius-md);" placeholder="Start typing here... character counts and social media limit bars update live."></textarea>
+        </div>
+
+        <!-- Social Media Limit Meters -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 1.5rem;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem;">📱 Social Platform Limits & Progress</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Twitter/X -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.35rem;">
+                <span><strong>Twitter / X</strong> (Post limit: 280)</span>
+                <span id="meter-text-twitter" style="font-weight: 600;">0 / 280</span>
+              </div>
+              <div style="background: var(--bg-subtle); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                <div id="meter-bar-twitter" style="width: 0%; height: 100%; background: var(--accent-primary); transition: width 0.2s;"></div>
+              </div>
+            </div>
+
+            <!-- SMS -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.35rem;">
+                <span><strong>SMS Message</strong> (Single segment: 160)</span>
+                <span id="meter-text-sms" style="font-weight: 600;">0 / 160</span>
+              </div>
+              <div style="background: var(--bg-subtle); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                <div id="meter-bar-sms" style="width: 0%; height: 100%; background: #10b981; transition: width 0.2s;"></div>
+              </div>
+            </div>
+
+            <!-- Instagram Bio -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.35rem;">
+                <span><strong>Instagram Bio</strong> (Limit: 150)</span>
+                <span id="meter-text-ig" style="font-weight: 600;">0 / 150</span>
+              </div>
+              <div style="background: var(--bg-subtle); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                <div id="meter-bar-ig" style="width: 0%; height: 100%; background: #ec4899; transition: width 0.2s;"></div>
+              </div>
+            </div>
+
+            <!-- SEO Meta Description -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.35rem;">
+                <span><strong>Google SEO Meta Description</strong> (Optimal: 155-160)</span>
+                <span id="meter-text-seo" style="font-weight: 600;">0 / 160</span>
+              </div>
+              <div style="background: var(--bg-subtle); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                <div id="meter-bar-seo" style="width: 0%; height: 100%; background: #f59e0b; transition: width 0.2s;"></div>
+              </div>
+            </div>
+
+            <!-- LinkedIn Post -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.35rem;">
+                <span><strong>LinkedIn Post</strong> (Limit: 3,000)</span>
+                <span id="meter-text-linkedin" style="font-weight: 600;">0 / 3,000</span>
+              </div>
+              <div style="background: var(--bg-subtle); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                <div id="meter-bar-linkedin" style="width: 0%; height: 100%; background: #0284c7; transition: width 0.2s;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content & FAQ -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Why Use an Online Character Counter?</h2>
+      <p>Whether you are drafting a tweet for Twitter / X, composing a mobile SMS notification, optimizing an SEO meta tag for Google search, or formatting your Instagram profile biography, keeping strictly within character restrictions is vital. Our character counter runs 100% in your browser without transmitting your words over the web.</p>
+      
+      <h3>Frequently Asked Questions</h3>
+      <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+          <h4>Does this counter count spaces and punctuation?</h4>
+          <p>Yes. The tool gives you both the total character count (including spaces and punctuation) and the count strictly without whitespace.</p>
+        </div>
+        <div>
+          <h4>How are UTF-8 bytes calculated?</h4>
+          <p>Standard ASCII English characters take 1 byte each, while emojis and accented characters may occupy 2 to 4 bytes under UTF-8 encoding.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("character-counter");
+
+      const input = document.getElementById("char-input");
+      const statChars = document.getElementById("stat-chars");
+      const statCharsNoSpace = document.getElementById("stat-chars-nospace");
+      const statWords = document.getElementById("stat-words");
+      const statLetters = document.getElementById("stat-letters");
+      const statDigits = document.getElementById("stat-digits");
+      const statBytes = document.getElementById("stat-bytes");
+
+      const btnUndo = document.getElementById("btn-undo");
+      const btnRedo = document.getElementById("btn-redo");
+      const btnToggleFind = document.getElementById("btn-toggle-find");
+      const drawerFind = document.getElementById("char-drawer-find");
+      const findQuery = document.getElementById("char-find-query");
+      const replaceQuery = document.getElementById("char-replace-query");
+      const findMatchCase = document.getElementById("char-match-case");
+      const findStatus = document.getElementById("char-find-status");
+      const btnReplaceAll = document.getElementById("btn-char-replace-all");
+      const btnDownloadTxt = document.getElementById("btn-download-txt");
+
+      // History stack for Undo / Redo
+      const historyStack = [];
+      const redoStack = [];
+
+      function pushState() {
+        if (historyStack.length === 0 || historyStack[historyStack.length - 1] !== input.value) {
+          historyStack.push(input.value);
+          if (historyStack.length > 30) historyStack.shift();
+          redoStack.length = 0;
+          updateBtns();
+        }
+      }
+
+      function updateBtns() {
+        btnUndo.disabled = historyStack.length <= 1;
+        btnRedo.disabled = redoStack.length === 0;
+      }
+
+      function undo() {
+        if (historyStack.length > 1) {
+          redoStack.push(historyStack.pop());
+          input.value = historyStack[historyStack.length - 1];
+          updateBtns();
+          updateCounts();
+        }
+      }
+
+      function redo() {
+        if (redoStack.length > 0) {
+          const nxt = redoStack.pop();
+          historyStack.push(nxt);
+          input.value = nxt;
+          updateBtns();
+          updateCounts();
+        }
+      }
+
+      btnUndo.addEventListener("click", undo);
+      btnRedo.addEventListener("click", redo);
+
+      input.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === 'z') {
+          e.preventDefault();
+          undo();
+        } else if (e.ctrlKey && e.key === 'y') {
+          e.preventDefault();
+          redo();
+        }
+      });
+
+      pushState();
+
+      window.applyCharEdit = function(type) {
+        const text = input.value;
+        if (!text) return;
+        pushState();
+
+        let newText = text;
+        if (type === 'upper') newText = text.toUpperCase();
+        else if (type === 'lower') newText = text.toLowerCase();
+        else if (type === 'title') newText = text.toLowerCase().replace(/\b\w+/g, w => w.charAt(0).toUpperCase() + w.slice(1));
+        else if (type === 'sentence') newText = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+        else if (type === 'spaces') newText = text.split('\n').map(l => l.replace(/[^\S\r\n]+/g, ' ').trim()).join('\n');
+        else if (type === 'blank-lines') newText = text.split('\n').filter(l => l.trim().length > 0).join('\n');
+        else if (type === 'strip-html') newText = text.replace(/<[^>]*>?/gm, '');
+
+        input.value = newText;
+        pushState();
+        updateCounts();
+        showToast("Applied text transformation!", "success");
+      };
+
+      btnToggleFind.addEventListener("click", () => {
+        drawerFind.style.display = drawerFind.style.display === 'none' ? 'block' : 'none';
+        if (drawerFind.style.display === 'block') findQuery.focus();
+      });
+
+      btnReplaceAll.addEventListener("click", () => {
+        const f = findQuery.value;
+        const r = replaceQuery.value;
+        if (!f) return;
+
+        pushState();
+        const flags = findMatchCase.checked ? 'g' : 'gi';
+        const escaped = f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const reg = new RegExp(escaped, flags);
+        let count = 0;
+        input.value = input.value.replace(reg, () => {
+          count++;
+          return r;
+        });
+        findStatus.textContent = count > 0 ? `Replaced ${count} matches` : 'No matches found';
+        pushState();
+        updateCounts();
+      });
+
+      btnDownloadTxt.addEventListener("click", () => {
+        const blob = new Blob([input.value], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `characters-text-${new Date().toISOString().slice(0, 10)}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      const limits = [
+        { id: "twitter", max: 280, label: "Twitter / X" },
+        { id: "sms", max: 160, label: "SMS" },
+        { id: "ig", max: 150, label: "Instagram Bio" },
+        { id: "seo", max: 160, label: "SEO Meta Description" },
+        { id: "linkedin", max: 3000, label: "LinkedIn" }
+      ];
+
+      function updateCounts() {
+        const val = input.value;
+        const totalChars = val.length;
+        const charsNoSpace = val.replace(/\s/g, "").length;
+        const words = val.trim() === "" ? 0 : val.trim().split(/\s+/).length;
+        const letters = (val.match(/[a-zA-Z]/g) || []).length;
+        const digits = (val.match(/[0-9]/g) || []).length;
+        const bytes = new Blob([val]).size;
+
+        statChars.textContent = totalChars.toLocaleString();
+        statCharsNoSpace.textContent = charsNoSpace.toLocaleString();
+        statWords.textContent = words.toLocaleString();
+        statLetters.textContent = letters.toLocaleString();
+        statDigits.textContent = digits.toLocaleString();
+        statBytes.textContent = bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(1)} KB`;
+
+        limits.forEach(({ id, max }) => {
+          const textElem = document.getElementById(`meter-text-${id}`);
+          const barElem = document.getElementById(`meter-bar-${id}`);
+          const remaining = max - totalChars;
+          const pct = Math.min(100, Math.round((totalChars / max) * 100));
+
+          barElem.style.width = `${pct}%`;
+          if (totalChars > max) {
+            barElem.style.backgroundColor = "var(--accent-danger)";
+            textElem.innerHTML = `<span style="color: var(--accent-danger); font-weight: 700;">${totalChars} / ${max} (${remaining} over limit)</span>`;
+          } else {
+            barElem.style.backgroundColor = "";
+            textElem.textContent = `${totalChars} / ${max.toLocaleString()} (${remaining} left)`;
+          }
+        });
+      }
+
+      let typeTimer = null;
+      input.addEventListener("input", () => {
+        clearTimeout(typeTimer);
+        typeTimer = setTimeout(pushState, 600);
+        updateCounts();
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        pushState();
+        input.value = "Boost your social engagement with crisp, targeted copy that fits perfectly within platform limits!";
+        pushState();
+        updateCounts();
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        pushState();
+        input.value = "";
+        pushState();
+        updateCounts();
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(input.value, "Content copied to clipboard!");
+      });
+
+      updateCounts();
+    });
+  </script>
+</body>
+</html>

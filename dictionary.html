@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online English Dictionary & Pronunciation | WebToolsHub</title>
+  <meta name="description" content="Free online dictionary. Look up word definitions, phonetics, audio pronunciations, example sentences, synonyms, and antonyms with instant vocabulary search.">
+  <meta name="keywords" content="online dictionary, word definitions, english vocabulary, audio pronunciation, synonyms and antonyms">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/dictionary.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/dictionary.html">
+  <meta property="og:title" content="Online English Dictionary & Pronunciation | WebToolsHub">
+  <meta property="og:description" content="Free online dictionary. Look up word definitions, phonetics, audio pronunciations, example sentences, synonyms, and antonyms with instant vocabulary search.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/dictionary.html">
+  <meta name="twitter:title" content="Online English Dictionary & Pronunciation | WebToolsHub">
+  <meta name="twitter:description" content="Free online dictionary. Look up word definitions, phonetics, audio pronunciations, example sentences, synonyms, and antonyms with instant vocabulary search.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "English Dictionary",
+    "applicationCategory": "ReferenceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Comprehensive English dictionary with audio phonetics, definitions, and synonyms."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Information Tools</span> &gt; <span>Dictionary</span>
+      </nav>
+      <h1 class="tool-page-title">English Dictionary & Pronunciation</h1>
+      <p class="tool-page-subtitle">Search comprehensive word definitions, phonetics, audio pronunciations, synonyms, and practical examples.</p>
+      <div class="privacy-badge">📖 Lexical Reference</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Search Input Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input type="text" id="dict-search-input" class="form-control" placeholder="Search any English word (e.g., serendipity, resilient, ubiquitous)..." value="serendipity" style="flex-grow: 1; min-width: 260px;">
+            <button type="button" class="btn btn-primary" id="btn-search-word">Define Word</button>
+          </div>
+
+          <!-- Vocabulary Discovery Pills -->
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; align-items: center;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Trending:</span>
+            <button type="button" class="filter-pill" onclick="searchWord('serendipity')">Serendipity</button>
+            <button type="button" class="filter-pill" onclick="searchWord('resilient')">Resilient</button>
+            <button type="button" class="filter-pill" onclick="searchWord('ephemeral')">Ephemeral</button>
+            <button type="button" class="filter-pill" onclick="searchWord('pragmatic')">Pragmatic</button>
+            <button type="button" class="filter-pill" onclick="searchWord('ubiquitous')">Ubiquitous</button>
+            <button type="button" class="filter-pill" onclick="searchWord('innovation')">Innovation</button>
+          </div>
+        </div>
+
+        <!-- Dictionary Entry Result Card -->
+        <div id="dict-entry-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 1.5rem;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
+            <div>
+              <h2 id="entry-word" style="margin: 0; font-size: 2.2rem; font-weight: 900; color: var(--accent-primary);">serendipity</h2>
+              <div id="entry-phonetic" style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.35rem; font-family: monospace;">/ˌser.ənˈdɪp.ə.ti/</div>
+            </div>
+            
+            <button type="button" class="btn btn-secondary" id="btn-play-audio" style="display: flex; align-items: center; gap: 0.5rem;" title="Listen to pronunciation">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              <span>Listen</span>
+            </button>
+          </div>
+
+          <!-- Meanings & Definitions Container -->
+          <div id="meanings-container">
+            <!-- Meanings injected dynamically -->
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Information Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="timezone-converter.html"><span>🌍 Time Zone Converter</span><span class="badge-mini">Time</span></a></li>
+            <li><a href="weather-checker.html"><span>🌤️ Live Weather Checker & Forecast</span><span class="badge-mini">Live</span></a></li>
+            <li><a href="country-info.html"><span>🌐 Country Information Explorer</span><span class="badge-mini">Atlas</span></a></li>
+            <li><a href="random-facts.html"><span>💡 Random Facts & Trivia Generator</span><span class="badge-mini">Trivia</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How does audio pronunciation work?</h3>
+        <p>If recorded MP3 audio is available in the lexical registry, it will play directly. Otherwise, the browser's built-in Web Speech Synthesis engine speaks the word naturally.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I search phrases or idioms?</h3>
+        <p>This dictionary is optimized for individual English words and compound terms.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    let activeAudioUrl = null;
+    let currentWord = 'serendipity';
+
+    const fallbackVocab = {
+      'serendipity': {
+        word: 'serendipity',
+        phonetic: '/ˌser.ənˈdɪp.ə.ti/',
+        meanings: [
+          {
+            partOfSpeech: 'noun',
+            definitions: [
+              {
+                definition: 'The occurrence and development of events by chance in a happy or beneficial way.',
+                example: 'A fortunate stroke of serendipity led the researchers to the breakthrough.'
+              }
+            ],
+            synonyms: ['chance', 'fortune', 'fluke', 'good luck', 'providence']
+          }
+        ]
+      },
+      'resilient': {
+        word: 'resilient',
+        phonetic: '/rɪˈzɪl.jənt/',
+        meanings: [
+          {
+            partOfSpeech: 'adjective',
+            definitions: [
+              {
+                definition: 'Able to withstand or recover quickly from difficult conditions.',
+                example: 'Babies are generally remarkably resilient to physical minor knocks.'
+              },
+              {
+                definition: '(Of a substance or object) able to recoil or spring back into shape after bending, stretching, or being compressed.',
+                example: 'A resilient and flexible silicone compound.'
+              }
+            ],
+            synonyms: ['strong', 'tough', 'hardy', 'adaptable', 'buoyant']
+          }
+        ]
+      },
+      'ephemeral': {
+        word: 'ephemeral',
+        phonetic: '/ɪˈfem.ər.əl/',
+        meanings: [
+          {
+            partOfSpeech: 'adjective',
+            definitions: [
+              {
+                definition: 'Lasting for a very short time; transitory.',
+                example: 'Fashions in technology are often ephemeral.'
+              }
+            ],
+            synonyms: ['fleeting', 'short-lived', 'transient', 'evanescent', 'momentary']
+          }
+        ]
+      },
+      'pragmatic': {
+        word: 'pragmatic',
+        phonetic: '/præɡˈmæt.ɪk/',
+        meanings: [
+          {
+            partOfSpeech: 'adjective',
+            definitions: [
+              {
+                definition: 'Dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.',
+                example: 'A pragmatic approach to solving software architecture debt.'
+              }
+            ],
+            synonyms: ['practical', 'sensible', 'realistic', 'matter-of-fact', 'down-to-earth']
+          }
+        ]
+      },
+      'ubiquitous': {
+        word: 'ubiquitous',
+        phonetic: '/juːˈbɪk.wɪ.təs/',
+        meanings: [
+          {
+            partOfSpeech: 'adjective',
+            definitions: [
+              {
+                definition: 'Present, appearing, or found everywhere.',
+                example: 'Smartphones have become ubiquitous in modern society.'
+              }
+            ],
+            synonyms: ['omnipresent', 'everywhere', 'pervasive', 'universal', 'worldwide']
+          }
+        ]
+      },
+      'innovation': {
+        word: 'innovation',
+        phonetic: '/ˌɪn.əˈveɪ.ʃən/',
+        meanings: [
+          {
+            partOfSpeech: 'noun',
+            definitions: [
+              {
+                definition: 'The action or process of innovating; a new method, idea, product, etc.',
+                example: 'Technological innovations designed to save energy.'
+              }
+            ],
+            synonyms: ['novelty', 'invention', 'transformation', 'modernization', 'breakthrough']
+          }
+        ]
+      }
+    };
+
+    function renderEntry(entry) {
+      currentWord = entry.word;
+      document.getElementById('entry-word').textContent = entry.word;
+      document.getElementById('entry-phonetic').textContent = entry.phonetic || '';
+
+      const container = document.getElementById('meanings-container');
+      container.innerHTML = '';
+
+      entry.meanings.forEach(m => {
+        const block = document.createElement('div');
+        block.style.marginBottom = '1.75rem';
+
+        let defsHtml = '<ol style="padding-left: 1.25rem; margin: 0.5rem 0 1rem; line-height: 1.6;">';
+        m.definitions.forEach(d => {
+          defsHtml += `<li style="margin-bottom: 0.5rem;">
+            <strong>${d.definition}</strong>
+            ${d.example ? `<div style="font-size: 0.9rem; color: var(--text-secondary); font-style: italic; margin-top: 0.2rem;">"${d.example}"</div>` : ''}
+          </li>`;
+        });
+        defsHtml += '</ol>';
+
+        let synsHtml = '';
+        if (m.synonyms && m.synonyms.length > 0) {
+          synsHtml = `
+            <div style="margin-top: 0.75rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-right: 0.5rem;">Synonyms:</span>
+              <div style="display: inline-flex; gap: 0.4rem; flex-wrap: wrap;">
+                ${m.synonyms.slice(0, 8).map(s => `<button type="button" class="filter-pill" style="font-size: 0.8rem; padding: 0.15rem 0.6rem;" onclick="searchWord('${s}')">${s}</button>`).join('')}
+              </div>
+            </div>
+          `;
+        }
+
+        block.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span style="background: var(--bg-subtle); border: 1px solid var(--border-color); color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); text-transform: uppercase;">${m.partOfSpeech}</span>
+            <div style="height: 1px; background: var(--border-color); flex-grow: 1;"></div>
+          </div>
+          ${defsHtml}
+          ${synsHtml}
+        `;
+
+        container.appendChild(block);
+      });
+    }
+
+    async function searchWord(word) {
+      document.getElementById('dict-search-input').value = word;
+      const clean = word.toLowerCase().trim();
+      activeAudioUrl = null;
+
+      try {
+        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(clean)}`);
+        if (!res.ok) throw new Error('Not found');
+        const data = await res.json();
+        const first = data[0];
+
+        // Find audio
+        const audioObj = first.phonetics?.find(p => p.audio && p.audio.length > 0);
+        if (audioObj) activeAudioUrl = audioObj.audio;
+
+        renderEntry({
+          word: first.word,
+          phonetic: first.phonetic || (first.phonetics?.[0]?.text) || '',
+          meanings: first.meanings
+        });
+      } catch (e) {
+        if (fallbackVocab[clean]) {
+          renderEntry(fallbackVocab[clean]);
+        } else {
+          alert(`No definitions found for "${word}". Please try another word.`);
+        }
+      }
+    }
+
+    document.getElementById('btn-play-audio').addEventListener('click', () => {
+      if (activeAudioUrl) {
+        const audio = new Audio(activeAudioUrl);
+        audio.play().catch(() => speakWord(currentWord));
+      } else {
+        speakWord(currentWord);
+      }
+    });
+
+    function speakWord(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Text-to-speech audio is not supported in this browser.');
+      }
+    }
+
+    document.getElementById('btn-search-word').addEventListener('click', () => {
+      const w = document.getElementById('dict-search-input').value.trim();
+      if (w) searchWord(w);
+    });
+
+    document.getElementById('dict-search-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const w = e.target.value.trim();
+        if (w) searchWord(w);
+      }
+    });
+
+    searchWord('serendipity');
+  </script>
+</body>
+</html>

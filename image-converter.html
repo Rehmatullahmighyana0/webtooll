@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Image Format Converter (PNG, JPG, WebP, BMP) | WebToolsHub</title>
+  <meta name="description" content="Convert images between PNG, JPEG, WebP, BMP, and GIF formats client-side. Customizable compression quality and batch download. 100% private.">
+  <meta name="keywords" content="image converter, png to jpg, jpg to png, convert to webp, webp to jpg, image format converter">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/image-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/image-converter.html">
+  <meta property="og:title" content="Batch Image Format Converter (PNG, JPG, WebP, BMP) | WebToolsHub">
+  <meta property="og:description" content="Convert images between PNG, JPEG, WebP, BMP, and GIF formats client-side. Customizable compression quality and batch download. 100% private.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/image-converter.html">
+  <meta name="twitter:title" content="Batch Image Format Converter (PNG, JPG, WebP, BMP) | WebToolsHub">
+  <meta name="twitter:description" content="Convert images between PNG, JPEG, WebP, BMP, and GIF formats client-side. Customizable compression quality and batch download. 100% private.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Image Format Converter",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert photo formats between PNG, JPG, and WebP in browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Image Tools</span> &gt; <span>Image Converter</span>
+      </nav>
+      <h1 class="tool-page-title">Batch Image Format Converter</h1>
+      <p class="tool-page-subtitle">Convert pictures between PNG, JPG, and WebP formats instantly with quality control slider. No files uploaded to servers.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Conversion</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Upload Dropzone -->
+        <div class="upload-dropzone" id="conv-dropzone" style="cursor: pointer; border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; text-align: center; background: var(--bg-surface); margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔄</div>
+          <h3 style="margin-bottom: 0.5rem;">Drag & drop image(s) or click to upload</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Select single or multiple photos to convert</p>
+          <input type="file" id="conv-file-input" accept="image/*" multiple style="display: none;">
+        </div>
+
+        <!-- Conversion settings -->
+        <div id="conv-settings" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <div>
+              <label class="form-label" for="target-format">Convert All To:</label>
+              <select id="target-format" class="form-select" style="width: 180px;">
+                <option value="image/webp" selected>WebP (.webp)</option>
+                <option value="image/jpeg">JPEG (.jpg)</option>
+                <option value="image/png">PNG (.png)</option>
+              </select>
+            </div>
+
+            <div style="flex: 1; min-width: 200px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem; font-size: 0.85rem;">
+                <label class="form-label" for="quality-range" style="margin-bottom: 0;">Quality:</label>
+                <span id="quality-val" style="font-weight: 700;">90%</span>
+              </div>
+              <input type="range" id="quality-range" min="10" max="100" value="90" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Files List & Queue -->
+        <div id="files-queue" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Images Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="image-compressor.html"><span>🖼️ Image Compressor</span><span class="badge-mini">Popular</span></a></li>
+            <li><a href="svg-to-png.html"><span>🖼️ SVG to PNG Converter</span><span class="badge-mini">Graphics</span></a></li>
+            <li><a href="favicon-generator.html"><span>⭐ Favicon Generator & Icon Maker</span><span class="badge-mini">Brand</span></a></li>
+            <li><a href="image-resizer.html"><span>📐 Image Resizer</span><span class="badge-mini">Images</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Why Convert Images to WebP?</h2>
+      <p>WebP is a modern image format developed by Google that provides superior lossless and lossy compression for web images. WebP images are typically 26% smaller than PNGs and 25-34% smaller than comparable JPEGs at equivalent quality, boosting Google PageSpeed Insights scores.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropzone = document.getElementById("conv-dropzone");
+      const fileInput = document.getElementById("conv-file-input");
+      const settingsBox = document.getElementById("conv-settings");
+      const queueBox = document.getElementById("files-queue");
+      const formatSelect = document.getElementById("target-format");
+      const qualityRange = document.getElementById("quality-range");
+      const qualityVal = document.getElementById("quality-val");
+
+      qualityRange.addEventListener("input", () => {
+        qualityVal.textContent = `${qualityRange.value}%`;
+      });
+
+      dropzone.addEventListener("click", () => fileInput.click());
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.style.borderColor = "var(--accent-primary)"; });
+      dropzone.addEventListener("dragleave", () => { dropzone.style.borderColor = "var(--border-color)"; });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = "var(--border-color)";
+        if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+      });
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) handleFiles(e.target.files);
+      });
+
+      function handleFiles(files) {
+        settingsBox.style.display = "block";
+        Array.from(files).forEach(file => {
+          if (!file.type.startsWith("image/")) return;
+          processImageItem(file);
+        });
+      }
+
+      function processImageItem(file) {
+        const item = document.createElement("div");
+        item.style.cssText = "background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;";
+
+        item.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; border-radius: 6px; overflow: hidden; background: var(--bg-subtle);">
+              <img src="${URL.createObjectURL(file)}" alt="${file.name}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.95rem;">${file.name}</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">${(file.size / 1024).toFixed(1)} KB &bull; ${file.type}</div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm btn-conv-dl">Convert & Download</button>
+        `;
+
+        const btn = item.querySelector(".btn-conv-dl");
+        btn.addEventListener("click", () => {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            const img = new Image();
+            img.onload = () => {
+              const canvas = document.createElement("canvas");
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              const ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0);
+
+              const targetMime = formatSelect.value;
+              const q = parseInt(qualityRange.value, 10) / 100;
+              const ext = targetMime === "image/png" ? "png" : (targetMime === "image/webp" ? "webp" : "jpg");
+
+              canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${file.name.replace(/\.[^/.]+$/, "")}.${ext}`;
+                a.click();
+                URL.revokeObjectURL(url);
+              }, targetMime, q);
+            };
+            img.src = ev.target.result;
+          };
+          reader.readAsDataURL(file);
+        });
+
+        queueBox.appendChild(item);
+      }
+    });
+  </script>
+</body>
+</html>

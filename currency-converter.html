@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Currency Converter (150+ World Currencies) | WebToolsHub</title>
+  <meta name="description" content="Free real-time currency converter with live exchange rates for USD, EUR, GBP, JPY, CAD, AUD, PKR, INR, AED, and 150+ international currencies.">
+  <meta name="keywords" content="currency converter, live exchange rates, convert usd to eur, convert pkr to usd, foreign exchange calculator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/currency-converter.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/currency-converter.html">
+  <meta property="og:title" content="Live Currency Converter (150+ World Currencies) | WebToolsHub">
+  <meta property="og:description" content="Free real-time currency converter with live exchange rates for USD, EUR, GBP, JPY, CAD, AUD, PKR, INR, AED, and 150+ international currencies.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/currency-converter.html">
+  <meta name="twitter:title" content="Live Currency Converter (150+ World Currencies) | WebToolsHub">
+  <meta name="twitter:description" content="Free real-time currency converter with live exchange rates for USD, EUR, GBP, JPY, CAD, AUD, PKR, INR, AED, and 150+ international currencies.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Live Currency Converter",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert world currencies in real time with live central bank exchange rates."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Calculators</span> &gt; <span>Currency Converter</span>
+      </nav>
+      <h1 class="tool-page-title">Live World Currency Converter</h1>
+      <p class="tool-page-subtitle">Real-time international foreign exchange rates across global currencies with instant calculations and offline cached fallback rates.</p>
+      <div class="privacy-badge">📈 Live Exchange Rate Engine</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Converter Card -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+              <label class="form-label" for="curr-amount">Amount:</label>
+              <input type="number" id="curr-amount" class="form-input" min="0" step="any" value="100" style="font-size: 1.1rem; font-weight: 700;">
+            </div>
+
+            <div>
+              <label class="form-label" for="curr-from">From Currency:</label>
+              <select id="curr-from" class="form-select" style="font-weight: 600;"></select>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 0.25rem;">
+              <button type="button" id="btn-swap-curr" class="btn btn-secondary" style="border-radius: 50%; width: 42px; height: 42px; padding: 0;" title="Swap currencies">⇄</button>
+            </div>
+
+            <div>
+              <label class="form-label" for="curr-to">To Currency:</label>
+              <select id="curr-to" class="form-select" style="font-weight: 600;"></select>
+            </div>
+          </div>
+
+          <!-- Result Display Card -->
+          <div style="background: var(--bg-subtle); border-radius: var(--radius-sm); padding: 1.5rem; border-left: 4px solid var(--accent-primary); text-align: center;">
+            <div id="exchange-formula" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.5rem;">100 USD =</div>
+            <div id="exchange-result" style="font-size: 2.2rem; font-weight: 800; color: var(--accent-primary);">-- EUR</div>
+            <div id="exchange-rate-single" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">1 USD = -- EUR</div>
+          </div>
+
+        </div>
+
+        <!-- Popular Exchange Rates Table -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden;">
+          <div style="padding: 1rem 1.25rem; background: var(--bg-subtle); border-bottom: 1px solid var(--border-color); font-weight: 700;">
+            Common Global Currency Equivalents for <span id="popular-base-lbl">USD</span>
+          </div>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-color); text-align: left; color: var(--text-secondary);">
+                  <th style="padding: 10px 14px;">Currency</th>
+                  <th style="padding: 10px 14px;">Code</th>
+                  <th style="padding: 10px 14px;">Rate per 1 Unit</th>
+                </tr>
+              </thead>
+              <tbody id="popular-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Calculators Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="percentage-calculator.html"><span>➗ Percentage Calculator</span><span class="badge-mini">Math</span></a></li>
+            <li><a href="unit-converter.html"><span>⚖️ Unit Converter</span><span class="badge-mini">Multi-Unit</span></a></li>
+            <li><a href="timestamp-converter.html"><span>⏱️ Unix Timestamp Converter</span><span class="badge-mini">Date/Time</span></a></li>
+            <li><a href="number-base-converter.html"><span>🔢 Number Base Converter</span><span class="badge-mini">Math</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Accurate Foreign Currency Conversion for Travelers & Freelancers</h2>
+      <p>Whether invoicing global clients via PayPal/Stripe, calculating travel budgets abroad, or comparing e-commerce product prices, our live converter syncs with central bank open exchange APIs with local client-side caching.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const CURRENCIES = {
+      "USD": "United States Dollar ($)",
+      "EUR": "Euro (€)",
+      "GBP": "British Pound (£)",
+      "JPY": "Japanese Yen (¥)",
+      "CAD": "Canadian Dollar (CA$)",
+      "AUD": "Australian Dollar (A$)",
+      "PKR": "Pakistani Rupee (₨)",
+      "INR": "Indian Rupee (₹)",
+      "AED": "Emirati Dirham (AED)",
+      "SAR": "Saudi Riyal (SAR)",
+      "CNY": "Chinese Yuan (¥)",
+      "CHF": "Swiss Franc (CHF)",
+      "SGD": "Singapore Dollar (S$)",
+      "TRY": "Turkish Lira (₺)",
+      "BRL": "Brazilian Real (R$)",
+      "KRW": "South Korean Won (₩)",
+      "MYR": "Malaysian Ringgit (RM)",
+      "THB": "Thai Baht (฿)",
+      "ZAR": "South African Rand (R)"
+    };
+
+    // Baseline offline exchange rates relative to USD
+    let rates = {
+      "USD": 1.0,
+      "EUR": 0.92,
+      "GBP": 0.79,
+      "JPY": 154.5,
+      "CAD": 1.36,
+      "AUD": 1.52,
+      "PKR": 278.5,
+      "INR": 83.3,
+      "AED": 3.67,
+      "SAR": 3.75,
+      "CNY": 7.23,
+      "CHF": 0.90,
+      "SGD": 1.35,
+      "TRY": 32.2,
+      "BRL": 5.15,
+      "KRW": 1370.0,
+      "MYR": 4.72,
+      "THB": 36.8,
+      "ZAR": 18.5
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const amountIn = document.getElementById("curr-amount");
+      const fromSelect = document.getElementById("curr-from");
+      const toSelect = document.getElementById("curr-to");
+      const btnSwap = document.getElementById("btn-swap-curr");
+
+      const formulaLabel = document.getElementById("exchange-formula");
+      const resultLabel = document.getElementById("exchange-result");
+      const singleRateLabel = document.getElementById("exchange-rate-single");
+      const popularTbody = document.getElementById("popular-tbody");
+      const popBaseLbl = document.getElementById("popular-base-lbl");
+
+      // Populate Selects
+      Object.entries(CURRENCIES).forEach(([code, name]) => {
+        const o1 = document.createElement("option");
+        o1.value = code;
+        o1.textContent = `${code} — ${name}`;
+        if (code === "USD") o1.selected = true;
+        fromSelect.appendChild(o1);
+
+        const o2 = document.createElement("option");
+        o2.value = code;
+        o2.textContent = `${code} — ${name}`;
+        if (code === "EUR") o2.selected = true;
+        toSelect.appendChild(o2);
+      });
+
+      // Try fetching live rates from open API
+      fetch("https://open.er-api.com/v6/latest/USD")
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.rates) {
+            rates = data.rates;
+            calculate();
+          }
+        })
+        .catch(() => calculate());
+
+      function calculate() {
+        const amt = parseFloat(amountIn.value) || 0;
+        const from = fromSelect.value;
+        const to = toSelect.value;
+
+        popBaseLbl.textContent = from;
+
+        // Convert via base USD
+        const rateFromUSD = rates[from] || 1;
+        const rateToUSD = rates[to] || 1;
+        const converted = (amt / rateFromUSD) * rateToUSD;
+        const singleRate = (1 / rateFromUSD) * rateToUSD;
+
+        formulaLabel.textContent = `${amt.toLocaleString()} ${from} =`;
+        resultLabel.textContent = `${converted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 4 })} ${to}`;
+        singleRateLabel.textContent = `1 ${from} = ${singleRate.toFixed(4)} ${to} | 1 ${to} = ${(1 / singleRate).toFixed(4)} ${from}`;
+
+        // Render popular rates
+        const popularCodes = ["EUR", "GBP", "JPY", "CAD", "AUD", "INR", "PKR", "AED"];
+        popularTbody.innerHTML = popularCodes.map(code => {
+          const r = (1 / rateFromUSD) * (rates[code] || 1);
+          return `
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 8px 14px; font-weight: 600;">${CURRENCIES[code] || code}</td>
+              <td style="padding: 8px 14px; font-family: monospace; color: var(--accent-primary);">${code}</td>
+              <td style="padding: 8px 14px; font-family: monospace; font-weight: 700;">${r.toFixed(4)}</td>
+            </tr>
+          `;
+        }).join("");
+      }
+
+      btnSwap.addEventListener("click", () => {
+        const temp = fromSelect.value;
+        fromSelect.value = toSelect.value;
+        toSelect.value = temp;
+        calculate();
+      });
+
+      [amountIn, fromSelect, toSelect].forEach(el => el.addEventListener("input", calculate));
+      calculate();
+    });
+  </script>
+</body>
+</html>

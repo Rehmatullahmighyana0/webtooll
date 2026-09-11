@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove Duplicate Lines & Text Cleaner | WebToolsHub</title>
+  <meta name="description" content="Instantly remove duplicate lines or words from text and lists. Options for case-sensitivity, whitespace trimming, empty line removal, and list sorting.">
+  <meta name="keywords" content="remove duplicate lines, deduplicate text, deduplicate list, remove repeated lines, line sorter, clean text">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/remove-duplicate-lines.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/remove-duplicate-lines.html">
+  <meta property="og:title" content="Remove Duplicate Lines & Text Cleaner | WebToolsHub">
+  <meta property="og:description" content="Instantly remove duplicate lines or words from text and lists. Options for case-sensitivity, whitespace trimming, empty line removal, and list sorting.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/remove-duplicate-lines.html">
+  <meta name="twitter:title" content="Remove Duplicate Lines & Text Cleaner | WebToolsHub">
+  <meta name="twitter:description" content="Instantly remove duplicate lines or words from text and lists. Options for case-sensitivity, whitespace trimming, empty line removal, and list sorting.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Remove Duplicate Lines & Text Cleaner",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Clean, deduplicate, and sort lists of lines or words in your browser."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Text Tools</span> &gt; <span>Remove Duplicate Text</span>
+      </nav>
+      <h1 class="tool-page-title">Remove Duplicate Lines & Text Cleaner</h1>
+      <p class="tool-page-subtitle">Deduplicate lists, emails, keywords, and text instantly with options for case sensitivity, whitespace trimming, and sorting.</p>
+      <div class="privacy-badge">🔒 100% Client-Side Processing</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        <!-- Stats summary -->
+        <div class="stats-grid" style="margin-top: 0; margin-bottom: 1.5rem;">
+          <div class="stat-item">
+            <div class="stat-value" id="stat-original-lines">0</div>
+            <div class="stat-label">Original Lines</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-unique-lines">0</div>
+            <div class="stat-label">Unique Lines</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-removed-lines" style="color: var(--accent-danger);">0</div>
+            <div class="stat-label">Duplicates Removed</div>
+          </div>
+        </div>
+
+        <!-- Options Box -->
+        <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+            <input type="checkbox" id="opt-case-sensitive" style="width: 18px; height: 18px;">
+            Case sensitive
+          </label>
+          <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+            <input type="checkbox" id="opt-trim-whitespace" checked style="width: 18px; height: 18px;">
+            Trim leading/trailing spaces
+          </label>
+          <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+            <input type="checkbox" id="opt-remove-empty" checked style="width: 18px; height: 18px;">
+            Remove empty lines
+          </label>
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 0.9rem; color: var(--text-secondary);">Sort:</span>
+            <select id="opt-sort" class="form-select" style="padding: 0.35rem 0.75rem; font-size: 0.875rem;">
+              <option value="none">Preserve original order</option>
+              <option value="asc">A &rarr; Z (Alphabetical)</option>
+              <option value="desc">Z &rarr; A (Reverse)</option>
+              <option value="length-asc">Shortest to longest</option>
+              <option value="length-desc">Longest to shortest</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Grid with Input and Output -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="input-text" style="margin-bottom: 0;">Original List / Lines:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-sample" class="btn btn-secondary btn-sm">Sample</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+              </div>
+            </div>
+            <textarea id="input-text" class="form-textarea" style="min-height: 320px; font-family: monospace; font-size: 0.9rem;" placeholder="Paste your lines here, one item per line..."></textarea>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" for="output-text" style="margin-bottom: 0;">Deduplicated Result:</label>
+              <div class="btn-group">
+                <button type="button" id="btn-copy" class="btn btn-primary btn-sm">Copy Result</button>
+                <button type="button" id="btn-download" class="btn btn-secondary btn-sm">Download .txt</button>
+              </div>
+            </div>
+            <textarea id="output-text" class="form-textarea" readonly style="min-height: 320px; font-family: monospace; font-size: 0.9rem; background: var(--bg-surface);" placeholder="Unique lines will appear here automatically..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Text Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="word-counter.html"><span>📝 Word Counter & Analyzer</span><span class="badge-mini">Fast</span></a></li>
+            <li><a href="case-converter.html"><span>🔤 Case Converter</span><span class="badge-mini">Instant</span></a></li>
+            <li><a href="lorem-ipsum-generator.html"><span>📜 Lorem Ipsum Generator</span><span class="badge-mini">Writing</span></a></li>
+            <li><a href="markdown-previewer.html"><span>📑 Markdown Live Editor</span><span class="badge-mini">Live Edit</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>How to Deduplicate Lines Online</h2>
+      <p>Clean up email subscription lists, keyword targets, database dumps, and URLs in seconds. Simply paste your list, select whether to match case or sort alphabetically, and copy the clean output with duplicate records removed.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("input-text");
+      const output = document.getElementById("output-text");
+      const optCase = document.getElementById("opt-case-sensitive");
+      const optTrim = document.getElementById("opt-trim-whitespace");
+      const optEmpty = document.getElementById("opt-remove-empty");
+      const optSort = document.getElementById("opt-sort");
+
+      const statOrig = document.getElementById("stat-original-lines");
+      const statUnique = document.getElementById("stat-unique-lines");
+      const statRemoved = document.getElementById("stat-removed-lines");
+
+      function processText() {
+        const raw = input.value;
+        if (!raw) {
+          output.value = "";
+          statOrig.textContent = "0";
+          statUnique.textContent = "0";
+          statRemoved.textContent = "0";
+          return;
+        }
+
+        let lines = raw.split(/\r?\n/);
+        statOrig.textContent = lines.length.toLocaleString();
+
+        if (optTrim.checked) {
+          lines = lines.map(l => l.trim());
+        }
+
+        if (optEmpty.checked) {
+          lines = lines.filter(l => l.length > 0);
+        }
+
+        const seen = new Set();
+        const unique = [];
+
+        lines.forEach(line => {
+          const key = optCase.checked ? line : line.toLowerCase();
+          if (!seen.has(key)) {
+            seen.add(key);
+            unique.push(line);
+          }
+        });
+
+        // Sorting
+        const sortVal = optSort.value;
+        if (sortVal === "asc") {
+          unique.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: optCase.checked ? "case" : "base", numeric: true }));
+        } else if (sortVal === "desc") {
+          unique.sort((a, b) => b.localeCompare(a, undefined, { sensitivity: optCase.checked ? "case" : "base", numeric: true }));
+        } else if (sortVal === "length-asc") {
+          unique.sort((a, b) => a.length - b.length);
+        } else if (sortVal === "length-desc") {
+          unique.sort((a, b) => b.length - a.length);
+        }
+
+        output.value = unique.join("\n");
+        statUnique.textContent = unique.length.toLocaleString();
+        statRemoved.textContent = (lines.length - unique.length).toLocaleString();
+      }
+
+      [input, optCase, optTrim, optEmpty, optSort].forEach(el => el.addEventListener("input", processText));
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = "apple\nbanana\nOrange\napple\nbanana\nGRAPE\norange\napple\nmango";
+        processText();
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        processText();
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        copyToClipboard(output.value, "Unique lines copied to clipboard!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "deduplicated-lines.txt";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      processText();
+    });
+  </script>
+</body>
+</html>

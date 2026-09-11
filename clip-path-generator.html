@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Clip-Path & Polygon Shape Generator | WebToolsHub</title>
+  <meta name="description" content="Visual CSS clip-path generator. Create custom polygon masks, triangles, stars, trapezoids, and chevrons with real-time preview and one-click CSS code export.">
+  <meta name="keywords" content="css clip path generator, clip-path maker, polygon generator, css shapes, triangle css generator">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/clip-path-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/clip-path-generator.html">
+  <meta property="og:title" content="CSS Clip-Path & Polygon Shape Generator | WebToolsHub">
+  <meta property="og:description" content="Visual CSS clip-path generator. Create custom polygon masks, triangles, stars, trapezoids, and chevrons with real-time preview and one-click CSS code export.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/clip-path-generator.html">
+  <meta name="twitter:title" content="CSS Clip-Path & Polygon Shape Generator | WebToolsHub">
+  <meta name="twitter:description" content="Visual CSS clip-path generator. Create custom polygon masks, triangles, stars, trapezoids, and chevrons with real-time preview and one-click CSS code export.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSS Clip-Path Generator",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Visual designer for CSS clip-path polygon masks and geometric shapes."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Design Tools</span> &gt; <span>Clip Path Generator</span>
+      </nav>
+      <h1 class="tool-page-title">CSS Clip-Path & Shape Generator</h1>
+      <p class="tool-page-subtitle">Mask images and HTML elements into geometric polygons, triangles, stars, hexagons, and chevron banners.</p>
+      <div class="privacy-badge">🎨 Visual CSS Studio</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Shape Presets Toolbar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 700;">Choose Geometric Shape:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="filter-pill active" onclick="setShape('triangle')">Triangle</button>
+            <button type="button" class="filter-pill" onclick="setShape('trapezoid')">Trapezoid</button>
+            <button type="button" class="filter-pill" onclick="setShape('parallelogram')">Parallelogram</button>
+            <button type="button" class="filter-pill" onclick="setShape('rhombus')">Rhombus / Diamond</button>
+            <button type="button" class="filter-pill" onclick="setShape('pentagon')">Pentagon</button>
+            <button type="button" class="filter-pill" onclick="setShape('hexagon')">Hexagon</button>
+            <button type="button" class="filter-pill" onclick="setShape('chevron')">Chevron</button>
+            <button type="button" class="filter-pill" onclick="setShape('star')">Star</button>
+          </div>
+        </div>
+
+        <!-- Preview Stage -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 3rem; display: flex; align-items: center; justify-content: center; min-height: 320px; margin-bottom: 1.5rem;">
+          <div id="clip-target" style="width: 240px; height: 240px; background: linear-gradient(135deg, var(--accent-primary) 0%, #3b82f6 100%); transition: clip-path 0.2s; box-shadow: var(--shadow-lg);"></div>
+        </div>
+
+        <!-- CSS Code -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" style="margin-bottom: 0; font-weight: 700;">Generated CSS:</label>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-copy-css">Copy CSS</button>
+          </div>
+          <pre id="clip-css-out" style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: monospace; font-size: 0.95rem; margin: 0; color: var(--accent-primary);"></pre>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Design Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="color-picker.html"><span>🎨 Color Picker & Palette Converter</span><span class="badge-mini">Design</span></a></li>
+            <li><a href="image-color-extractor.html"><span>🎨 Image Color Extractor & Palette</span><span class="badge-mini">Palette</span></a></li>
+            <li><a href="css-box-shadow-generator.html"><span>📦 CSS Box Shadow Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="css-gradient-generator.html"><span>🌈 CSS Gradient Generator</span><span class="badge-mini">CSS</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Creative Element Masking with CSS clip-path</h2>
+      <p>The CSS <code>clip-path</code> property creates a clipping region that sets what part of an element should be shown. Portions that are inside the polygon region are shown, while those outside are hidden. It unlocks geometric designs without editing photos in Photoshop.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const SHAPES = {
+      triangle: "50% 0%, 0% 100%, 100% 100%",
+      trapezoid: "20% 0%, 80% 0%, 100% 100%, 0% 100%",
+      parallelogram: "25% 0%, 100% 0%, 75% 100%, 0% 100%",
+      rhombus: "50% 0%, 100% 50%, 50% 100%, 0% 50%",
+      pentagon: "50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%",
+      hexagon: "25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%",
+      chevron: "100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%",
+      star: "50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%"
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const target = document.getElementById("clip-target");
+      const cssOut = document.getElementById("clip-css-out");
+
+      window.setShape = function(shapeKey) {
+        document.querySelectorAll(".filter-pill").forEach(btn => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        const poly = SHAPES[shapeKey] || SHAPES.triangle;
+        target.style.clipPath = `polygon(${poly})`;
+        target.style.webkitClipPath = `polygon(${poly})`;
+        cssOut.textContent = `clip-path: polygon(${poly});\n-webkit-clip-path: polygon(${poly});`;
+      };
+
+      document.getElementById("btn-copy-css").addEventListener("click", () => {
+        copyToClipboard(cssOut.textContent, "Clip-path CSS copied!");
+      });
+
+      setShape('triangle');
+    });
+  </script>
+</body>
+</html>

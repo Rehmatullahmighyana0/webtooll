@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Encoder & Decoder (Text & Files) | WebToolsHub</title>
+  <meta name="description" content="Encode and decode text, UTF-8 unicode strings, and binary files (images, audio, PDF) to Base64. Reconstruct files from Base64 with URL-safe option.">
+  <meta name="keywords" content="base64 encoder, base64 decoder, image to base64, base64 to file, base64 data uri, url safe base64">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/base64-encoder-decoder.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/base64-encoder-decoder.html">
+  <meta property="og:title" content="Base64 Encoder & Decoder (Text & Files) | WebToolsHub">
+  <meta property="og:description" content="Encode and decode text, UTF-8 unicode strings, and binary files (images, audio, PDF) to Base64. Reconstruct files from Base64 with URL-safe option.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/base64-encoder-decoder.html">
+  <meta name="twitter:title" content="Base64 Encoder & Decoder (Text & Files) | WebToolsHub">
+  <meta name="twitter:description" content="Encode and decode text, UTF-8 unicode strings, and binary files (images, audio, PDF) to Base64. Reconstruct files from Base64 with URL-safe option.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Base64 Encoder and Decoder",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">Base64 Encoder & Decoder</h1>
+      <p class="tool-subtitle">Convert text, UTF-8 strings, and local binary files into Base64 format, or decode Base64 back to original files.</p>
+    </div>
+
+    <!-- Mode Tabs -->
+    <div class="base64-tabs">
+      <button class="tab-btn active" id="tab-text" onclick="switchTab('text')">🔤 Text Mode</button>
+      <button class="tab-btn" id="tab-file" onclick="switchTab('file')">📁 File / Image Mode</button>
+    </div>
+
+    <!-- TEXT MODE PANEL -->
+    <div id="panel-text" class="card" style="padding: 24px; margin-bottom: 24px;">
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="txt-input" style="margin: 0;">Plain Text / Unicode</label>
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="document.getElementById('txt-input').value='';document.getElementById('b64-output').value='';">Clear</button>
+          </div>
+          <textarea class="textarea-field" id="txt-input" rows="10" placeholder="Type or paste plain text here (supports emojis & multilingual characters)...">Hello, World! 🚀 WebToolsHub 2026</textarea>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="b64-output" style="margin: 0;">Base64 String</label>
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" id="btn-copy-b64">📋 Copy</button>
+          </div>
+          <textarea class="textarea-field" id="b64-output" rows="10" style="font-family: var(--font-mono); font-size: 13px;" placeholder="Base64 encoded string..."></textarea>
+        </div>
+      </div>
+
+      <!-- Toggles & Action Buttons -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 16px;">
+        <div style="display: flex; gap: 16px; font-size: 13.5px;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="chk-url-safe">
+            <span>URL-Safe Base64 (RFC 4648 <code>-</code> and <code>_</code>)</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="chk-wrap">
+            <span>Wrap lines at 76 chars (MIME)</span>
+          </label>
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary" id="btn-encode">⬇️ Encode to Base64</button>
+          <button class="btn btn-secondary" id="btn-decode">⬆️ Decode to Text</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILE MODE PANEL -->
+    <div id="panel-file" class="card" style="padding: 24px; margin-bottom: 24px; display: none;">
+      <h2 style="font-size: 18px; margin-bottom: 14px;">File to Base64 Data URI</h2>
+
+      <div class="file-dropzone" onclick="document.getElementById('file-upload').click()">
+        <input type="file" id="file-upload" style="display: none;">
+        <div style="font-size: 20px; margin-bottom: 4px;">📤</div>
+        <strong style="font-size: 14px;">Click or Drag & Drop Any File Here</strong>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Supports Images (PNG, JPG, SVG, WebP), Audio (MP3, WAV), PDF, and documents up to 25 MB</p>
+      </div>
+
+      <div id="file-preview-wrap" style="display: none; text-align: center; margin-bottom: 16px;">
+        <img id="file-preview-img" class="preview-thumb" alt="Preview">
+        <div id="file-info" style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;"></div>
+      </div>
+
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <label class="form-label" for="file-b64-output" style="margin: 0;">Base64 Data URI Code</label>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" id="btn-copy-data-uri">📋 Copy Data URI</button>
+            <button class="btn btn-primary" style="padding: 2px 10px; font-size: 11px;" id="btn-dl-file">💾 Download Reconstructed File</button>
+          </div>
+        </div>
+        <textarea class="textarea-field" id="file-b64-output" rows="8" style="font-family: var(--font-mono); font-size: 12.5px;" placeholder="Base64 Data URI will appear here..."></textarea>
+      </div>
+    </div>
+
+    <div class="seo-content card">
+      <h2>What is Base64 Encoding?</h2>
+      <p>Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format by translating it into a radix-64 representation. It is widely used for sending email attachments via MIME, embedding image assets directly inside HTML/CSS files without separate HTTP requests, and storing complex data inside cookies.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Developer Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="html-entity-encoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a>
+          <a href="css-minifier.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a>
+          <a href="js-minifier.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>⚡ JavaScript Minifier</span><span class="badge-mini">Speed</span></a>
+          <a href="api-tester.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🚀 REST API Tester & Client</span><span class="badge-mini">API</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    function switchTab(tab) {
+      document.getElementById('tab-text').classList.toggle('active', tab === 'text');
+      document.getElementById('tab-file').classList.toggle('active', tab === 'file');
+      document.getElementById('panel-text').style.display = tab === 'text' ? 'block' : 'none';
+      document.getElementById('panel-file').style.display = tab === 'file' ? 'block' : 'none';
+    }
+
+    // UTF-8 safe base64
+    function utf8ToBase64(str, isUrlSafe, isWrapped) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = '';
+      for (let i = 0; i < bytes.length; i++) {
+        bin += String.fromCharCode(bytes[i]);
+      }
+      let b64 = btoa(bin);
+      if (isUrlSafe) {
+        b64 = b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      }
+      if (isWrapped) {
+        b64 = b64.match(/.{1,76}/g).join('\n');
+      }
+      return b64;
+    }
+
+    function base64ToUtf8(b64) {
+      let clean = b64.replace(/\s+/g, '').replace(/-/g, '+').replace(/_/g, '/');
+      while (clean.length % 4) clean += '=';
+      const bin = atob(clean);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) {
+        bytes[i] = bin.charCodeAt(i);
+      }
+      return new TextDecoder().decode(bytes);
+    }
+
+    function doEncode() {
+      const txt = document.getElementById('txt-input').value;
+      const isUrlSafe = document.getElementById('chk-url-safe').checked;
+      const isWrapped = document.getElementById('chk-wrap').checked;
+      try {
+        document.getElementById('b64-output').value = utf8ToBase64(txt, isUrlSafe, isWrapped);
+      } catch (e) {
+        showToast('Encoding error: ' + e.message, 'error');
+      }
+    }
+
+    function doDecode() {
+      const b64 = document.getElementById('b64-output').value.trim();
+      if (!b64) return;
+      try {
+        document.getElementById('txt-input').value = base64ToUtf8(b64);
+        showToast('Base64 decoded successfully!');
+      } catch (e) {
+        showToast('Invalid Base64 format: ' + e.message, 'error');
+      }
+    }
+
+    document.getElementById('btn-encode').addEventListener('click', doEncode);
+    document.getElementById('btn-decode').addEventListener('click', doDecode);
+    document.getElementById('txt-input').addEventListener('input', doEncode);
+    ['chk-url-safe', 'chk-wrap'].forEach(id => {
+      document.getElementById(id).addEventListener('change', doEncode);
+    });
+
+    document.getElementById('btn-copy-b64').addEventListener('click', () => {
+      const val = document.getElementById('b64-output').value;
+      if (!val) return;
+      navigator.clipboard.writeText(val);
+      showToast('Base64 string copied!');
+    });
+
+    // File Mode Handler
+    const fileUpload = document.getElementById('file-upload');
+    let loadedMime = 'application/octet-stream';
+    let loadedFileName = 'download.bin';
+
+    fileUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      loadedMime = file.type || 'application/octet-stream';
+      loadedFileName = file.name;
+
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const dataUrl = ev.target.result;
+        document.getElementById('file-b64-output').value = dataUrl;
+
+        const previewWrap = document.getElementById('file-preview-wrap');
+        const previewImg = document.getElementById('file-preview-img');
+        const fileInfo = document.getElementById('file-info');
+
+        previewWrap.style.display = 'block';
+        fileInfo.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB) | MIME: ${loadedMime}`;
+
+        if (file.type.startsWith('image/')) {
+          previewImg.src = dataUrl;
+          previewImg.style.display = 'block';
+        } else {
+          previewImg.style.display = 'none';
+        }
+        showToast('File converted to Base64 Data URI!');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('btn-copy-data-uri').addEventListener('click', () => {
+      const val = document.getElementById('file-b64-output').value;
+      if (!val) return;
+      navigator.clipboard.writeText(val);
+      showToast('Data URI copied!');
+    });
+
+    document.getElementById('btn-dl-file').addEventListener('click', () => {
+      const val = document.getElementById('file-b64-output').value.trim();
+      if (!val) {
+        showToast('Please provide a Base64 Data URI first', 'error');
+        return;
+      }
+      try {
+        const a = document.createElement('a');
+        a.href = val;
+        a.download = loadedFileName || 'downloaded-file';
+        a.click();
+        showToast('File downloaded!');
+      } catch (e) {
+        showToast('Failed to download: ' + e.message, 'error');
+      }
+    });
+
+    doEncode();
+  </script>
+</body>
+</html>

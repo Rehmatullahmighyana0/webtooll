@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Gradient Generator (Linear & Radial) | WebToolsHub</title>
+  <meta name="description" content="Generate colorful, modern CSS linear and radial gradients. Adjust angles, color stops, opacity, and copy cross-browser CSS code. 100% free visual tool.">
+  <meta name="keywords" content="css gradient generator, linear gradient generator, radial gradient maker, css background gradient, gradient presets">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/css-gradient-generator.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/css-gradient-generator.html">
+  <meta property="og:title" content="CSS Gradient Generator (Linear & Radial) | WebToolsHub">
+  <meta property="og:description" content="Generate colorful, modern CSS linear and radial gradients. Adjust angles, color stops, opacity, and copy cross-browser CSS code. 100% free visual tool.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/css-gradient-generator.html">
+  <meta name="twitter:title" content="CSS Gradient Generator (Linear & Radial) | WebToolsHub">
+  <meta name="twitter:description" content="Generate colorful, modern CSS linear and radial gradients. Adjust angles, color stops, opacity, and copy cross-browser CSS code. 100% free visual tool.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSS Gradient Generator",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Visual CSS linear and radial gradient background designer."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Design Tools</span> &gt; <span>CSS Gradient Generator</span>
+      </nav>
+      <h1 class="tool-page-title">CSS Gradient Generator</h1>
+      <p class="tool-page-subtitle">Craft beautiful linear and radial CSS gradient backgrounds with customized angles, multi-stop colors, and one-click CSS copy.</p>
+      <div class="privacy-badge">🎨 Visual CSS Studio</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Live Gradient Preview Canvas -->
+        <div id="gradient-preview-box" style="height: 220px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-md); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+          <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); padding: 0.5rem 1.25rem; border-radius: var(--radius-full); color: #fff; font-weight: 700; font-size: 0.95rem;">
+            Live Gradient Preview
+          </div>
+        </div>
+
+        <!-- Controls Form -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <label class="form-label" for="grad-type">Gradient Type:</label>
+              <select id="grad-type" class="form-select">
+                <option value="linear" selected>Linear Gradient</option>
+                <option value="radial">Radial Gradient</option>
+              </select>
+            </div>
+
+            <div id="angle-container">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                <label for="grad-angle">Angle:</label>
+                <span id="lbl-angle" style="font-weight: 700;">135°</span>
+              </div>
+              <input type="range" id="grad-angle" min="0" max="360" value="135" style="width: 100%;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <label class="form-label" style="margin: 0;">Color 1 & Color 2:</label>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-swap-colors" style="padding: 2px 8px; font-size: 0.75rem;">⇄ Swap</button>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <input type="color" id="color-1" value="#4f46e5" style="flex: 1; height: 38px; border: none; cursor: pointer; border-radius: 4px; padding: 0;">
+                <input type="color" id="color-2" value="#ec4899" style="flex: 1; height: 38px; border: none; cursor: pointer; border-radius: 4px; padding: 0;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Presets & Action Bar -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Trending Presets:</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-random-grad" style="padding: 3px 10px; font-size: 0.78rem;">🎲 Random Gradient</button>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="filter-pill btn-sm" onclick="setPreset('#6366f1', '#a855f7', 135)">Cyber Purple</button>
+              <button type="button" class="filter-pill btn-sm" onclick="setPreset('#3b82f6', '#06b6d4', 90)">Ocean Blue</button>
+              <button type="button" class="filter-pill btn-sm" onclick="setPreset('#f43f5e', '#fb923c', 45)">Sunset Peach</button>
+              <button type="button" class="filter-pill btn-sm" onclick="setPreset('#10b981', '#3b82f6', 135)">Aurora Green</button>
+              <button type="button" class="filter-pill btn-sm" onclick="setPreset('#0f172a', '#334155', 180)">Midnight Dark</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generated CSS -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <label class="form-label" style="margin-bottom: 0; font-weight: 700;">Generated CSS:</label>
+            <div style="display: flex; gap: 0.4rem;">
+              <button type="button" class="btn btn-primary btn-sm" id="btn-copy-css">📋 Copy CSS</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-dl-css">💾 Download .css</button>
+            </div>
+          </div>
+          <pre id="css-out" style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: monospace; font-size: 0.95rem; margin: 0; color: var(--accent-primary);"></pre>
+        </div>
+
+      </div>
+
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Design Tools Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="color-picker.html"><span>🎨 Color Picker & Palette Converter</span><span class="badge-mini">Design</span></a></li>
+            <li><a href="image-color-extractor.html"><span>🎨 Image Color Extractor & Palette</span><span class="badge-mini">Palette</span></a></li>
+            <li><a href="css-box-shadow-generator.html"><span>📦 CSS Box Shadow Generator</span><span class="badge-mini">CSS</span></a></li>
+            <li><a href="glassmorphism-generator.html"><span>🪟 Glassmorphism CSS Generator</span><span class="badge-mini">UI</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section" style="margin-top: 3rem;">
+      <h2>Modern CSS Gradients for Hero Sections</h2>
+      <p>CSS gradients offer silky smooth color transitions without the download weight of raster image files. They adapt seamlessly to high-density Retina displays and resize infinitely without pixelation.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const typeSelect = document.getElementById("grad-type");
+      const angleInput = document.getElementById("grad-angle");
+      const lblAngle = document.getElementById("lbl-angle");
+      const angleContainer = document.getElementById("angle-container");
+      const c1 = document.getElementById("color-1");
+      const c2 = document.getElementById("color-2");
+
+      const previewBox = document.getElementById("gradient-preview-box");
+      const cssOut = document.getElementById("css-out");
+
+      function updateGradient() {
+        const type = typeSelect.value;
+        const col1 = c1.value;
+        const col2 = c2.value;
+
+        let grad = "";
+        if (type === "linear") {
+          angleContainer.style.display = "block";
+          const deg = angleInput.value;
+          lblAngle.textContent = `${deg}°`;
+          grad = `linear-gradient(${deg}deg, ${col1} 0%, ${col2} 100%)`;
+        } else {
+          angleContainer.style.display = "none";
+          grad = `radial-gradient(circle, ${col1} 0%, ${col2} 100%)`;
+        }
+
+        previewBox.style.background = grad;
+        cssOut.textContent = `background: ${grad};`;
+      }
+
+      window.setPreset = function(hex1, hex2, angle) {
+        c1.value = hex1;
+        c2.value = hex2;
+        if (angle !== undefined) angleInput.value = angle;
+        typeSelect.value = "linear";
+        updateGradient();
+      };
+
+      [typeSelect, angleInput, c1, c2].forEach(el => el.addEventListener("input", updateGradient));
+
+      document.getElementById("btn-copy-css").addEventListener("click", () => {
+        copyToClipboard(cssOut.textContent, "Gradient CSS copied!");
+      });
+
+      document.getElementById("btn-swap-colors").addEventListener("click", () => {
+        const tmp = c1.value;
+        c1.value = c2.value;
+        c2.value = tmp;
+        updateGradient();
+        showToast("Swapped gradient colors!");
+      });
+
+      function getRandomHex() {
+        return "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+      }
+
+      document.getElementById("btn-random-grad").addEventListener("click", () => {
+        c1.value = getRandomHex();
+        c2.value = getRandomHex();
+        angleInput.value = Math.floor(Math.random() * 360);
+        updateGradient();
+        showToast("Generated random gradient!");
+      });
+
+      document.getElementById("btn-dl-css").addEventListener("click", () => {
+        const cssContent = `/* Generated by WebToolsHub Gradient Generator */\n.gradient-bg {\n  ${cssOut.textContent}\n}\n`;
+        const blob = new Blob([cssContent], { type: "text/css;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `gradient-${Date.now()}.css`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("Gradient CSS downloaded!");
+      });
+
+      updateGradient();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Minifier & Beautifier (JS Compressor) | WebToolsHub</title>
+  <meta name="description" content="Minify JavaScript code to reduce bundle transfer size, or beautify compacted JS. Real-time byte savings and compression ratio statistics.">
+  <meta name="keywords" content="javascript minifier, js compressor, minify js, js beautifier, compress javascript, optimize js">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/js-minifier.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/js-minifier.html">
+  <meta property="og:title" content="JavaScript Minifier & Beautifier (JS Compressor) | WebToolsHub">
+  <meta property="og:description" content="Minify JavaScript code to reduce bundle transfer size, or beautify compacted JS. Real-time byte savings and compression ratio statistics.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/js-minifier.html">
+  <meta name="twitter:title" content="JavaScript Minifier & Beautifier (JS Compressor) | WebToolsHub">
+  <meta name="twitter:description" content="Minify JavaScript code to reduce bundle transfer size, or beautify compacted JS. Real-time byte savings and compression ratio statistics.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JavaScript Minifier and Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+        <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()">
+          <span>🔍 Quick Search...</span>
+          <span class="shortcut">Ctrl+K</span>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container ad-slot-leaderboard"></div>
+
+  <main class="container">
+    <div class="tool-header">
+      <h1 class="tool-title">JavaScript Minifier & Beautifier</h1>
+      <p class="tool-subtitle">Strip unnecessary characters and comments from JavaScript for smaller file downloads or beautify minified scripts.</p>
+    </div>
+
+    <!-- Live Compression Statistics -->
+    <div class="stats-card">
+      <div class="stat-box">
+        <div class="stat-value" id="stat-orig">0 B</div>
+        <div class="stat-label">Original Size</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-out">0 B</div>
+        <div class="stat-label">Minified Size</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-saved">0 B</div>
+        <div class="stat-label">Bytes Saved</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-pct">0.0%</div>
+        <div class="stat-label">Compression Ratio</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding: 24px; margin-bottom: 24px;">
+      <!-- Code Editors Grid -->
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="js-input" style="margin: 0;">Input JavaScript Code</label>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" id="btn-sample">Sample</button>
+              <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" id="btn-clear">Clear</button>
+            </div>
+          </div>
+          <textarea class="textarea-field" id="js-input" rows="12" style="font-family: var(--font-mono); font-size: 13px;" placeholder="// Paste JavaScript code here"></textarea>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="js-output" style="margin: 0;">Processed JavaScript</label>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" id="btn-copy">📋 Copy</button>
+              <button class="btn btn-primary" style="padding: 2px 8px; font-size: 11px;" id="btn-dl">💾 Download .min.js</button>
+            </div>
+          </div>
+          <textarea class="textarea-field" id="js-output" rows="12" readonly style="font-family: var(--font-mono); font-size: 13px;"></textarea>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 20px;">
+        <div style="display: flex; gap: 16px; font-size: 13px; flex-wrap: wrap;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="opt-single-comments" checked> Remove // Comments
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="opt-multi-comments" checked> Remove /* */ Comments
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="opt-whitespace" checked> Collapse Whitespace
+          </label>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-primary" id="btn-minify">⚡ Minify JavaScript</button>
+          <button class="btn btn-secondary" id="btn-beautify">🎨 Beautify / Unminify</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content card">
+      <h2>Understanding JavaScript Minification</h2>
+      <p>JavaScript minification is standard practice for modern web development. By stripping development comments, newlines, and indentation from production scripts, you reduce JavaScript payload transfer size over HTTP/2 and improve page rendering speeds.</p>
+    </div>
+  
+    <!-- Related Category Tools -->
+    <div style="margin: 2.5rem 0 1.5rem;">
+      <div class="sidebar-card">
+        <h3>🔗 Related Developer Tools</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+          <a href="base64-encoder-decoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🔣 Base64 Encoder & Decoder</span><span class="badge-mini">Utility</span></a>
+          <a href="html-entity-encoder.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🏷️ HTML Entity Encoder</span><span class="badge-mini">Web Dev</span></a>
+          <a href="css-minifier.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🎨 CSS Minifier & Beautifier</span><span class="badge-mini">Speed</span></a>
+          <a href="api-tester.html" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1rem; border-radius: var(--radius-md); color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease;"><span>🚀 REST API Tester & Client</span><span class="badge-mini">API</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container ad-slot-sidebar" style="margin-top: 24px;"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" class="brand-logo-img" width="36" height="36">
+          <span>WebTools<span style="color:var(--accent-primary)">Hub</span></span>
+        </a>
+        <p>100% client-side privacy-first web tools. Safe, secure, and fast.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    const inputEl = document.getElementById('js-input');
+    const outputEl = document.getElementById('js-output');
+
+    const SAMPLE_JS = `// Application Event Handler
+function calculateUserMetrics(userData, options = {}) {
+  /*
+   * Validate and compute overall user engagement score
+   */
+  if (!userData || !userData.activities) {
+    console.warn("Invalid user activity data provided");
+    return 0;
+  }
+
+  const multiplier = options.multiplier || 1.5;
+  let totalScore = 0;
+
+  userData.activities.forEach(activity => {
+    totalScore += (activity.duration * multiplier);
+  });
+
+  return Math.round(totalScore);
+}`;
+
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function updateStats(orig, out) {
+      const origBytes = new Blob([orig]).size;
+      const outBytes = new Blob([out]).size;
+      const saved = Math.max(0, origBytes - outBytes);
+      const pct = origBytes > 0 ? ((saved / origBytes) * 100).toFixed(1) : 0;
+
+      document.getElementById('stat-orig').textContent = formatBytes(origBytes);
+      document.getElementById('stat-out').textContent = formatBytes(outBytes);
+      document.getElementById('stat-saved').textContent = formatBytes(saved);
+      document.getElementById('stat-pct').textContent = `${pct}%`;
+    }
+
+    function minifyJs() {
+      let code = inputEl.value;
+      if (!code.trim()) {
+        outputEl.value = '';
+        updateStats('', '');
+        return;
+      }
+
+      // Remove multi-line comments
+      if (document.getElementById('opt-multi-comments').checked) {
+        code = code.replace(/\/\*[\s\S]*?\*\//g, '');
+      }
+
+      // Remove single-line comments
+      if (document.getElementById('opt-single-comments').checked) {
+        code = code.replace(/(^|[^\:])\/\/.*$/gm, '$1');
+      }
+
+      // Collapse whitespace safely
+      if (document.getElementById('opt-whitespace').checked) {
+        code = code.replace(/\r\n|\r/g, '\n');
+        // Remove empty lines
+        code = code.replace(/^\s*[\r\n]/gm, '');
+        // Collapse multiple spaces
+        code = code.replace(/[ \t]+/g, ' ');
+        // Clean around operators where safe
+        code = code.replace(/\s*([\{\}\(\)\[\]\;\,\=\+\-\*\/\:\?])\s*/g, '$1');
+      }
+
+      outputEl.value = code.trim();
+      updateStats(inputEl.value, outputEl.value);
+      showToast('JavaScript minified!');
+    }
+
+    function beautifyJs() {
+      let code = inputEl.value;
+      if (!code.trim()) return;
+
+      // Basic standard indentation
+      let indent = 0;
+      const lines = code.split('\n');
+      const beautified = [];
+
+      for (let rawLine of lines) {
+        let line = rawLine.trim();
+        if (!line) continue;
+
+        if (line.startsWith('}') || line.startsWith(']')) {
+          indent = Math.max(0, indent - 1);
+        }
+
+        beautified.push('  '.repeat(indent) + line);
+
+        if (line.endsWith('{') || line.endsWith('[')) {
+          indent++;
+        }
+      }
+
+      outputEl.value = beautified.join('\n');
+      updateStats(inputEl.value, outputEl.value);
+      showToast('JavaScript formatted & beautified!');
+    }
+
+    document.getElementById('btn-minify').addEventListener('click', minifyJs);
+    document.getElementById('btn-beautify').addEventListener('click', beautifyJs);
+
+    document.getElementById('btn-sample').addEventListener('click', () => {
+      inputEl.value = SAMPLE_JS;
+      minifyJs();
+    });
+
+    document.getElementById('btn-clear').addEventListener('click', () => {
+      inputEl.value = '';
+      outputEl.value = '';
+      updateStats('', '');
+    });
+
+    document.getElementById('btn-copy').addEventListener('click', () => {
+      const val = outputEl.value;
+      if (!val) return;
+      navigator.clipboard.writeText(val);
+      showToast('JavaScript copied to clipboard!');
+    });
+
+    document.getElementById('btn-dl').addEventListener('click', () => {
+      const val = outputEl.value;
+      if (!val) return;
+      const blob = new Blob([val], { type: 'application/javascript' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `script-${Date.now()}.min.js`;
+      a.click();
+    });
+
+    // Default sample load
+    inputEl.value = SAMPLE_JS;
+    minifyJs();
+  </script>
+</body>
+</html>

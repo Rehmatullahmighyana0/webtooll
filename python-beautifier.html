@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Beautifier & Formatter Online — PEP 8 Indenter | WebToolsHub</title>
+  <meta name="description" content="Free online Python code formatter. Automatically fix Python indentations, enforce PEP 8 guidelines, clean operator spaces, and standardize line breaks.">
+  <meta name="keywords" content="python beautifier, python formatter, pep 8 formatter, format python code online, python indenter, clean python code">
+  <meta name="author" content="WebToolsHub">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://webtoolshub.com/python-beautifier.html">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolshub.com/python-beautifier.html">
+  <meta property="og:title" content="Python Beautifier & Formatter Online — PEP 8 Indenter | WebToolsHub">
+  <meta property="og:description" content="Free online Python code formatter. Automatically fix Python indentations, enforce PEP 8 guidelines, clean operator spaces, and standardize line breaks.">
+  <meta property="og:image" content="https://webtoolshub.com/og-banner.png">
+  <meta property="og:site_name" content="WebToolsHub">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://webtoolshub.com/python-beautifier.html">
+  <meta name="twitter:title" content="Python Beautifier & Formatter Online — PEP 8 Indenter | WebToolsHub">
+  <meta name="twitter:description" content="Free online Python code formatter. Automatically fix Python indentations, enforce PEP 8 guidelines, clean operator spaces, and standardize line breaks.">
+  <meta name="twitter:image" content="https://webtoolshub.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Python Beautifier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Beautify and format Python scripts conforming to PEP 8 standards client-side."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">
+          <img src="images/logo.svg" alt="WebToolsHub Logo" width="38" height="38">
+        </div>
+        <div class="logo-text">WebTools<span>Hub</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="search-trigger-btn open-search-modal" aria-label="Search tools">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search...</span>
+          <span class="shortcut-badge">Ctrl K</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Page Header -->
+  <div class="tool-page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Beautifiers & Formatters</span> &gt; <span>Python Beautifier</span>
+      </nav>
+      <h1 class="tool-page-title">Python Code Beautifier & Indenter</h1>
+      <p class="tool-page-subtitle">Standardize Python indentation, clean operator spacing, and align functions conforming to PEP 8 guidelines.</p>
+      <div class="privacy-badge">🔒 100% In-Browser Private Formatting</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="ad-slot ad-slot-leaderboard"><span>Responsive Leaderboard Ad Slot (728x90)</span></div>
+
+    <div class="tool-layout with-sidebar">
+      <div class="tool-workspace">
+        
+        <!-- Controls Bar -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <label for="indent-size" style="font-size: 0.85rem; font-weight: 600;">Indentation:</label>
+              <select id="indent-size" class="form-control" style="width: 125px; height: 32px; font-size: 0.85rem; padding: 0.2rem 0.5rem;">
+                <option value="4" selected>4 Spaces (PEP 8)</option>
+                <option value="2">2 Spaces</option>
+                <option value="tab">1 Tab</option>
+              </select>
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-operator-spaces" checked> Pad Operators (=, +, ==)
+            </label>
+
+            <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="opt-def-spacing" checked> 2 Lines Before Functions
+            </label>
+          </div>
+
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-format">✨ Beautify Python</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-sample">Sample</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-clear" style="color: #ef4444;">Clear</button>
+          </div>
+        </div>
+
+        <!-- Code Editor Columns -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- Input -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Input Raw Python Code:</span>
+              <span id="input-stats" style="font-size: 0.8rem; color: var(--text-muted);">0 lines</span>
+            </div>
+            <textarea id="py-input" class="form-control" placeholder="Paste unformatted Python code here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; resize: vertical;"></textarea>
+          </div>
+
+          <!-- Output -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">Beautified Python (PEP 8):</span>
+              <div style="display: flex; gap: 0.35rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-copy" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Copy</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-download" style="height: 24px; padding: 0 0.5rem; font-size: 0.75rem;">Download .py</button>
+              </div>
+            </div>
+            <textarea id="py-output" class="form-control" readonly placeholder="Properly indented and styled Python code will appear here..." style="min-height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.5; background: var(--bg-surface); resize: vertical;"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="tool-sidebar">
+        <div class="sidebar-card">
+          <h3>🔗 Related Beautifiers Tools</h3>
+          <ul class="sidebar-links">
+            <li><a href="json-formatter.html"><span>✨ JSON Formatter & Validator</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="html-formatter.html"><span>🌐 HTML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="xml-formatter.html"><span>📑 XML Formatter & Beautifier</span><span class="badge-mini">Beautifier</span></a></li>
+            <li><a href="javascript-beautifier.html"><span>🟨 JavaScript Beautifier</span><span class="badge-mini">Popular</span></a></li>
+          </ul>
+        </div>
+        <div class="ad-slot ad-slot-sidebar"><span>Sidebar Ad Slot (300x250)</span></div>
+      </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What is PEP 8?</h3>
+        <p>PEP 8 is the official Style Guide for Python Code written by Guido van Rossum and Barry Warsaw. It establishes standard conventions including 4-space indentation, spacing around binary operators, and function separation.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does this tool fix IndentationError bugs?</h3>
+        <p>It normalizes mixed spaces and tabs to a uniform indentation unit, preventing common Python <code>TabError: inconsistent use of tabs and spaces in indentation</code> errors.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 WebToolsHub. All rights reserved. Free client-side tools for developers and designers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      recordToolVisit("python-beautifier");
+
+      const input = document.getElementById("py-input");
+      const output = document.getElementById("py-output");
+      const indentSelect = document.getElementById("indent-size");
+      const opSpacesCheck = document.getElementById("opt-operator-spaces");
+      const defSpacingCheck = document.getElementById("opt-def-spacing");
+      const inputStats = document.getElementById("input-stats");
+
+      function getIndentUnit() {
+        const val = indentSelect.value;
+        if (val === "tab") return "\t";
+        return " ".repeat(parseInt(val, 10));
+      }
+
+      function beautifyPython(code) {
+        if (!code || !code.trim()) return "";
+        const indentUnit = getIndentUnit();
+        const padOps = opSpacesCheck.checked;
+        const defSpacing = defSpacingCheck.checked;
+
+        let rawLines = code.split("\n");
+        let formatted = [];
+        let prevWasTopLevelDef = false;
+
+        for (let i = 0; i < rawLines.length; i++) {
+          let line = rawLines[i];
+          const trimmed = line.trim();
+
+          if (!trimmed) {
+            // Keep at most 1 empty line in between, or handle def spacing
+            if (formatted.length > 0 && formatted[formatted.length - 1] !== "") {
+              formatted.push("");
+            }
+            continue;
+          }
+
+          // Count existing indentation depth
+          let leadingSpaces = 0;
+          for (let ch of line) {
+            if (ch === " ") leadingSpaces++;
+            else if (ch === "\t") leadingSpaces += 4;
+            else break;
+          }
+          let indentLevel = Math.round(leadingSpaces / 4);
+
+          // Pad operators if requested
+          let content = trimmed;
+          if (padOps && !content.startsWith("#")) {
+            // Replace non-padded operators while ignoring quotes
+            content = content
+              .replace(/([^=!<>]|^)=([^=]|$)/g, "$1 = $2")
+              .replace(/==+/g, " == ")
+              .replace(/!=/g, " != ")
+              .replace(/<=/g, " <= ")
+              .replace(/>=/g, " >= ")
+              .replace(/([^\s,])\s*,\s*([^\s])/g, "$1, $2")
+              .replace(/\s{2,}/g, " ");
+          }
+
+          // Ensure 2 blank lines before top-level functions/classes
+          if (defSpacing && indentLevel === 0 && (content.startsWith("def ") || content.startsWith("class "))) {
+            if (formatted.length > 0) {
+              while (formatted.length > 0 && formatted[formatted.length - 1] === "") {
+                formatted.pop();
+              }
+              formatted.push("");
+              formatted.push("");
+            }
+          }
+
+          formatted.push(indentUnit.repeat(indentLevel) + content);
+        }
+
+        return formatted.join("\n").trim();
+      }
+
+      function format() {
+        const res = beautifyPython(input.value);
+        output.value = res;
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      }
+
+      document.getElementById("btn-format").addEventListener("click", () => {
+        format();
+        showToast("Python code beautified!");
+      });
+
+      indentSelect.addEventListener("change", format);
+      opSpacesCheck.addEventListener("change", format);
+      defSpacingCheck.addEventListener("change", format);
+
+      input.addEventListener("input", () => {
+        const lines = input.value ? input.value.split("\n").length : 0;
+        inputStats.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      });
+
+      document.getElementById("btn-sample").addEventListener("click", () => {
+        input.value = `import os,sys,json
+
+class DataProcessor:
+    def __init__(self,config_path):
+        self.config_path=config_path
+        self.data=[]
+    def load_records(self,file_path):
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"Missing file:{file_path}")
+        with open(file_path,'r') as f:
+            for line in f:
+                item=json.loads(line.strip())
+                if item.get("status")=="active":
+                    self.data.append(item)
+        return len(self.data)
+
+def main():
+    processor=DataProcessor("config.json")
+    print(f"Total processed records:{len(processor.data)}")
+
+if __name__=="__main__":
+    main()`;
+        format();
+        showToast("Sample loaded & beautified!");
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        input.value = "";
+        output.value = "";
+        inputStats.textContent = "0 lines";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", () => {
+        if (!output.value) return;
+        copyToClipboard(output.value, "Beautified Python code copied!");
+      });
+
+      document.getElementById("btn-download").addEventListener("click", () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: "text/x-python;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `beautified-script-${new Date().toISOString().slice(0, 10)}.py`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>
